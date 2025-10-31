@@ -44,6 +44,14 @@ except ImportError:
     MANIFEST_AVAILABLE = False
     print("Warning: run_manifest_generator not found - manifests will not be generated")
 
+# Import adaptive weight policy for self-improvement
+try:
+    from adaptive_weight_policy import load_adaptive_profiles
+    ADAPTIVE_WEIGHTS_AVAILABLE = True
+except ImportError:
+    ADAPTIVE_WEIGHTS_AVAILABLE = False
+    print("Warning: adaptive_weight_policy not found - using static weights")
+
 # Configuration
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', '')
 GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID', '')
@@ -612,7 +620,28 @@ def main():
 
     print(f"\nProcessing {num_contacts} contacts with 6-agent weighted coordination...")
 
-    # Initialize coordinator
+    # Load adaptive weights (self-improvement!)
+    global AGENT_PROFILES
+    adaptation_report = ""
+
+    if ADAPTIVE_WEIGHTS_AVAILABLE:
+        try:
+            print("\n🔄 Loading adaptive weights from historical runs...")
+            adapted_profiles, adaptation_report = load_adaptive_profiles(
+                AGENT_PROFILES,
+                manifest_dir='/home/setup/infrafabric/marketing/page-zero'
+            )
+
+            # Update global profiles
+            AGENT_PROFILES = adapted_profiles
+
+            print("✅ Adaptive weights loaded")
+            print(adaptation_report)
+        except Exception as e:
+            print(f"⚠️  Adaptive weights failed: {e}")
+            print("   Using static weights")
+
+    # Initialize coordinator (with adapted or static weights)
     coordinator = MultiAgentWeightedCoordinator()
 
     # Process contacts
