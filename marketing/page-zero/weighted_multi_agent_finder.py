@@ -36,6 +36,14 @@ from datetime import datetime
 from typing import Dict, List, Optional
 import random
 
+# Import manifest generator for self-documenting runs
+try:
+    from run_manifest_generator import create_manifest_from_session
+    MANIFEST_AVAILABLE = True
+except ImportError:
+    MANIFEST_AVAILABLE = False
+    print("Warning: run_manifest_generator not found - manifests will not be generated")
+
 # Configuration
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', '')
 GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID', '')
@@ -627,21 +635,44 @@ def main():
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     output_file = f'/home/setup/infrafabric/marketing/page-zero/multi-agent-weighted-results-{timestamp}.json'
 
+    # Prepare session results for manifest generation
+    session_results = {
+        'session_stats': coordinator.stats,
+        'results': results,
+        'timestamp': timestamp,
+        'num_contacts': num_contacts,
+        'agents_used': list(AGENT_PROFILES.keys()),
+        'agent_profiles': AGENT_PROFILES,
+        'google_threshold': LOW_CONFIDENCE_THRESHOLD,
+        'dataset_id': 'prioritized-contacts-20251030_212716',
+        'seed': None
+    }
+
     with open(output_file, 'w') as f:
-        json.dump({
-            'session_stats': coordinator.stats,
-            'results': results,
-            'timestamp': timestamp,
-            'num_contacts': num_contacts,
-            'agents_used': list(AGENT_PROFILES.keys())
-        }, f, indent=2)
+        json.dump(session_results, f, indent=2)
 
     print(f"\n✅ Results saved to: {output_file}")
+
+    # Generate run manifest (self-documenting experiment)
+    if MANIFEST_AVAILABLE:
+        try:
+            print("\n📝 Generating run manifest (self-documenting experiment)...")
+            manifest = create_manifest_from_session(session_results)
+            json_path, md_path = manifest.save('/home/setup/infrafabric/marketing/page-zero')
+
+            print(f"\n✅ Run manifest generated:")
+            print(f"   Machine-readable: {json_path.name}")
+            print(f"   Human-readable: {md_path.name}")
+            print(f"   IF-Trace hash: {manifest.compute_if_trace_hash()[:16]}...")
+        except Exception as e:
+            print(f"\n⚠️  Manifest generation failed: {e}")
+
     print("\nThis session demonstrates InfraFabric at production scale:")
     print("  ✓ Multiverse coordination (6 diverse search strategies)")
     print("  ✓ Late bloomer discovery (exploratory agents rewarded)")
     print("  ✓ Weighted reciprocity (influence through contribution)")
     print("  ✓ Graceful degradation (Google only when needed)")
+    print("  ✓ Self-documenting (reproducible experiment with provenance)")
     print("\nThe architecture demonstrated itself. 🪂")
 
 
