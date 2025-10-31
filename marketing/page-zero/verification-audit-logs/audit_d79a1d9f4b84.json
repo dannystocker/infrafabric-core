@@ -1,0 +1,129 @@
+{
+  "contact_id": "d79a1d9f4b84",
+  "contact": {
+    "first_name": "Emil",
+    "last_name": "Michael",
+    "organization": "Department of Defense",
+    "role_title": "Undersecretary of Defense for R&E / CTO / Acting Director DIU"
+  },
+  "verification": {
+    "confidence_score": 100,
+    "status": "verified",
+    "review_type": "auto",
+    "verified_at": "2025-10-31T01:09:03.940312",
+    "verifier_version": "1.0-free"
+  },
+  "signals": [
+    {
+      "source": "linkedin_search",
+      "url": "https://www.linkedin.com/in/nalarsen",
+      "title": "Nicole A. Larsen - AAAS Science & Technology Policy Fellow at the ...",
+      "snippet": "AAAS Science & Technology Policy Fellow at the US Department of Defense \u00b7 Experimental physicist and passionate advocate for data-driven policy.",
+      "source_type": "linkedin_public",
+      "source_weight": 0.7,
+      "title_similarity": 0.16470588235294117,
+      "org_similarity": 0.9,
+      "freshness": 0.9
+    },
+    {
+      "source": "linkedin_search",
+      "url": "https://www.linkedin.com/in/dianne-burnett-04878574",
+      "title": "Dianne Burnett - Book Reviewer at Publishers Weekly | LinkedIn",
+      "snippet": "Book Reviewer at Publishers Weekly \u00b7 I grew the christian fiction industry by developing new authors, leading many author interviews geared towards creating\u00a0...",
+      "source_type": "linkedin_public",
+      "source_weight": 0.7,
+      "title_similarity": 0.04814814814814815,
+      "org_similarity": 0.0,
+      "freshness": 0.9
+    },
+    {
+      "source": "linkedin_search",
+      "url": "https://www.linkedin.com/in/baileegilbreath",
+      "title": "Bailee Baxley - Mechanical Engineer at United States Department of ...",
+      "snippet": "Mechanical Engineer at United States Department of Defense \u00b7 Experience: United States Department of Defense \u00b7 Education: The University of Alabama\u00a0...",
+      "source_type": "linkedin_public",
+      "source_weight": 0.7,
+      "title_similarity": 0.1660839160839161,
+      "org_similarity": 0.9,
+      "freshness": 0.9
+    },
+    {
+      "source": "company_site",
+      "url": "https://www.diu.mil/team/emil-michael",
+      "title": "HON Emil Michael | DIU",
+      "snippet": "Emil Michael serves as the Under Secretary of Defense for Research and Engineering (USD(R&E)) and Chief Technology Officer for the Department of Defense (DoD),\u00a0...",
+      "source_type": "company_site_official",
+      "source_weight": 1.0,
+      "title_similarity": 0.26800862688713156,
+      "org_similarity": 1.0,
+      "freshness": 0.9
+    },
+    {
+      "source": "company_site",
+      "url": "https://www.diu.mil/team",
+      "title": "DIU Team",
+      "snippet": "Leadership \u00b7 HON Emil Michael \u00b7 HON Mike Dodd \u00b7 Kirstin Riesbeck \u00b7 Steven J. Butow \u00b7 Dr. Nick Estep \u00b7 Dr. Andrew Higier \u00b7 Andrew Hong \u00b7 Thomas Horan.",
+      "source_type": "company_site_official",
+      "source_weight": 1.0,
+      "title_similarity": 0.07766990291262137,
+      "org_similarity": 1.0,
+      "freshness": 0.9
+    },
+    {
+      "source": "google_news",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9LV29FVEY2bUJYZ1dHY2xHbmNYREU0cG5LMDgwdGxlQ3duWjJZb1o0Wk1GRThTcG1xajhLc0JvQmVwRFlpU0pRMGUtMVUtQQ?oc=5",
+      "title": "HON Emil Michael | DIU - Defense Innovation Unit (.mil)",
+      "snippet": "HON Emil Michael | DIU - Defense Innovation Unit (.mil)",
+      "source_type": "aggregator",
+      "source_weight": 0.5,
+      "title_similarity": 0.21533923303834812,
+      "org_similarity": 0.08333333333333333,
+      "freshness": 1.0
+    },
+    {
+      "source": "google_news",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNS3lxNnRYVlMwQURFMHVNNXhhZkRMeFBtY09adXlpSVlpWFBKRXJ1bHVZamsxVGFXQ0FFMXE1T0xpRW9FZm1xTTR2MV90em9hNjJJR1Y0bV91V04yaUNxeFFNeUY1RW5BekVEM1o0QkRmSlhJMHF2NDBxNlUxeXIxQ2F3YkNKVlNrN09DTXNmNG5sMnhMWjlrVmJVYmVIb1R2TFJJQTNiRQ?oc=5",
+      "title": "Emil Michael Confirmed as DOD Under Secretary for Research & Engineering - ExecutiveGov",
+      "snippet": "Emil Michael Confirmed as DOD Under Secretary for Research & Engineering - ExecutiveGov",
+      "source_type": "aggregator",
+      "source_weight": 0.5,
+      "title_similarity": 0.18943488943488945,
+      "org_similarity": 0.0,
+      "freshness": 1.0
+    },
+    {
+      "source": "google_news",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02aFlrTEttclpEeDc4UzRtSGpER09QdmpWV21EYkZiTGRYSmVSZzFhYWl2UmhXLVc0VlNQTHQ4cHFRc1VFa0xpZ0dKTmlVVnRFWVFMVi14VUJGR1FDdHpIcWFFUm1ieTZZNFV3TXYwLU9obkp0ZnRKQg?oc=5",
+      "title": "Pentagon CTO Emil Michael becomes acting director of DIU - DefenseScoop",
+      "snippet": "Pentagon CTO Emil Michael becomes acting director of DIU - DefenseScoop",
+      "source_type": "aggregator",
+      "source_weight": 0.5,
+      "title_similarity": 0.3693181818181818,
+      "org_similarity": 0.07692307692307693,
+      "freshness": 1.0
+    },
+    {
+      "source": "google_news",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNTEhKenljT1liQXlYd1QyNFJoLUt3UXJBVDkxMzIwbmZwbExWQUNvcVJRZ3pyb1NDUGNUNXZPR1Y4M1lrTEVVUms3akFGS1ZMSm5tZGVodVZFUXNmTE1KZVFDTU9uODkxQnZfeDdHa3FxWTR5R0NPMktEcEw3LTlZMWd3bWcyUmJ0NjdnTkJzQ2M5SXFKWXhCNklsUXIweW5DV0N5UQ?oc=5",
+      "title": "New Head of DOD Research and Engineering Steps Into Role - AFCEA International",
+      "snippet": "New Head of DOD Research and Engineering Steps Into Role - AFCEA International",
+      "source_type": "aggregator",
+      "source_weight": 0.5,
+      "title_similarity": 0.1538914323086985,
+      "org_similarity": 0.06666666666666667,
+      "freshness": 1.0
+    },
+    {
+      "source": "google_news",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNYjdyWU5XSWRyN2s4djQ3TjE4ckh4Vy1ucTZadThxcEx6MTdvQjdaQkVIczQ3ZExfS2ZCT3dvbmpnWjlhWGRhYWhQTmlsNktLTVhfaWZMNjN0Q2t4ZXM1dFVRa21BQkhrcmRqZU44Y21JOHJ4V3NPa2daeXYtU1dNRA?oc=5",
+      "title": "Senate Confirms Emil Michael as Pentagon CTO - MeriTalk",
+      "snippet": "Senate Confirms Emil Michael as Pentagon CTO - MeriTalk",
+      "source_type": "aggregator",
+      "source_weight": 0.5,
+      "title_similarity": 0.14367816091954022,
+      "org_similarity": 0.0,
+      "freshness": 1.0
+    }
+  ],
+  "primary_source": "https://www.diu.mil/team/emil-michael"
+}
