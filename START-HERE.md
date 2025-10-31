@@ -12,7 +12,8 @@ You're **one step away** from launching your verification system!
 - ✅ Verification system built with free APIs
 - ✅ API key configured: `AIzaSyBxcqXfSRavUnN7KKF-ywWb_sXbDGHb3AY`
 - ✅ CSE ID configured: `011079723395396642122:0xx-5mjdafi`
-- ✅ 10,000 queries/day capacity (can verify all 84 contacts in one run!)
+- ✅ Free tier: 100 queries/day (9 contacts/day for free)
+- ✅ Quota ceiling: 10,000/day (if you enable billing)
 - ✅ Zero-billing protection system (4 layers of safety)
 
 **What You Need to Do:**
@@ -58,12 +59,23 @@ python3 safe_verify_contacts.py \
   --max 5
 ```
 
-**Option B: Verify all 84 contacts** (uses ~924 queries, well within your 10,000/day limit)
+**Option B: Verify all 84 contacts** (uses ~924 queries, costs ~$4.12 if billing enabled)
 ```bash
+# WARNING: This exceeds the 100/day free tier
+# Will use 100 free + 824 paid queries = $4.12 total
 python3 safe_verify_contacts.py \
   --in outreach-targets-hyper-personalized.csv \
   --out verified-all.csv \
   --max 84
+```
+
+**Option C: Stay 100% free** (9 contacts/day for 10 days)
+```bash
+# Day 1-10: Run this once per day
+python3 safe_verify_contacts.py \
+  --in outreach-targets-hyper-personalized.csv \
+  --out verified-day1.csv \
+  --max 9
 ```
 
 ---
@@ -118,14 +130,17 @@ Opens a beautiful HTML dashboard showing:
 
 ## Your Daily Capacity
 
-With **10,000 queries/day**, you can:
+### Free Tier (100 queries/day)
+- Verify **~9 contacts per day** (11 queries each)
+- Verify all 84 InfraFabric contacts in **10 days**
+- Total cost: **$0.00**
 
+### With Billing Enabled (10,000 queries/day ceiling)
 - Verify **~900 contacts per day** (11 queries each)
 - Verify all 84 InfraFabric contacts in **< 1 hour**
-- Re-verify weekly without worrying about quotas
-- Run multiple verification batches per day
+- Cost for 84 contacts: **~$4.12**
 
-**This is paid-tier equivalent for free!** 🎊
+**Recommendation**: Use the free tier (10-day plan) for zero cost!
 
 ---
 

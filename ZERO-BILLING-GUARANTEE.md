@@ -25,9 +25,17 @@ python3 safe_verify_contacts.py \
 
 ---
 
-## 📊 Free Tier Math
+## 📊 Free Tier Math - IMPORTANT CLARIFICATION
 
-### Conservative Estimates
+### The Real Free Tier Limit
+
+**Google Custom Search JSON API Free Tier**:
+- **100 queries per day** (FREE)
+- After 100 queries: **$5 per 1000 queries** ($0.005 per query)
+
+**Note**: Your CSE configuration shows "10,000 queries/day" - this is your quota **ceiling** if you enable billing, NOT your free allocation. The free tier is always 100 queries/day.
+
+### Per Contact Query Usage
 
 Per contact verification uses:
 - 5 queries: General search
@@ -35,16 +43,17 @@ Per contact verification uses:
 - 3 queries: Company site search
 - = **11 queries per contact**
 
-### Safe Daily Limits
+### Safe Daily Limits (100% Free)
 
-| Contacts | Queries | Safe? | Days for 84 |
-|----------|---------|-------|-------------|
-| 5        | 55      | ✅ Yes | 17 days     |
-| 9        | 99      | ✅ Yes | 10 days     |
-| 10       | 110     | ❌ No  | N/A         |
-| 20       | 220     | ❌ No  | N/A         |
+| Contacts | Queries | Safe? | Days for 84 | Cost |
+|----------|---------|-------|-------------|------|
+| 5        | 55      | ✅ Yes | 17 days     | $0   |
+| 9        | 99      | ✅ Yes | 10 days     | $0   |
+| 10       | 110     | ❌ No  | N/A         | $0.05|
+| 20       | 220     | ❌ No  | N/A         | $0.60|
+| 84       | 924     | ❌ No  | 1 day       | $4.12|
 
-**Recommendation**: Verify **9 contacts per day** for 10 days
+**Recommendation**: Verify **9 contacts per day** for 10 days = **$0.00 total cost**
 
 ---
 
@@ -157,20 +166,24 @@ Remaining today: ~1
 
 ## 📞 If You Need More Than 100/Day
 
-### Option 1: Enable Billing (Paid)
-Cost: $5 per 1000 queries ($0.005 per query)
+### Option 1: Enable Billing (Fast but Paid)
+**Cost**: $5 per 1000 queries ($0.005 per query)
 
-For 84 contacts (~924 queries):
-- Cost: ~$4.62
-- Time: Run all at once
+For all 84 contacts at once (~924 queries):
+- Free tier: 100 queries = $0.00
+- Paid queries: 824 × $0.005 = **$4.12**
+- **Total cost: $4.12**
+- Time: ~30 minutes (all at once)
 
-### Option 2: Stay Free (Patient)
-Cost: $0
-- Verify 9 contacts/day
+### Option 2: Stay Free (Patient, Zero Cost)
+**Cost**: $0.00
+
+- Verify 9 contacts/day (99 queries)
 - Complete in 10 days
-- Total cost: $0.00
+- Total cost: **$0.00**
+- Time: 10 days × 5 minutes/day = 50 minutes total
 
-For InfraFabric, **Option 2 is perfect**. You're not in a rush, and free is good!
+For InfraFabric, **Option 2 is perfect**. You're building relationships, not racing against deadlines. Free is good!
 
 ---
 

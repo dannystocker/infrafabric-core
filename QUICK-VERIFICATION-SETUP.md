@@ -6,11 +6,12 @@ Based on your `cloud-cse-config.pdf`:
 
 - **Custom Search Engine ID**: `011079723395396642122:0xx-5mjdafi`
 - **Search Engine Name**: LGBTQ~
-- **Daily Query Limit**: **10,000 queries/day** 🎉
+- **Daily Quota Ceiling**: 10,000 queries/day (if billing enabled)
+- **Free Tier Limit**: **100 queries/day** (without billing)
 - **Search entire web**: ✅ Enabled
 - **Region**: Canada
 
-**This is EXCELLENT!** You have 100x more queries than the basic free tier.
+**Important**: The 10,000/day shown in your CSE config is your quota **ceiling** if you enable billing. The actual free tier for the JSON API is **100 queries/day**.
 
 ---
 
@@ -54,15 +55,20 @@ python3 auto_verify_contacts.py \
 
 ---
 
-## 📊 Your Daily Capacity
+## 📊 Your Daily Capacity (Free Tier)
 
-With **10,000 queries/day**:
+With **100 queries/day** (free tier):
 
-- **~900 contacts per day** (11 queries each)
-- **All 84 contacts in < 1 hour**
-- **Re-verify weekly** without worrying about quotas
+- **~9 contacts per day** (11 queries each)
+- **All 84 contacts in 10 days**
+- **Total cost: $0.00**
 
-This is a **PAID-tier equivalent** for free! 🎊
+**With billing enabled** (10,000 queries/day ceiling):
+- ~900 contacts per day
+- All 84 contacts in < 1 hour
+- Cost: ~$4.12 for all 84 contacts
+
+**Recommendation**: Use the free tier (9 contacts/day) for zero cost!
 
 ---
 
@@ -174,13 +180,15 @@ gcloud services enable customsearch.googleapis.com
 
 ### Issue: "Daily limit exceeded"
 
+**This happens after 100 queries on the free tier.**
+
 **Check usage:**
 ```bash
 # View usage in console:
 # https://console.cloud.google.com/apis/api/customsearch.googleapis.com/quotas
 ```
 
-With 10,000/day limit, you'd need to verify 900+ contacts to hit this!
+**Solution**: Wait until tomorrow (quota resets at midnight PST), or enable billing if you need more than 100/day.
 
 ---
 
@@ -207,20 +215,23 @@ With your setup, you should see:
 - **Quick review (50-79)**: 20-30% of contacts
 - **Manual review (<50)**: 5-10% of contacts
 
-### Time to Complete
+### Time to Complete (Free Tier)
 - **5 contacts**: ~2 minutes
-- **20 contacts**: ~8 minutes
-- **84 contacts**: ~30 minutes
+- **9 contacts**: ~4 minutes (daily free limit)
+- **84 contacts**: 10 days × 4 minutes = 40 minutes total
 
-Much faster than the 100/day limit!
+### Time to Complete (With Billing)
+- **84 contacts**: ~30 minutes (all at once, costs $4.12)
 
 ---
 
 ## ✨ Summary
 
 **You have:**
-✅ Custom Search Engine configured (10,000 queries/day!)
+✅ Custom Search Engine configured
 ✅ CSE ID: `011079723395396642122:0xx-5mjdafi`
+✅ Free tier: 100 queries/day (9 contacts/day)
+✅ Quota ceiling: 10,000/day (if billing enabled)
 ✅ Verification script ready
 ✅ .env file with CSE ID pre-configured
 
@@ -228,7 +239,8 @@ Much faster than the 100/day limit!
 ❓ Google API Key (2 minutes to get)
 
 **Then you can:**
-🚀 Verify all 84 contacts in < 1 hour
+🚀 Verify 9 contacts/day for free (10-day plan)
+💰 Or verify all 84 at once for $4.12 (with billing enabled)
 🎯 Launch InfraFabric outreach campaign
 
 ---
