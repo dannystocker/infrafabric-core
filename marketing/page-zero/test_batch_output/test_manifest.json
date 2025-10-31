@@ -1,0 +1,258 @@
+{
+  "timestamp": "2025-10-31T20:14:13.085483",
+  "guardian_debate": {
+    "timestamp": "2025-10-31T20:14:13.085099",
+    "proposal": "Batch process 5 test contacts with free agents",
+    "guardians": {
+      "Technical": {
+        "vote": "APPROVE",
+        "weight": 1.5,
+        "reasoning": "Free heuristics, reproducible, no external dependencies",
+        "safeguards": [
+          "Document all heuristics",
+          "Confidence scores mandatory"
+        ]
+      },
+      "Ethical": {
+        "vote": "CONDITIONAL",
+        "weight": 2.0,
+        "reasoning": "Public figures OK, but needs transparency",
+        "safeguards": [
+          "Label as simulated",
+          "Human review before use",
+          "No auto-send"
+        ]
+      },
+      "Legal": {
+        "vote": "APPROVE",
+        "weight": 1.0,
+        "reasoning": "Public data, no GDPR issues for demo",
+        "safeguards": [
+          "Provenance tracking"
+        ]
+      },
+      "Business": {
+        "vote": "APPROVE",
+        "weight": 1.5,
+        "reasoning": "5 contacts = good pilot size",
+        "safeguards": [
+          "Measure accuracy against known contacts"
+        ]
+      },
+      "User": {
+        "vote": "CONDITIONAL",
+        "weight": 1.5,
+        "reasoning": "Recipients must know this is heuristic",
+        "safeguards": [
+          "Clear labeling in any outreach"
+        ]
+      },
+      "Meta": {
+        "vote": "APPROVE",
+        "weight": 2.0,
+        "reasoning": "Dogfooding weighted coordination = philosophical integrity",
+        "safeguards": [
+          "Self-document the discovery process"
+        ]
+      }
+    },
+    "decision": "conditional_approval",
+    "safeguards": [
+      "Clear labeling in any outreach",
+      "Human review before use",
+      "Provenance tracking",
+      "Confidence scores mandatory",
+      "Self-document the discovery process",
+      "Measure accuracy against known contacts",
+      "Label as simulated",
+      "Document all heuristics",
+      "No auto-send"
+    ]
+  },
+  "contacts_processed": 5,
+  "contacts_found": 5,
+  "results": [
+    {
+      "contact": {
+        "first_name": "David",
+        "last_name": "Blundin",
+        "org": "Moonshot Podcast",
+        "role": "Host"
+      },
+      "contact_found": true,
+      "best_email": "david.blundin@moonshotpodcast.com",
+      "best_confidence": 65,
+      "best_agent": "ProfessionalNetworker",
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "strategy": "firstname.lastname@company.com pattern",
+          "confidence": 65,
+          "email": "david.blundin@moonshotpodcast.com",
+          "weight": 1.0
+        },
+        "AcademicResearcher": {
+          "strategy": "Google Scholar + institution search",
+          "confidence": 20,
+          "email": null,
+          "weight": 0.0
+        },
+        "InvestigativeJournalist": {
+          "strategy": "Deep web search, archived pages",
+          "confidence": 40,
+          "email": null,
+          "weight": 0.5
+        }
+      },
+      "timestamp": "2025-10-31T20:14:13.085233"
+    },
+    {
+      "contact": {
+        "first_name": "Wes",
+        "last_name": "Roth",
+        "org": "YouTube",
+        "role": "Creator"
+      },
+      "contact_found": true,
+      "best_email": "wes.roth@youtube.com",
+      "best_confidence": 65,
+      "best_agent": "ProfessionalNetworker",
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "strategy": "firstname.lastname@company.com pattern",
+          "confidence": 65,
+          "email": "wes.roth@youtube.com",
+          "weight": 1.0
+        },
+        "AcademicResearcher": {
+          "strategy": "Google Scholar + institution search",
+          "confidence": 20,
+          "email": null,
+          "weight": 0.0
+        },
+        "InvestigativeJournalist": {
+          "strategy": "Deep web search, archived pages",
+          "confidence": 40,
+          "email": null,
+          "weight": 0.5
+        }
+      },
+      "timestamp": "2025-10-31T20:14:13.085249"
+    },
+    {
+      "contact": {
+        "first_name": "Sam",
+        "last_name": "Altman",
+        "org": "OpenAI",
+        "role": "CEO"
+      },
+      "contact_found": true,
+      "best_email": "sam@openai.com",
+      "best_confidence": 75,
+      "best_agent": "InvestigativeJournalist",
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "strategy": "firstname.lastname@company.com pattern",
+          "confidence": 65,
+          "email": "sam.altman@openai.com",
+          "weight": 1.0
+        },
+        "AcademicResearcher": {
+          "strategy": "Google Scholar + institution search",
+          "confidence": 20,
+          "email": null,
+          "weight": 0.0
+        },
+        "InvestigativeJournalist": {
+          "strategy": "Deep web search, archived pages",
+          "confidence": 75,
+          "email": "sam@openai.com",
+          "weight": 2.0
+        }
+      },
+      "timestamp": "2025-10-31T20:14:13.085262"
+    },
+    {
+      "contact": {
+        "first_name": "Demis",
+        "last_name": "Hassabis",
+        "org": "Google DeepMind",
+        "role": "CEO"
+      },
+      "contact_found": true,
+      "best_email": "demis@googledeepmind.com",
+      "best_confidence": 75,
+      "best_agent": "InvestigativeJournalist",
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "strategy": "firstname.lastname@company.com pattern",
+          "confidence": 65,
+          "email": "demis.hassabis@googledeepmind.com",
+          "weight": 1.0
+        },
+        "AcademicResearcher": {
+          "strategy": "Google Scholar + institution search",
+          "confidence": 45,
+          "email": null,
+          "weight": 1.2
+        },
+        "InvestigativeJournalist": {
+          "strategy": "Deep web search, archived pages",
+          "confidence": 75,
+          "email": "demis@googledeepmind.com",
+          "weight": 2.0
+        }
+      },
+      "timestamp": "2025-10-31T20:14:13.085274"
+    },
+    {
+      "contact": {
+        "first_name": "Yann",
+        "last_name": "LeCun",
+        "org": "Meta AI",
+        "role": "Chief AI Scientist"
+      },
+      "contact_found": true,
+      "best_email": null,
+      "best_confidence": 75,
+      "best_agent": "InvestigativeJournalist",
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "strategy": "firstname.lastname@company.com pattern",
+          "confidence": 65,
+          "email": "yann.lecun@metaai.com",
+          "weight": 1.0
+        },
+        "AcademicResearcher": {
+          "strategy": "Google Scholar + institution search",
+          "confidence": 20,
+          "email": null,
+          "weight": 0.0
+        },
+        "InvestigativeJournalist": {
+          "strategy": "Deep web search, archived pages",
+          "confidence": 75,
+          "email": null,
+          "weight": 0.5
+        }
+      },
+      "timestamp": "2025-10-31T20:14:13.085282"
+    }
+  ],
+  "agent_performance": {
+    "ProfessionalNetworker": {
+      "total_confidence": 325,
+      "count": 5,
+      "total_weight": 5.0
+    },
+    "AcademicResearcher": {
+      "total_confidence": 125,
+      "count": 5,
+      "total_weight": 1.2
+    },
+    "InvestigativeJournalist": {
+      "total_confidence": 305,
+      "count": 5,
+      "total_weight": 5.5
+    }
+  }
+}
