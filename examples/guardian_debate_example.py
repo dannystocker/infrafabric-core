@@ -2,7 +2,21 @@
 """
 Example: IF Guardians Debate
 
-Demonstrates the Guardian panel evaluating a proposal with weighted debate.
+Demonstrates the Guardian panel evaluating proposals with weighted debate.
+
+Import style showcases developer ergonomics (3 options):
+    # Option 1: Direct import (explicit)
+    from infrafabric.guardians import debate_proposal
+
+    # Option 2: IF alias (recommended - practical shorthand)
+    import infrafabric as IF
+    IF.guardians.debate_proposal(proposal)
+
+    # Option 3: Module import (balanced)
+    from infrafabric import guardians
+    guardians.debate_proposal(proposal)
+
+This example uses Option 1 for clarity.
 
 Usage:
     python guardian_debate_example.py

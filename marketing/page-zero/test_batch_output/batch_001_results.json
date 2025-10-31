@@ -1,0 +1,66 @@
+{
+  "batch_id": "batch_001",
+  "timestamp": "2025-10-31T20:13:13.726164",
+  "worktree": null,
+  "contacts_processed": 0,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "David",
+        "last_name": "Blundin",
+        "org": "Moonshot Podcast",
+        "role": "Host",
+        "context": "AI governance podcaster"
+      },
+      "error": "'NoneType' object is not callable",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Wes",
+        "last_name": "Roth",
+        "org": "YouTube",
+        "role": "Creator",
+        "context": "AI/tech content creator"
+      },
+      "error": "'NoneType' object is not callable",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Sam",
+        "last_name": "Altman",
+        "org": "OpenAI",
+        "role": "CEO",
+        "context": "AI company leader"
+      },
+      "error": "'NoneType' object is not callable",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Demis",
+        "last_name": "Hassabis",
+        "org": "Google DeepMind",
+        "role": "CEO",
+        "context": "AI research leader"
+      },
+      "error": "'NoneType' object is not callable",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Yann",
+        "last_name": "LeCun",
+        "org": "Meta AI",
+        "role": "Chief AI Scientist",
+        "context": "Deep learning pioneer"
+      },
+      "error": "'NoneType' object is not callable",
+      "contact_found": false
+    }
+  ]
+}
