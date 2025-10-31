@@ -1,0 +1,148 @@
+{
+  "proposal": {
+    "title": "Meta-Creative Debugger: Adding Meta-Cognitive Layer to Contact Discovery",
+    "timestamp": "2025-10-31T21:43:23.589566",
+    "summary": "\nProposal to add a meta-cognitive layer that steps outside the search problem to debug and reframe:\n\n**Three Meta-Agents:**\n1. MetaDebuggerAgent - Analyzes why searches fail, asks Socratic questions\n2. CreativeStrategistAgent - Generates creative reframings via oblique strategies\n3. PerspectiveShifterAgent - Searches from different personas (Recruiter, Journalist, etc.)\n\n**Trigger:** Meta-layer only invoked when primary agents return low confidence (<50%)\n\n**Creative Strategies:**\n- Temporal searches (Internet Archive)\n- Inverse searches (who mentions them)\n- Negative space (controversies, lawsuits)\n- Persona-based (search as journalist, recruiter, etc.)\n- Relationship network (find people who know them)\n\n**Goal:** Rescue stuck contacts by creatively reframing the search problem.\n        ",
+    "implementation": "meta_creative_debugger.py",
+    "author": "Claude (InfraFabric Development)",
+    "requested_by": "User: \"what can we do to add creativity to provoke new data\""
+  },
+  "evaluations": [
+    {
+      "guardian": "Technical Guardian",
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "score": 7.5,
+      "reasoning": "\n**Technical Assessment:**\n\nSTRENGTHS:\n\u2713 Meta-layer abstraction is architecturally sound\n\u2713 Separation of concerns: primary agents vs meta-agents\n\u2713 Fail-safe: meta-layer only invoked when primary agents stuck\n\u2713 Self-documenting: all reframings logged with reasoning\n\u2713 Recursive learning compatible: meta-insights feed back to primary agents\n\nCONCERNS:\n\u26a0\ufe0f  Meta-agents have NO rate limiting - they generate queries but don't respect delays\n\u26a0\ufe0f  No proof collection for meta-generated queries - breaks evidence chain\n\u26a0\ufe0f  Persona searches could trigger fraud detection (pretending to be journalist/lawyer)\n\u26a0\ufe0f  \"Oblique strategies\" are random - no learned patterns from success/failure\n\nREQUIRED CHANGES:\n1. Meta-agents MUST route through NetworkRateLimiter\n2. Meta-generated queries MUST collect full evidence\n3. Persona-based searches need User-Agent alignment (if searching as journalist, use journalist UA)\n4. Track which reframings WORK - feed to recursive learning\n\nTECHNICAL VERDICT: Architecturally sound, but needs rate limiting and evidence integration.\n",
+      "conditions": [
+        "Route all meta-generated queries through shared rate limiter",
+        "Collect complete evidence for meta-layer searches",
+        "Track reframing success rate for recursive learning",
+        "Add fail-safe: max 3 meta-reframings per contact"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "guardian": "Ethical Guardian",
+      "verdict": "APPROVE_WITH_MAJOR_CONDITIONS",
+      "score": 6.0,
+      "reasoning": "\n**Ethical Assessment:**\n\nCONCERNING PATTERNS:\n\ud83d\udea8 Persona \"Stalker\" - explicitly stalking behavior, unethical\n\ud83d\udea8 Persona \"Hacker\" - implies illegal access intent\n\ud83d\udea8 \"Controversy Archeologist\" - mining for negative/harmful content\n\ud83d\udea8 \"Find their ENEMIES\" - adversarial intent\n\ud83d\udea8 Inverse searches (\"who's looking for them\") - surveillance behavior\n\nETHICAL PROBLEMS:\n1. **Intent Masking** - Pretending to be journalist/lawyer/recruiter is deceptive\n2. **Negative Mining** - Searching for controversies/lawsuits exploits vulnerability\n3. **Relationship Exploitation** - \"Find their enemies\" creates adversarial dynamics\n4. **Surveillance** - Inverse searches (\"who's searching for them\") crosses privacy line\n\nACCEPTABLE CREATIVE STRATEGIES:\n\u2713 Temporal searches (Internet Archive) - public historical data\n\u2713 Third-party mentions - legitimate public information\n\u2713 Alternative name spellings - overcomes technical barriers\n\u2713 Organizational context - understanding their professional network\n\nUNACCEPTABLE STRATEGIES:\n\u274c Stalker persona - explicit harm\n\u274c Hacker persona - illegal intent\n\u274c Controversy mining for exploitation\n\u274c \"Find enemies\" - adversarial\n\u274c Pretending to be lawyer serving papers - fraud\n\nETHICAL VERDICT: Creative reframing is valuable, but some personas and strategies cross ethical lines. Requires whitelist of acceptable approaches.\n",
+      "conditions": [
+        "REMOVE personas: Stalker, Hacker, Process Server",
+        "REMOVE strategies that mine for negative/harmful content",
+        "ADD explicit ethical boundaries document",
+        "Limit to publicly-intended information only",
+        "No deceptive intent masking",
+        "Log all reframings for ethical review"
+      ],
+      "blocking_issues": [
+        "Stalker persona must be removed",
+        "Hacker persona must be removed"
+      ]
+    },
+    {
+      "guardian": "Legal Guardian",
+      "verdict": "BLOCK_UNTIL_REVISED",
+      "score": 4.0,
+      "reasoning": "\n**Legal Assessment:**\n\nLEGAL RISKS:\n\n1. **Computer Fraud & Abuse Act (CFAA) Concerns**\n   - \"Hacker\" persona implies unauthorized access\n   - Searching for \"how to hack into X\" could be conspiracy\n   - RISK: Federal criminal charges\n\n2. **Impersonation & Fraud**\n   - \"Process Server\" persona pretending to serve papers = fraud\n   - \"Journalist\" persona without journalist status = deceptive trade practice\n   - \"Lawyer\" persona searching legal databases = unauthorized practice of law\n   - RISK: State fraud statutes, bar complaints\n\n3. **Tortious Interference**\n   - \"Find their enemies and search their content\" = intentional harm\n   - Mining controversies to exploit = potential defamation basis\n   - RISK: Civil liability for business interference\n\n4. **Terms of Service Violations**\n   - User-Agent switching to bypass detection = ToS violation\n   - Automated searching with deceptive intent = ToS violation\n   - Some sites explicitly prohibit scrapers pretending to be humans\n   - RISK: Platform bans, civil lawsuits (hiQ Labs v. LinkedIn precedent)\n\n5. **Privacy Laws**\n   - GDPR \"right to be forgotten\" - mining old controversies may violate\n   - CCPA - searching for deleted information = violation\n   - Inverse searches (\"who's looking for them\") = privacy invasion\n   - RISK: Regulatory fines (up to \u20ac20M under GDPR)\n\nLEGALLY SAFE APPROACHES:\n\u2713 Searching public websites with accurate User-Agent\n\u2713 Accessing information intended to be public\n\u2713 Using search engines for their designed purpose\n\u2713 Temporal searches of archived public data\n\nLEGALLY RISKY APPROACHES:\n\u274c Impersonating professions (journalist, lawyer)\n\u274c Mining private/deleted information\n\u274c Deceptive intent in searches\n\u274c Adversarial strategies (\"find enemies\")\n\u274c Circumventing access controls\n\nLEGAL VERDICT: Significant legal exposure in current form. Requires major revision to remove impersonation, adversarial, and deceptive strategies.\n",
+      "conditions": [
+        "Remove all profession impersonation personas",
+        "Remove all adversarial strategies",
+        "Add Terms of Service compliance checker",
+        "Respect robots.txt for all meta-searches",
+        "Add legal review log for all reframings",
+        "Obtain legal counsel sign-off before deployment"
+      ],
+      "blocking_issues": [
+        "Hacker persona creates CFAA exposure",
+        "Process Server persona is fraud",
+        "Lawyer persona is unauthorized practice of law"
+      ]
+    },
+    {
+      "guardian": "Business Guardian",
+      "verdict": "APPROVE",
+      "score": 8.5,
+      "reasoning": "\n**Business Assessment:**\n\nVALUE PROPOSITION:\n\u2713 Solves real problem: 40-50% of contacts have low confidence scores\n\u2713 Creative reframing can unlock stuck searches\n\u2713 Meta-layer adds intelligence without replacing existing agents\n\u2713 Differentiator: competitors don't have meta-cognitive layers\n\nROI ANALYSIS:\n\n**Current State (Without Meta-Layer):**\n- 40% of contacts stuck at <50% confidence\n- Manual intervention required\n- Lost opportunities on hard-to-find contacts\n\n**Proposed State (With Meta-Layer):**\n- Meta-layer triggers on low-confidence contacts\n- 3 reframings = 6-9 additional searches per stuck contact\n- If meta-layer boosts 20% of stuck contacts from 40% \u2192 70% confidence:\n  - 84 contacts \u00d7 40% stuck = 34 stuck\n  - 34 \u00d7 20% success = 7 contacts rescued\n  - 7 contacts \u00d7 high value = significant ROI\n\n**Cost:**\n- 6-9 additional searches per stuck contact\n- Rate limiting delays: ~2s per search\n- Total added time: ~12-18s per stuck contact\n- For 34 stuck contacts: ~400-600s (7-10 minutes)\n\n**Benefit:**\n- Rescue 7 high-value contacts\n- Reduce manual intervention needs\n- Demonstrate AI sophistication to prospects\n- Competitive differentiation\n\n**ROI:** 7 rescued contacts > 10 minutes of compute time\n\nMARKET DIFFERENTIATION:\n- \"AI that debugs itself\" is compelling narrative\n- Shows InfraFabric learns and adapts\n- Demonstrates meta-cognition (rare in industry)\n\nBUSINESS VERDICT: Strong business case IF legal/ethical concerns addressed. Meta-layer creates value and differentiation.\n",
+      "conditions": [
+        "Track meta-layer success rate (how many rescued)",
+        "A/B test: with vs without meta-layer",
+        "Measure time cost vs confidence improvement",
+        "Use as marketing differentiator"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "guardian": "User Guardian",
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "score": 7.0,
+      "reasoning": "\n**User Experience Assessment:**\n\nUSER TRUST FACTORS:\n\nPOSITIVE FOR TRUST:\n\u2713 Transparency: All reframings logged and explained\n\u2713 Reasoning visible: Users see \"why\" meta-layer triggered\n\u2713 Creative strategies make sense: temporal search, third-party mentions\n\u2713 Builds confidence: \"The system knows when it's stuck and adapts\"\n\nNEGATIVE FOR TRUST:\n\u26a0\ufe0f  \"Stalker\" and \"Hacker\" personas scare users\n\u26a0\ufe0f  Controversy mining feels invasive\n\u26a0\ufe0f  \"Find their enemies\" creates uncomfortable adversarial tone\n\u26a0\ufe0f  Users may not want system to be THIS creative (uncanny valley)\n\nUSER CONCERNS:\n1. \"Is this thing stalking people?\"\n2. \"Will this get me in legal trouble?\"\n3. \"What if the system finds damaging information?\"\n4. \"Can I control what creative strategies it uses?\"\n\nUSER NEEDS:\n\u2713 Transparency in what meta-layer is doing\n\u2713 Control over which strategies are acceptable\n\u2713 Confidence that system is ethical\n\u2713 Clear explanation of value (\"rescued 7 stuck contacts\")\n\nUX RECOMMENDATIONS:\n1. Rename personas to less threatening names:\n   - \"Stalker\" \u2192 \"Social Network Analyst\"\n   - \"Hacker\" \u2192 \"Technical Researcher\"\n   - \"Process Server\" \u2192 \"Contact Verifier\"\n\n2. Add user controls:\n   - Toggle: \"Allow creative reframing?\" (default: yes)\n   - Whitelist: Choose which strategies are acceptable\n   - Review mode: \"Show me reframings before executing\"\n\n3. Explain value clearly:\n   - \"Meta-layer rescued 7 contacts your team couldn't find\"\n   - \"Creative reframing boosted confidence by +30%\"\n\n4. Show provenance:\n   - \"This contact was found via Temporal Detective strategy\"\n   - \"Reframing #2 discovered archived press release\"\n\nUSER VERDICT: Meta-layer creates value but needs softer framing and user controls to build trust.\n",
+      "conditions": [
+        "Rename threatening personas to neutral names",
+        "Add user control toggles",
+        "Provide clear value explanations",
+        "Show provenance for meta-discovered contacts",
+        "Add \"review mode\" for transparency"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "guardian": "Meta Guardian",
+      "verdict": "APPROVE",
+      "score": 9.0,
+      "reasoning": "\n**IF Principles Alignment:**\n\nCORE IF PRINCIPLES:\n1. Weighted Coordination - agents influence proportional to expertise\n2. Patience (Late Bloomer Philosophy) - give bad branches time\n3. Self-Documentation - complete provenance\n4. Recursive Learning - system learns from itself\n5. Network Respect - good internet citizenship\n\nALIGNMENT ANALYSIS:\n\n\u2705 **WEIGHTED COORDINATION:**\nMeta-layer respects primary agents' weights. Only triggers when primary agents fail. Meta-insights feed back to weighted system. PERFECTLY ALIGNED.\n\n\u2705 **PATIENCE (Late Bloomer):**\nMeta-layer IS patience implemented! Instead of giving up on low-confidence contacts, system tries creative reframings. This is EXACTLY the late bloomer philosophy - \"keep bad branches alive long enough to see if they bloom.\" DEEPLY ALIGNED.\n\n\u2705 **SELF-DOCUMENTATION:**\nAll reframings logged with reasoning. Complete provenance chain. Shows \"Contact found via CreativeStrategist reframing #3.\" ALIGNED.\n\n\u2705 **RECURSIVE LEARNING:**\nMeta-layer insights feed back to primary agents. If \"Temporal Detective\" works, primary agents learn to search archives. System learns from its own debugging. STRONGLY ALIGNED.\n\n\u26a0\ufe0f  **NETWORK RESPECT:**\nCurrent implementation LACKS rate limiting for meta-searches. Needs integration with NetworkRateLimiter. MISALIGNED (fixable).\n\nPHILOSOPHICAL CONCERNS:\n\n\ud83e\udd14 **Adversarial Intent:**\n\"Find their enemies\" and controversy mining feel adversarial, which contradicts IF's cooperative spirit. IF builds relationships, not adversarial intelligence.\n\n\u2713 **Meta-Cognition:**\nStepping outside the problem frame to debug approach is PEAK InfraFabric. This is what makes IF different - it thinks about its own thinking. CORE ALIGNMENT.\n\n\u2713 **Creative Reframing:**\nOblique Strategies, perspective shifting = embracing uncertainty and creativity. Very IF. ALIGNED.\n\nIF VERDICT: Meta-layer is philosophically aligned with IF principles (especially patience and recursion), but adversarial strategies need removal to fully align.\n",
+      "conditions": [
+        "Remove adversarial strategies",
+        "Integrate with NetworkRateLimiter",
+        "Emphasize cooperative over adversarial",
+        "Document as extension of patience principle"
+      ],
+      "blocking_issues": []
+    }
+  ],
+  "consensus": {
+    "weighted_score": 6.68,
+    "verdict": "BLOCKED",
+    "blocking_guardians": [
+      "Legal Guardian"
+    ],
+    "conditions": [
+      "Add \"review mode\" for transparency",
+      "Use as marketing differentiator",
+      "Remove adversarial strategies",
+      "Respect robots.txt for all meta-searches",
+      "Remove all adversarial strategies",
+      "Log all reframings for ethical review",
+      "No deceptive intent masking",
+      "Add legal review log for all reframings",
+      "Collect complete evidence for meta-layer searches",
+      "Rename threatening personas to neutral names",
+      "Route all meta-generated queries through shared rate limiter",
+      "Add Terms of Service compliance checker",
+      "REMOVE personas: Stalker, Hacker, Process Server",
+      "Integrate with NetworkRateLimiter",
+      "Remove all profession impersonation personas",
+      "Track meta-layer success rate (how many rescued)",
+      "Add fail-safe: max 3 meta-reframings per contact",
+      "ADD explicit ethical boundaries document",
+      "Show provenance for meta-discovered contacts",
+      "A/B test: with vs without meta-layer",
+      "Obtain legal counsel sign-off before deployment",
+      "Emphasize cooperative over adversarial",
+      "Provide clear value explanations",
+      "Limit to publicly-intended information only",
+      "Document as extension of patience principle",
+      "Measure time cost vs confidence improvement",
+      "REMOVE strategies that mine for negative/harmful content",
+      "Add user control toggles",
+      "Track reframing success rate for recursive learning"
+    ],
+    "blocking_issues": [
+      "Hacker persona must be removed",
+      "Process Server persona is fraud",
+      "Lawyer persona is unauthorized practice of law",
+      "Stalker persona must be removed",
+      "Hacker persona creates CFAA exposure"
+    ]
+  },
+  "timestamp": "2025-10-31T21:43:23.589881"
+}
