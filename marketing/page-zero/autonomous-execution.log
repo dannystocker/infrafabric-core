@@ -1,0 +1,437 @@
+WARNING: IF Guardians not available - proceeding without oversight
+
+📋 Loading contacts from outreach-targets-FINAL-RANKED.csv...
+✅ Loaded 84 contacts
+⚠️  Contact 1 missing: ['org']
+⚠️  Contact 2 missing: ['org']
+⚠️  Contact 3 missing: ['org']
+⚠️  Contact 4 missing: ['org']
+⚠️  Contact 5 missing: ['org']
+⚠️  Contact 6 missing: ['org']
+⚠️  Contact 7 missing: ['org']
+⚠️  Contact 8 missing: ['org']
+⚠️  Contact 9 missing: ['org']
+⚠️  Contact 10 missing: ['org']
+⚠️  Contact 11 missing: ['org']
+⚠️  Contact 12 missing: ['org']
+⚠️  Contact 13 missing: ['org']
+⚠️  Contact 14 missing: ['org']
+⚠️  Contact 15 missing: ['org']
+⚠️  Contact 16 missing: ['org']
+⚠️  Contact 17 missing: ['org']
+⚠️  Contact 18 missing: ['org']
+⚠️  Contact 19 missing: ['org']
+⚠️  Contact 20 missing: ['org']
+⚠️  Contact 21 missing: ['org']
+⚠️  Contact 22 missing: ['org']
+⚠️  Contact 23 missing: ['org']
+⚠️  Contact 24 missing: ['org']
+⚠️  Contact 25 missing: ['org']
+⚠️  Contact 26 missing: ['org']
+⚠️  Contact 27 missing: ['org']
+⚠️  Contact 28 missing: ['org']
+⚠️  Contact 29 missing: ['org']
+⚠️  Contact 30 missing: ['org']
+⚠️  Contact 31 missing: ['org']
+⚠️  Contact 32 missing: ['org']
+⚠️  Contact 33 missing: ['org']
+⚠️  Contact 34 missing: ['org']
+⚠️  Contact 35 missing: ['org']
+⚠️  Contact 36 missing: ['org']
+⚠️  Contact 37 missing: ['org']
+⚠️  Contact 38 missing: ['org']
+⚠️  Contact 39 missing: ['org']
+⚠️  Contact 40 missing: ['org']
+⚠️  Contact 41 missing: ['org']
+⚠️  Contact 42 missing: ['org']
+⚠️  Contact 43 missing: ['org']
+⚠️  Contact 44 missing: ['org']
+⚠️  Contact 45 missing: ['org']
+⚠️  Contact 46 missing: ['org']
+⚠️  Contact 47 missing: ['org']
+⚠️  Contact 48 missing: ['org']
+⚠️  Contact 49 missing: ['org']
+⚠️  Contact 50 missing: ['org']
+⚠️  Contact 51 missing: ['org']
+⚠️  Contact 52 missing: ['org']
+⚠️  Contact 53 missing: ['org']
+⚠️  Contact 54 missing: ['org']
+⚠️  Contact 55 missing: ['org']
+⚠️  Contact 56 missing: ['org']
+⚠️  Contact 57 missing: ['org']
+⚠️  Contact 58 missing: ['org']
+⚠️  Contact 59 missing: ['org']
+⚠️  Contact 60 missing: ['org']
+⚠️  Contact 61 missing: ['org']
+⚠️  Contact 62 missing: ['org']
+⚠️  Contact 63 missing: ['org']
+⚠️  Contact 64 missing: ['org']
+⚠️  Contact 65 missing: ['org']
+⚠️  Contact 66 missing: ['org']
+⚠️  Contact 67 missing: ['org']
+⚠️  Contact 68 missing: ['org']
+⚠️  Contact 69 missing: ['org']
+⚠️  Contact 70 missing: ['org']
+⚠️  Contact 71 missing: ['org']
+⚠️  Contact 72 missing: ['org']
+⚠️  Contact 73 missing: ['org']
+⚠️  Contact 74 missing: ['org']
+⚠️  Contact 75 missing: ['org']
+⚠️  Contact 76 missing: ['org']
+⚠️  Contact 77 missing: ['org']
+⚠️  Contact 78 missing: ['org']
+⚠️  Contact 79 missing: ['org']
+⚠️  Contact 80 missing: ['org']
+⚠️  Contact 81 missing: ['org']
+⚠️  Contact 82 missing: ['org']
+⚠️  Contact 83 missing: ['org']
+⚠️  Contact 84 missing: ['org']
+
+📦 Creating batches (size=10)...
+✅ Created 9 batches
+
+🚀 Running 9 batches (sequential)...
+
+⚠️  Guardian oversight disabled
+
+============================================================
+🔄 Processing batch_001
+   Contacts: 1 - 10
+============================================================
+
+  [1/10] Processing: Emil Michael
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Amin Vahdat
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Jeremy O'Brien
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Mark Papermaster
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Swami Sivasubramanian
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Michael Kagan
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Mustafa Suleyman
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Doreen Bogdan-Martin
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Mark Russinovich
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Manuela Veloso
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_001_results.json
+
+============================================================
+🔄 Processing batch_002
+   Contacts: 11 - 20
+============================================================
+
+  [1/10] Processing: Shaun Maguire
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Jonathan Ross
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Travis Humble
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Sachin Katti
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Gil Herrera
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Daniel Marcu
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Matt Ocko
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Bill Dally
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Niccolo de Masi
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Lan Guan
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_002_results.json
+
+============================================================
+🔄 Processing batch_003
+   Contacts: 21 - 30
+============================================================
+
+  [1/10] Processing: Pat Gelsinger
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Andrew Feldman
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Neema Raphael
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Josh Wolfe
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Grégoire Ribordy
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Berta Rodriguez-Hervas
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Zachary Bogue
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Elham Tabassi
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Sid Sheth
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Steve Bowsher
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_003_results.json
+
+============================================================
+🔄 Processing batch_004
+   Contacts: 31 - 40
+============================================================
+
+  [1/10] Processing: Dan Priest
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Martin Casado
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Jordan Shapiro
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Elizabeth Kelly
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Brian Kursar
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Allyson O'Brien
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Daniel Danker
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Dror Berman
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Rajeeb Hazra
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Lisa Einstein
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_004_results.json
+
+============================================================
+🔄 Processing batch_005
+   Contacts: 41 - 50
+============================================================
+
+  [1/10] Processing: Andrew Chin
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Helen Toner
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Jim Ricotta
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Nathaniel Bastian
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Michael Kratsios
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Abhi Seth
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Wael Diab
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Andrew Shields
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Ollie Whitehouse
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Vishal Talwar
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_005_results.json
+
+============================================================
+🔄 Processing batch_006
+   Contacts: 51 - 60
+============================================================
+
+  [1/10] Processing: Sunil Dhaliwal
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Subodh Kulkarni
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Lucilla Sioli
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Nick Andersen
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Peter Barrett
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Vivek Chilukuri
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Joe Altepeter
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Tõnis Saar
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Bilal Zuberi
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Dewey Murdick
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_006_results.json
+
+============================================================
+🔄 Processing batch_007
+   Contacts: 61 - 70
+============================================================
+
+  [1/10] Processing: Kevin Chalker
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Adam Beaumont
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Anjney Midha
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Martin Ward
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Matt Turek
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Josephine Teo
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Jennifer Li
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Robin Blume-Kohout
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Jade Leung
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Constanza Vidal Bustamante
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_007_results.json
+
+============================================================
+🔄 Processing batch_008
+   Contacts: 71 - 80
+============================================================
+
+  [1/10] Processing: Denis Mandich
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/10] Processing: Clara Chappaz
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/10] Processing: Salil Gunashekar
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/10] Processing: Janet Egan
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [5/10] Processing: Prineha Narang
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [6/10] Processing: Edward Parker
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [7/10] Processing: Andy Leaver
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [8/10] Processing: Karine Perset
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [9/10] Processing: Graham Brookie
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [10/10] Processing: Bridget Walshe
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_008_results.json
+
+============================================================
+🔄 Processing batch_009
+   Contacts: 81 - 84
+============================================================
+
+  [1/4] Processing: Stephen Burt
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [2/4] Processing: Lucy Poole
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [3/4] Processing: Simon Knowles
+    ⚠️  Error: 'NoneType' object is not callable
+
+  [4/4] Processing: Kunle Olukotun
+    ⚠️  Error: 'NoneType' object is not callable
+
+  ✅ Batch complete: 0/0 found
+  📄 Results: autonomous-poc-run/batch_009_results.json
+
+✅ All batches complete
+
+============================================================
+📊 BATCH DISCOVERY SUMMARY
+============================================================
+
+📈 Overall Results:
+   Contacts processed: 0
+Traceback (most recent call last):
+  File "/home/setup/infrafabric/marketing/page-zero/batch_contact_discovery.py", line 507, in <module>
+    main()
+  File "/home/setup/infrafabric/marketing/page-zero/batch_contact_discovery.py", line 501, in main
+    processor.generate_summary()
+  File "/home/setup/infrafabric/marketing/page-zero/batch_contact_discovery.py", line 414, in generate_summary
+    print(f"   Contacts found: {total_found} ({total_found/total_processed*100:.1f}%)")
+                                               ~~~~~~~~~~~^~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero

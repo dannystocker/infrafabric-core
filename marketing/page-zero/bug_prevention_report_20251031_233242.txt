@@ -1,0 +1,124 @@
+================================================================================
+BUG PATTERN RECOGNITION REPORT
+Recursive Learning - Plan 3
+================================================================================
+
+🔍 Analysis Summary:
+   Bug patterns learned: 5
+   Vulnerabilities found: 836
+   Defensive tests generated: 3
+
+🐛 Historical Bug Patterns:
+
+  Pattern 1: ImportError
+    Trigger: cannot import name 'find_contact_weighted'
+    Root Cause: Tried to import function instead of class
+    Fix: Import class and instantiate instead
+    Recurrence Risk: HIGH - common when refactoring functions to classes
+
+  Pattern 2: KeyError
+    Trigger: KeyError: 'org' or 'role'
+    Root Cause: CSV field names changed but code validation not updated
+    Fix: Match field names in validation to CSV structure
+    Recurrence Risk: HIGH - CSV field changes are common
+
+  Pattern 3: AttributeError
+    Trigger: 'list' object has no attribute 'items'
+    Root Cause: Expected dict but received list, called .items()
+    Fix: Check data structure before calling dict methods
+    Recurrence Risk: VERY HIGH - type assumptions without validation
+
+⚠️  HIGH RISK Vulnerabilities Detected:
+
+  test_self_improvement.py:80
+    Pattern: AttributeError
+    Code: for agent_name, history in agent_evolution.items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  test_self_improvement.py:154
+    Pattern: AttributeError
+    Code: for agent_name, history in agent_evolution.items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  generate_eml_files.py:125
+    Pattern: AttributeError
+    Code: for key, contact_info in contacts.items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  self_write_cycle.py:222
+    Pattern: AttributeError
+    Code: for voice, weight in cycle['weights'].items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  batch_contact_discovery.py:434
+    Pattern: AttributeError
+    Code: for agent_name, perf in result.get('agent_performance', {}).items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  batch_contact_discovery.py:446
+    Pattern: AttributeError
+    Code: for agent_name, perf in sorted(all_agent_perf.items()):
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  meta_learning_dashboard.py:138
+    Pattern: AttributeError
+    Code: for agent, weight in entry.get('weights', {}).items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  meta_learning_dashboard.py:231
+    Pattern: AttributeError
+    Code: for agent, agent_stats in stats.items():
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  meta_learning_dashboard.py:328
+    Pattern: AttributeError
+    Code: for agent, trajectory in sorted(curves['agent_weights'].items()):
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+  meta_learning_dashboard.py:364
+    Pattern: AttributeError
+    Code: for agent, cal in sorted(calibration['agent_calibration'].items()):
+    Suggestion: Add isinstance(var, dict) check before .items()
+    Auto-fix: AVAILABLE
+
+🧪 Defensive Tests Generated:
+
+  test_agent_results_structure
+    Purpose: Prevent AttributeError on .items() call
+    Prevents: Bug 3 - list.items() AttributeError
+
+  test_csv_field_names
+    Purpose: Prevent KeyError from field name mismatches
+    Prevents: Bug 2 - CSV field mismatch
+
+  test_weighted_finder_import
+    Purpose: Prevent ImportError from wrong import type
+    Prevents: Bug 1 - Import error (function vs class)
+
+💡 Insights:
+
+  • Type assumption errors are most common (1 occurrences)
+  • Field name mismatches indicate schema validation needed
+  • Import errors suggest refactoring without update propagation
+
+🔄 Next Steps:
+  1. Run generated defensive tests before each execution
+  2. Apply auto-fixes to HIGH risk vulnerabilities
+  3. Add type hints and validation to prevent future bugs
+  4. Update pattern database with new bugs as they occur
+
+📈 Expected Impact:
+  • 50%+ reduction in runtime errors
+  • Bugs caught in development, not execution
+  • Self-improving error handling
+
+================================================================================

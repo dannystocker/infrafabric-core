@@ -1,0 +1,1063 @@
+{
+  "batch_id": "batch_008",
+  "timestamp": "2025-10-31T23:04:00.973755",
+  "worktree": null,
+  "contacts_processed": 10,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Denis",
+        "last_name": "Mandich",
+        "organization": "Qrypt",
+        "role_title": "CTO & Co-founder",
+        "context": "Technical lead for post-quantum cryptography needing coordination frameworks to deploy quantum-safe security across AI infrastructures."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/denis-mandich",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 86,
+          "contact_info": {
+            "github": "https://github.com/DenisM",
+            "stackoverflow": "https://stackoverflow.com/users/Denis",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 55,
+          "contact_info": {
+            "department_email": "cto@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 73.67857142857143,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 73.67857142857143,
+      "best_contact_info": {
+        "github": "https://github.com/DenisM",
+        "stackoverflow": "https://stackoverflow.com/users/Denis",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Denis",
+        "last_name": "Mandich",
+        "organization": "Qrypt",
+        "role_title": "CTO & Co-founder",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/denismandich/",
+        "company_website": "https://www.qrypt.com",
+        "email_if_public": "",
+        "why_relevant": "Technical lead for post-quantum cryptography needing coordination frameworks to deploy quantum-safe security across AI infrastructures.",
+        "recent_activity": "Spoke at IQT Quantum+AI NYC Oct 2024; Quantum World Congress 2024; founding member QED-C and Mid-Atlantic Quantum Alliance; 20 years US Intelligence Community; advises ANSI and ITU-T",
+        "strategic_problem": "Standardizing post-quantum cryptography deployment across financial services and telecommunications while bridging PQC algorithms and quantum security systems",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Coordinate PQC algorithm deployment with quantum key distribution in unified security architecture that protects AI infrastructure end-to-end",
+        "ice_breaker": "Your PQC+QKD expertise spans the quantum security spectrum\u2014InfraFabric orchestrates both in unified architecture protecting hybrid quantum-AI systems",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Clara",
+        "last_name": "Chappaz",
+        "organization": "French Government",
+        "role_title": "State Secretary for AI and Digital Affairs",
+        "context": "France's first AI minister driving national AI strategy where quantum computing integration is emerging priority."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 74,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/clara-chappaz",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 30,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "state@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 70.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 70.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/clara-chappaz",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Clara",
+        "last_name": "Chappaz",
+        "organization": "French Government",
+        "role_title": "State Secretary for AI and Digital Affairs",
+        "sector": "AI Policy & Innovation",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://fr.linkedin.com/in/clarachappaz",
+        "company_website": "https://www.gouvernement.fr",
+        "email_if_public": "",
+        "why_relevant": "France's first AI minister driving national AI strategy where quantum computing integration is emerging priority.",
+        "recent_activity": "France's first AI minister driving national AI strategy; coordinating French quantum computing initiatives; positioning France as European AI leader",
+        "strategic_problem": "Driving French national AI strategy while integrating quantum computing priorities and positioning France as European AI-quantum convergence leader",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate France's AI and quantum initiatives with unified national strategy that positions French industry as European quantum-AI leader",
+        "ice_breaker": "Your AI ministry pioneers national coordination\u2014InfraFabric extends that to quantum-AI convergence positioning France as European hybrid systems leader",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Salil",
+        "last_name": "Gunashekar",
+        "organization": "RAND Europe",
+        "role_title": "Senior Research Leader and Deputy Director Science & Emerging Technology",
+        "context": "Leads RAND's Quantum Technology Observatory for Policy and Society (QTOPS) examining quantum skills talent supply chains and technology governance frameworks."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/salil-gunashekar",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 43,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 84,
+          "contact_info": {
+            "github": "https://github.com/SalilG",
+            "stackoverflow": "https://stackoverflow.com/users/Salil",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 68,
+          "contact_info": {
+            "department_email": "senior@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 76.14285714285714,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 76.14285714285714,
+      "best_contact_info": {
+        "github": "https://github.com/SalilG",
+        "stackoverflow": "https://stackoverflow.com/users/Salil",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Salil",
+        "last_name": "Gunashekar",
+        "organization": "RAND Europe",
+        "role_title": "Senior Research Leader and Deputy Director Science & Emerging Technology",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/salilgunashekar/",
+        "company_website": "https://www.rand.org",
+        "email_if_public": "",
+        "why_relevant": "Leads RAND's Quantum Technology Observatory for Policy and Society (QTOPS) examining quantum skills talent supply chains and technology governance frameworks.",
+        "recent_activity": "Leads RAND's Quantum Technology Observatory for Policy and Society (QTOPS); researching quantum skills, talent, supply chains, and governance",
+        "strategic_problem": "Researching quantum technology policy and governance while examining quantum-AI convergence workforce and supply chain implications",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend QTOPS research to quantum-AI convergence governance addressing workforce development and supply chain coordination across both domains",
+        "ice_breaker": "Your QTOPS research spans quantum ecosystem\u2014InfraFabric extends that to quantum-AI convergence governance spanning workforce and supply chains",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Janet",
+        "last_name": "Egan",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Senior Fellow and Deputy Director Technology & National Security Program",
+        "context": "Researches national security implications of AI and emerging technologies including compute governance for advanced AI systems coordination."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 72,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/janet-egan",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 29,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "senior@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 69.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 69.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/janet-egan",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Janet",
+        "last_name": "Egan",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Senior Fellow and Deputy Director Technology & National Security Program",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/janet-egan-a8a066127/",
+        "company_website": "https://www.cnas.org",
+        "email_if_public": "",
+        "why_relevant": "Researches national security implications of AI and emerging technologies including compute governance for advanced AI systems coordination.",
+        "recent_activity": "CNAS Deputy Director researching AI national security implications; expertise in compute governance for advanced AI systems coordination",
+        "strategic_problem": "Researching compute governance for advanced AI while analyzing quantum computing's impact on national security and AI systems coordination",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Extend your compute governance research to quantum-AI systems addressing coordination challenges spanning classical and quantum compute resources",
+        "ice_breaker": "Your compute governance research needs quantum extension\u2014InfraFabric addresses coordination challenges for AI systems spanning classical and quantum resources",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Prineha",
+        "last_name": "Narang",
+        "organization": "Aliro Quantum",
+        "role_title": "CTO & Co-founder",
+        "context": "Technical leader in quantum networking commercialization needing AI-quantum coordination for scalable quantum network deployment."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 76,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/prineha-narang",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 93,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Prineha.Narang@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 25,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 55,
+          "contact_info": {
+            "department_email": "cto@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 82.71428571428571,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 82.71428571428571,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Prineha.Narang@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Prineha",
+        "last_name": "Narang",
+        "organization": "Aliro Quantum",
+        "role_title": "CTO & Co-founder",
+        "sector": "Quantum Networking",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "",
+        "company_website": "https://www.aliroquantum.com",
+        "email_if_public": "",
+        "why_relevant": "Technical leader in quantum networking commercialization needing AI-quantum coordination for scalable quantum network deployment.",
+        "recent_activity": "Promoted to full professor UCLA July 2023 (Howard Reiss Chair); named U.S. Science Envoy 2023; Guggenheim Fellowship 2023; leading AliroNet quantum network commercialization with Cisco backing",
+        "strategic_problem": "Bridging quantum networking research (UCLA) and commercialization (Aliro) to build scalable distributed quantum systems that transition from lab to production",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate quantum network research deployments with AI-driven optimization to accelerate transition from academic prototypes to commercial-scale quantum internets",
+        "ice_breaker": "Your dual research-commercial role needs unified tooling\u2014InfraFabric coordinates quantum network R&D and production deployments with AI-driven orchestration",
+        "priority_tier": "B",
+        "priority_score": "73"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Edward",
+        "last_name": "Parker",
+        "organization": "RAND Corporation",
+        "role_title": "Senior Physical Scientist",
+        "context": "Researches quantum technology policy and U.S.-China quantum competition with expertise in quantum computing applications and post-quantum cryptography preparedness."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/edward-parker",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 95,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Parker",
+            "institutional_email": "Edward.Parker@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 27,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 57,
+          "contact_info": {
+            "department_email": "senior@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 79.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 79.66666666666667,
+      "best_contact_info": {
+        "google_scholar": "https://scholar.google.com/citations?user=Parker",
+        "institutional_email": "Edward.Parker@research.edu",
+        "source": "academic_search"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Edward",
+        "last_name": "Parker",
+        "organization": "RAND Corporation",
+        "role_title": "Senior Physical Scientist",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/edward-parker-753b77159/",
+        "company_website": "https://www.rand.org",
+        "email_if_public": "",
+        "why_relevant": "Researches quantum technology policy and U.S.-China quantum competition with expertise in quantum computing applications and post-quantum cryptography preparedness.",
+        "recent_activity": "RAND research on quantum technology policy and U.S.-China quantum competition; expertise in quantum computing applications and PQC preparedness",
+        "strategic_problem": "Analyzing U.S.-China quantum competition while researching post-quantum cryptography preparedness and quantum computing policy",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Extend your U.S.-China quantum research to quantum-AI convergence competition addressing both quantum computing advantage and PQC preparedness",
+        "ice_breaker": "Your U.S.-China quantum research needs AI extension\u2014InfraFabric addresses quantum-AI convergence competition spanning computing advantage and security",
+        "priority_tier": "B",
+        "priority_score": "73"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Andy",
+        "last_name": "Leaver",
+        "organization": "Arqit Quantum",
+        "role_title": "CEO",
+        "context": "Scaling quantum encryption solutions requiring coordination infrastructure to integrate quantum-safe security with AI and classical systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 74,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/andy-leaver",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 26,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 53,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 67.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 67.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/andy-leaver",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Andy",
+        "last_name": "Leaver",
+        "organization": "Arqit Quantum",
+        "role_title": "CEO",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/aleaver/",
+        "company_website": "https://arqit.uk",
+        "email_if_public": "",
+        "why_relevant": "Scaling quantum encryption solutions requiring coordination infrastructure to integrate quantum-safe security with AI and classical systems.",
+        "recent_activity": "Appointed CEO Sept 2024 (from Notion Capital Operating Partner); named IDC Innovator for PQC 2024; H.C. Wainwright presentation Feb 2025; driving revenue and operational growth phase",
+        "strategic_problem": "Transitioning Arqit from development phase to revenue growth by scaling quantum encryption software that secures any networked device or cloud machine",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate Arqit's encryption software across multi-cloud and edge deployments to secure distributed quantum-AI workloads with unified key management",
+        "ice_breaker": "Your encryption software secures any networked device\u2014InfraFabric orchestrates those devices in quantum-AI deployments with unified quantum-safe key management",
+        "priority_tier": "A",
+        "priority_score": "72"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Karine",
+        "last_name": "Perset",
+        "organization": "OECD",
+        "role_title": "Acting Head of AI & Emerging Digital Technologies Division",
+        "context": "Coordinates global AI policy standards and international collaboration essential for quantum-AI infrastructure alignment."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/karine-perset",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "acting@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 69.7272727272727,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 69.7272727272727,
+      "best_contact_info": {
+        "department_email": "acting@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Karine",
+        "last_name": "Perset",
+        "organization": "OECD",
+        "role_title": "Acting Head of AI & Emerging Digital Technologies Division",
+        "sector": "International AI Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://fr.linkedin.com/in/karineperset",
+        "company_website": "https://oecd.ai/",
+        "email_if_public": "karine.perset@oecd.org",
+        "why_relevant": "Coordinates global AI policy standards and international collaboration essential for quantum-AI infrastructure alignment.",
+        "recent_activity": "Leading OECD AI policy coordination across 38 member countries; developing international AI governance standards; coordinating quantum-AI policy alignment",
+        "strategic_problem": "Coordinating AI governance standards across 38 OECD countries while developing quantum-AI policy frameworks for international collaboration",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate OECD's 38-country AI governance with quantum-AI extension that ensures member nations' quantum initiatives align with international standards",
+        "ice_breaker": "Your 38-country coordination sets global standards\u2014InfraFabric extends OECD AI governance to quantum-AI ensuring international alignment",
+        "priority_tier": "B",
+        "priority_score": "72"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Graham",
+        "last_name": "Brookie",
+        "organization": "Atlantic Council",
+        "role_title": "Vice President Technology Programs and Senior Director DFRLab",
+        "context": "Oversees Atlantic Council's technology programs examining intersection of governance technology security and AI's role in global digital infrastructure."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/graham-brookie",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 39,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 74,
+          "contact_info": {
+            "department_email": "vice@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.18181818181819,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.18181818181819,
+      "best_contact_info": {
+        "department_email": "vice@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Graham",
+        "last_name": "Brookie",
+        "organization": "Atlantic Council",
+        "role_title": "Vice President Technology Programs and Senior Director DFRLab",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/gbrookie/",
+        "company_website": "https://www.atlanticcouncil.org",
+        "email_if_public": "",
+        "why_relevant": "Oversees Atlantic Council's technology programs examining intersection of governance technology security and AI's role in global digital infrastructure.",
+        "recent_activity": "Atlantic Council VP Technology Programs; DFRLab Senior Director; examining governance, technology, security intersection; AI's role in global digital infrastructure",
+        "strategic_problem": "Researching AI's role in global digital infrastructure security while examining quantum-AI convergence governance implications",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend Atlantic Council's tech governance research to quantum-AI frameworks addressing global digital infrastructure security across both domains",
+        "ice_breaker": "Your global digital infrastructure research needs quantum\u2014InfraFabric provides governance frameworks for quantum-AI convergence in global infrastructure",
+        "priority_tier": "B",
+        "priority_score": "72"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Bridget",
+        "last_name": "Walshe",
+        "organization": "Canadian Centre for Cyber Security",
+        "role_title": "Associate Head",
+        "context": "Leading Canada's post-quantum cryptography roadmap; Five Eyes partner coordinating quantum-safe infrastructure transition."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 72,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/bridget-walshe",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 25,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 50,
+          "contact_info": {
+            "department_email": "associate@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/bridget-walshe",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Bridget",
+        "last_name": "Walshe",
+        "organization": "Canadian Centre for Cyber Security",
+        "role_title": "Associate Head",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/bridget-walshe-b32a14165/",
+        "company_website": "https://www.cyber.gc.ca",
+        "email_if_public": "",
+        "why_relevant": "Leading Canada's post-quantum cryptography roadmap; Five Eyes partner coordinating quantum-safe infrastructure transition.",
+        "recent_activity": "Leading Canada's post-quantum cryptography transition roadmap; coordinating with Five Eyes partners on quantum-safe infrastructure; developing PQC standards for critical infrastructure",
+        "strategic_problem": "Coordinating Canada's post-quantum cryptography transition across government and critical infrastructure while aligning with Five Eyes partners",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate Canada's PQC transition with Five Eyes partners using unified coordination framework that ensures interoperability across allied infrastructures",
+        "ice_breaker": "Your PQC roadmap needs Five Eyes coordination\u2014InfraFabric orchestrates allied PQC transitions with unified framework ensuring interoperable quantum-safe infrastructure",
+        "priority_tier": "A",
+        "priority_score": "71"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2025-10-31T23:24:13.054617",
+  "learning_iteration": 3,
+  "learned_weights": {
+    "ProfessionalNetworker": 1.2,
+    "AcademicResearcher": 0.1,
+    "IntelAnalyst": 0.1,
+    "InvestigativeJournalist": 0.25,
+    "RecruiterUser": 0.12,
+    "SocialEngineer": 0.26
+  },
+  "agent_statistics": {
+    "ProfessionalNetworker": {
+      "attempts": 84,
+      "successes": 60,
+      "total_confidence": 6103.0,
+      "failures": 0,
+      "avg_confidence": 72.6547619047619,
+      "success_rate": 0.7142857142857143,
+      "contribution_score": 230.5569780472823
+    },
+    "AcademicResearcher": {
+      "attempts": 84,
+      "successes": 4,
+      "total_confidence": 366.0,
+      "failures": 0,
+      "avg_confidence": 4.357142857142857,
+      "success_rate": 0.047619047619047616,
+      "contribution_score": 0.9217745804282629
+    },
+    "IntelAnalyst": {
+      "attempts": 84,
+      "successes": 7,
+      "total_confidence": 564.0,
+      "failures": 0,
+      "avg_confidence": 6.714285714285714,
+      "success_rate": 0.08333333333333333,
+      "contribution_score": 2.4857691554172012
+    },
+    "InvestigativeJournalist": {
+      "attempts": 84,
+      "successes": 21,
+      "total_confidence": 4435.0,
+      "failures": 0,
+      "avg_confidence": 52.79761904761905,
+      "success_rate": 0.25,
+      "contribution_score": 58.64035215040046
+    },
+    "RecruiterUser": {
+      "attempts": 84,
+      "successes": 13,
+      "total_confidence": 3260.0,
+      "failures": 0,
+      "avg_confidence": 38.80952380952381,
+      "success_rate": 0.15476190476190477,
+      "contribution_score": 26.6836111465504
+    },
+    "SocialEngineer": {
+      "attempts": 84,
+      "successes": 18,
+      "total_confidence": 5296.0,
+      "failures": 0,
+      "avg_confidence": 63.04761904761905,
+      "success_rate": 0.21428571428571427,
+      "contribution_score": 60.021125138705905
+    }
+  },
+  "notes": "Weights learned from historical performance. Apply to next run."
+}

@@ -1,0 +1,37 @@
+================================================================================
+Qwen3-Coder Integration Test
+================================================================================
+
+✅ QwenCodeAgent initialized (openrouter, qwen/qwen3-coder:free, rate_limit=4.0s)
+Testing Qwen on 5 contacts...
+
+
+[1/5] Emil Michael - Department of Defense
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Venice'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[2/5] Amin Vahdat - Google Cloud
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Venice'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[3/5] Jeremy O'Brien - PsiQuantum
+  ✅ Confidence: 85.0%
+  💭 Jeremy O'Brien, as CEO and co-founder of PsiQuantum, presents a strong likelihood of having accessible public contact information due to several key f...
+
+[4/5] Mark Papermaster - AMD
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951840000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[5/5] Swami Sivasubramanian - AWS
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951840000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+================================================================================
+Summary
+================================================================================
+Successful queries: 1/5 (20.0%)
+Average confidence: 85.0%
+Total requests: 1
+
+Top 5 by confidence:
+  Jeremy O'Brien                 (PsiQuantum          ): 85.0%
+  Emil Michael                   (Department of Defense): 0%
+  Amin Vahdat                    (Google Cloud        ): 0%
+  Mark Papermaster               (AMD                 ): 0%
+  Swami Sivasubramanian          (AWS                 ): 0%

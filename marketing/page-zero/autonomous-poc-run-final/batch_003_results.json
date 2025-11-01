@@ -1,0 +1,1701 @@
+{
+  "batch_id": "batch_003",
+  "timestamp": "2025-10-31T23:04:38.371811",
+  "worktree": null,
+  "contacts_processed": 20,
+  "contacts_found": 15,
+  "total_cost": 0.0,
+  "agent_performance": {
+    "ProfessionalNetworker": {
+      "attempts": 20,
+      "successes": 13,
+      "total_confidence": 1432.0
+    },
+    "AcademicResearcher": {
+      "attempts": 20,
+      "successes": 0,
+      "total_confidence": 0.0
+    },
+    "IntelAnalyst": {
+      "attempts": 20,
+      "successes": 0,
+      "total_confidence": 0.0
+    },
+    "InvestigativeJournalist": {
+      "attempts": 20,
+      "successes": 7,
+      "total_confidence": 1165.0
+    },
+    "RecruiterUser": {
+      "attempts": 20,
+      "successes": 4,
+      "total_confidence": 827.0
+    },
+    "SocialEngineer": {
+      "attempts": 20,
+      "successes": 7,
+      "total_confidence": 1288.0
+    }
+  },
+  "results": [
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Chin",
+        "organization": "AllianceBernstein",
+        "role_title": "Chief Artificial Intelligence Officer",
+        "context": "First CAIO at major asset manager transforming investment research and portfolio management where quantum computing will revolutionize optimization algorithms."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/andrew-chin",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 44,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 29,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.45454545454544,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.45454545454544,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/andrew-chin",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Helen",
+        "last_name": "Toner",
+        "organization": "Center for Security and Emerging Technology (CSET)",
+        "role_title": "Interim Executive Director",
+        "context": "Leads CSET's research on AI policy and strategy with expertise in advising policymakers on emerging technology governance and national security implications."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/helen-toner",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 95,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Helen.Toner@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 87,
+          "contact_info": {
+            "github": "https://github.com/HelenT",
+            "stackoverflow": "https://stackoverflow.com/users/Helen",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 67,
+          "contact_info": {
+            "department_email": "interim@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 84.70833333333334,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 84.70833333333334,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Helen.Toner@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jim",
+        "last_name": "Ricotta",
+        "organization": "Aliro Quantum",
+        "role_title": "CEO & Chairman",
+        "context": "CEO of company building entanglement-based quantum networks requiring coordination infrastructure to enable quantum network applications."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jim-ricotta",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 52,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/jim-ricotta",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Nathaniel",
+        "last_name": "Bastian",
+        "organization": "DARPA",
+        "role_title": "Program Manager - SABER (AI Security)",
+        "context": "Focuses on securing battlefield AI systems against cyber/EW attacks; addresses quantum-AI convergence security challenges."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 65,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/nathaniel-bastian",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "program@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 68.8181818181818,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 68.8181818181818,
+      "best_contact_info": {
+        "department_email": "program@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Michael",
+        "last_name": "Kratsios",
+        "organization": "White House OSTP",
+        "role_title": "Director",
+        "context": "Leads U.S. AI Action Plan and federal R&D strategy encompassing quantum-AI convergence technologies."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/michael-kratsios",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 85,
+          "contact_info": {
+            "github": "https://github.com/MichaelK",
+            "stackoverflow": "https://stackoverflow.com/users/Michael",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 73,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 75.74285714285715,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 75.74285714285715,
+      "best_contact_info": {
+        "github": "https://github.com/MichaelK",
+        "stackoverflow": "https://stackoverflow.com/users/Michael",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Abhi",
+        "last_name": "Seth",
+        "organization": "Boeing",
+        "role_title": "Chief Enterprise AI & Data Officer",
+        "context": "Deployed GenAI platform to 170K+ employees in aerospace engineering where quantum-AI coordination infrastructure supports complex simulation and design."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/abhi-seth",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 92,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Abhi.Seth@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 67,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.28571428571429,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.28571428571429,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Abhi.Seth@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Wael",
+        "last_name": "Diab",
+        "organization": "ISO/IEC JTC 1/SC 42",
+        "role_title": "Chair Artificial Intelligence Standards Committee",
+        "context": "Chairs international AI standardization committee developing interoperability standards critical for quantum-AI convergence and cross-border coordination frameworks."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/wael-diab",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 92,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Wael.Diab@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "chair@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 82.14285714285714,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 82.14285714285714,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Wael.Diab@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Shields",
+        "organization": "Toshiba Europe",
+        "role_title": "VP & GM - Quantum Technology",
+        "context": "Leads quantum cryptography division deploying QKD networks requiring coordination infrastructure for quantum-secure communication systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/andrew-shields",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "vp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.45454545454544,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.45454545454544,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/andrew-shields",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Ollie",
+        "last_name": "Whitehouse",
+        "organization": "UK National Cyber Security Centre",
+        "role_title": "Chief Technology Officer",
+        "context": "GCHQ's first CTO leading UK's quantum-resistant encryption roadmap by 2035; coordinates Five Eyes quantum security initiatives."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/ollie-whitehouse",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 68.63636363636363,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 68.63636363636363,
+      "best_contact_info": {
+        "department_email": "chief@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Vishal",
+        "last_name": "Talwar",
+        "organization": "FedEx",
+        "role_title": "EVP Chief Digital and Information Officer",
+        "context": "Leading Network 2.0 digital transformation leveraging data and AI to optimize global logistics where quantum-AI infrastructure enables supply chain optimization at scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 76,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/vishal-talwar",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 25,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "evp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 70.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 70.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/vishal-talwar",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Sunil",
+        "last_name": "Dhaliwal",
+        "organization": "Amplify Partners",
+        "role_title": "Founder & General Partner",
+        "context": "Backs technical founders building distributed systems and data infrastructure with unique insights into coordination challenges."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/sunil-dhaliwal",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 56,
+          "contact_info": {
+            "department_email": "founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 65.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 65.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/sunil-dhaliwal",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Subodh",
+        "last_name": "Kulkarni",
+        "organization": "Rigetti Computing",
+        "role_title": "President & CEO",
+        "context": "Leads quantum computing firm developing superconducting quantum networking requiring coordination frameworks for distributed quantum systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/subodh-kulkarni",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 30,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "president@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 68.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 68.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/subodh-kulkarni",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Lucilla",
+        "last_name": "Sioli",
+        "organization": "European Commission AI Office",
+        "role_title": "Director",
+        "context": "Oversees EU AI Act implementation and international AI governance essential for cross-border quantum-AI systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 65,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/lucilla-sioli",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 81,
+          "contact_info": {
+            "github": "https://github.com/LucillaS",
+            "stackoverflow": "https://stackoverflow.com/users/Lucilla",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.07142857142858,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.07142857142858,
+      "best_contact_info": {
+        "github": "https://github.com/LucillaS",
+        "stackoverflow": "https://stackoverflow.com/users/Lucilla",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Nick",
+        "last_name": "Andersen",
+        "organization": "CISA",
+        "role_title": "Executive Assistant Director for Cybersecurity",
+        "context": "Oversees federal cybersecurity including post-quantum cryptography and AI-enhanced threat defense coordination."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 78,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/nick-andersen",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 56,
+          "contact_info": {
+            "department_email": "executive@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 70.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 70.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/nick-andersen",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Peter",
+        "last_name": "Barrett",
+        "organization": "Playground Global",
+        "role_title": "Founder & General Partner",
+        "context": "Backs next-generation compute and AI infrastructure underpinning automation across material science and drug discovery."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 75,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/peter-barrett",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 95,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Peter.Barrett@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 84.71428571428571,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 84.71428571428571,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Peter.Barrett@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Vivek",
+        "last_name": "Chilukuri",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Director and Senior Fellow Technology & National Security Program",
+        "context": "Leads CNAS program on accelerating U.S. leadership in AI quantum and biotechnology while addressing technology competition and critical infrastructure security."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/vivek-chilukuri",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 93,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Vivek.Chilukuri@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.0,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Vivek.Chilukuri@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Joe",
+        "last_name": "Altepeter",
+        "organization": "DARPA",
+        "role_title": "Program Manager - Quantum Benchmarking Initiative",
+        "context": "Leads DARPA's effort to validate industrially useful quantum computers by 2033; coordinates multi-vendor quantum benchmarking."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/joe-altepeter",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "program@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 71.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 71.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/joe-altepeter",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "T\u00f5nis",
+        "last_name": "Saar",
+        "organization": "NATO CCDCOE",
+        "role_title": "Director",
+        "context": "Directs NATO's cyber defense center of excellence with 39 nations; coordinates quantum-secure communications for alliance operations."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 74,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/t\u00f5nis-saar",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 88,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "T\u00f5nis.Saar@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 86,
+          "contact_info": {
+            "github": "https://github.com/T\u00f5nisS",
+            "stackoverflow": "https://stackoverflow.com/users/T\u00f5nis",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 62,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.83333333333334,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.83333333333334,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "T\u00f5nis.Saar@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Bilal",
+        "last_name": "Zuberi",
+        "organization": "Lux Capital",
+        "role_title": "General Partner",
+        "context": "Focuses on deep tech and infrastructure solving complex problems in climate and enterprise systems requiring coordination."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 78,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/bilal-zuberi",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 94,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Bilal.Zuberi@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "general@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 85.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 85.0,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Bilal.Zuberi@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Dewey",
+        "last_name": "Murdick",
+        "organization": "Center for Security and Emerging Technology (CSET)",
+        "role_title": "Executive Director",
+        "context": "Directs CSET's AI policy research and emerging technology analysis with background as former DHS Chief Analytics Officer specializing in technology foresight."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 69,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/dewey-murdick",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 74,
+          "contact_info": {
+            "department_email": "executive@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 71.72727272727273,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 71.72727272727273,
+      "best_contact_info": {
+        "department_email": "executive@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    }
+  ]
+}

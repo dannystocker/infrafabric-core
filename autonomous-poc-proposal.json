@@ -1,0 +1,76 @@
+{
+  "title": "Autonomous 80+ Contact POC Execution",
+  "description": "Run autonomous batch contact discovery on 84 high-value targets using weighted coordination with IF Guardians oversight. This is the dogfooding moment - using InfraFabric to validate InfraFabric.",
+  "approach": {
+    "system": "Weighted multi-agent coordination (6 free agents)",
+    "oversight": "IF Guardians debate runs in parallel",
+    "documentation": "Self-documenting manifests per batch",
+    "learning": "Recursive improvement from run manifests",
+    "safeguards": "Human review checkpoint before any outreach"
+  },
+  "scope": {
+    "contacts": 84,
+    "batches": 9,
+    "batch_size": 10,
+    "execution_mode": "parallel",
+    "max_workers": 3,
+    "agents": [
+      "ProfessionalNetworker (baseline, weight=1.0)",
+      "AcademicResearcher (specialist, 0.0→1.5)",
+      "IntelAnalyst (specialist, 0.0→1.2)",
+      "InvestigativeJournalist (exploratory, 0.0→2.0)",
+      "RecruiterUser (exploratory, 0.0→1.3)",
+      "SocialEngineer (exploratory, 0.5→1.2)"
+    ]
+  },
+  "risks": [
+    "False positives (heuristic contact discovery may guess wrong emails)",
+    "Privacy at scale (processing 84 public figures' data)",
+    "Bias in heuristics (patterns may favor certain contact types)",
+    "Time investment (3+ hours for full 84 contacts)",
+    "No validation loop (can't verify emails without sending)"
+  ],
+  "safeguards": [
+    "Free agents only (no API costs, no rate limits)",
+    "Public data only (no private information)",
+    "Confidence scores mandatory (transparency)",
+    "Complete manifests (full provenance)",
+    "Human review before outreach (no auto-send)",
+    "IF Guardians oversight (ethical validation)",
+    "Self-documenting (reproducible science)",
+    "Late bloomer tracking (pattern discovery)"
+  },
+  "expected_outcomes": {
+    "contacts_processed": 84,
+    "estimated_success_rate": "60-75%",
+    "late_bloomers_expected": "2-5 agents",
+    "manifests_generated": 9,
+    "learning_cycles": 1,
+    "time_estimate": "2-4 hours",
+    "cost": "$0.00 (free agents)"
+  },
+  "success_criteria": {
+    "technical": "All 84 contacts processed with confidence scores",
+    "ethical": "IF Guardians approve approach and safeguards",
+    "scientific": "Complete manifests enable reproducibility",
+    "learning": "Adaptive weights improve across batches",
+    "late_bloomers": "At least 1 late bloomer pattern identified"
+  },
+  "autonomous_execution_request": {
+    "mode": "autonomous",
+    "oversight": "IF Guardians in parallel",
+    "human_checkpoints": [
+      "Guardian debate approval",
+      "Mid-execution review (after batch 5)",
+      "Final review before any outreach"
+    ],
+    "self_termination_triggers": [
+      "Guardian red lines violated",
+      "System errors > 20%",
+      "Confidence scores < 30% average",
+      "Late bloomer detection fails"
+    ]
+  },
+  "philosophy": "This IS InfraFabric dogfooding itself. The system that documents itself will improve itself through this POC. The system that improves itself will discover late bloomers. The late bloomers will validate the patience principle.",
+  "meta_recognition": "Running this autonomously with Guardian oversight demonstrates the recursive nature of IF: the governance mechanism governs the validation mechanism that validates the governance mechanism."
+}

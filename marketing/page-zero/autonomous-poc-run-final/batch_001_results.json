@@ -1,0 +1,1706 @@
+{
+  "batch_id": "batch_001",
+  "timestamp": "2025-10-31T23:04:38.364993",
+  "worktree": null,
+  "contacts_processed": 20,
+  "contacts_found": 15,
+  "total_cost": 0.0,
+  "agent_performance": {
+    "ProfessionalNetworker": {
+      "attempts": 20,
+      "successes": 14,
+      "total_confidence": 1446.0
+    },
+    "AcademicResearcher": {
+      "attempts": 20,
+      "successes": 2,
+      "total_confidence": 189.0
+    },
+    "IntelAnalyst": {
+      "attempts": 20,
+      "successes": 7,
+      "total_confidence": 564.0
+    },
+    "InvestigativeJournalist": {
+      "attempts": 20,
+      "successes": 4,
+      "total_confidence": 988.0
+    },
+    "RecruiterUser": {
+      "attempts": 20,
+      "successes": 5,
+      "total_confidence": 884.0
+    },
+    "SocialEngineer": {
+      "attempts": 20,
+      "successes": 5,
+      "total_confidence": 1295.0
+    }
+  },
+  "results": [
+    {
+      "contact": {
+        "first_name": "Emil",
+        "last_name": "Michael",
+        "organization": "Department of Defense",
+        "role_title": "Undersecretary of Defense for R&E / CTO / Acting Director DIU",
+        "context": "Pentagon's chief technology strategist overseeing Defense Innovation Unit and coordinating quantum-AI integration across defense technology development."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 72,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/emil-michael",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 91,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Emil.Michael@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 83,
+          "contact_info": {
+            "github": "https://github.com/EmilM",
+            "stackoverflow": "https://stackoverflow.com/users/Emil",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "undersecretary@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.07272727272726,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.07272727272726,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Emil.Michael@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Amin",
+        "last_name": "Vahdat",
+        "organization": "Google Cloud",
+        "role_title": "VP & GM ML Systems and Cloud AI",
+        "context": "Leads Google Cloud's AI infrastructure including TPUs and AI Hypercomputer systems critical for quantum-AI convergence workloads."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/amin-vahdat",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 83,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Google Cloud",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 95,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Amin.Vahdat@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 69,
+          "contact_info": {
+            "department_email": "vp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 83.85106382978724,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 83.85106382978724,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Amin.Vahdat@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jeremy",
+        "last_name": "O'Brien",
+        "organization": "PsiQuantum",
+        "role_title": "CEO & Co-founder",
+        "context": "Leading photonic quantum computing with distributed architecture requiring coordination infrastructure for quantum networking and AI integration."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jeremy-o'brien",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 30,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 58,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/jeremy-o'brien",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Papermaster",
+        "organization": "AMD",
+        "role_title": "EVP & Chief Technology Officer",
+        "context": "Drives AMD's AI strategy across hardware and software portfolio with focus on open rack-scale AI infrastructure for quantum-ready systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/mark-papermaster",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 84,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=AMD",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "evp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.35294117647058,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.35294117647058,
+      "best_contact_info": {
+        "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=AMD",
+        "investor_relations": "ir@",
+        "source": "sec_filings"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Swami",
+        "last_name": "Sivasubramanian",
+        "organization": "AWS",
+        "role_title": "VP of Agentic AI",
+        "context": "Manages AWS's AI and data services including infrastructure for foundation models that require quantum-enhanced coordination systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 71,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/swami-sivasubramanian",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 26,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 67,
+          "contact_info": {
+            "department_email": "vp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 69.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 69.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/swami-sivasubramanian",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Michael",
+        "last_name": "Kagan",
+        "organization": "NVIDIA",
+        "role_title": "Chief Technology Officer",
+        "context": "Oversees NVIDIA's technology strategy for AI systems and networking infrastructure that powers large-scale AI clusters requiring quantum-AI coordination."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/michael-kagan",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 81,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=NVIDIA",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 62,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.5185185185185,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.5185185185185,
+      "best_contact_info": {
+        "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=NVIDIA",
+        "investor_relations": "ir@",
+        "source": "sec_filings"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Mustafa",
+        "last_name": "Suleyman",
+        "organization": "Microsoft",
+        "role_title": "EVP & CEO of Microsoft AI",
+        "context": "DeepMind co-founder leading Microsoft's consumer AI products including Copilot where quantum-AI coordination infrastructure enables next-generation capabilities."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 71,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/mustafa-suleyman",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 83,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Microsoft",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "evp@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.88235294117646,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.88235294117646,
+      "best_contact_info": {
+        "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Microsoft",
+        "investor_relations": "ir@",
+        "source": "sec_filings"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Doreen",
+        "last_name": "Bogdan-Martin",
+        "organization": "International Telecommunication Union (ITU)",
+        "role_title": "Secretary-General",
+        "context": "First woman ITU Secretary-General leading international standards for AI quantum and telecommunications requiring coordination infrastructure for technology convergence."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/doreen-bogdan-martin",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 88,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Doreen.Bogdan-Martin@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 53,
+          "contact_info": {
+            "department_email": "secretary-general@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 79.85714285714286,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 79.85714285714286,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Doreen.Bogdan-Martin@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Russinovich",
+        "organization": "Microsoft",
+        "role_title": "CTO of Microsoft Azure",
+        "context": "Oversees Azure's cloud platform architecture that will integrate AI and quantum computing services for enterprise customers."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/mark-russinovich",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 77,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Microsoft",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 83,
+          "contact_info": {
+            "github": "https://github.com/MarkR",
+            "stackoverflow": "https://stackoverflow.com/users/Mark",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "cto@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 76.8723404255319,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 76.8723404255319,
+      "best_contact_info": {
+        "github": "https://github.com/MarkR",
+        "stackoverflow": "https://stackoverflow.com/users/Mark",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Manuela",
+        "last_name": "Veloso",
+        "organization": "JPMorgan Chase",
+        "role_title": "Head of AI Research",
+        "context": "Leading AI research at one of the world's largest banks with 2000+ AI/ML experts who need coordinated infrastructure for quantum-AI convergence in financial modeling."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 66,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/manuela-veloso",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 66,
+          "contact_info": {
+            "department_email": "head@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/manuela-veloso",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Shaun",
+        "last_name": "Maguire",
+        "organization": "Sequoia Capital",
+        "role_title": "Partner",
+        "context": "PhD in quantum physics from Caltech and invested in IonQ and Quantum Circuits advancing quantum-AI convergence."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/shaun-maguire",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 95,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Shaun.Maguire@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 25,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 60,
+          "contact_info": {
+            "department_email": "partner@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 82.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 82.0,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Shaun.Maguire@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jonathan",
+        "last_name": "Ross",
+        "organization": "Groq",
+        "role_title": "CEO & Founder",
+        "context": "Created LPU inference architecture requiring ultra-low latency coordination that quantum-AI convergence infrastructure could optimize."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jonathan-ross",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/jonathan-ross",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Travis",
+        "last_name": "Humble",
+        "organization": "Oak Ridge National Laboratory",
+        "role_title": "Director of Quantum Science Center",
+        "context": "Leads DOE's Quantum Science Center; pioneering integration of quantum computing with HPC and AI at national lab scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 75,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/travis-humble",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 95,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Humble",
+            "institutional_email": "Travis.Humble@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 81,
+          "contact_info": {
+            "github": "https://github.com/TravisH",
+            "stackoverflow": "https://stackoverflow.com/users/Travis",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 61,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 82.16279069767442,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 82.16279069767442,
+      "best_contact_info": {
+        "google_scholar": "https://scholar.google.com/citations?user=Humble",
+        "institutional_email": "Travis.Humble@research.edu",
+        "source": "academic_search"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Sachin",
+        "last_name": "Katti",
+        "organization": "Intel",
+        "role_title": "CTO & Head of AI",
+        "context": "Leads Intel's overall AI strategy and product roadmap including AI systems that will interface with quantum computing infrastructure."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/sachin-katti",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 77,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Intel",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 90,
+          "contact_info": {
+            "github": "https://github.com/SachinK",
+            "stackoverflow": "https://stackoverflow.com/users/Sachin",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 60,
+          "contact_info": {
+            "department_email": "cto@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 78.1,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 78.1,
+      "best_contact_info": {
+        "github": "https://github.com/SachinK",
+        "stackoverflow": "https://stackoverflow.com/users/Sachin",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Gil",
+        "last_name": "Herrera",
+        "organization": "National Security Agency",
+        "role_title": "Director of Research",
+        "context": "NSA's lead on quantum computing research since the 1990s; advises on quantum threats to cryptographic systems and coordinates national quantum security initiatives."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 78,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/gil-herrera",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 44,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 83,
+          "contact_info": {
+            "github": "https://github.com/GilH",
+            "stackoverflow": "https://stackoverflow.com/users/Gil",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 62,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 77.46428571428572,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 77.46428571428572,
+      "best_contact_info": {
+        "github": "https://github.com/GilH",
+        "stackoverflow": "https://stackoverflow.com/users/Gil",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Daniel",
+        "last_name": "Marcu",
+        "organization": "Goldman Sachs",
+        "role_title": "Partner & Global Head of AI Engineering and Science",
+        "context": "Appointed in 2025 to lead Goldman's AI engineering strategy where quantum-AI coordination could transform risk modeling and algorithmic trading at scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 79,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/daniel-marcu",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 64,
+          "contact_info": {
+            "department_email": "partner@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/daniel-marcu",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Ocko",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "context": "Invests across quantum systems from quantum sensing to quantum computers and AI infrastructure for national resilience."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 75,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/matt-ocko",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 33,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 67,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/matt-ocko",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Bill",
+        "last_name": "Dally",
+        "organization": "NVIDIA",
+        "role_title": "Chief Scientist & SVP of Research",
+        "context": "Leads NVIDIA's research efforts in AI architecture and compute systems that will need to integrate with future quantum computing paradigms."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 76,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/bill-dally",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 94,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Dally",
+            "institutional_email": "Bill.Dally@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 79,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=NVIDIA",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 80.77551020408163,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 80.77551020408163,
+      "best_contact_info": {
+        "google_scholar": "https://scholar.google.com/citations?user=Dally",
+        "institutional_email": "Bill.Dally@research.edu",
+        "source": "academic_search"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Niccolo",
+        "last_name": "de Masi",
+        "organization": "IonQ",
+        "role_title": "President & CEO",
+        "context": "Leads company expanding into quantum networking through acquisitions requiring integrated coordination between quantum systems and AI workflows."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 74,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/niccolo-de masi",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 69,
+          "contact_info": {
+            "department_email": "president@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/niccolo-de masi",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Lan",
+        "last_name": "Guan",
+        "organization": "Accenture",
+        "role_title": "Chief AI Officer",
+        "context": "Leading $3B AI initiative across 800K employees and 9K+ clients who need coordination infrastructure for scaling quantum-AI solutions across enterprises."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/lan-guan",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 37,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 64,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/lan-guan",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    }
+  ]
+}

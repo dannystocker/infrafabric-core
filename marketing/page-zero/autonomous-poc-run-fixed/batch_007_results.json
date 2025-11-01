@@ -1,0 +1,1058 @@
+{
+  "batch_id": "batch_007",
+  "timestamp": "2025-10-31T23:04:00.972268",
+  "worktree": null,
+  "contacts_processed": 10,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Kevin",
+        "last_name": "Chalker",
+        "organization": "Qrypt",
+        "role_title": "Founder & CEO",
+        "context": "Leads quantum-secure encryption company requiring coordination infrastructure to integrate quantum security with AI-driven systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/kevin-chalker",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 27,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 60,
+          "contact_info": {
+            "department_email": "founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/kevin-chalker",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Kevin",
+        "last_name": "Chalker",
+        "organization": "Qrypt",
+        "role_title": "Founder & CEO",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/kevin-chalker-8b2b06a6/",
+        "company_website": "https://www.qrypt.com",
+        "email_if_public": "",
+        "why_relevant": "Leads quantum-secure encryption company requiring coordination infrastructure to integrate quantum security with AI-driven systems.",
+        "recent_activity": "Mattermost partnership announced Feb 2025 for quantum-secure DoD/intelligence communications; coordinates global business development and strategic partnerships; peer-reviewed quantum entropy encryption",
+        "strategic_problem": "Delivering quantum-safe cryptography to critical infrastructure and defense customers who need protection against both current and future quantum computing threats",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Integrate Qrypt's quantum-secure encryption into hybrid quantum-AI systems that require end-to-end protection from training through inference",
+        "ice_breaker": "Your quantum entropy encryption secures data at rest\u2014InfraFabric secures the entire quantum-AI workflow from data ingestion through hybrid compute to inference",
+        "priority_tier": "A",
+        "priority_score": "77"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Adam",
+        "last_name": "Beaumont",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Interim Director",
+        "context": "Former GCHQ AI chief leading national AI security evaluations relevant to quantum-enhanced AI threat modeling."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 71,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/adam-beaumont",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 83,
+          "contact_info": {
+            "github": "https://github.com/AdamB",
+            "stackoverflow": "https://stackoverflow.com/users/Adam",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 60,
+          "contact_info": {
+            "department_email": "interim@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.60714285714286,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.60714285714286,
+      "best_contact_info": {
+        "github": "https://github.com/AdamB",
+        "stackoverflow": "https://stackoverflow.com/users/Adam",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Adam",
+        "last_name": "Beaumont",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Interim Director",
+        "sector": "AI Security & Safety",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/adam-beaumont-uk/",
+        "company_website": "https://www.aisi.gov.uk",
+        "email_if_public": "",
+        "why_relevant": "Former GCHQ AI chief leading national AI security evaluations relevant to quantum-enhanced AI threat modeling.",
+        "recent_activity": "Leading UK AI security evaluations as former GCHQ AI chief; coordinating with international AI safety partners; developing quantum-enhanced AI threat models",
+        "strategic_problem": "Evaluating frontier AI security threats including quantum-enhanced AI attack scenarios while coordinating with GCHQ and international partners",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Secure UK's AI systems against quantum-enhanced threats with unified security framework spanning PQC-secured AI infrastructure and quantum threat detection",
+        "ice_breaker": "Your GCHQ background sees quantum threats\u2014InfraFabric secures AI systems with PQC encryption and quantum threat detection in unified security framework",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Anjney",
+        "last_name": "Midha",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "context": "Invests in AI infrastructure and open source technology with focus on hardware evolution for AI inference workloads."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/anjney-midha",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 52,
+          "contact_info": {
+            "department_email": "general@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/anjney-midha",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Anjney",
+        "last_name": "Midha",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/anjney/",
+        "company_website": "https://a16z.com",
+        "email_if_public": "",
+        "why_relevant": "Invests in AI infrastructure and open source technology with focus on hardware evolution for AI inference workloads.",
+        "recent_activity": "a16z investments in AI infrastructure and open source; focused on hardware evolution for AI inference workloads at scale",
+        "strategic_problem": "Investing in AI inference hardware evolution while preparing for quantum computing's impact on accelerating inference workloads",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your AI inference portfolio with quantum preprocessing that accelerates feature extraction feeding classical inference accelerators",
+        "ice_breaker": "Your inference focus needs quantum preprocessing\u2014InfraFabric coordinates hybrid systems with quantum feature extraction feeding your classical accelerators",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Martin",
+        "last_name": "Ward",
+        "organization": "ETSI ISG QKD",
+        "role_title": "Chair Quantum Key Distribution Industry Specification Group",
+        "context": "Leads ETSI quantum key distribution standards development ensuring secure quantum communication networks enabling quantum-AI infrastructure coordination."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 73,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/martin-ward",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 53,
+          "contact_info": {
+            "department_email": "chair@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/martin-ward",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Martin",
+        "last_name": "Ward",
+        "organization": "ETSI ISG QKD",
+        "role_title": "Chair Quantum Key Distribution Industry Specification Group",
+        "sector": "Standards Development",
+        "persona_type": "Standards Body",
+        "linkedin_url": "https://www.linkedin.com/in/martin-ward-toshiba/",
+        "company_website": "https://www.etsi.org",
+        "email_if_public": "",
+        "why_relevant": "Leads ETSI quantum key distribution standards development ensuring secure quantum communication networks enabling quantum-AI infrastructure coordination.",
+        "recent_activity": "ETSI ISG QKD Chair developing quantum key distribution standards; ensuring secure quantum communication networks; coordinating with Toshiba QKD deployments",
+        "strategic_problem": "Developing QKD standards for secure quantum communications while enabling quantum network infrastructure for quantum-AI coordination",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Extend ETSI QKD standards to quantum-AI orchestration ensuring secure quantum communications coordinate with AI workloads",
+        "ice_breaker": "Your QKD standards secure quantum communications\u2014InfraFabric extends those standards to quantum-AI coordination securing hybrid workloads",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Turek",
+        "organization": "DARPA",
+        "role_title": "Deputy Director - Information Innovation Office",
+        "context": "Guides DARPA's AI strategy where 70% of programs now use AI/ML; oversees trustworthy AI development for national security."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/matt-turek",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "deputy@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 71.09090909090908,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 71.09090909090908,
+      "best_contact_info": {
+        "department_email": "deputy@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Turek",
+        "organization": "DARPA",
+        "role_title": "Deputy Director - Information Innovation Office",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/matthew-turek-0b2b665/",
+        "company_website": "https://www.darpa.mil",
+        "email_if_public": "",
+        "why_relevant": "Guides DARPA's AI strategy where 70% of programs now use AI/ML; oversees trustworthy AI development for national security.",
+        "recent_activity": "Overseeing 70% of DARPA programs now using AI/ML; leading trustworthy AI development for national security; coordinating AI strategy across Information Innovation Office",
+        "strategic_problem": "Ensuring 70% of DARPA programs using AI/ML meet trustworthy AI standards while coordinating quantum-AI convergence across defense R&D portfolio",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate DARPA's quantum and AI programs with unified governance framework ensuring trustworthy AI principles extend to quantum-enhanced systems",
+        "ice_breaker": "Your 70% AI adoption demands trustworthy coordination\u2014InfraFabric extends your AI governance framework to quantum-enhanced systems across DARPA's portfolio",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Josephine",
+        "last_name": "Teo",
+        "organization": "Singapore Ministry of Digital Development",
+        "role_title": "Minister for Digital Development and Information",
+        "context": "Oversees Singapore's AI governance framework and Smart Nation initiatives foundational to quantum-AI adoption."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/josephine-teo",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 29,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 68,
+          "contact_info": {
+            "department_email": "minister@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/josephine-teo",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Josephine",
+        "last_name": "Teo",
+        "organization": "Singapore Ministry of Digital Development",
+        "role_title": "Minister for Digital Development and Information",
+        "sector": "Government Digital Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/josephine-teo-104054184/",
+        "company_website": "https://www.mci.gov.sg",
+        "email_if_public": "",
+        "why_relevant": "Oversees Singapore's AI governance framework and Smart Nation initiatives foundational to quantum-AI adoption.",
+        "recent_activity": "Leading Singapore's AI governance framework and Smart Nation digital transformation; coordinating Southeast Asian digital policy; quantum-AI readiness for financial hub",
+        "strategic_problem": "Positioning Singapore as quantum-AI ready financial and technology hub while coordinating digital transformation and AI governance across Smart Nation",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Singapore's Smart Nation quantum-AI readiness with governance framework that positions the city-state as Asia's quantum-secure financial hub",
+        "ice_breaker": "Your Smart Nation vision needs quantum readiness\u2014InfraFabric coordinates Singapore's quantum-AI governance positioning you as Asia's quantum-secure financial hub",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Jennifer",
+        "last_name": "Li",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "context": "Focuses on enterprise infrastructure in data systems and AI requiring coordination across distributed architectures."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 66,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jennifer-li",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 43,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "general@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 63.666666666666664,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 63.666666666666664,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/jennifer-li",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jennifer",
+        "last_name": "Li",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/jenniferhli/",
+        "company_website": "https://a16z.com",
+        "email_if_public": "",
+        "why_relevant": "Focuses on enterprise infrastructure in data systems and AI requiring coordination across distributed architectures.",
+        "recent_activity": "a16z enterprise infrastructure investments in data systems and AI; focused on coordination across distributed architectures",
+        "strategic_problem": "Investing in distributed data systems and AI infrastructure requiring sophisticated cross-architecture coordination at enterprise scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your distributed data portfolio with quantum networking that enables real-time synchronization across geo-distributed enterprise systems",
+        "ice_breaker": "Your distributed systems focus needs quantum coordination\u2014InfraFabric provides quantum networking for real-time geo-distributed enterprise data synchronization",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Robin",
+        "last_name": "Blume-Kohout",
+        "organization": "Sandia National Laboratories",
+        "role_title": "Co-Director - Quantum Performance Laboratory",
+        "context": "Pioneering quantum computer benchmarking and performance assessment critical for coordination infrastructure validation."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/robin-blume-kohout",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 92,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Blume-Kohout",
+            "institutional_email": "Robin.Blume-Kohout@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 84,
+          "contact_info": {
+            "github": "https://github.com/RobinB",
+            "stackoverflow": "https://stackoverflow.com/users/Robin",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 58,
+          "contact_info": {
+            "department_email": "co-director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 80.04651162790698,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 80.04651162790698,
+      "best_contact_info": {
+        "google_scholar": "https://scholar.google.com/citations?user=Blume-Kohout",
+        "institutional_email": "Robin.Blume-Kohout@research.edu",
+        "source": "academic_search"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Robin",
+        "last_name": "Blume-Kohout",
+        "organization": "Sandia National Laboratories",
+        "role_title": "Co-Director - Quantum Performance Laboratory",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/robin-blume-kohout-8861286/",
+        "company_website": "https://qpl.sandia.gov",
+        "email_if_public": "",
+        "why_relevant": "Pioneering quantum computer benchmarking and performance assessment critical for coordination infrastructure validation.",
+        "recent_activity": "Co-directing Sandia's Quantum Performance Laboratory; pioneering quantum benchmarking methodologies; developing performance assessment frameworks for quantum systems",
+        "strategic_problem": "Developing rigorous quantum performance benchmarking that validates vendor claims and enables fair comparison across architectures for defense procurement",
+        "persona_bridge": "Quantum computing benchmarking & validation",
+        "problem_frame": "Coordinate Sandia's quantum benchmarking across multi-vendor systems with standardized metrics that validate performance for defense procurement decisions",
+        "ice_breaker": "Your quantum benchmarking sets the gold standard\u2014InfraFabric orchestrates multi-vendor testing with your standardized metrics for defense-grade validation",
+        "priority_tier": "A",
+        "priority_score": "75"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Jade",
+        "last_name": "Leung",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Chief Technology Officer & PM's AI Adviser",
+        "context": "Leads frontier AI evaluations and advises PM on AI policy where quantum-AI capabilities require new governance models."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jade-leung",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 62,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/jade-leung",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jade",
+        "last_name": "Leung",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Chief Technology Officer & PM's AI Adviser",
+        "sector": "AI Security & Governance",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/jade-l-2620bb9a/",
+        "company_website": "https://www.aisi.gov.uk",
+        "email_if_public": "",
+        "why_relevant": "Leads frontier AI evaluations and advises PM on AI policy where quantum-AI capabilities require new governance models.",
+        "recent_activity": "Leading frontier AI evaluations at UK AISI; advising Prime Minister on AI policy; developing quantum-AI governance models for advanced systems",
+        "strategic_problem": "Evaluating frontier AI systems for national security risks while developing governance models for quantum-AI capabilities that require new regulatory approaches",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend UK's frontier AI evaluation framework to quantum-enhanced systems with governance models spanning classical and quantum-hybrid AI capabilities",
+        "ice_breaker": "Your frontier AI evaluations need quantum extension\u2014InfraFabric provides governance framework for evaluating quantum-enhanced AI systems with unified protocols",
+        "priority_tier": "B",
+        "priority_score": "75"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Constanza",
+        "last_name": "Vidal Bustamante",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Fellow Technology & National Security Program",
+        "context": "Directs CNAS quantum technology policy portfolio investigating quantum's role in national security and policy solutions to advance U.S. quantum innovation."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 78,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/constanza-vidal bustamante",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 43,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 72,
+          "contact_info": {
+            "department_email": "fellow@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.7272727272727,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.7272727272727,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/constanza-vidal bustamante",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Constanza",
+        "last_name": "Vidal Bustamante",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Fellow Technology & National Security Program",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/constanzavidal/",
+        "company_website": "https://www.cnas.org",
+        "email_if_public": "",
+        "why_relevant": "Directs CNAS quantum technology policy portfolio investigating quantum's role in national security and policy solutions to advance U.S. quantum innovation.",
+        "recent_activity": "CNAS quantum technology policy portfolio lead; investigating quantum's national security role and policy solutions for U.S. quantum innovation",
+        "strategic_problem": "Researching quantum technology national security implications while developing policy solutions for U.S. quantum-AI convergence leadership",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend your quantum policy research to quantum-AI convergence frameworks that advance U.S. leadership across both technologies simultaneously",
+        "ice_breaker": "Your quantum policy focus needs AI integration\u2014InfraFabric provides convergence frameworks advancing U.S. leadership in quantum-AI simultaneously",
+        "priority_tier": "B",
+        "priority_score": "75"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    }
+  ]
+}

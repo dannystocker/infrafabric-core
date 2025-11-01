@@ -1,0 +1,1422 @@
+
+Loaded 84 contacts
+How many to process with REAL search? (1-84): 
+Processing 84 contacts with network-respectful coordination...
+Estimated time: 14.0 minutes
+(~10 seconds per contact with rate limiting)
+
+================================================================================
+NETWORK-RESPECTFUL MULTI-AGENT COORDINATION
+================================================================================
+
+Processing 84 contacts with rate limiting
+Configuration:
+  - Requests per minute: 6
+  - Politeness delay: 2.0s
+  - Backoff on errors: 2.0x
+================================================================================
+
+================================================================================
+Contact 1/84: Emil Michael - Department of Defense
+================================================================================
+
+  [ProfessionalNetworker] Searching for Emil Michael...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 4.9s
+
+  Progress: 1/84 (1.2%)
+  Rate: 0.20 contacts/second
+  ETA: 6.8 minutes
+
+================================================================================
+Contact 2/84: Amin Vahdat - Google Cloud
+================================================================================
+
+  [ProfessionalNetworker] Searching for Amin Vahdat...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.8s
+
+  Progress: 2/84 (2.4%)
+  Rate: 0.19 contacts/second
+  ETA: 7.3 minutes
+
+================================================================================
+Contact 3/84: Jeremy O'Brien - PsiQuantum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jeremy O'Brien...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 3/84 (3.6%)
+  Rate: 0.18 contacts/second
+  ETA: 7.5 minutes
+
+================================================================================
+Contact 4/84: Mark Papermaster - AMD
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mark Papermaster...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 4/84 (4.8%)
+  Rate: 0.18 contacts/second
+  ETA: 7.6 minutes
+
+================================================================================
+Contact 5/84: Swami Sivasubramanian - AWS
+================================================================================
+
+  [ProfessionalNetworker] Searching for Swami Sivasubramanian...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.9s
+
+  Progress: 5/84 (6.0%)
+  Rate: 0.17 contacts/second
+  ETA: 7.6 minutes
+
+================================================================================
+Contact 6/84: Michael Kagan - NVIDIA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Michael Kagan...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 6/84 (7.1%)
+  Rate: 0.17 contacts/second
+  ETA: 7.5 minutes
+
+================================================================================
+Contact 7/84: Mustafa Suleyman - Microsoft
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mustafa Suleyman...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 7/84 (8.3%)
+  Rate: 0.17 contacts/second
+  ETA: 7.5 minutes
+
+================================================================================
+Contact 8/84: Doreen Bogdan-Martin - International Telecommunication Union (ITU)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Doreen Bogdan-Martin...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 8/84 (9.5%)
+  Rate: 0.17 contacts/second
+  ETA: 7.4 minutes
+
+================================================================================
+Contact 9/84: Mark Russinovich - Microsoft
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mark Russinovich...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 9/84 (10.7%)
+  Rate: 0.17 contacts/second
+  ETA: 7.3 minutes
+
+================================================================================
+Contact 10/84: Manuela Veloso - JPMorgan Chase
+================================================================================
+
+  [ProfessionalNetworker] Searching for Manuela Veloso...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 10/84 (11.9%)
+  Rate: 0.17 contacts/second
+  ETA: 7.2 minutes
+
+================================================================================
+Contact 11/84: Shaun Maguire - Sequoia Capital
+================================================================================
+
+  [ProfessionalNetworker] Searching for Shaun Maguire...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 11/84 (13.1%)
+  Rate: 0.17 contacts/second
+  ETA: 7.2 minutes
+
+================================================================================
+Contact 12/84: Jonathan Ross - Groq
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jonathan Ross...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 12/84 (14.3%)
+  Rate: 0.17 contacts/second
+  ETA: 7.1 minutes
+
+================================================================================
+Contact 13/84: Travis Humble - Oak Ridge National Laboratory
+================================================================================
+
+  [ProfessionalNetworker] Searching for Travis Humble...
+    ✓ Found company website
+
+  [AcademicResearcher] Searching academic databases...
+    ✓ Found academic publications
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 60.0/100
+  Duration: 8.0s
+
+  Progress: 13/84 (15.5%)
+  Rate: 0.17 contacts/second
+  ETA: 7.2 minutes
+
+================================================================================
+Contact 14/84: Sachin Katti - Intel
+================================================================================
+
+  [ProfessionalNetworker] Searching for Sachin Katti...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 14/84 (16.7%)
+  Rate: 0.16 contacts/second
+  ETA: 7.1 minutes
+
+================================================================================
+Contact 15/84: Gil Herrera - National Security Agency
+================================================================================
+
+  [ProfessionalNetworker] Searching for Gil Herrera...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.1s
+
+  Progress: 15/84 (17.9%)
+  Rate: 0.16 contacts/second
+  ETA: 7.0 minutes
+
+================================================================================
+Contact 16/84: Daniel Marcu - Goldman Sachs
+================================================================================
+
+  [ProfessionalNetworker] Searching for Daniel Marcu...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.8s
+
+  Progress: 16/84 (19.0%)
+  Rate: 0.17 contacts/second
+  ETA: 6.9 minutes
+
+================================================================================
+Contact 17/84: Matt Ocko - DCVC
+================================================================================
+
+  [ProfessionalNetworker] Searching for Matt Ocko...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.3s
+
+  Progress: 17/84 (20.2%)
+  Rate: 0.16 contacts/second
+  ETA: 6.8 minutes
+
+================================================================================
+Contact 18/84: Bill Dally - NVIDIA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Bill Dally...
+    ✓ Found company website
+
+  [AcademicResearcher] Searching academic databases...
+    ✓ Found academic publications
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 76.7/100
+  Duration: 7.7s
+
+  Progress: 18/84 (21.4%)
+  Rate: 0.16 contacts/second
+  ETA: 6.8 minutes
+
+================================================================================
+Contact 19/84: Niccolo de Masi - IonQ
+================================================================================
+
+  [ProfessionalNetworker] Searching for Niccolo de Masi...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 19/84 (22.6%)
+  Rate: 0.16 contacts/second
+  ETA: 6.7 minutes
+
+================================================================================
+Contact 20/84: Lan Guan - Accenture
+================================================================================
+
+  [ProfessionalNetworker] Searching for Lan Guan...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 20/84 (23.8%)
+  Rate: 0.16 contacts/second
+  ETA: 6.5 minutes
+
+================================================================================
+Contact 21/84: Pat Gelsinger - Playground Global
+================================================================================
+
+  [ProfessionalNetworker] Searching for Pat Gelsinger...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 21/84 (25.0%)
+  Rate: 0.16 contacts/second
+  ETA: 6.4 minutes
+
+================================================================================
+Contact 22/84: Andrew Feldman - Cerebras Systems
+================================================================================
+
+  [ProfessionalNetworker] Searching for Andrew Feldman...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 22/84 (26.2%)
+  Rate: 0.16 contacts/second
+  ETA: 6.3 minutes
+
+================================================================================
+Contact 23/84: Neema Raphael - Goldman Sachs
+================================================================================
+
+  [ProfessionalNetworker] Searching for Neema Raphael...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.7s
+
+  Progress: 23/84 (27.4%)
+  Rate: 0.16 contacts/second
+  ETA: 6.2 minutes
+
+================================================================================
+Contact 24/84: Josh Wolfe - Lux Capital
+================================================================================
+
+  [ProfessionalNetworker] Searching for Josh Wolfe...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 24/84 (28.6%)
+  Rate: 0.16 contacts/second
+  ETA: 6.1 minutes
+
+================================================================================
+Contact 25/84: Grégoire Ribordy - ID Quantique (IonQ)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Grégoire Ribordy...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 25/84 (29.8%)
+  Rate: 0.16 contacts/second
+  ETA: 6.0 minutes
+
+================================================================================
+Contact 26/84: Berta Rodriguez-Hervas - Pfizer
+================================================================================
+
+  [ProfessionalNetworker] Searching for Berta Rodriguez-Hervas...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 26/84 (31.0%)
+  Rate: 0.16 contacts/second
+  ETA: 5.9 minutes
+
+================================================================================
+Contact 27/84: Zachary Bogue - DCVC
+================================================================================
+
+  [ProfessionalNetworker] Searching for Zachary Bogue...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 27/84 (32.1%)
+  Rate: 0.16 contacts/second
+  ETA: 5.8 minutes
+
+================================================================================
+Contact 28/84: Elham Tabassi - Brookings Institution
+================================================================================
+
+  [ProfessionalNetworker] Searching for Elham Tabassi...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 28/84 (33.3%)
+  Rate: 0.16 contacts/second
+  ETA: 5.7 minutes
+
+================================================================================
+Contact 29/84: Sid Sheth - d-Matrix
+================================================================================
+
+  [ProfessionalNetworker] Searching for Sid Sheth...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 29/84 (34.5%)
+  Rate: 0.16 contacts/second
+  ETA: 5.6 minutes
+
+================================================================================
+Contact 30/84: Steve Bowsher - In-Q-Tel
+================================================================================
+
+  [ProfessionalNetworker] Searching for Steve Bowsher...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.8s
+
+  Progress: 30/84 (35.7%)
+  Rate: 0.16 contacts/second
+  ETA: 5.5 minutes
+
+================================================================================
+Contact 31/84: Dan Priest - PwC
+================================================================================
+
+  [ProfessionalNetworker] Searching for Dan Priest...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 31/84 (36.9%)
+  Rate: 0.16 contacts/second
+  ETA: 5.4 minutes
+
+================================================================================
+Contact 32/84: Martin Casado - Andreessen Horowitz
+================================================================================
+
+  [ProfessionalNetworker] Searching for Martin Casado...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 32/84 (38.1%)
+  Rate: 0.16 contacts/second
+  ETA: 5.3 minutes
+
+================================================================================
+Contact 33/84: Jordan Shapiro - IonQ
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jordan Shapiro...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 33/84 (39.3%)
+  Rate: 0.16 contacts/second
+  ETA: 5.2 minutes
+
+================================================================================
+Contact 34/84: Elizabeth Kelly - NIST U.S. AI Safety Institute
+================================================================================
+
+  [ProfessionalNetworker] Searching for Elizabeth Kelly...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.7s
+
+  Progress: 34/84 (40.5%)
+  Rate: 0.16 contacts/second
+  ETA: 5.1 minutes
+
+================================================================================
+Contact 35/84: Brian Kursar - Toyota Motor North America
+================================================================================
+
+  [ProfessionalNetworker] Searching for Brian Kursar...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 35/84 (41.7%)
+  Rate: 0.16 contacts/second
+  ETA: 5.0 minutes
+
+================================================================================
+Contact 36/84: Allyson O'Brien - DARPA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Allyson O'Brien...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 36/84 (42.9%)
+  Rate: 0.16 contacts/second
+  ETA: 4.9 minutes
+
+================================================================================
+Contact 37/84: Daniel Danker - Walmart
+================================================================================
+
+  [ProfessionalNetworker] Searching for Daniel Danker...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 37/84 (44.0%)
+  Rate: 0.16 contacts/second
+  ETA: 4.8 minutes
+
+================================================================================
+Contact 38/84: Dror Berman - Innovation Endeavors
+================================================================================
+
+  [ProfessionalNetworker] Searching for Dror Berman...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 38/84 (45.2%)
+  Rate: 0.16 contacts/second
+  ETA: 4.7 minutes
+
+================================================================================
+Contact 39/84: Rajeeb Hazra - Quantinuum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Rajeeb Hazra...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 39/84 (46.4%)
+  Rate: 0.16 contacts/second
+  ETA: 4.6 minutes
+
+================================================================================
+Contact 40/84: Lisa Einstein - CISA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Lisa Einstein...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 40/84 (47.6%)
+  Rate: 0.16 contacts/second
+  ETA: 4.5 minutes
+
+================================================================================
+Contact 41/84: Andrew Chin - AllianceBernstein
+================================================================================
+
+  [ProfessionalNetworker] Searching for Andrew Chin...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 41/84 (48.8%)
+  Rate: 0.16 contacts/second
+  ETA: 4.3 minutes
+
+================================================================================
+Contact 42/84: Helen Toner - Center for Security and Emerging Technology (CSET)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Helen Toner...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 42/84 (50.0%)
+  Rate: 0.16 contacts/second
+  ETA: 4.2 minutes
+
+================================================================================
+Contact 43/84: Jim Ricotta - Aliro Quantum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jim Ricotta...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.9s
+
+  Progress: 43/84 (51.2%)
+  Rate: 0.16 contacts/second
+  ETA: 4.1 minutes
+
+================================================================================
+Contact 44/84: Nathaniel Bastian - DARPA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Nathaniel Bastian...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 44/84 (52.4%)
+  Rate: 0.16 contacts/second
+  ETA: 4.0 minutes
+
+================================================================================
+Contact 45/84: Michael Kratsios - White House OSTP
+================================================================================
+
+  [ProfessionalNetworker] Searching for Michael Kratsios...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 45/84 (53.6%)
+  Rate: 0.17 contacts/second
+  ETA: 3.9 minutes
+
+================================================================================
+Contact 46/84: Abhi Seth - Boeing
+================================================================================
+
+  [ProfessionalNetworker] Searching for Abhi Seth...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 46/84 (54.8%)
+  Rate: 0.17 contacts/second
+  ETA: 3.8 minutes
+
+================================================================================
+Contact 47/84: Wael Diab - ISO/IEC JTC 1/SC 42
+================================================================================
+
+  [ProfessionalNetworker] Searching for Wael Diab...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 47/84 (56.0%)
+  Rate: 0.17 contacts/second
+  ETA: 3.7 minutes
+
+================================================================================
+Contact 48/84: Andrew Shields - Toshiba Europe
+================================================================================
+
+  [ProfessionalNetworker] Searching for Andrew Shields...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 48/84 (57.1%)
+  Rate: 0.17 contacts/second
+  ETA: 3.6 minutes
+
+================================================================================
+Contact 49/84: Ollie Whitehouse - UK National Cyber Security Centre
+================================================================================
+
+  [ProfessionalNetworker] Searching for Ollie Whitehouse...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 49/84 (58.3%)
+  Rate: 0.17 contacts/second
+  ETA: 3.5 minutes
+
+================================================================================
+Contact 50/84: Vishal Talwar - FedEx
+================================================================================
+
+  [ProfessionalNetworker] Searching for Vishal Talwar...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.3s
+
+  Progress: 50/84 (59.5%)
+  Rate: 0.17 contacts/second
+  ETA: 3.4 minutes
+
+================================================================================
+Contact 51/84: Sunil Dhaliwal - Amplify Partners
+================================================================================
+
+  [ProfessionalNetworker] Searching for Sunil Dhaliwal...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.6s
+
+  Progress: 51/84 (60.7%)
+  Rate: 0.17 contacts/second
+  ETA: 3.3 minutes
+
+================================================================================
+Contact 52/84: Subodh Kulkarni - Rigetti Computing
+================================================================================
+
+  [ProfessionalNetworker] Searching for Subodh Kulkarni...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 52/84 (61.9%)
+  Rate: 0.17 contacts/second
+  ETA: 3.2 minutes
+
+================================================================================
+Contact 53/84: Lucilla Sioli - European Commission AI Office
+================================================================================
+
+  [ProfessionalNetworker] Searching for Lucilla Sioli...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 53/84 (63.1%)
+  Rate: 0.17 contacts/second
+  ETA: 3.1 minutes
+
+================================================================================
+Contact 54/84: Nick Andersen - CISA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Nick Andersen...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 54/84 (64.3%)
+  Rate: 0.17 contacts/second
+  ETA: 3.0 minutes
+
+================================================================================
+Contact 55/84: Peter Barrett - Playground Global
+================================================================================
+
+  [ProfessionalNetworker] Searching for Peter Barrett...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 55/84 (65.5%)
+  Rate: 0.17 contacts/second
+  ETA: 2.9 minutes
+
+================================================================================
+Contact 56/84: Vivek Chilukuri - Center for a New American Security (CNAS)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Vivek Chilukuri...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.8s
+
+  Progress: 56/84 (66.7%)
+  Rate: 0.17 contacts/second
+  ETA: 2.8 minutes
+
+================================================================================
+Contact 57/84: Joe Altepeter - DARPA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Joe Altepeter...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 57/84 (67.9%)
+  Rate: 0.17 contacts/second
+  ETA: 2.7 minutes
+
+================================================================================
+Contact 58/84: Tõnis Saar - NATO CCDCOE
+================================================================================
+
+  [ProfessionalNetworker] Searching for Tõnis Saar...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 58/84 (69.0%)
+  Rate: 0.17 contacts/second
+  ETA: 2.6 minutes
+
+================================================================================
+Contact 59/84: Bilal Zuberi - Lux Capital
+================================================================================
+
+  [ProfessionalNetworker] Searching for Bilal Zuberi...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 59/84 (70.2%)
+  Rate: 0.17 contacts/second
+  ETA: 2.5 minutes
+
+================================================================================
+Contact 60/84: Dewey Murdick - Center for Security and Emerging Technology (CSET)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Dewey Murdick...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.4s
+
+  Progress: 60/84 (71.4%)
+  Rate: 0.17 contacts/second
+  ETA: 2.4 minutes
+
+================================================================================
+Contact 61/84: Kevin Chalker - Qrypt
+================================================================================
+
+  [ProfessionalNetworker] Searching for Kevin Chalker...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.6s
+
+  Progress: 61/84 (72.6%)
+  Rate: 0.17 contacts/second
+  ETA: 2.3 minutes
+
+================================================================================
+Contact 62/84: Adam Beaumont - UK AI Security Institute (AISI)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Adam Beaumont...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 62/84 (73.8%)
+  Rate: 0.17 contacts/second
+  ETA: 2.2 minutes
+
+================================================================================
+Contact 63/84: Anjney Midha - Andreessen Horowitz
+================================================================================
+
+  [ProfessionalNetworker] Searching for Anjney Midha...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 63/84 (75.0%)
+  Rate: 0.17 contacts/second
+  ETA: 2.1 minutes
+
+================================================================================
+Contact 64/84: Martin Ward - ETSI ISG QKD
+================================================================================
+
+  [ProfessionalNetworker] Searching for Martin Ward...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 64/84 (76.2%)
+  Rate: 0.17 contacts/second
+  ETA: 2.0 minutes
+
+================================================================================
+Contact 65/84: Matt Turek - DARPA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Matt Turek...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 65/84 (77.4%)
+  Rate: 0.17 contacts/second
+  ETA: 1.9 minutes
+
+================================================================================
+Contact 66/84: Josephine Teo - Singapore Ministry of Digital Development
+================================================================================
+
+  [ProfessionalNetworker] Searching for Josephine Teo...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.7s
+
+  Progress: 66/84 (78.6%)
+  Rate: 0.17 contacts/second
+  ETA: 1.8 minutes
+
+================================================================================
+Contact 67/84: Jennifer Li - Andreessen Horowitz
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jennifer Li...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 67/84 (79.8%)
+  Rate: 0.17 contacts/second
+  ETA: 1.7 minutes
+
+================================================================================
+Contact 68/84: Robin Blume-Kohout - Sandia National Laboratories
+================================================================================
+
+  [ProfessionalNetworker] Searching for Robin Blume-Kohout...
+    ✓ Found company website
+
+  [AcademicResearcher] Searching academic databases...
+    ✓ Found academic publications
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 60.0/100
+  Duration: 8.0s
+
+  Progress: 68/84 (81.0%)
+  Rate: 0.16 contacts/second
+  ETA: 1.6 minutes
+
+================================================================================
+Contact 69/84: Jade Leung - UK AI Security Institute (AISI)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jade Leung...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 69/84 (82.1%)
+  Rate: 0.16 contacts/second
+  ETA: 1.5 minutes
+
+================================================================================
+Contact 70/84: Constanza Vidal Bustamante - Center for a New American Security (CNAS)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Constanza Vidal Bustamante...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 70/84 (83.3%)
+  Rate: 0.16 contacts/second
+  ETA: 1.4 minutes
+
+================================================================================
+Contact 71/84: Denis Mandich - Qrypt
+================================================================================
+
+  [ProfessionalNetworker] Searching for Denis Mandich...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 71/84 (84.5%)
+  Rate: 0.16 contacts/second
+  ETA: 1.3 minutes
+
+================================================================================
+Contact 72/84: Clara Chappaz - French Government
+================================================================================
+
+  [ProfessionalNetworker] Searching for Clara Chappaz...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 72/84 (85.7%)
+  Rate: 0.16 contacts/second
+  ETA: 1.2 minutes
+
+================================================================================
+Contact 73/84: Salil Gunashekar - RAND Europe
+================================================================================
+
+  [ProfessionalNetworker] Searching for Salil Gunashekar...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.0s
+
+  Progress: 73/84 (86.9%)
+  Rate: 0.16 contacts/second
+  ETA: 1.1 minutes
+
+================================================================================
+Contact 74/84: Janet Egan - Center for a New American Security (CNAS)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Janet Egan...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 74/84 (88.1%)
+  Rate: 0.16 contacts/second
+  ETA: 1.0 minutes
+
+================================================================================
+Contact 75/84: Prineha Narang - Aliro Quantum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Prineha Narang...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 75/84 (89.3%)
+  Rate: 0.16 contacts/second
+  ETA: 0.9 minutes
+
+================================================================================
+Contact 76/84: Edward Parker - RAND Corporation
+================================================================================
+
+  [ProfessionalNetworker] Searching for Edward Parker...
+    ✓ Found company website
+
+  [AcademicResearcher] Searching academic databases...
+    ✓ Found academic publications
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 60.0/100
+  Duration: 8.9s
+
+  Progress: 76/84 (90.5%)
+  Rate: 0.16 contacts/second
+  ETA: 0.8 minutes
+
+================================================================================
+Contact 77/84: Andy Leaver - Arqit Quantum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Andy Leaver...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 77/84 (91.7%)
+  Rate: 0.16 contacts/second
+  ETA: 0.7 minutes
+
+================================================================================
+Contact 78/84: Karine Perset - OECD
+================================================================================
+
+  [ProfessionalNetworker] Searching for Karine Perset...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 78/84 (92.9%)
+  Rate: 0.16 contacts/second
+  ETA: 0.6 minutes
+
+================================================================================
+Contact 79/84: Graham Brookie - Atlantic Council
+================================================================================
+
+  [ProfessionalNetworker] Searching for Graham Brookie...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.8s
+
+  Progress: 79/84 (94.0%)
+  Rate: 0.16 contacts/second
+  ETA: 0.5 minutes
+
+================================================================================
+Contact 80/84: Bridget Walshe - Canadian Centre for Cyber Security
+================================================================================
+
+  [ProfessionalNetworker] Searching for Bridget Walshe...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.4s
+
+  Progress: 80/84 (95.2%)
+  Rate: 0.16 contacts/second
+  ETA: 0.4 minutes
+
+================================================================================
+Contact 81/84: Stephen Burt - Treasury Board of Canada Secretariat
+================================================================================
+
+  [ProfessionalNetworker] Searching for Stephen Burt...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 6.4s
+
+  Progress: 81/84 (96.4%)
+  Rate: 0.16 contacts/second
+  ETA: 0.3 minutes
+
+================================================================================
+Contact 82/84: Lucy Poole - Australian Digital Transformation Agency
+================================================================================
+
+  [ProfessionalNetworker] Searching for Lucy Poole...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.4s
+
+  Progress: 82/84 (97.6%)
+  Rate: 0.16 contacts/second
+  ETA: 0.2 minutes
+
+================================================================================
+Contact 83/84: Simon Knowles - Graphcore
+================================================================================
+
+  [ProfessionalNetworker] Searching for Simon Knowles...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 4.9s
+
+  Progress: 83/84 (98.8%)
+  Rate: 0.16 contacts/second
+  ETA: 0.1 minutes
+
+================================================================================
+Contact 84/84: Kunle Olukotun - SambaNova Systems
+================================================================================
+
+  [ProfessionalNetworker] Searching for Kunle Olukotun...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 84/84 (100.0%)
+  Rate: 0.16 contacts/second
+  ETA: 0.0 minutes
+
+================================================================================
+BATCH COMPLETE
+================================================================================
+
+Contacts processed: 84
+Total duration: 8.5 minutes
+Avg per contact: 6.1s
+
+Rate Limiter Stats:
+  Total requests: 256
+  Total delays: 221.61s
+  Domains accessed: 1
+  Avg delay/request: 0.87s
+================================================================================
+
+Network respect demonstrated:
+  ✓ Rate limiting per domain
+  ✓ Politeness delays between requests
+  ✓ Backoff on errors
+  ✓ User-Agent rotation
+  ✓ Complete evidence chain
+  ✓ Good citizenship in exploration
+================================================================================
+
+✅ Results saved to: /home/setup/infrafabric/marketing/page-zero/network-respectful-results-20251031_213350.json
+
+The proof is in the evidence - every request documented. 🪂

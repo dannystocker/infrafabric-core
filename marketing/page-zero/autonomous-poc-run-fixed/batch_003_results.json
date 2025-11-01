@@ -1,0 +1,1056 @@
+{
+  "batch_id": "batch_003",
+  "timestamp": "2025-10-31T23:04:00.964307",
+  "worktree": null,
+  "contacts_processed": 10,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Pat",
+        "last_name": "Gelsinger",
+        "organization": "Playground Global",
+        "role_title": "General Partner",
+        "context": "Former Intel CEO focused on quantum computing (PsiQuantum) and next-generation chip design for AI era."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 72,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/pat-gelsinger",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 88,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Pat.Gelsinger@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 75,
+          "contact_info": {
+            "department_email": "general@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 80.47619047619047,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 80.47619047619047,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Pat.Gelsinger@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Pat",
+        "last_name": "Gelsinger",
+        "organization": "Playground Global",
+        "role_title": "General Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/patgelsinger/",
+        "company_website": "https://www.playground.vc",
+        "email_if_public": "",
+        "why_relevant": "Former Intel CEO focused on quantum computing (PsiQuantum) and next-generation chip design for AI era.",
+        "recent_activity": "Former Intel CEO now Playground GP; PsiQuantum investor; focused on quantum computing and next-gen chip design for AI era",
+        "strategic_problem": "Investing in quantum computing (PsiQuantum) and next-gen chips while leveraging decades of semiconductor and compute architecture experience",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your PsiQuantum investment with hybrid quantum-classical orchestration that integrates photonic quantum computers with classical AI accelerators",
+        "ice_breaker": "Your PsiQuantum bet needs hybrid integration\u2014InfraFabric coordinates photonic quantum with classical AI accelerators leveraging your semiconductor architecture expertise",
+        "priority_tier": "B",
+        "priority_score": "88"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Feldman",
+        "organization": "Cerebras Systems",
+        "role_title": "Co-Founder & CEO",
+        "context": "Builds world's largest AI chips and needs coordination infrastructure to scale AI systems toward quantum-AI hybrid architectures."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/andrew-feldman",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 43,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 70,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 68.63636363636363,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 68.63636363636363,
+      "best_contact_info": {
+        "department_email": "co-founder@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Feldman",
+        "organization": "Cerebras Systems",
+        "role_title": "Co-Founder & CEO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/andrewdfeldman",
+        "company_website": "https://www.cerebras.ai",
+        "email_if_public": "",
+        "why_relevant": "Builds world's largest AI chips and needs coordination infrastructure to scale AI systems toward quantum-AI hybrid architectures.",
+        "recent_activity": "Launched CS-3/WSE-3 (2x CS-2 performance) 2024; Meta Llama API partnership April 2025 (18x faster inference); beat Blackwell on Llama 4 at 2,500 tokens/sec; raised $1.1B Sept 2025 at $8.1B valuation; expanded to 6 datacenters (40M tokens/sec)",
+        "strategic_problem": "Scaling inference performance to 40M+ tokens/sec across distributed datacenters while competing against NVIDIA's GPU ecosystem and proving wafer-scale differentiation",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate wafer-scale AI inference across geo-distributed datacenters using quantum networking for sub-millisecond coherence and global state synchronization",
+        "ice_breaker": "Your wafer-scale architecture pioneered unified compute\u2014InfraFabric extends that vision with quantum networking to synchronize distributed CS-3 clusters at light speed",
+        "priority_tier": "A",
+        "priority_score": "87"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Neema",
+        "last_name": "Raphael",
+        "organization": "Goldman Sachs",
+        "role_title": "Chief Data Officer & Head of Data Engineering",
+        "context": "Oversees data strategy and emerging technology including digital assets and AI where quantum computing integration will be critical for future infrastructure."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 76,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/neema-raphael",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 39,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 26,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 50,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 67.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 67.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/neema-raphael",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Neema",
+        "last_name": "Raphael",
+        "organization": "Goldman Sachs",
+        "role_title": "Chief Data Officer & Head of Data Engineering",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/neema-raphael",
+        "company_website": "https://www.goldmansachs.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees data strategy and emerging technology including digital assets and AI where quantum computing integration will be critical for future infrastructure.",
+        "recent_activity": "Leading Goldman Sachs data strategy; overseeing digital assets and emerging technology initiatives; coordinating data engineering for AI and quantum readiness",
+        "strategic_problem": "Building data infrastructure for digital assets and AI while preparing for quantum computing's impact on cryptography securing financial transactions",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Secure Goldman's data infrastructure with post-quantum cryptography while orchestrating quantum-enhanced data analytics for digital assets trading",
+        "ice_breaker": "Your digital assets need quantum-safe infrastructure\u2014InfraFabric secures data with PQC while coordinating quantum-enhanced analytics for trading edge",
+        "priority_tier": "A",
+        "priority_score": "87"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Josh",
+        "last_name": "Wolfe",
+        "organization": "Lux Capital",
+        "role_title": "Co-Founder & Managing Partner",
+        "context": "Invests in frontier science solving vexing puzzles and backs quantum computing infrastructure companies like Rigetti Computing."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 75,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/josh-wolfe",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 39,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 68,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 72.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 72.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/josh-wolfe",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Josh",
+        "last_name": "Wolfe",
+        "organization": "Lux Capital",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/josh-wolfe-7883/",
+        "company_website": "https://www.luxcapital.com",
+        "email_if_public": "",
+        "why_relevant": "Invests in frontier science solving vexing puzzles and backs quantum computing infrastructure companies like Rigetti Computing.",
+        "recent_activity": "$100M+ biotech/AI commitment 2025 offsetting Trump research cuts; board member at Anduril, Planet, Hadrian, Osmo; founding investor with Bill Gates in Kymeta satellite antennas",
+        "strategic_problem": "Identifying frontier science investments at physical-digital intersection while backing quantum computing and space communication infrastructure",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your space communications portfolio (Kymeta) with quantum networking that enables secure global satellite communications beyond classical encryption",
+        "ice_breaker": "Your Kymeta investment pioneered space comms\u2014InfraFabric extends that with quantum networking for secure global satellite communications beyond classical limits",
+        "priority_tier": "B",
+        "priority_score": "87"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Gr\u00e9goire",
+        "last_name": "Ribordy",
+        "organization": "ID Quantique (IonQ)",
+        "role_title": "CEO & Co-founder",
+        "context": "Leads pioneer in QKD solutions now part of IonQ's quantum networking ecosystem requiring coordination infrastructure for quantum-AI integration."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 74,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/gr\u00e9goire-ribordy",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 30,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 50,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/gr\u00e9goire-ribordy",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Gr\u00e9goire",
+        "last_name": "Ribordy",
+        "organization": "ID Quantique (IonQ)",
+        "role_title": "CEO & Co-founder",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/gregoire-ribordy/",
+        "company_website": "https://www.idquantique.com",
+        "email_if_public": "",
+        "why_relevant": "Leads pioneer in QKD solutions now part of IonQ's quantum networking ecosystem requiring coordination infrastructure for quantum-AI integration.",
+        "recent_activity": "IonQ completed IDQ acquisition May 2025; added 300 patents (900 total for IonQ); integrated QKD, QRNGs, single-photon detectors; Singapore/Turkey intercontinental QKD deployments",
+        "strategic_problem": "Integrating 20+ years of QKD deployment experience into IonQ's quantum computing ecosystem to build unified quantum networking infrastructure",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Orchestrate end-to-end quantum networks that unify your QKD security fabric with IonQ's quantum computers and AI inference workloads",
+        "ice_breaker": "Your QKD deployments secure the channel\u2014InfraFabric orchestrates the entire quantum network from your secure links to IonQ's quantum computers",
+        "priority_tier": "A",
+        "priority_score": "86"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Berta",
+        "last_name": "Rodriguez-Hervas",
+        "organization": "Pfizer",
+        "role_title": "Chief AI and Analytics Officer",
+        "context": "Former Nvidia AI leader now accelerating drug discovery and clinical development with AI where quantum-AI convergence could revolutionize molecular modeling."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/berta-rodriguez-hervas",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 32,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 66,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/berta-rodriguez-hervas",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Berta",
+        "last_name": "Rodriguez-Hervas",
+        "organization": "Pfizer",
+        "role_title": "Chief AI and Analytics Officer",
+        "sector": "Pharmaceutical AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/berta-rodriguez-hervas",
+        "company_website": "https://www.pfizer.com",
+        "email_if_public": "",
+        "why_relevant": "Former Nvidia AI leader now accelerating drug discovery and clinical development with AI where quantum-AI convergence could revolutionize molecular modeling.",
+        "recent_activity": "Former NVIDIA VP of Healthcare AI; appointed Pfizer Chief AI Officer; accelerating drug discovery and clinical development with AI-driven molecular modeling",
+        "strategic_problem": "Accelerating drug discovery with AI-driven molecular modeling while preparing for quantum computing's transformative impact on pharmaceutical research",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Pfizer's AI drug discovery with quantum-enhanced molecular modeling that simulates interactions classical computers cannot handle",
+        "ice_breaker": "Your NVIDIA background knows AI limits\u2014InfraFabric coordinates hybrid quantum-classical drug discovery simulating molecular interactions beyond classical reach",
+        "priority_tier": "A",
+        "priority_score": "86"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Zachary",
+        "last_name": "Bogue",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "context": "Leads deep tech investments at intersection of transformative technology including quantum computing platforms."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 69,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/zachary-bogue",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 43,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 27,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 62,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.66666666666667,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.66666666666667,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/zachary-bogue",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Zachary",
+        "last_name": "Bogue",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/zackbogue/",
+        "company_website": "https://www.dcvc.com",
+        "email_if_public": "",
+        "why_relevant": "Leads deep tech investments at intersection of transformative technology including quantum computing platforms.",
+        "recent_activity": "DCVC deep tech investments in quantum computing platforms; focused on transformative technology commercialization",
+        "strategic_problem": "Investing in quantum computing platforms while building portfolio at intersection of transformative technologies requiring sophisticated coordination",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate DCVC's quantum computing investments with hybrid quantum-classical orchestration framework that accelerates portfolio company integration",
+        "ice_breaker": "Your quantum platform investments need hybrid coordination\u2014InfraFabric orchestrates your portfolio with quantum-classical integration accelerating commercialization",
+        "priority_tier": "B",
+        "priority_score": "86"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Elham",
+        "last_name": "Tabassi",
+        "organization": "Brookings Institution",
+        "role_title": "Director of AI & Emerging Technology Initiative and Senior Fellow",
+        "context": "Led NIST's AI Risk Management Framework and now shapes policy research on AI governance and quantum-AI convergence at global scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 75,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/elham-tabassi",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 26,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 51,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 67.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 67.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/elham-tabassi",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Elham",
+        "last_name": "Tabassi",
+        "organization": "Brookings Institution",
+        "role_title": "Director of AI & Emerging Technology Initiative and Senior Fellow",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/elham-tabassi-b5931b6/",
+        "company_website": "https://www.brookings.edu",
+        "email_if_public": "",
+        "why_relevant": "Led NIST's AI Risk Management Framework and now shapes policy research on AI governance and quantum-AI convergence at global scale.",
+        "recent_activity": "Joined Brookings March 2025 as AIET Director; led NIST AI Risk Management Framework (Jan 2023); co-authored GenAI Profile 2024; TIME 100 AI 2023",
+        "strategic_problem": "Extending NIST AI Risk Management Framework to global AI governance while researching quantum-AI convergence risk assessment",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend your AI Risk Management Framework to quantum-AI systems with unified risk assessment spanning classical and quantum-enhanced AI",
+        "ice_breaker": "Your AI RMF sets global standard\u2014InfraFabric extends that framework to quantum-AI with unified risk assessment for hybrid systems",
+        "priority_tier": "B",
+        "priority_score": "86"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Sid",
+        "last_name": "Sheth",
+        "organization": "d-Matrix",
+        "role_title": "Founder & CEO",
+        "context": "Building AI inference compute platform that requires sophisticated coordination infrastructure for quantum-AI hybrid systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 65,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/sid-sheth",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 45,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 33,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 55,
+          "contact_info": {
+            "department_email": "founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 61.666666666666664,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 61.666666666666664,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/sid-sheth",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Sid",
+        "last_name": "Sheth",
+        "organization": "d-Matrix",
+        "role_title": "Founder & CEO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/sheth",
+        "company_website": "https://www.d-matrix.ai",
+        "email_if_public": "",
+        "why_relevant": "Building AI inference compute platform that requires sophisticated coordination infrastructure for quantum-AI hybrid systems.",
+        "recent_activity": "Launched Corsair platform Nov 2024 at SC24 (DIMC architecture for inference); sampling to customers with Q2 2025 GA; SuperMicro partnership; $160M+ funding including Microsoft; Cerebral Valley Deep Dive on DIMC vs GPUs",
+        "strategic_problem": "Making inference most energy-efficient workload via Digital In-Memory Compute while building business that captures inference opportunity without GPU/HBM dependencies",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Optimize DIMC inference efficiency by orchestrating quantum preprocessing for feature extraction that feeds d-Matrix accelerators in hybrid pipelines",
+        "ice_breaker": "Your DIMC architecture eliminates GPU inefficiency\u2014InfraFabric eliminates the next layer by orchestrating quantum preprocessing that feeds Corsair at peak efficiency",
+        "priority_tier": "A",
+        "priority_score": "85"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Steve",
+        "last_name": "Bowsher",
+        "organization": "In-Q-Tel",
+        "role_title": "President & CEO",
+        "context": "Leads IC's venture arm investing in quantum and AI startups; bridges commercial innovation to intelligence community needs."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 78,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/steve-bowsher",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 30,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 66,
+          "contact_info": {
+            "department_email": "president@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 74.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 74.0,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/steve-bowsher",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Steve",
+        "last_name": "Bowsher",
+        "organization": "In-Q-Tel",
+        "role_title": "President & CEO",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.iqt.org",
+        "email_if_public": "",
+        "why_relevant": "Leads IC's venture arm investing in quantum and AI startups; bridges commercial innovation to intelligence community needs.",
+        "recent_activity": "Leading In-Q-Tel investments in quantum and AI startups for intelligence community; bridging commercial innovation to IC operational needs; coordinating quantum-AI technology transition",
+        "strategic_problem": "Accelerating commercial quantum and AI technology transition to intelligence community while managing portfolio of startups across both domains",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate In-Q-Tel's quantum and AI portfolio companies with unified integration framework that accelerates IC technology transition",
+        "ice_breaker": "Your portfolio spans quantum and AI startups\u2014InfraFabric coordinates their integration into IC operations with unified orchestration framework",
+        "priority_tier": "B",
+        "priority_score": "85"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    }
+  ]
+}

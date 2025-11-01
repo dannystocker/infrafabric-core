@@ -1,0 +1,2117 @@
+WARNING: IF Guardians not available - proceeding without oversight
+
+📋 Loading contacts from outreach-targets-FINAL-RANKED.csv...
+✅ Loaded 84 contacts
+
+📦 Creating batches (size=20)...
+✅ Created 5 batches
+
+🚀 Running 5 batches (sequential)...
+
+⚠️  Guardian oversight disabled
+
+============================================================
+🔄 Processing batch_001
+   Contacts: 1 - 20
+============================================================
+
+  [1/20] Processing: Emil Michael
+
+================================================================================
+Contact: Emil Michael - Department of Defense
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 72, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 83, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 81.1/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (81.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [2/20] Processing: Amin Vahdat
+
+================================================================================
+Contact: Amin Vahdat - Google Cloud
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 83, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 95, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 69, weight=0.0, tier=
+
+Weighted Confidence: 83.9/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (83.9 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [3/20] Processing: Jeremy O'Brien
+
+================================================================================
+Contact: Jeremy O'Brien - PsiQuantum
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 30, weight=0.0, tier=
+  SocialEngineer          : confidence= 58, weight=0.0, tier=
+
+Weighted Confidence: 64.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (64.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (68/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [4/20] Processing: Mark Papermaster
+
+================================================================================
+Contact: Mark Papermaster - AMD
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 84, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 74.4/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (74.4 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: IntelAnalyst (84/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [5/20] Processing: Swami Sivasubramanian
+
+================================================================================
+Contact: Swami Sivasubramanian - AWS
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 71, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 26, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 69.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (69.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (71/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [6/20] Processing: Michael Kagan
+
+================================================================================
+Contact: Michael Kagan - NVIDIA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 81, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 74.5/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (74.5 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: IntelAnalyst (81/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [7/20] Processing: Mustafa Suleyman
+
+================================================================================
+Contact: Mustafa Suleyman - Microsoft
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 71, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 83, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 74.9/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (74.9 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: IntelAnalyst (83/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [8/20] Processing: Doreen Bogdan-Martin
+
+================================================================================
+Contact: Doreen Bogdan-Martin - International Telecommunication Union (ITU)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 88, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 53, weight=0.0, tier=
+
+Weighted Confidence: 79.9/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (79.9 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (88/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [9/20] Processing: Mark Russinovich
+
+================================================================================
+Contact: Mark Russinovich - Microsoft
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 77, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 45, weight=0.0, tier=
+  RecruiterUser           : confidence= 83, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 76.9/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (76.9 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (83/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [10/20] Processing: Manuela Veloso
+
+================================================================================
+Contact: Manuela Veloso - JPMorgan Chase
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 66, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 35, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 66, weight=0.0, tier=
+
+Weighted Confidence: 66.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (66/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [11/20] Processing: Shaun Maguire
+
+================================================================================
+Contact: Shaun Maguire - Sequoia Capital
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 95, weight=0.0, tier=
+  RecruiterUser           : confidence= 25, weight=0.0, tier=
+  SocialEngineer          : confidence= 60, weight=0.0, tier=
+
+Weighted Confidence: 82.0/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (82.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [12/20] Processing: Jonathan Ross
+
+================================================================================
+Contact: Jonathan Ross - Groq
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 35, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 63, weight=0.0, tier=
+
+Weighted Confidence: 66.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (68/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [13/20] Processing: Travis Humble
+
+================================================================================
+Contact: Travis Humble - Oak Ridge National Laboratory
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence= 95, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 81, weight=0.0, tier=
+  SocialEngineer          : confidence= 61, weight=0.0, tier=
+
+Weighted Confidence: 82.2/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (82.2 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: AcademicResearcher (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [14/20] Processing: Sachin Katti
+
+================================================================================
+Contact: Sachin Katti - Intel
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence= 77, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 90, weight=0.0, tier=
+  SocialEngineer          : confidence= 60, weight=0.0, tier=
+
+Weighted Confidence: 78.1/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (78.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (90/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [15/20] Processing: Gil Herrera
+
+================================================================================
+Contact: Gil Herrera - National Security Agency
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 83, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 77.5/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (77.5 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (83/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [16/20] Processing: Daniel Marcu
+
+================================================================================
+Contact: Daniel Marcu - Goldman Sachs
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 79, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 45, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 64, weight=0.0, tier=
+
+Weighted Confidence: 74.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (74.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (79/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [17/20] Processing: Matt Ocko
+
+================================================================================
+Contact: Matt Ocko - DCVC
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 33, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 72.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (75/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [18/20] Processing: Bill Dally
+
+================================================================================
+Contact: Bill Dally - NVIDIA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 76, weight=0.0, tier=
+  AcademicResearcher      : confidence= 94, weight=0.0, tier=
+  IntelAnalyst            : confidence= 79, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 35, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 80.8/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (80.8 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: AcademicResearcher (94/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [19/20] Processing: Niccolo de Masi
+
+================================================================================
+Contact: Niccolo de Masi - IonQ
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 69, weight=0.0, tier=
+
+Weighted Confidence: 72.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (74/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [20/20] Processing: Lan Guan
+
+================================================================================
+Contact: Lan Guan - Accenture
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 64, weight=0.0, tier=
+
+Weighted Confidence: 66.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (68/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  ✅ Batch complete: 15/20 found
+  📄 Results: autonomous-poc-run-final/batch_001_results.json
+
+============================================================
+🔄 Processing batch_002
+   Contacts: 21 - 40
+============================================================
+
+  [1/20] Processing: Pat Gelsinger
+
+================================================================================
+Contact: Pat Gelsinger - Playground Global
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 72, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 66.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (72/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [2/20] Processing: Andrew Feldman
+
+================================================================================
+Contact: Andrew Feldman - Cerebras Systems
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 71, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 74, weight=0.0, tier=
+
+Weighted Confidence: 72.6/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.6 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: SocialEngineer (74/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [3/20] Processing: Neema Raphael
+
+================================================================================
+Contact: Neema Raphael - Goldman Sachs
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 83, weight=0.0, tier=
+  SocialEngineer          : confidence= 68, weight=0.0, tier=
+
+Weighted Confidence: 77.1/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (77.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (83/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [4/20] Processing: Josh Wolfe
+
+================================================================================
+Contact: Josh Wolfe - Lux Capital
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 80, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 43, weight=0.0, tier=
+  RecruiterUser           : confidence= 27, weight=0.0, tier=
+  SocialEngineer          : confidence= 75, weight=0.0, tier=
+
+Weighted Confidence: 77.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (77.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (80/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [5/20] Processing: Grégoire Ribordy
+
+================================================================================
+Contact: Grégoire Ribordy - ID Quantique (IonQ)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 39, weight=0.0, tier=
+  RecruiterUser           : confidence= 33, weight=0.0, tier=
+  SocialEngineer          : confidence= 61, weight=0.0, tier=
+
+Weighted Confidence: 65.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (65.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (67/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [6/20] Processing: Berta Rodriguez-Hervas
+
+================================================================================
+Contact: Berta Rodriguez-Hervas - Pfizer
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 27, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 68.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (68.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (75/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [7/20] Processing: Zachary Bogue
+
+================================================================================
+Contact: Zachary Bogue - DCVC
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 60, weight=0.0, tier=
+
+Weighted Confidence: 66.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (70/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [8/20] Processing: Elham Tabassi
+
+================================================================================
+Contact: Elham Tabassi - Brookings Institution
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 30, weight=0.0, tier=
+  SocialEngineer          : confidence= 69, weight=0.0, tier=
+
+Weighted Confidence: 71.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (71.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (73/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [9/20] Processing: Sid Sheth
+
+================================================================================
+Contact: Sid Sheth - d-Matrix
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 26, weight=0.0, tier=
+  SocialEngineer          : confidence= 55, weight=0.0, tier=
+
+Weighted Confidence: 67.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (67.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (74/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [10/20] Processing: Steve Bowsher
+
+================================================================================
+Contact: Steve Bowsher - In-Q-Tel
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 29, weight=0.0, tier=
+  SocialEngineer          : confidence= 50, weight=0.0, tier=
+
+Weighted Confidence: 61.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (61.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (67/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [11/20] Processing: Dan Priest
+
+================================================================================
+Contact: Dan Priest - PwC
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 80, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 93, weight=0.0, tier=
+  RecruiterUser           : confidence= 33, weight=0.0, tier=
+  SocialEngineer          : confidence= 58, weight=0.0, tier=
+
+Weighted Confidence: 84.3/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (84.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (93/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [12/20] Processing: Martin Casado
+
+================================================================================
+Contact: Martin Casado - Andreessen Horowitz
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 72, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 33, weight=0.0, tier=
+  SocialEngineer          : confidence= 52, weight=0.0, tier=
+
+Weighted Confidence: 65.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (65.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (72/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [13/20] Processing: Jordan Shapiro
+
+================================================================================
+Contact: Jordan Shapiro - IonQ
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 76, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 30, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 73.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (73.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (76/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [14/20] Processing: Elizabeth Kelly
+
+================================================================================
+Contact: Elizabeth Kelly - NIST U.S. AI Safety Institute
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 68, weight=0.0, tier=
+
+Weighted Confidence: 81.1/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (81.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [15/20] Processing: Brian Kursar
+
+================================================================================
+Contact: Brian Kursar - Toyota Motor North America
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 40, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 63, weight=0.0, tier=
+
+Weighted Confidence: 72.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (77/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [16/20] Processing: Allyson O'Brien
+
+================================================================================
+Contact: Allyson O'Brien - DARPA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 72, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 29, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 80.6/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (80.6 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [17/20] Processing: Daniel Danker
+
+================================================================================
+Contact: Daniel Danker - Walmart
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 66, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 66.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (66.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: SocialEngineer (67/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [18/20] Processing: Dror Berman
+
+================================================================================
+Contact: Dror Berman - Innovation Endeavors
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 76, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 61, weight=0.0, tier=
+
+Weighted Confidence: 71.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (71.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (76/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [19/20] Processing: Rajeeb Hazra
+
+================================================================================
+Contact: Rajeeb Hazra - Quantinuum
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 65, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 40, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 57, weight=0.0, tier=
+
+Weighted Confidence: 62.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (62.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (65/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [20/20] Processing: Lisa Einstein
+
+================================================================================
+Contact: Lisa Einstein - CISA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 39, weight=0.0, tier=
+  RecruiterUser           : confidence= 29, weight=0.0, tier=
+  SocialEngineer          : confidence= 54, weight=0.0, tier=
+
+Weighted Confidence: 67.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (67.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (74/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  ✅ Batch complete: 10/20 found
+  📄 Results: autonomous-poc-run-final/batch_002_results.json
+
+============================================================
+🔄 Processing batch_003
+   Contacts: 41 - 60
+============================================================
+
+  [1/20] Processing: Andrew Chin
+
+================================================================================
+Contact: Andrew Chin - AllianceBernstein
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 29, weight=0.0, tier=
+  SocialEngineer          : confidence= 72, weight=0.0, tier=
+
+Weighted Confidence: 72.5/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.5 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (73/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [2/20] Processing: Helen Toner
+
+================================================================================
+Contact: Helen Toner - Center for Security and Emerging Technology (CSET)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 95, weight=0.0, tier=
+  RecruiterUser           : confidence= 87, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 84.7/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (84.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [3/20] Processing: Jim Ricotta
+
+================================================================================
+Contact: Jim Ricotta - Aliro Quantum
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 45, weight=0.0, tier=
+  RecruiterUser           : confidence= 31, weight=0.0, tier=
+  SocialEngineer          : confidence= 52, weight=0.0, tier=
+
+Weighted Confidence: 64.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (64.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (70/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [4/20] Processing: Nathaniel Bastian
+
+================================================================================
+Contact: Nathaniel Bastian - DARPA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 65, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 72, weight=0.0, tier=
+
+Weighted Confidence: 68.8/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (68.8 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: SocialEngineer (72/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [5/20] Processing: Michael Kratsios
+
+================================================================================
+Contact: Michael Kratsios - White House OSTP
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 85, weight=0.0, tier=
+  SocialEngineer          : confidence= 73, weight=0.0, tier=
+
+Weighted Confidence: 75.7/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (75.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (85/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [6/20] Processing: Abhi Seth
+
+================================================================================
+Contact: Abhi Seth - Boeing
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 92, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 81.3/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (81.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (92/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [7/20] Processing: Wael Diab
+
+================================================================================
+Contact: Wael Diab - ISO/IEC JTC 1/SC 42
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 92, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 82.1/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (82.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (92/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [8/20] Processing: Andrew Shields
+
+================================================================================
+Contact: Andrew Shields - Toshiba Europe
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 72, weight=0.0, tier=
+
+Weighted Confidence: 72.5/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.5 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (73/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [9/20] Processing: Ollie Whitehouse
+
+================================================================================
+Contact: Ollie Whitehouse - UK National Cyber Security Centre
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 70, weight=0.0, tier=
+
+Weighted Confidence: 68.6/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (68.6 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: SocialEngineer (70/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [10/20] Processing: Vishal Talwar
+
+================================================================================
+Contact: Vishal Talwar - FedEx
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 76, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 25, weight=0.0, tier=
+  SocialEngineer          : confidence= 59, weight=0.0, tier=
+
+Weighted Confidence: 70.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (70.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (76/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [11/20] Processing: Sunil Dhaliwal
+
+================================================================================
+Contact: Sunil Dhaliwal - Amplify Partners
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 31, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 65.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (65.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (70/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [12/20] Processing: Subodh Kulkarni
+
+================================================================================
+Contact: Subodh Kulkarni - Rigetti Computing
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 45, weight=0.0, tier=
+  RecruiterUser           : confidence= 30, weight=0.0, tier=
+  SocialEngineer          : confidence= 59, weight=0.0, tier=
+
+Weighted Confidence: 68.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (68.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (73/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [13/20] Processing: Lucilla Sioli
+
+================================================================================
+Contact: Lucilla Sioli - European Commission AI Office
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 65, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 81, weight=0.0, tier=
+  SocialEngineer          : confidence= 63, weight=0.0, tier=
+
+Weighted Confidence: 72.1/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (72.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (81/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [14/20] Processing: Nick Andersen
+
+================================================================================
+Contact: Nick Andersen - CISA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 36, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 70.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (70.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (78/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [15/20] Processing: Peter Barrett
+
+================================================================================
+Contact: Peter Barrett - Playground Global
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 95, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 63, weight=0.0, tier=
+
+Weighted Confidence: 84.7/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (84.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [16/20] Processing: Vivek Chilukuri
+
+================================================================================
+Contact: Vivek Chilukuri - Center for a New American Security (CNAS)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 93, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 59, weight=0.0, tier=
+
+Weighted Confidence: 81.0/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (81.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (93/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [17/20] Processing: Joe Altepeter
+
+================================================================================
+Contact: Joe Altepeter - DARPA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 37, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 59, weight=0.0, tier=
+
+Weighted Confidence: 71.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (71.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (77/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [18/20] Processing: Tõnis Saar
+
+================================================================================
+Contact: Tõnis Saar - NATO CCDCOE
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 88, weight=0.0, tier=
+  RecruiterUser           : confidence= 86, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 81.8/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (81.8 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (88/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [19/20] Processing: Bilal Zuberi
+
+================================================================================
+Contact: Bilal Zuberi - Lux Capital
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 94, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 63, weight=0.0, tier=
+
+Weighted Confidence: 85.0/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (85.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (94/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [20/20] Processing: Dewey Murdick
+
+================================================================================
+Contact: Dewey Murdick - Center for Security and Emerging Technology (CSET)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 69, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 74, weight=0.0, tier=
+
+Weighted Confidence: 71.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (71.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: SocialEngineer (74/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  ✅ Batch complete: 15/20 found
+  📄 Results: autonomous-poc-run-final/batch_003_results.json
+
+============================================================
+🔄 Processing batch_004
+   Contacts: 61 - 80
+============================================================
+
+  [1/20] Processing: Kevin Chalker
+
+================================================================================
+Contact: Kevin Chalker - Qrypt
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 72.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (77/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [2/20] Processing: Adam Beaumont
+
+================================================================================
+Contact: Adam Beaumont - UK AI Security Institute (AISI)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 35, weight=0.0, tier=
+  RecruiterUser           : confidence= 26, weight=0.0, tier=
+  SocialEngineer          : confidence= 51, weight=0.0, tier=
+
+Weighted Confidence: 69.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (69.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (78/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [3/20] Processing: Anjney Midha
+
+================================================================================
+Contact: Anjney Midha - Andreessen Horowitz
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 79, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 45, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 73.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (73.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (79/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [4/20] Processing: Martin Ward
+
+================================================================================
+Contact: Martin Ward - ETSI ISG QKD
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 70, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 26, weight=0.0, tier=
+  SocialEngineer          : confidence= 67, weight=0.0, tier=
+
+Weighted Confidence: 81.6/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (81.6 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [5/20] Processing: Matt Turek
+
+================================================================================
+Contact: Matt Turek - DARPA
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 25, weight=0.0, tier=
+  SocialEngineer          : confidence= 75, weight=0.0, tier=
+
+Weighted Confidence: 81.0/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (81.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [6/20] Processing: Josephine Teo
+
+================================================================================
+Contact: Josephine Teo - Singapore Ministry of Digital Development
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 39, weight=0.0, tier=
+  RecruiterUser           : confidence= 31, weight=0.0, tier=
+  SocialEngineer          : confidence= 65, weight=0.0, tier=
+
+Weighted Confidence: 70.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (70.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (73/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [7/20] Processing: Jennifer Li
+
+================================================================================
+Contact: Jennifer Li - Andreessen Horowitz
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 69, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 40, weight=0.0, tier=
+  RecruiterUser           : confidence= 25, weight=0.0, tier=
+  SocialEngineer          : confidence= 55, weight=0.0, tier=
+
+Weighted Confidence: 64.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (64.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (69/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [8/20] Processing: Robin Blume-Kohout
+
+================================================================================
+Contact: Robin Blume-Kohout - Sandia National Laboratories
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence= 86, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 95, weight=0.0, tier=
+  RecruiterUser           : confidence= 33, weight=0.0, tier=
+  SocialEngineer          : confidence= 57, weight=0.0, tier=
+
+Weighted Confidence: 84.1/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (84.1 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (95/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [9/20] Processing: Jade Leung
+
+================================================================================
+Contact: Jade Leung - UK AI Security Institute (AISI)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 65, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 44, weight=0.0, tier=
+  RecruiterUser           : confidence= 27, weight=0.0, tier=
+  SocialEngineer          : confidence= 65, weight=0.0, tier=
+
+Weighted Confidence: 65.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (65.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (65/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [10/20] Processing: Constanza Vidal Bustamante
+
+================================================================================
+Contact: Constanza Vidal Bustamante - Center for a New American Security (CNAS)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 35, weight=0.0, tier=
+  RecruiterUser           : confidence= 27, weight=0.0, tier=
+  SocialEngineer          : confidence= 73, weight=0.0, tier=
+
+Weighted Confidence: 75.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (75.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (78/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [11/20] Processing: Denis Mandich
+
+================================================================================
+Contact: Denis Mandich - Qrypt
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 67, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 28, weight=0.0, tier=
+  SocialEngineer          : confidence= 57, weight=0.0, tier=
+
+Weighted Confidence: 63.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (63.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (67/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [12/20] Processing: Clara Chappaz
+
+================================================================================
+Contact: Clara Chappaz - French Government
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 51, weight=0.0, tier=
+
+Weighted Confidence: 67.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (67.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (75/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [13/20] Processing: Salil Gunashekar
+
+================================================================================
+Contact: Salil Gunashekar - RAND Europe
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 40, weight=0.0, tier=
+  RecruiterUser           : confidence= 80, weight=0.0, tier=
+  SocialEngineer          : confidence= 59, weight=0.0, tier=
+
+Weighted Confidence: 75.5/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (75.5 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (80/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [14/20] Processing: Janet Egan
+
+================================================================================
+Contact: Janet Egan - Center for a New American Security (CNAS)
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 66, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 94, weight=0.0, tier=
+  RecruiterUser           : confidence= 29, weight=0.0, tier=
+  SocialEngineer          : confidence= 69, weight=0.0, tier=
+
+Weighted Confidence: 82.4/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (82.4 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (94/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [15/20] Processing: Prineha Narang
+
+================================================================================
+Contact: Prineha Narang - Aliro Quantum
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 68, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 83, weight=0.0, tier=
+  SocialEngineer          : confidence= 69, weight=0.0, tier=
+
+Weighted Confidence: 81.8/100
+  (Agents contributing: 4/6)
+
+✅ Sufficient confidence (81.8 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [16/20] Processing: Edward Parker
+
+================================================================================
+Contact: Edward Parker - RAND Corporation
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 73, weight=0.0, tier=
+  AcademicResearcher      : confidence= 91, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 54, weight=0.0, tier=
+
+Weighted Confidence: 78.8/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (78.8 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: AcademicResearcher (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [17/20] Processing: Andy Leaver
+
+================================================================================
+Contact: Andy Leaver - Arqit Quantum
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 91, weight=0.0, tier=
+  RecruiterUser           : confidence= 27, weight=0.0, tier=
+  SocialEngineer          : confidence= 62, weight=0.0, tier=
+
+Weighted Confidence: 82.9/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (82.9 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (91/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [18/20] Processing: Karine Perset
+
+================================================================================
+Contact: Karine Perset - OECD
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 75, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 31, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 68.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (68.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (75/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [19/20] Processing: Graham Brookie
+
+================================================================================
+Contact: Graham Brookie - Atlantic Council
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 74, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 94, weight=0.0, tier=
+  RecruiterUser           : confidence= 32, weight=0.0, tier=
+  SocialEngineer          : confidence= 53, weight=0.0, tier=
+
+Weighted Confidence: 82.4/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (82.4 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: InvestigativeJournalist (94/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [20/20] Processing: Bridget Walshe
+
+================================================================================
+Contact: Bridget Walshe - Canadian Centre for Cyber Security
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 79, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 41, weight=0.0, tier=
+  RecruiterUser           : confidence= 31, weight=0.0, tier=
+  SocialEngineer          : confidence= 54, weight=0.0, tier=
+
+Weighted Confidence: 70.7/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (70.7 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (79/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  ✅ Batch complete: 14/20 found
+  📄 Results: autonomous-poc-run-final/batch_004_results.json
+
+============================================================
+🔄 Processing batch_005
+   Contacts: 81 - 84
+============================================================
+
+  [1/4] Processing: Stephen Burt
+
+================================================================================
+Contact: Stephen Burt - Treasury Board of Canada Secretariat
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 79, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 35, weight=0.0, tier=
+  SocialEngineer          : confidence= 74, weight=0.0, tier=
+
+Weighted Confidence: 76.3/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (76.3 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (79/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [2/4] Processing: Lucy Poole
+
+================================================================================
+Contact: Lucy Poole - Australian Digital Transformation Agency
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 80, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 42, weight=0.0, tier=
+  RecruiterUser           : confidence= 30, weight=0.0, tier=
+  SocialEngineer          : confidence= 56, weight=0.0, tier=
+
+Weighted Confidence: 72.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (72.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (80/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [3/4] Processing: Simon Knowles
+
+================================================================================
+Contact: Simon Knowles - Graphcore
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 77, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 38, weight=0.0, tier=
+  RecruiterUser           : confidence= 34, weight=0.0, tier=
+  SocialEngineer          : confidence= 65, weight=0.0, tier=
+
+Weighted Confidence: 73.0/100
+  (Agents contributing: 2/6)
+
+✅ Sufficient confidence (73.0 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: ProfessionalNetworker (77/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  [4/4] Processing: Kunle Olukotun
+
+================================================================================
+Contact: Kunle Olukotun - SambaNova Systems
+================================================================================
+
+Phase 1: Multi-Agent Exploration (6 diverse strategies, 0 cost)
+--------------------------------------------------------------------------------
+  ProfessionalNetworker   : confidence= 78, weight=0.0, tier=
+  AcademicResearcher      : confidence=  0, weight=0.0, tier=
+  IntelAnalyst            : confidence=  0, weight=0.0, tier=
+  InvestigativeJournalist : confidence= 40, weight=0.0, tier=
+  RecruiterUser           : confidence= 84, weight=0.0, tier=
+  SocialEngineer          : confidence= 75, weight=0.0, tier=
+
+Weighted Confidence: 79.2/100
+  (Agents contributing: 3/6)
+
+✅ Sufficient confidence (79.2 >= 50)
+Phase 2: Skipped (Free agents sufficient)
+--------------------------------------------------------------------------------
+  Best agent: RecruiterUser (84/100)
+  Cost: $0.0000 (saved $0.0050)
+
+  ✅ Batch complete: 4/4 found
+  📄 Results: autonomous-poc-run-final/batch_005_results.json
+
+✅ All batches complete
+
+============================================================
+📊 BATCH DISCOVERY SUMMARY
+============================================================
+
+📈 Overall Results:
+   Contacts processed: 84
+   Contacts found: 58 (69.0%)
+   Total cost: $0.0000
+
+🤖 Agent Performance (Aggregated):
+
+   AcademicResearcher:
+     Attempts: 84
+     Success rate: 4.8%
+     Avg confidence: 4.4
+
+   IntelAnalyst:
+     Attempts: 84
+     Success rate: 8.3%
+     Avg confidence: 6.7
+
+   InvestigativeJournalist:
+     Attempts: 84
+     Success rate: 25.0%
+     Avg confidence: 52.8
+
+   ProfessionalNetworker:
+     Attempts: 84
+     Success rate: 71.4%
+     Avg confidence: 72.7
+
+   RecruiterUser:
+     Attempts: 84
+     Success rate: 15.5%
+     Avg confidence: 38.8
+
+   SocialEngineer:
+     Attempts: 84
+     Success rate: 21.4%
+     Avg confidence: 63.0
+
+📄 Summary: autonomous-poc-run-final/batch_summary.json
+============================================================
+
+
+✅ Batch discovery complete
+

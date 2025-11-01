@@ -1,0 +1,351 @@
+{
+  "pass_number": 1,
+  "timestamp": "2025-10-31T21:30:26.069675",
+  "contacts_processed": 5,
+  "total_duration": 18.68,
+  "avg_confidence": 47.5,
+  "results": [
+    {
+      "contact": {
+        "first_name": "Emil",
+        "last_name": "Michael",
+        "organization": "Department of Defense",
+        "role_title": "Undersecretary of Defense for R&E / CTO / Acting Director DIU",
+        "sector": "Defense Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.diu.mil",
+        "email_if_public": "",
+        "why_relevant": "Pentagon's chief technology strategist overseeing Defense Innovation Unit and coordinating quantum-AI integration across defense technology development.",
+        "recent_activity": "Confirmed as Pentagon CTO May 2025; became acting DIU director Aug 2025; identified AI and Quantum as \"North Stars\" among 14 Critical Technology Areas; flattening DoD tech org structure",
+        "strategic_problem": "Synchronizing quantum and AI as enterprise-wide \"North Star\" technology priorities across 14 CTAs while accelerating commercial tech transition through DIU",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate DoD's quantum-AI North Stars with unified coordination framework that accelerates commercial tech transition while meeting national security requirements",
+        "ice_breaker": "Your North Star strategy aligns quantum+AI across DoD\u2014InfraFabric provides the unified orchestration framework that accelerates both while meeting your security requirements",
+        "priority_tier": "A",
+        "priority_score": "97"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Emil Michael Department of Defense LinkedIn",
+              "url": "https://www.bing.com/search?q=Emil+Michael+Department+of+Defense+LinkedIn",
+              "wait_time": 0,
+              "timestamp_start": "2025-10-31T21:30:07.387899",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:30:07.566480",
+              "success": true,
+              "content_length": 102368
+            }
+          ],
+          "query_refinement": "Pass 1: Emil Michael Department of Defense LinkedIn",
+          "reasoning": "Pass 1 with learning"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Emil Michael\" filetype:pdf Department of Defense",
+              "url": "https://www.bing.com/search?q=%22Emil+Michael%22+filetype%3Apdf+Department+of+Defense",
+              "wait_time": 0.32,
+              "timestamp_start": "2025-10-31T21:30:09.388117",
+              "status_code": 200,
+              "duration": 0.21,
+              "timestamp_end": "2025-10-31T21:30:09.600492",
+              "success": true,
+              "content_length": 95585
+            }
+          ],
+          "query_refinement": "Pass 1: \"Emil Michael\" filetype:pdf Department of Defense",
+          "reasoning": "PDF mining Pass 1"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 2.713701009750366,
+      "pass_number": 1
+    },
+    {
+      "contact": {
+        "first_name": "Amin",
+        "last_name": "Vahdat",
+        "organization": "Google Cloud",
+        "role_title": "VP & GM ML Systems and Cloud AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/vahdat",
+        "company_website": "https://cloud.google.com",
+        "email_if_public": "",
+        "why_relevant": "Leads Google Cloud's AI infrastructure including TPUs and AI Hypercomputer systems critical for quantum-AI convergence workloads.",
+        "recent_activity": "Launched Ironwood TPU (7th gen) April 2025: 42.5 exaflops at 9,216 chips\u201424x faster than El Capitan; emphasized networking as #1 bottleneck at Optica March 2025; predicted 2025 as \"Year of Inference\"",
+        "strategic_problem": "Networking bottleneck constraining AI scaling: demand growing 10x/year but interconnects lag behind, limiting inference workload distribution at hyperscale",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Solve the networking bottleneck for agentic AI inference workloads by orchestrating quantum-enhanced communication channels within classical TPU fabrics",
+        "ice_breaker": "Your networking bottleneck thesis is quantum's opening\u2014InfraFabric coordinates distributed inference across quantum-enhanced channels that scale with your 10x demand",
+        "priority_tier": "A",
+        "priority_score": "96"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Amin Vahdat Google Cloud LinkedIn",
+              "url": "https://www.bing.com/search?q=Amin+Vahdat+Google+Cloud+LinkedIn",
+              "wait_time": 1.29,
+              "timestamp_start": "2025-10-31T21:30:11.388026",
+              "status_code": 200,
+              "duration": 0.23,
+              "timestamp_end": "2025-10-31T21:30:11.622684",
+              "success": true,
+              "content_length": 102154
+            }
+          ],
+          "query_refinement": "Pass 1: Amin Vahdat Google Cloud LinkedIn",
+          "reasoning": "Pass 1 with learning"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Amin Vahdat\" filetype:pdf Google Cloud",
+              "url": "https://www.bing.com/search?q=%22Amin+Vahdat%22+filetype%3Apdf+Google+Cloud",
+              "wait_time": 0.26,
+              "timestamp_start": "2025-10-31T21:30:13.388197",
+              "status_code": 200,
+              "duration": 0.2,
+              "timestamp_end": "2025-10-31T21:30:13.588945",
+              "success": true,
+              "content_length": 102566
+            }
+          ],
+          "query_refinement": "Pass 1: \"Amin Vahdat\" filetype:pdf Google Cloud",
+          "reasoning": "PDF mining Pass 1"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 3.9900429248809814,
+      "pass_number": 1
+    },
+    {
+      "contact": {
+        "first_name": "Jeremy",
+        "last_name": "O'Brien",
+        "organization": "PsiQuantum",
+        "role_title": "CEO & Co-founder",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/jeremy-o-brien-39482631/",
+        "company_website": "https://www.psiquantum.com",
+        "email_if_public": "",
+        "why_relevant": "Leading photonic quantum computing with distributed architecture requiring coordination infrastructure for quantum networking and AI integration.",
+        "recent_activity": "Announced Omega photonic chipset Feb 2025 (Nature paper, all components for million-qubit systems); breaking ground Brisbane and Chicago quantum compute centers 2025; Australian and Illinois government partnerships",
+        "strategic_problem": "Building first utility-scale million-qubit photonic quantum computers in manufacturing-ready silicon photonics while coordinating distributed architecture at unprecedented scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate PsiQuantum's distributed photonic architecture across million-qubit systems using quantum networking that leverages your silicon photonics infrastructure",
+        "ice_breaker": "Your photonic architecture is inherently networked\u2014InfraFabric orchestrates your million-qubit systems with quantum networking native to your silicon photonics platform",
+        "priority_tier": "A",
+        "priority_score": "95"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Jeremy O'Brien PsiQuantum LinkedIn",
+              "url": "https://www.bing.com/search?q=Jeremy+O%27Brien+PsiQuantum+LinkedIn",
+              "wait_time": 1.3,
+              "timestamp_start": "2025-10-31T21:30:15.388339",
+              "status_code": 200,
+              "duration": 0.21,
+              "timestamp_end": "2025-10-31T21:30:15.601618",
+              "success": true,
+              "content_length": 102528
+            }
+          ],
+          "query_refinement": "Pass 1: Jeremy O'Brien PsiQuantum LinkedIn",
+          "reasoning": "Pass 1 with learning"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Jeremy O'Brien\" filetype:pdf PsiQuantum",
+              "url": "https://www.bing.com/search?q=%22Jeremy+O%27Brien%22+filetype%3Apdf+PsiQuantum",
+              "wait_time": 0.28,
+              "timestamp_start": "2025-10-31T21:30:17.387969",
+              "status_code": 200,
+              "duration": 0.22,
+              "timestamp_end": "2025-10-31T21:30:17.609500",
+              "success": true,
+              "content_length": 95744
+            }
+          ],
+          "query_refinement": "Pass 1: \"Jeremy O'Brien\" filetype:pdf PsiQuantum",
+          "reasoning": "PDF mining Pass 1"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 4.019842147827148,
+      "pass_number": 1
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Papermaster",
+        "organization": "AMD",
+        "role_title": "EVP & Chief Technology Officer",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/mark-papermaster-66914925",
+        "company_website": "https://www.amd.com",
+        "email_if_public": "mark.papermaster@amd.com",
+        "why_relevant": "Drives AMD's AI strategy across hardware and software portfolio with focus on open rack-scale AI infrastructure for quantum-ready systems.",
+        "recent_activity": "Keynoting ISC 2025 on HPC-AI convergence; launched OCP 2025 open rack-scale AI platform with MI355X GPUs; achieved 38X energy efficiency (exceeded 30X goal); taped out 2nm Venice chips",
+        "strategic_problem": "Open rack-scale standards for AI infrastructure that enable hyperscaler adoption while competing with NVIDIA's closed ecosystem at massive scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Build open AI infrastructure today that gracefully incorporates quantum accelerators tomorrow through standards-based rack-scale orchestration",
+        "ice_breaker": "Your OCP rack-scale vision needs quantum extensibility\u2014InfraFabric brings the same open standards philosophy to quantum-classical hybrid coordination",
+        "priority_tier": "A",
+        "priority_score": "94"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Mark Papermaster AMD LinkedIn",
+              "url": "https://www.bing.com/search?q=Mark+Papermaster+AMD+LinkedIn",
+              "wait_time": 1.28,
+              "timestamp_start": "2025-10-31T21:30:19.388028",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:30:19.567670",
+              "success": true,
+              "content_length": 94267
+            }
+          ],
+          "query_refinement": "Pass 1: Mark Papermaster AMD LinkedIn",
+          "reasoning": "Pass 1 with learning"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Mark Papermaster\" filetype:pdf AMD",
+              "url": "https://www.bing.com/search?q=%22Mark+Papermaster%22+filetype%3Apdf+AMD",
+              "wait_time": 0.01,
+              "timestamp_start": "2025-10-31T21:30:21.388482",
+              "status_code": 200,
+              "duration": 0.34,
+              "timestamp_end": "2025-10-31T21:30:21.725949",
+              "success": true,
+              "content_length": 102135
+            }
+          ],
+          "query_refinement": "Pass 1: \"Mark Papermaster\" filetype:pdf AMD",
+          "reasoning": "PDF mining Pass 1"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 4.1163012981414795,
+      "pass_number": 1
+    },
+    {
+      "contact": {
+        "first_name": "Swami",
+        "last_name": "Sivasubramanian",
+        "organization": "AWS",
+        "role_title": "VP of Agentic AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/swaminathansivasubramanian",
+        "company_website": "https://aws.amazon.com",
+        "email_if_public": "",
+        "why_relevant": "Manages AWS's AI and data services including infrastructure for foundation models that require quantum-enhanced coordination systems.",
+        "recent_activity": "Appointed VP of Agentic AI March 2025; AWS Summit NYC keynote on AgentCore (1M+ SDK downloads); re:Invent 2024 launched multi-agent collaboration (40% better completion); saved 4,500 developer-years with Amazon Q",
+        "strategic_problem": "Scaling production-ready agentic AI systems that reliably orchestrate multi-agent collaboration across distributed enterprise infrastructure at AWS global scale",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate multi-agent AI systems with quantum-secured communication channels and hybrid quantum-classical task routing for enterprise-grade reliability",
+        "ice_breaker": "Your agentic AI architecture needs quantum coordination\u2014InfraFabric orchestrates multi-agent collaboration with quantum-secure channels and hybrid task routing at AWS scale",
+        "priority_tier": "A",
+        "priority_score": "93"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Swami Sivasubramanian AWS LinkedIn",
+              "url": "https://www.bing.com/search?q=Swami+Sivasubramanian+AWS+LinkedIn",
+              "wait_time": 1.16,
+              "timestamp_start": "2025-10-31T21:30:23.388398",
+              "status_code": 200,
+              "duration": 0.21,
+              "timestamp_end": "2025-10-31T21:30:23.601967",
+              "success": true,
+              "content_length": 103330
+            }
+          ],
+          "query_refinement": "Pass 1: Swami Sivasubramanian AWS LinkedIn",
+          "reasoning": "Pass 1 with learning"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Swami Sivasubramanian\" filetype:pdf AWS",
+              "url": "https://www.bing.com/search?q=%22Swami+Sivasubramanian%22+filetype%3Apdf+AWS",
+              "wait_time": 0.28,
+              "timestamp_start": "2025-10-31T21:30:25.388285",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:30:25.568630",
+              "success": true,
+              "content_length": 95714
+            }
+          ],
+          "query_refinement": "Pass 1: \"Swami Sivasubramanian\" filetype:pdf AWS",
+          "reasoning": "PDF mining Pass 1"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 3.8415889739990234,
+      "pass_number": 1
+    }
+  ],
+  "rate_limiter_stats": {
+    "total_requests": 10,
+    "total_delays_seconds": 6.18,
+    "domains_accessed": 1,
+    "domains_with_backoff": 0,
+    "avg_delay_per_request": 0.62
+  },
+  "learning": {
+    "learned_from_previous": false,
+    "successful_queries": [],
+    "failed_queries": []
+  }
+}

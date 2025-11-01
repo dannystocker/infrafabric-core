@@ -1,0 +1,88 @@
+================================================================================
+RECURSIVE LEARNING COORDINATION REPORT
+IF-Style Multi-Plan Execution
+================================================================================
+
+🕐 Execution Time: 2025-10-31 23:32:42
+📋 Plans Executed: 4
+
+📊 Execution Summary:
+   Successful: 4/4
+   Failed: 0/4
+
+📝 Plan-by-Plan Results:
+
+  agent_weight_learner:
+    Status: ✅ SUCCESS
+    Execution time: 0.0s
+    Weight: 1.5×
+
+  bug_pattern_learner:
+    Status: ✅ SUCCESS
+    Execution time: 0.1s
+    Weight: 1.3×
+    Result files: 1
+      • bug_patterns_20251031_233242.json
+    Report files: 1
+      • bug_prevention_report_20251031_233242.txt
+
+  meta_learning_dashboard:
+    Status: ✅ SUCCESS
+    Execution time: 0.0s
+    Weight: 1.0×
+    Result files: 1
+      • meta_learning_20251031_233242.json
+
+  strategy_evolver:
+    Status: ✅ SUCCESS
+    Execution time: 0.0s
+    Weight: 1.2×
+
+🎯 Weighted Contribution Analysis:
+
+  agent_weight_learner:
+    Weighted score: 1.65
+    Contribution: 25.4%
+    Base score: 1.00
+    Time bonus: +0.10
+    Output bonus: +0.00
+
+  bug_pattern_learner:
+    Weighted score: 1.56
+    Contribution: 24.0%
+    Base score: 1.00
+    Time bonus: +0.10
+    Output bonus: +0.10
+
+  strategy_evolver:
+    Weighted score: 1.32
+    Contribution: 20.3%
+    Base score: 1.00
+    Time bonus: +0.10
+    Output bonus: +0.00
+
+  meta_learning_dashboard:
+    Weighted score: 1.15
+    Contribution: 17.7%
+    Base score: 1.00
+    Time bonus: +0.10
+    Output bonus: +0.05
+
+💡 Key Insights:
+
+  • Total weighted contribution: 87.4%
+  • Top contributor: agent_weight_learner (25.4%)
+  ✅ All plans succeeded - full recursive learning cycle complete
+
+🔄 Next Steps:
+
+  1. Review all generated reports for insights
+  2. Apply learned weights to next execution
+  3. Implement promoted strategies (if any)
+  4. Run defensive tests before production
+  5. Monitor meta-learning dashboard for plateau detection
+
+================================================================================
+
+IF-Trace Manifest: See coordination_manifest_*.json
+This execution demonstrated recursive learning at 4 levels simultaneously.

@@ -1,0 +1,874 @@
+{
+  "contacts_processed": 10,
+  "total_duration": 58.69,
+  "avg_duration_per_contact": 5.87,
+  "rate_limiter_stats": {
+    "total_requests": 30,
+    "total_delays_seconds": 25.89,
+    "domains_accessed": 1,
+    "domains_with_backoff": 0,
+    "avg_delay_per_request": 0.86
+  },
+  "results": [
+    {
+      "contact": {
+        "first_name": "Emil",
+        "last_name": "Michael",
+        "organization": "Department of Defense",
+        "role_title": "Undersecretary of Defense for R&E / CTO / Acting Director DIU",
+        "sector": "Defense Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.diu.mil",
+        "email_if_public": "",
+        "why_relevant": "Pentagon's chief technology strategist overseeing Defense Innovation Unit and coordinating quantum-AI integration across defense technology development.",
+        "recent_activity": "Confirmed as Pentagon CTO May 2025; became acting DIU director Aug 2025; identified AI and Quantum as \"North Stars\" among 14 Critical Technology Areas; flattening DoD tech org structure",
+        "strategic_problem": "Synchronizing quantum and AI as enterprise-wide \"North Star\" technology priorities across 14 CTAs while accelerating commercial tech transition through DIU",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate DoD's quantum-AI North Stars with unified coordination framework that accelerates commercial tech transition while meeting national security requirements",
+        "ice_breaker": "Your North Star strategy aligns quantum+AI across DoD\u2014InfraFabric provides the unified orchestration framework that accelerates both while meeting your security requirements",
+        "priority_tier": "A",
+        "priority_score": "97"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Emil Michael Department of Defense LinkedIn",
+              "url": "https://www.bing.com/search?q=Emil+Michael+Department+of+Defense+LinkedIn",
+              "wait_time": 0,
+              "timestamp_start": "2025-10-31T21:25:55.596384",
+              "status_code": 200,
+              "duration": 0.28,
+              "timestamp_end": "2025-10-31T21:25:55.871915",
+              "success": true,
+              "content_length": 101669
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Department of Defense official website contact",
+              "url": "https://www.bing.com/search?q=Department+of+Defense+official+website+contact",
+              "wait_time": 0.71,
+              "timestamp_start": "2025-10-31T21:25:57.596607",
+              "status_code": 200,
+              "duration": 0.2,
+              "timestamp_end": "2025-10-31T21:25:57.792420",
+              "success": true,
+              "content_length": 95521
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Emil Michael\" filetype:pdf Department of Defense",
+              "url": "https://www.bing.com/search?q=%22Emil+Michael%22+filetype%3Apdf+Department+of+Defense",
+              "wait_time": 0.8,
+              "timestamp_start": "2025-10-31T21:25:59.596703",
+              "status_code": 200,
+              "duration": 0.31,
+              "timestamp_end": "2025-10-31T21:25:59.907977",
+              "success": true,
+              "content_length": 103200
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 4.812663793563843,
+      "timestamp": "2025-10-31T21:26:00.409002"
+    },
+    {
+      "contact": {
+        "first_name": "Amin",
+        "last_name": "Vahdat",
+        "organization": "Google Cloud",
+        "role_title": "VP & GM ML Systems and Cloud AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/vahdat",
+        "company_website": "https://cloud.google.com",
+        "email_if_public": "",
+        "why_relevant": "Leads Google Cloud's AI infrastructure including TPUs and AI Hypercomputer systems critical for quantum-AI convergence workloads.",
+        "recent_activity": "Launched Ironwood TPU (7th gen) April 2025: 42.5 exaflops at 9,216 chips\u201424x faster than El Capitan; emphasized networking as #1 bottleneck at Optica March 2025; predicted 2025 as \"Year of Inference\"",
+        "strategic_problem": "Networking bottleneck constraining AI scaling: demand growing 10x/year but interconnects lag behind, limiting inference workload distribution at hyperscale",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Solve the networking bottleneck for agentic AI inference workloads by orchestrating quantum-enhanced communication channels within classical TPU fabrics",
+        "ice_breaker": "Your networking bottleneck thesis is quantum's opening\u2014InfraFabric coordinates distributed inference across quantum-enhanced channels that scale with your 10x demand",
+        "priority_tier": "A",
+        "priority_score": "96"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Amin Vahdat Google Cloud LinkedIn",
+              "url": "https://www.bing.com/search?q=Amin+Vahdat+Google+Cloud+LinkedIn",
+              "wait_time": 1.19,
+              "timestamp_start": "2025-10-31T21:26:01.596679",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:01.785233",
+              "success": true,
+              "content_length": 102238
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Google Cloud official website contact",
+              "url": "https://www.bing.com/search?q=Google+Cloud+official+website+contact",
+              "wait_time": 0.8,
+              "timestamp_start": "2025-10-31T21:26:03.596465",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:03.789556",
+              "success": true,
+              "content_length": 101894
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Amin Vahdat\" filetype:pdf Google Cloud",
+              "url": "https://www.bing.com/search?q=%22Amin+Vahdat%22+filetype%3Apdf+Google+Cloud",
+              "wait_time": 0.8,
+              "timestamp_start": "2025-10-31T21:26:05.596563",
+              "status_code": 200,
+              "duration": 0.2,
+              "timestamp_end": "2025-10-31T21:26:05.793111",
+              "success": true,
+              "content_length": 101790
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 5.885276794433594,
+      "timestamp": "2025-10-31T21:26:06.294337"
+    },
+    {
+      "contact": {
+        "first_name": "Jeremy",
+        "last_name": "O'Brien",
+        "organization": "PsiQuantum",
+        "role_title": "CEO & Co-founder",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/jeremy-o-brien-39482631/",
+        "company_website": "https://www.psiquantum.com",
+        "email_if_public": "",
+        "why_relevant": "Leading photonic quantum computing with distributed architecture requiring coordination infrastructure for quantum networking and AI integration.",
+        "recent_activity": "Announced Omega photonic chipset Feb 2025 (Nature paper, all components for million-qubit systems); breaking ground Brisbane and Chicago quantum compute centers 2025; Australian and Illinois government partnerships",
+        "strategic_problem": "Building first utility-scale million-qubit photonic quantum computers in manufacturing-ready silicon photonics while coordinating distributed architecture at unprecedented scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate PsiQuantum's distributed photonic architecture across million-qubit systems using quantum networking that leverages your silicon photonics infrastructure",
+        "ice_breaker": "Your photonic architecture is inherently networked\u2014InfraFabric orchestrates your million-qubit systems with quantum networking native to your silicon photonics platform",
+        "priority_tier": "A",
+        "priority_score": "95"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Jeremy O'Brien PsiQuantum LinkedIn",
+              "url": "https://www.bing.com/search?q=Jeremy+O%27Brien+PsiQuantum+LinkedIn",
+              "wait_time": 1.3,
+              "timestamp_start": "2025-10-31T21:26:07.596438",
+              "status_code": 200,
+              "duration": 0.77,
+              "timestamp_end": "2025-10-31T21:26:08.362407",
+              "success": true,
+              "content_length": 103285
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "PsiQuantum official website contact",
+              "url": "https://www.bing.com/search?q=PsiQuantum+official+website+contact",
+              "wait_time": 0.22,
+              "timestamp_start": "2025-10-31T21:26:09.596577",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:26:09.780742",
+              "success": true,
+              "content_length": 103692
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Jeremy O'Brien\" filetype:pdf PsiQuantum",
+              "url": "https://www.bing.com/search?q=%22Jeremy+O%27Brien%22+filetype%3Apdf+PsiQuantum",
+              "wait_time": 0.81,
+              "timestamp_start": "2025-10-31T21:26:11.596748",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:11.789020",
+              "success": true,
+              "content_length": 103291
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 5.995743989944458,
+      "timestamp": "2025-10-31T21:26:12.290146"
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Papermaster",
+        "organization": "AMD",
+        "role_title": "EVP & Chief Technology Officer",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/mark-papermaster-66914925",
+        "company_website": "https://www.amd.com",
+        "email_if_public": "mark.papermaster@amd.com",
+        "why_relevant": "Drives AMD's AI strategy across hardware and software portfolio with focus on open rack-scale AI infrastructure for quantum-ready systems.",
+        "recent_activity": "Keynoting ISC 2025 on HPC-AI convergence; launched OCP 2025 open rack-scale AI platform with MI355X GPUs; achieved 38X energy efficiency (exceeded 30X goal); taped out 2nm Venice chips",
+        "strategic_problem": "Open rack-scale standards for AI infrastructure that enable hyperscaler adoption while competing with NVIDIA's closed ecosystem at massive scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Build open AI infrastructure today that gracefully incorporates quantum accelerators tomorrow through standards-based rack-scale orchestration",
+        "ice_breaker": "Your OCP rack-scale vision needs quantum extensibility\u2014InfraFabric brings the same open standards philosophy to quantum-classical hybrid coordination",
+        "priority_tier": "A",
+        "priority_score": "94"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Mark Papermaster AMD LinkedIn",
+              "url": "https://www.bing.com/search?q=Mark+Papermaster+AMD+LinkedIn",
+              "wait_time": 1.31,
+              "timestamp_start": "2025-10-31T21:26:13.596617",
+              "status_code": 200,
+              "duration": 0.24,
+              "timestamp_end": "2025-10-31T21:26:13.832600",
+              "success": true,
+              "content_length": 94676
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "AMD official website contact",
+              "url": "https://www.bing.com/search?q=AMD+official+website+contact",
+              "wait_time": 0.74,
+              "timestamp_start": "2025-10-31T21:26:15.596489",
+              "status_code": 200,
+              "duration": 0.22,
+              "timestamp_end": "2025-10-31T21:26:15.811635",
+              "success": true,
+              "content_length": 94299
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Mark Papermaster\" filetype:pdf AMD",
+              "url": "https://www.bing.com/search?q=%22Mark+Papermaster%22+filetype%3Apdf+AMD",
+              "wait_time": 0.78,
+              "timestamp_start": "2025-10-31T21:26:17.871988",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:18.057217",
+              "success": true,
+              "content_length": 102165
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 6.268315076828003,
+      "timestamp": "2025-10-31T21:26:18.558557"
+    },
+    {
+      "contact": {
+        "first_name": "Swami",
+        "last_name": "Sivasubramanian",
+        "organization": "AWS",
+        "role_title": "VP of Agentic AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/swaminathansivasubramanian",
+        "company_website": "https://aws.amazon.com",
+        "email_if_public": "",
+        "why_relevant": "Manages AWS's AI and data services including infrastructure for foundation models that require quantum-enhanced coordination systems.",
+        "recent_activity": "Appointed VP of Agentic AI March 2025; AWS Summit NYC keynote on AgentCore (1M+ SDK downloads); re:Invent 2024 launched multi-agent collaboration (40% better completion); saved 4,500 developer-years with Amazon Q",
+        "strategic_problem": "Scaling production-ready agentic AI systems that reliably orchestrate multi-agent collaboration across distributed enterprise infrastructure at AWS global scale",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate multi-agent AI systems with quantum-secured communication channels and hybrid quantum-classical task routing for enterprise-grade reliability",
+        "ice_breaker": "Your agentic AI architecture needs quantum coordination\u2014InfraFabric orchestrates multi-agent collaboration with quantum-secure channels and hybrid task routing at AWS scale",
+        "priority_tier": "A",
+        "priority_score": "93"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Swami Sivasubramanian AWS LinkedIn",
+              "url": "https://www.bing.com/search?q=Swami+Sivasubramanian+AWS+LinkedIn",
+              "wait_time": 1.04,
+              "timestamp_start": "2025-10-31T21:26:19.596591",
+              "status_code": 200,
+              "duration": 0.23,
+              "timestamp_end": "2025-10-31T21:26:19.823159",
+              "success": true,
+              "content_length": 103455
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "AWS official website contact",
+              "url": "https://www.bing.com/search?q=AWS+official+website+contact",
+              "wait_time": 0.76,
+              "timestamp_start": "2025-10-31T21:26:21.596638",
+              "status_code": 200,
+              "duration": 0.23,
+              "timestamp_end": "2025-10-31T21:26:21.823065",
+              "success": true,
+              "content_length": 102642
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 90,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Swami Sivasubramanian\" filetype:pdf AWS",
+              "url": "https://www.bing.com/search?q=%22Swami+Sivasubramanian%22+filetype%3Apdf+AWS",
+              "wait_time": 0.77,
+              "timestamp_start": "2025-10-31T21:26:23.596694",
+              "status_code": 200,
+              "duration": 0.34,
+              "timestamp_end": "2025-10-31T21:26:23.935815",
+              "success": true,
+              "content_length": 103458
+            }
+          ],
+          "reasoning": "PDF mining: found"
+        }
+      ],
+      "weighted_confidence": 72.5,
+      "duration": 5.878731727600098,
+      "timestamp": "2025-10-31T21:26:24.438237"
+    },
+    {
+      "contact": {
+        "first_name": "Michael",
+        "last_name": "Kagan",
+        "organization": "NVIDIA",
+        "role_title": "Chief Technology Officer",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/mikagan",
+        "company_website": "https://www.nvidia.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees NVIDIA's technology strategy for AI systems and networking infrastructure that powers large-scale AI clusters requiring quantum-AI coordination.",
+        "recent_activity": "Keynoted Sequoia's 2025 Europe100 on scaling to million-GPU data centers; spoke at G-Research symposium on future of chips July 2025; discussed AI's \"iPhone moment\" and building AI factories",
+        "strategic_problem": "Scaling network architecture beyond Moore's Law to support million-GPU clusters while managing inference-to-training workload shifts and data center efficiency",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "How to architect petascale AI clusters that anticipate quantum networking fabric without rearchitecting everything twice",
+        "ice_breaker": "Your million-GPU vision needs quantum-ready networking fabric\u2014InfraFabric ensures you build AI factories that scale beyond classical limits today",
+        "priority_tier": "A",
+        "priority_score": "92"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Michael Kagan NVIDIA LinkedIn",
+              "url": "https://www.bing.com/search?q=Michael+Kagan+NVIDIA+LinkedIn",
+              "wait_time": 1.16,
+              "timestamp_start": "2025-10-31T21:26:25.596575",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:25.791391",
+              "success": true,
+              "content_length": 95213
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "NVIDIA official website contact",
+              "url": "https://www.bing.com/search?q=NVIDIA+official+website+contact",
+              "wait_time": 0.79,
+              "timestamp_start": "2025-10-31T21:26:27.596630",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:26:27.778389",
+              "success": true,
+              "content_length": 105047
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Michael Kagan\" filetype:pdf NVIDIA",
+              "url": "https://www.bing.com/search?q=%22Michael+Kagan%22+filetype%3Apdf+NVIDIA",
+              "wait_time": 0.82,
+              "timestamp_start": "2025-10-31T21:26:29.596655",
+              "status_code": 200,
+              "duration": 0.21,
+              "timestamp_end": "2025-10-31T21:26:29.804767",
+              "success": true,
+              "content_length": 102807
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 5.867314338684082,
+      "timestamp": "2025-10-31T21:26:30.305942"
+    },
+    {
+      "contact": {
+        "first_name": "Mustafa",
+        "last_name": "Suleyman",
+        "organization": "Microsoft",
+        "role_title": "EVP & CEO of Microsoft AI",
+        "sector": "Enterprise AI Platform",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/mustafa-suleyman",
+        "company_website": "https://www.microsoft.com",
+        "email_if_public": "",
+        "why_relevant": "DeepMind co-founder leading Microsoft's consumer AI products including Copilot where quantum-AI coordination infrastructure enables next-generation capabilities.",
+        "recent_activity": "Appointed Microsoft AI CEO March 2024; hired 24+ DeepMind researchers; launched Copilot personalization and memory; building AI health division with former DeepMind colleagues",
+        "strategic_problem": "Differentiating Microsoft Copilot through AI personality while preparing for quantum computing integration with Azure Quantum services",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Microsoft Copilot with Azure Quantum services enabling quantum-enhanced reasoning that differentiates from purely classical AI assistants",
+        "ice_breaker": "Your Copilot personalization needs quantum reasoning\u2014InfraFabric coordinates Copilot with Azure Quantum for differentiated quantum-enhanced AI interactions",
+        "priority_tier": "A",
+        "priority_score": "92"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Mustafa Suleyman Microsoft LinkedIn",
+              "url": "https://www.bing.com/search?q=Mustafa+Suleyman+Microsoft+LinkedIn",
+              "wait_time": 1.29,
+              "timestamp_start": "2025-10-31T21:26:31.596541",
+              "status_code": 200,
+              "duration": 0.2,
+              "timestamp_end": "2025-10-31T21:26:31.797031",
+              "success": true,
+              "content_length": 103242
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Microsoft official website contact",
+              "url": "https://www.bing.com/search?q=Microsoft+official+website+contact",
+              "wait_time": 0.78,
+              "timestamp_start": "2025-10-31T21:26:33.596659",
+              "status_code": 200,
+              "duration": 0.17,
+              "timestamp_end": "2025-10-31T21:26:33.767512",
+              "success": true,
+              "content_length": 104899
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Mustafa Suleyman\" filetype:pdf Microsoft",
+              "url": "https://www.bing.com/search?q=%22Mustafa+Suleyman%22+filetype%3Apdf+Microsoft",
+              "wait_time": 0.83,
+              "timestamp_start": "2025-10-31T21:26:35.596699",
+              "status_code": 200,
+              "duration": 0.17,
+              "timestamp_end": "2025-10-31T21:26:35.767453",
+              "success": true,
+              "content_length": 103541
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 5.963072776794434,
+      "timestamp": "2025-10-31T21:26:36.269296"
+    },
+    {
+      "contact": {
+        "first_name": "Doreen",
+        "last_name": "Bogdan-Martin",
+        "organization": "International Telecommunication Union (ITU)",
+        "role_title": "Secretary-General",
+        "sector": "Standards Development",
+        "persona_type": "Standards Body",
+        "linkedin_url": "https://ch.linkedin.com/in/doreentbogdan",
+        "company_website": "https://www.itu.int",
+        "email_if_public": "",
+        "why_relevant": "First woman ITU Secretary-General leading international standards for AI quantum and telecommunications requiring coordination infrastructure for technology convergence.",
+        "recent_activity": "ITU Secretary-General since Jan 2023; 2025 International Year of Quantum Science & Technology; AI for Good Summit July 2025; 2025 Int'l AI Standards Summit Dec 2025; U.S. supports re-election; SIA 2025 Leadership Award",
+        "strategic_problem": "Coordinating international standards for AI, quantum, and telecommunications across 193 ITU member nations during 2025 International Year of Quantum",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate ITU's AI and quantum standards development with unified framework ensuring interoperability across 193 member nations",
+        "ice_breaker": "Your 193-nation mandate spans AI and quantum separately\u2014InfraFabric coordinates both with unified standards ensuring global interoperability",
+        "priority_tier": "B",
+        "priority_score": "92"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Doreen Bogdan-Martin International Telecommunication Union (ITU) LinkedIn",
+              "url": "https://www.bing.com/search?q=Doreen+Bogdan-Martin+International+Telecommunication+Union+%28ITU%29+LinkedIn",
+              "wait_time": 1.33,
+              "timestamp_start": "2025-10-31T21:26:37.596594",
+              "status_code": 200,
+              "duration": 0.27,
+              "timestamp_end": "2025-10-31T21:26:37.864098",
+              "success": true,
+              "content_length": 98353
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "International Telecommunication Union (ITU) official website contact",
+              "url": "https://www.bing.com/search?q=International+Telecommunication+Union+%28ITU%29+official+website+contact",
+              "wait_time": 0.71,
+              "timestamp_start": "2025-10-31T21:26:39.596543",
+              "status_code": 200,
+              "duration": 0.22,
+              "timestamp_end": "2025-10-31T21:26:39.814728",
+              "success": true,
+              "content_length": 95990
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Doreen Bogdan-Martin\" filetype:pdf International Telecommunication Union (ITU)",
+              "url": "https://www.bing.com/search?q=%22Doreen+Bogdan-Martin%22+filetype%3Apdf+International+Telecommunication+Union+%28ITU%29",
+              "wait_time": 0.78,
+              "timestamp_start": "2025-10-31T21:26:41.596542",
+              "status_code": 200,
+              "duration": 0.23,
+              "timestamp_end": "2025-10-31T21:26:41.829995",
+              "success": true,
+              "content_length": 108598
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 6.06286096572876,
+      "timestamp": "2025-10-31T21:26:42.332205"
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Russinovich",
+        "organization": "Microsoft",
+        "role_title": "CTO of Microsoft Azure",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/markrussinovich",
+        "company_website": "https://azure.microsoft.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees Azure's cloud platform architecture that will integrate AI and quantum computing services for enterprise customers.",
+        "recent_activity": "Microsoft Ignite 2024 keynote on confidential computing and cloud-native innovation; June 2025 spoke on reasoning models and edge SLMs; cautioned against \"vibe coding\" hype; discussed quantum computing in cloud at Stanford HAI",
+        "strategic_problem": "Securing AI infrastructure against quantum threats while enabling hybrid quantum-classical cloud services for enterprise customers at Azure scale",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Protect Azure's AI services from quantum threats while enabling customers to orchestrate hybrid quantum-classical workloads in a single control plane",
+        "ice_breaker": "Azure's quantum services need enterprise-grade orchestration\u2014InfraFabric provides the PQC-secured control plane that unifies your classical AI and quantum offerings",
+        "priority_tier": "A",
+        "priority_score": "91"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Mark Russinovich Microsoft LinkedIn",
+              "url": "https://www.bing.com/search?q=Mark+Russinovich+Microsoft+LinkedIn",
+              "wait_time": 1.26,
+              "timestamp_start": "2025-10-31T21:26:43.596493",
+              "status_code": 200,
+              "duration": 0.23,
+              "timestamp_end": "2025-10-31T21:26:43.829539",
+              "success": true,
+              "content_length": 101262
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Microsoft official website contact",
+              "url": "https://www.bing.com/search?q=Microsoft+official+website+contact",
+              "wait_time": 0.73,
+              "timestamp_start": "2025-10-31T21:26:45.596582",
+              "status_code": 200,
+              "duration": 0.18,
+              "timestamp_end": "2025-10-31T21:26:45.773676",
+              "success": true,
+              "content_length": 104863
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Mark Russinovich\" filetype:pdf Microsoft",
+              "url": "https://www.bing.com/search?q=%22Mark+Russinovich%22+filetype%3Apdf+Microsoft",
+              "wait_time": 0.82,
+              "timestamp_start": "2025-10-31T21:26:47.596675",
+              "status_code": 200,
+              "duration": 0.46,
+              "timestamp_end": "2025-10-31T21:26:48.056624",
+              "success": true,
+              "content_length": 103663
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 6.22704553604126,
+      "timestamp": "2025-10-31T21:26:48.559669"
+    },
+    {
+      "contact": {
+        "first_name": "Manuela",
+        "last_name": "Veloso",
+        "organization": "JPMorgan Chase",
+        "role_title": "Head of AI Research",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/manuela-veloso",
+        "company_website": "https://www.jpmorgan.com",
+        "email_if_public": "",
+        "why_relevant": "Leading AI research at one of the world's largest banks with 2000+ AI/ML experts who need coordinated infrastructure for quantum-AI convergence in financial modeling.",
+        "recent_activity": "80-person AI research team; ICLR 2025 paper on decision boundaries; JPMC-MIT CSAIL 10-year research partnership launched 2025; R&D100 Award for MAQ quantum ML",
+        "strategic_problem": "Advancing AI in finance across fraud detection, data sharing, market systems, and process automation while preparing for quantum computing's impact on optimization and cryptography",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate JPMorgan's 2000+ AI/ML experts with quantum-enhanced financial modeling that optimizes portfolios and detects fraud faster than classical systems",
+        "ice_breaker": "Your 2000-person AI team needs quantum augmentation\u2014InfraFabric coordinates hybrid quantum-classical workflows for portfolio optimization that scales with your models",
+        "priority_tier": "A",
+        "priority_score": "91"
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 55,
+          "evidence": [
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "Manuela Veloso JPMorgan Chase LinkedIn",
+              "url": "https://www.bing.com/search?q=Manuela+Veloso+JPMorgan+Chase+LinkedIn",
+              "wait_time": 1.04,
+              "timestamp_start": "2025-10-31T21:26:49.596861",
+              "status_code": 200,
+              "duration": 0.25,
+              "timestamp_end": "2025-10-31T21:26:49.842172",
+              "success": true,
+              "content_length": 96038
+            },
+            {
+              "agent": "ProfessionalNetworker",
+              "query": "JPMorgan Chase official website contact",
+              "url": "https://www.bing.com/search?q=JPMorgan+Chase+official+website+contact",
+              "wait_time": 0.74,
+              "timestamp_start": "2025-10-31T21:26:51.596760",
+              "status_code": 200,
+              "duration": 0.22,
+              "timestamp_end": "2025-10-31T21:26:51.821158",
+              "success": true,
+              "content_length": 101379
+            }
+          ],
+          "reasoning": "LinkedIn: not found, Company site: found"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "evidence": [
+            {
+              "note": "Not academic context, skipping search"
+            }
+          ],
+          "reasoning": "Contact not in academic/research context"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "evidence": [
+            {
+              "agent": "InvestigativeJournalist",
+              "query": "\"Manuela Veloso\" filetype:pdf JPMorgan Chase",
+              "url": "https://www.bing.com/search?q=%22Manuela+Veloso%22+filetype%3Apdf+JPMorgan+Chase",
+              "wait_time": 0.77,
+              "timestamp_start": "2025-10-31T21:26:53.596597",
+              "status_code": 200,
+              "duration": 0.19,
+              "timestamp_end": "2025-10-31T21:26:53.787459",
+              "success": true,
+              "content_length": 95775
+            }
+          ],
+          "reasoning": "PDF mining: no results"
+        }
+      ],
+      "weighted_confidence": 47.5,
+      "duration": 5.7284040451049805,
+      "timestamp": "2025-10-31T21:26:54.288144"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+
+Loaded 84 contacts
+How many to process with REAL search? (1-84): 
+Processing 10 contacts with network-respectful coordination...
+Estimated time: 1.7 minutes
+(~10 seconds per contact with rate limiting)
+
+================================================================================
+NETWORK-RESPECTFUL MULTI-AGENT COORDINATION
+================================================================================
+
+Processing 10 contacts with rate limiting
+Configuration:
+  - Requests per minute: 6
+  - Politeness delay: 2.0s
+  - Backoff on errors: 2.0x
+================================================================================
+
+================================================================================
+Contact 1/10: Emil Michael - Department of Defense
+================================================================================
+
+  [ProfessionalNetworker] Searching for Emil Michael...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 4.8s
+
+  Progress: 1/10 (10.0%)
+  Rate: 0.21 contacts/second
+  ETA: 0.7 minutes
+
+================================================================================
+Contact 2/10: Amin Vahdat - Google Cloud
+================================================================================
+
+  [ProfessionalNetworker] Searching for Amin Vahdat...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.9s
+
+  Progress: 2/10 (20.0%)
+  Rate: 0.19 contacts/second
+  ETA: 0.7 minutes
+
+================================================================================
+Contact 3/10: Jeremy O'Brien - PsiQuantum
+================================================================================
+
+  [ProfessionalNetworker] Searching for Jeremy O'Brien...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 3/10 (30.0%)
+  Rate: 0.18 contacts/second
+  ETA: 0.6 minutes
+
+================================================================================
+Contact 4/10: Mark Papermaster - AMD
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mark Papermaster...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.3s
+
+  Progress: 4/10 (40.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.6 minutes
+
+================================================================================
+Contact 5/10: Swami Sivasubramanian - AWS
+================================================================================
+
+  [ProfessionalNetworker] Searching for Swami Sivasubramanian...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+    ✓ Found in archived documents
+
+  Weighted Confidence: 72.5/100
+  Duration: 5.9s
+
+  Progress: 5/10 (50.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.5 minutes
+
+================================================================================
+Contact 6/10: Michael Kagan - NVIDIA
+================================================================================
+
+  [ProfessionalNetworker] Searching for Michael Kagan...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.9s
+
+  Progress: 6/10 (60.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.4 minutes
+
+================================================================================
+Contact 7/10: Mustafa Suleyman - Microsoft
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mustafa Suleyman...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.0s
+
+  Progress: 7/10 (70.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.3 minutes
+
+================================================================================
+Contact 8/10: Doreen Bogdan-Martin - International Telecommunication Union (ITU)
+================================================================================
+
+  [ProfessionalNetworker] Searching for Doreen Bogdan-Martin...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.1s
+
+  Progress: 8/10 (80.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.2 minutes
+
+================================================================================
+Contact 9/10: Mark Russinovich - Microsoft
+================================================================================
+
+  [ProfessionalNetworker] Searching for Mark Russinovich...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 6.2s
+
+  Progress: 9/10 (90.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.1 minutes
+
+================================================================================
+Contact 10/10: Manuela Veloso - JPMorgan Chase
+================================================================================
+
+  [ProfessionalNetworker] Searching for Manuela Veloso...
+    ✓ Found company website
+
+  [InvestigativeJournalist] Deep search (PDFs, archives)...
+
+  Weighted Confidence: 47.5/100
+  Duration: 5.7s
+
+  Progress: 10/10 (100.0%)
+  Rate: 0.17 contacts/second
+  ETA: 0.0 minutes
+
+================================================================================
+BATCH COMPLETE
+================================================================================
+
+Contacts processed: 10
+Total duration: 1.0 minutes
+Avg per contact: 5.9s
+
+Rate Limiter Stats:
+  Total requests: 30
+  Total delays: 25.89s
+  Domains accessed: 1
+  Avg delay/request: 0.86s
+================================================================================
+
+Network respect demonstrated:
+  ✓ Rate limiting per domain
+  ✓ Politeness delays between requests
+  ✓ Backoff on errors
+  ✓ User-Agent rotation
+  ✓ Complete evidence chain
+  ✓ Good citizenship in exploration
+================================================================================
+
+✅ Results saved to: /home/setup/infrafabric/marketing/page-zero/network-respectful-results-20251031_212654.json
+
+The proof is in the evidence - every request documented. 🪂

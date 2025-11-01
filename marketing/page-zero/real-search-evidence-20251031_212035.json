@@ -1,0 +1,67 @@
+{
+  "agent": "ProfessionalNetworker",
+  "contact": {
+    "first_name": "Emil",
+    "last_name": "Michael",
+    "organization": "Department of Defense",
+    "role_title": "Former Uber exec",
+    "company_website": "defense.gov"
+  },
+  "confidence": 55,
+  "reasoning": "LinkedIn profile not found in search results | Company website found: https://www.bing.com/ck/a?!&&p=8357c1aff9e953b121259ceba7163... | Email address not found in public sources",
+  "evidence": [
+    {
+      "type": "url_checked",
+      "url": "https://www.bing.com/search?q=Emil+Michael+Department+of+Defense+LinkedIn",
+      "status_code": 200,
+      "timestamp": "2025-10-31T21:20:35.470680"
+    },
+    {
+      "type": "url_checked",
+      "url": "https://www.bing.com/search?q=Department+of+Defense+official+website+contact",
+      "status_code": 200,
+      "timestamp": "2025-10-31T21:20:35.665668"
+    },
+    {
+      "type": "company_website",
+      "domain": "https://www.bing.com/ck/a?!&&p=8357c1aff9e953b121259ceba7163b0fbe949de4ab95d28f0c82041071bfc272JmltdHM9MTc2MTg2ODgwMA&ptn=3&ver=2&hsh=4&fclid=35d9e9f3-a291-6534-23e9-ff65a36b6490&u=a1aHR0cHM6Ly96aGlkYW8uYmFpZHUuY29tL3F1ZXN0aW9uLzE2MTc3NzI4MDQzMzQxMzI3ODcuaHRtbA&ntb=1",
+      "snippet": "baidu.comhttps://zhidao.baidu.com \u203a questiondepartment\u662f\u4ec0\u4e48\u610f\u601d_\u767e\u5ea6\u77e5\u905312 mai 2025\u00a0\u00b7 department\u7684\u610f\u601d\u662f\u201c\u90e8\u95e8\u201d\u3002\u4ee5\u4e0b\u662f\u5173\u4e8edepartment\u7684\u8be6\u7ec6\u89e3\u91ca\uff1a \u7ec4\u7ec7\u5355\u4f4d\uff1a\u5728\u653f\u5e9c\u3001\u5b66\u6821\u3001\u5546\u4e1a\u6216\u533b\u9662\u7b49\u7ec4\u7ec7\u4e2d\uff0cdepartment\u6307\u7684\u662f\u8d1f\u8d23\u67d0\u4e00\u65b9\u9762\u5de5\u4f5c\u7684\u5355\u4f4d\u3002\u4f8b\u5982\uff0c\u516c\u53f8\u4e2d \u2026",
+      "timestamp": "2025-10-31T21:20:35.679787"
+    },
+    {
+      "type": "url_checked",
+      "url": "https://www.bing.com/search?q=%22Emil+Michael%22+email+Department+of+Defense",
+      "status_code": 200,
+      "timestamp": "2025-10-31T21:20:35.853256"
+    }
+  ],
+  "search_log": [
+    {
+      "step": "linkedin_search",
+      "query": "Emil Michael Department of Defense LinkedIn",
+      "url": "https://www.bing.com/search?q=Emil+Michael+Department+of+Defense+LinkedIn",
+      "timestamp": "2025-10-31T21:20:35.268586"
+    },
+    {
+      "step": "company_search",
+      "query": "Department of Defense official website contact",
+      "url": "https://www.bing.com/search?q=Department+of+Defense+official+website+contact",
+      "timestamp": "2025-10-31T21:20:35.482808"
+    },
+    {
+      "step": "email_search",
+      "query": "\"Emil Michael\" email Department of Defense",
+      "url": "https://www.bing.com/search?q=%22Emil+Michael%22+email+Department+of+Defense",
+      "timestamp": "2025-10-31T21:20:35.680719"
+    }
+  ],
+  "timestamp": "2025-10-31T21:20:35.857914",
+  "duration_seconds": 0.589346,
+  "proof": {
+    "linkedin_searched": true,
+    "company_searched": true,
+    "email_db_searched": true,
+    "urls_checked": 3,
+    "snippets_found": 0
+  }
+}

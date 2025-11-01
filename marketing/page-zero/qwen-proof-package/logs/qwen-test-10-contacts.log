@@ -1,0 +1,51 @@
+================================================================================
+Qwen3-Coder Integration Test
+================================================================================
+
+✅ QwenCodeAgent initialized (openrouter, qwen/qwen3-coder:free)
+Testing Qwen on 10 contacts...
+
+
+[1/10] Emil Michael - Department of Defense
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Chutes'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[2/10] Amin Vahdat - Google Cloud
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Chutes'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[3/10] Jeremy O'Brien - PsiQuantum
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Venice'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[4/10] Mark Papermaster - AMD
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951720000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[5/10] Swami Sivasubramanian - AWS
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951720000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[6/10] Michael Kagan - NVIDIA
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951720000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[7/10] Mustafa Suleyman - Microsoft
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951780000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[8/10] Doreen Bogdan-Martin - International Telecommunication Union (ITU)
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951780000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[9/10] Mark Russinovich - Microsoft
+  ❌ Error: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-coder:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Venice'}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+[10/10] Manuela Veloso - JPMorgan Chase
+  ❌ Error: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-min. ', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '16', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1761951780000'}, 'provider_name': None}}, 'user_id': 'user_34qpwjp7kk47NgHQMxCTWLiuqwW'}
+
+================================================================================
+Summary
+================================================================================
+Successful queries: 0/10 (0.0%)
+Average confidence: 0.0%
+Total requests: 0
+
+Top 5 by confidence:
+  Emil Michael                   (Department of Defense): 0%
+  Amin Vahdat                    (Google Cloud        ): 0%
+  Jeremy O'Brien                 (PsiQuantum          ): 0%
+  Mark Papermaster               (AMD                 ): 0%
+  Swami Sivasubramanian          (AWS                 ): 0%

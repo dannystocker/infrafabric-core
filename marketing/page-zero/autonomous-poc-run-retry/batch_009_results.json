@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_009",
+  "timestamp": "2025-10-31T23:03:12.512835",
+  "worktree": null,
+  "contacts_processed": 0,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Stephen",
+        "last_name": "Burt",
+        "organization": "Treasury Board of Canada Secretariat",
+        "role_title": "Chief Data Officer of Canada",
+        "sector": "Government Data & AI Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://ca.linkedin.com/in/stephen-burt-199519174",
+        "company_website": "https://www.canada.ca/en/treasury-board-secretariat.html",
+        "email_if_public": "",
+        "why_relevant": "Leads Canada's federal AI strategy and data governance frameworks needed for quantum-AI systems integration.",
+        "recent_activity": "Leading Canada's federal AI and data strategy; coordinating government-wide data governance; developing quantum-AI integration frameworks for federal systems",
+        "strategic_problem": "Implementing federal AI strategy while developing data governance frameworks that support quantum-AI integration across Canadian government",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Canada's federal AI and data governance with quantum-AI framework that ensures government systems are ready for hybrid quantum-classical integration",
+        "ice_breaker": "Your federal data governance needs quantum extension\u2014InfraFabric coordinates Canadian government quantum-AI integration with unified data governance framework",
+        "priority_tier": "B",
+        "priority_score": "70"
+      },
+      "error": "'role_title'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Lucy",
+        "last_name": "Poole",
+        "organization": "Australian Digital Transformation Agency",
+        "role_title": "Deputy CEO - Digital Strategy Policy and Performance",
+        "sector": "Government Digital Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/lucy-poole-a12b531a/",
+        "company_website": "https://www.dta.gov.au",
+        "email_if_public": "",
+        "why_relevant": "Champions Australia's AI assurance framework and responsible AI adoption critical for quantum technology convergence.",
+        "recent_activity": "Leading Australia's AI assurance framework; driving responsible AI adoption across government; coordinating quantum technology policy with digital transformation",
+        "strategic_problem": "Developing AI assurance framework for Australian government while coordinating quantum technology convergence with digital transformation initiatives",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Australia's AI assurance with quantum governance framework ensuring responsible AI principles extend to quantum-enhanced government systems",
+        "ice_breaker": "Your AI assurance framework needs quantum extension\u2014InfraFabric coordinates Australian quantum-AI governance with unified responsible AI principles",
+        "priority_tier": "B",
+        "priority_score": "69"
+      },
+      "error": "'role_title'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Simon",
+        "last_name": "Knowles",
+        "organization": "Graphcore",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/simon-knowles-58b0182",
+        "company_website": "https://www.graphcore.ai",
+        "email_if_public": "",
+        "why_relevant": "Architect of IPU systems designed for intelligence workloads that will benefit from quantum-AI coordination frameworks.",
+        "recent_activity": "Received Royal Society Fellowship May 2024; Graphcore acquired by SoftBank July 2024 for ~$500M; pioneered 3D wafer-on-wafer IPU (40% faster, 16% more efficient)",
+        "strategic_problem": "Proving IPU differentiation for intelligence workloads post-SoftBank acquisition while competing in crowded AI accelerator market with limited resources",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Position IPUs as premier quantum-classical hybrid processors by optimizing graph-based workloads spanning both computational paradigms seamlessly",
+        "ice_breaker": "Your IPU graph architecture naturally maps to quantum circuits\u2014InfraFabric coordinates hybrid graph workloads across IPU clusters and quantum processors",
+        "priority_tier": "B",
+        "priority_score": "68"
+      },
+      "error": "'role_title'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Kunle",
+        "last_name": "Olukotun",
+        "organization": "SambaNova Systems",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/kunle-olukotun-80a2735",
+        "company_website": "https://sambanova.ai",
+        "email_if_public": "",
+        "why_relevant": "Pioneer in multicore processing and AI acceleration who needs infrastructure to coordinate increasingly complex AI compute systems.",
+        "recent_activity": "Launched deep research agents with CrewAI March 2025 (3x faster than GPUs); Forbes AI 50 2025; CNBC at Slush 2024; company exploring sale Oct 2025 after fundraising struggles",
+        "strategic_problem": "Commercializing SambaNova's Agentic Router and dataflow architecture amid funding challenges while proving differentiation against GPU-centric competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate SambaNova's agentic research systems with quantum-enhanced routing that coordinates specialized agents across hybrid quantum-classical compute fabrics",
+        "ice_breaker": "Your Agentic Router pioneered intelligent workload steering\u2014InfraFabric extends that to quantum-classical routing for research agents that span both paradigms",
+        "priority_tier": "B",
+        "priority_score": "64"
+      },
+      "error": "'role_title'",
+      "contact_found": false
+    }
+  ]
+}

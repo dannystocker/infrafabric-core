@@ -1,0 +1,3844 @@
+{
+  "run_id": "recursive-learning-run2-20251031_210658",
+  "timestamp": "2025-10-31T21:06:58.330199",
+  "learning_source": "autonomous-poc-results/manifest-autonomous-poc-20251031_204112.json",
+  "learned_patterns": {
+    "ProfessionalNetworker": {
+      "corporate": 65.0,
+      "academic": 65.0,
+      "government": 65.0
+    },
+    "InvestigativeJournalist": {
+      "corporate": 75.0,
+      "academic": 0,
+      "government": 75.0
+    },
+    "AcademicResearcher": {
+      "corporate": 70.0,
+      "academic": 0,
+      "government": 70.0
+    }
+  },
+  "late_bloomers": {
+    "AcademicResearcher": {
+      "avg_confidence": 22.38095238095238,
+      "max_confidence": 70,
+      "variance": 47.61904761904762,
+      "current_weight": 0.05714285714285714,
+      "recommended_weight_boost": 0.3
+    }
+  },
+  "execution": {
+    "mode": "recursive_learning",
+    "contacts_processed": 84,
+    "contacts_found": 84,
+    "success_rate": 1.0,
+    "average_confidence": 66.9047619047619
+  },
+  "comparison": {
+    "run1_avg_confidence": 67.73809523809524,
+    "run2_avg_confidence": 66.9047619047619,
+    "improvement": -0.8333333333333428
+  },
+  "agent_performance": {
+    "ProfessionalNetworker": {
+      "attempts": 84,
+      "total_confidence": 5460,
+      "total_weight": 84.0
+    },
+    "InvestigativeJournalist": {
+      "attempts": 84,
+      "total_confidence": 4095,
+      "total_weight": 77.7692307692309
+    },
+    "AcademicResearcher": {
+      "attempts": 84,
+      "total_confidence": 1880,
+      "total_weight": 30.369230769230814
+    }
+  },
+  "results": [
+    {
+      "contact": {
+        "first_name": "Emil",
+        "last_name": "Michael",
+        "organization": "Department of Defense",
+        "role_title": "Undersecretary of Defense for R&E / CTO / Acting Director DIU",
+        "sector": "Defense Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.diu.mil",
+        "email_if_public": "",
+        "why_relevant": "Pentagon's chief technology strategist overseeing Defense Innovation Unit and coordinating quantum-AI integration across defense technology development.",
+        "recent_activity": "Confirmed as Pentagon CTO May 2025; became acting DIU director Aug 2025; identified AI and Quantum as \"North Stars\" among 14 Critical Technology Areas; flattening DoD tech org structure",
+        "strategic_problem": "Synchronizing quantum and AI as enterprise-wide \"North Star\" technology priorities across 14 CTAs while accelerating commercial tech transition through DIU",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate DoD's quantum-AI North Stars with unified coordination framework that accelerates commercial tech transition while meeting national security requirements",
+        "ice_breaker": "Your North Star strategy aligns quantum+AI across DoD\u2014InfraFabric provides the unified orchestration framework that accelerates both while meeting your security requirements",
+        "priority_tier": "A",
+        "priority_score": "97"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "emil.michael@departmentofdefense.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "emil.michael@departmentofdefense.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Amin",
+        "last_name": "Vahdat",
+        "organization": "Google Cloud",
+        "role_title": "VP & GM ML Systems and Cloud AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/vahdat",
+        "company_website": "https://cloud.google.com",
+        "email_if_public": "",
+        "why_relevant": "Leads Google Cloud's AI infrastructure including TPUs and AI Hypercomputer systems critical for quantum-AI convergence workloads.",
+        "recent_activity": "Launched Ironwood TPU (7th gen) April 2025: 42.5 exaflops at 9,216 chips\u201424x faster than El Capitan; emphasized networking as #1 bottleneck at Optica March 2025; predicted 2025 as \"Year of Inference\"",
+        "strategic_problem": "Networking bottleneck constraining AI scaling: demand growing 10x/year but interconnects lag behind, limiting inference workload distribution at hyperscale",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Solve the networking bottleneck for agentic AI inference workloads by orchestrating quantum-enhanced communication channels within classical TPU fabrics",
+        "ice_breaker": "Your networking bottleneck thesis is quantum's opening\u2014InfraFabric coordinates distributed inference across quantum-enhanced channels that scale with your 10x demand",
+        "priority_tier": "A",
+        "priority_score": "96"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "amin.vahdat@googlecloud.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "amin.vahdat@googlecloud.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jeremy",
+        "last_name": "O'Brien",
+        "organization": "PsiQuantum",
+        "role_title": "CEO & Co-founder",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/jeremy-o-brien-39482631/",
+        "company_website": "https://www.psiquantum.com",
+        "email_if_public": "",
+        "why_relevant": "Leading photonic quantum computing with distributed architecture requiring coordination infrastructure for quantum networking and AI integration.",
+        "recent_activity": "Announced Omega photonic chipset Feb 2025 (Nature paper, all components for million-qubit systems); breaking ground Brisbane and Chicago quantum compute centers 2025; Australian and Illinois government partnerships",
+        "strategic_problem": "Building first utility-scale million-qubit photonic quantum computers in manufacturing-ready silicon photonics while coordinating distributed architecture at unprecedented scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate PsiQuantum's distributed photonic architecture across million-qubit systems using quantum networking that leverages your silicon photonics infrastructure",
+        "ice_breaker": "Your photonic architecture is inherently networked\u2014InfraFabric orchestrates your million-qubit systems with quantum networking native to your silicon photonics platform",
+        "priority_tier": "A",
+        "priority_score": "95"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "jeremy@psiquantum.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jeremy.o'brien@psiquantum.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "jeremy@psiquantum.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Papermaster",
+        "organization": "AMD",
+        "role_title": "EVP & Chief Technology Officer",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/mark-papermaster-66914925",
+        "company_website": "https://www.amd.com",
+        "email_if_public": "mark.papermaster@amd.com",
+        "why_relevant": "Drives AMD's AI strategy across hardware and software portfolio with focus on open rack-scale AI infrastructure for quantum-ready systems.",
+        "recent_activity": "Keynoting ISC 2025 on HPC-AI convergence; launched OCP 2025 open rack-scale AI platform with MI355X GPUs; achieved 38X energy efficiency (exceeded 30X goal); taped out 2nm Venice chips",
+        "strategic_problem": "Open rack-scale standards for AI infrastructure that enable hyperscaler adoption while competing with NVIDIA's closed ecosystem at massive scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Build open AI infrastructure today that gracefully incorporates quantum accelerators tomorrow through standards-based rack-scale orchestration",
+        "ice_breaker": "Your OCP rack-scale vision needs quantum extensibility\u2014InfraFabric brings the same open standards philosophy to quantum-classical hybrid coordination",
+        "priority_tier": "A",
+        "priority_score": "94"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "mark.papermaster@amd.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "mark.papermaster@amd.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Swami",
+        "last_name": "Sivasubramanian",
+        "organization": "AWS",
+        "role_title": "VP of Agentic AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/swaminathansivasubramanian",
+        "company_website": "https://aws.amazon.com",
+        "email_if_public": "",
+        "why_relevant": "Manages AWS's AI and data services including infrastructure for foundation models that require quantum-enhanced coordination systems.",
+        "recent_activity": "Appointed VP of Agentic AI March 2025; AWS Summit NYC keynote on AgentCore (1M+ SDK downloads); re:Invent 2024 launched multi-agent collaboration (40% better completion); saved 4,500 developer-years with Amazon Q",
+        "strategic_problem": "Scaling production-ready agentic AI systems that reliably orchestrate multi-agent collaboration across distributed enterprise infrastructure at AWS global scale",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate multi-agent AI systems with quantum-secured communication channels and hybrid quantum-classical task routing for enterprise-grade reliability",
+        "ice_breaker": "Your agentic AI architecture needs quantum coordination\u2014InfraFabric orchestrates multi-agent collaboration with quantum-secure channels and hybrid task routing at AWS scale",
+        "priority_tier": "A",
+        "priority_score": "93"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "swami.sivasubramanian@aws.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "swami.sivasubramanian@aws.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Michael",
+        "last_name": "Kagan",
+        "organization": "NVIDIA",
+        "role_title": "Chief Technology Officer",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/mikagan",
+        "company_website": "https://www.nvidia.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees NVIDIA's technology strategy for AI systems and networking infrastructure that powers large-scale AI clusters requiring quantum-AI coordination.",
+        "recent_activity": "Keynoted Sequoia's 2025 Europe100 on scaling to million-GPU data centers; spoke at G-Research symposium on future of chips July 2025; discussed AI's \"iPhone moment\" and building AI factories",
+        "strategic_problem": "Scaling network architecture beyond Moore's Law to support million-GPU clusters while managing inference-to-training workload shifts and data center efficiency",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "How to architect petascale AI clusters that anticipate quantum networking fabric without rearchitecting everything twice",
+        "ice_breaker": "Your million-GPU vision needs quantum-ready networking fabric\u2014InfraFabric ensures you build AI factories that scale beyond classical limits today",
+        "priority_tier": "A",
+        "priority_score": "92"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "michael.kagan@nvidia.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "michael.kagan@nvidia.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Mustafa",
+        "last_name": "Suleyman",
+        "organization": "Microsoft",
+        "role_title": "EVP & CEO of Microsoft AI",
+        "sector": "Enterprise AI Platform",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/mustafa-suleyman",
+        "company_website": "https://www.microsoft.com",
+        "email_if_public": "",
+        "why_relevant": "DeepMind co-founder leading Microsoft's consumer AI products including Copilot where quantum-AI coordination infrastructure enables next-generation capabilities.",
+        "recent_activity": "Appointed Microsoft AI CEO March 2024; hired 24+ DeepMind researchers; launched Copilot personalization and memory; building AI health division with former DeepMind colleagues",
+        "strategic_problem": "Differentiating Microsoft Copilot through AI personality while preparing for quantum computing integration with Azure Quantum services",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Microsoft Copilot with Azure Quantum services enabling quantum-enhanced reasoning that differentiates from purely classical AI assistants",
+        "ice_breaker": "Your Copilot personalization needs quantum reasoning\u2014InfraFabric coordinates Copilot with Azure Quantum for differentiated quantum-enhanced AI interactions",
+        "priority_tier": "A",
+        "priority_score": "92"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "mustafa@microsoft.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "mustafa.suleyman@microsoft.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "mustafa@microsoft.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Doreen",
+        "last_name": "Bogdan-Martin",
+        "organization": "International Telecommunication Union (ITU)",
+        "role_title": "Secretary-General",
+        "sector": "Standards Development",
+        "persona_type": "Standards Body",
+        "linkedin_url": "https://ch.linkedin.com/in/doreentbogdan",
+        "company_website": "https://www.itu.int",
+        "email_if_public": "",
+        "why_relevant": "First woman ITU Secretary-General leading international standards for AI quantum and telecommunications requiring coordination infrastructure for technology convergence.",
+        "recent_activity": "ITU Secretary-General since Jan 2023; 2025 International Year of Quantum Science & Technology; AI for Good Summit July 2025; 2025 Int'l AI Standards Summit Dec 2025; U.S. supports re-election; SIA 2025 Leadership Award",
+        "strategic_problem": "Coordinating international standards for AI, quantum, and telecommunications across 193 ITU member nations during 2025 International Year of Quantum",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate ITU's AI and quantum standards development with unified framework ensuring interoperability across 193 member nations",
+        "ice_breaker": "Your 193-nation mandate spans AI and quantum separately\u2014InfraFabric coordinates both with unified standards ensuring global interoperability",
+        "priority_tier": "B",
+        "priority_score": "92"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "doreen.bogdan-martin@internationaltelecommunicationunion(itu).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "doreen.bogdan-martin@internationaltelecommunicationunion(itu).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Mark",
+        "last_name": "Russinovich",
+        "organization": "Microsoft",
+        "role_title": "CTO of Microsoft Azure",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/markrussinovich",
+        "company_website": "https://azure.microsoft.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees Azure's cloud platform architecture that will integrate AI and quantum computing services for enterprise customers.",
+        "recent_activity": "Microsoft Ignite 2024 keynote on confidential computing and cloud-native innovation; June 2025 spoke on reasoning models and edge SLMs; cautioned against \"vibe coding\" hype; discussed quantum computing in cloud at Stanford HAI",
+        "strategic_problem": "Securing AI infrastructure against quantum threats while enabling hybrid quantum-classical cloud services for enterprise customers at Azure scale",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Protect Azure's AI services from quantum threats while enabling customers to orchestrate hybrid quantum-classical workloads in a single control plane",
+        "ice_breaker": "Azure's quantum services need enterprise-grade orchestration\u2014InfraFabric provides the PQC-secured control plane that unifies your classical AI and quantum offerings",
+        "priority_tier": "A",
+        "priority_score": "91"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "mark.russinovich@microsoft.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "mark.russinovich@microsoft.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Manuela",
+        "last_name": "Veloso",
+        "organization": "JPMorgan Chase",
+        "role_title": "Head of AI Research",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/manuela-veloso",
+        "company_website": "https://www.jpmorgan.com",
+        "email_if_public": "",
+        "why_relevant": "Leading AI research at one of the world's largest banks with 2000+ AI/ML experts who need coordinated infrastructure for quantum-AI convergence in financial modeling.",
+        "recent_activity": "80-person AI research team; ICLR 2025 paper on decision boundaries; JPMC-MIT CSAIL 10-year research partnership launched 2025; R&D100 Award for MAQ quantum ML",
+        "strategic_problem": "Advancing AI in finance across fraud detection, data sharing, market systems, and process automation while preparing for quantum computing's impact on optimization and cryptography",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate JPMorgan's 2000+ AI/ML experts with quantum-enhanced financial modeling that optimizes portfolios and detects fraud faster than classical systems",
+        "ice_breaker": "Your 2000-person AI team needs quantum augmentation\u2014InfraFabric coordinates hybrid quantum-classical workflows for portfolio optimization that scales with your models",
+        "priority_tier": "A",
+        "priority_score": "91"
+      },
+      "best_agent": "AcademicResearcher",
+      "best_email": "mveloso@jpmorgan chase.edu",
+      "best_confidence": 70,
+      "best_weight": 1.5923076923076922,
+      "weighted_score": 111.46153846153845,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "manuela.veloso@jpmorganchase.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 1.5923076923076922,
+          "confidence": 70,
+          "email": "mveloso@jpmorgan chase.edu"
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Shaun",
+        "last_name": "Maguire",
+        "organization": "Sequoia Capital",
+        "role_title": "Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/shaun-maguire-c/",
+        "company_website": "https://www.sequoiacap.com",
+        "email_if_public": "",
+        "why_relevant": "PhD in quantum physics from Caltech and invested in IonQ and Quantum Circuits advancing quantum-AI convergence.",
+        "recent_activity": "Quantum physics PhD Caltech; led IonQ Series A at GV before Sequoia; invests in quantum computing platforms; manages Sequoia investments in SpaceX, xAI",
+        "strategic_problem": "Investing in quantum computing (IonQ from GV days) while managing Sequoia's positions in cutting-edge AI and space companies",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your quantum computing investments with AI companies (xAI) via hybrid orchestration enabling quantum-enhanced training and inference",
+        "ice_breaker": "Your quantum physics PhD sees convergence\u2014InfraFabric coordinates your IonQ and xAI investments with hybrid quantum-AI orchestration spanning both domains",
+        "priority_tier": "B",
+        "priority_score": "91"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "shaun.maguire@sequoiacapital.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "shaun.maguire@sequoiacapital.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jonathan",
+        "last_name": "Ross",
+        "organization": "Groq",
+        "role_title": "CEO & Founder",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/ross-jonathan",
+        "company_website": "https://groq.com",
+        "email_if_public": "",
+        "why_relevant": "Created LPU inference architecture requiring ultra-low latency coordination that quantum-AI convergence infrastructure could optimize.",
+        "recent_activity": "$1.5B Saudi Arabia agreement Feb 2025 (built cluster in 8 days); raised $750M Sept 2025 at $6.9B valuation; targeting 50% of global AI inference by end of 2027; deploying 1.7M LPU processors",
+        "strategic_problem": "Capturing 50% of global inference market by 2027 requires revolutionary low-latency coordination across 1.7M+ LPUs without external memory bottlenecks",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Eliminate inference latency bottlenecks by coordinating LPU clusters via quantum entanglement channels that bypass classical memory hierarchy limits",
+        "ice_breaker": "Your LPU on-chip memory eliminates one bottleneck\u2014InfraFabric eliminates the next by coordinating distributed LPUs via quantum channels faster than classical interconnects",
+        "priority_tier": "A",
+        "priority_score": "90"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "jonathan@groq.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jonathan.ross@groq.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "jonathan@groq.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Travis",
+        "last_name": "Humble",
+        "organization": "Oak Ridge National Laboratory",
+        "role_title": "Director of Quantum Science Center",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/travishumble/",
+        "company_website": "https://quantum.ornl.gov",
+        "email_if_public": "",
+        "why_relevant": "Leads DOE's Quantum Science Center; pioneering integration of quantum computing with HPC and AI at national lab scale.",
+        "recent_activity": "IQM Radiance 20-qubit integration Aug 2025; Quantum Brilliance hybrid HPC Sept 2025; Riverlane QEC deployment Sept 2025; R&D100 Award for MAQ (ML on quantum); pioneering quantum-HPC-AI integration",
+        "strategic_problem": "Integrating quantum computing with leadership-class HPC systems to create next-generation hybrid quantum-classical supercomputers for national security and science",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Oak Ridge's quantum computers with Frontier exascale system via unified orchestration that treats quantum accelerators as first-class HPC resources",
+        "ice_breaker": "Your quantum-HPC integration pioneered hybrid supercomputing\u2014InfraFabric extends that with orchestration that treats quantum as native HPC accelerators",
+        "priority_tier": "A",
+        "priority_score": "90"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "travis.humble@oakridgenationallaboratory.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "travis.humble@oakridgenationallaboratory.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.0,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Sachin",
+        "last_name": "Katti",
+        "organization": "Intel",
+        "role_title": "CTO & Head of AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/sachin-katti-72777943",
+        "company_website": "https://www.intel.com",
+        "email_if_public": "",
+        "why_relevant": "Leads Intel's overall AI strategy and product roadmap including AI systems that will interface with quantum computing infrastructure.",
+        "recent_activity": "Appointed Intel CTO & AI Chief April 2025 under CEO Lip-Bu Tan; tasked with coherent AI strategy after Gaudi struggles and Falcon Shores cancellation; leading Intel Labs and startup ecosystem relationships",
+        "strategic_problem": "Defining coherent AI accelerator strategy to compete with NVIDIA/AMD dominance after missing Gaudi targets and lacking software ease-of-use at scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Differentiate Intel's AI portfolio by pioneering quantum-classical hybrid systems that leverage photonics and networking IP competitors lack",
+        "ice_breaker": "Your quantum+AI mandate gives Intel fresh differentiation\u2014InfraFabric coordinates hybrid workloads leveraging Intel's photonics and networking strengths NVIDIA can't match",
+        "priority_tier": "A",
+        "priority_score": "89"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "sachin.katti@intel.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "sachin.katti@intel.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Gil",
+        "last_name": "Herrera",
+        "organization": "National Security Agency",
+        "role_title": "Director of Research",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.nsa.gov",
+        "email_if_public": "",
+        "why_relevant": "NSA's lead on quantum computing research since the 1990s; advises on quantum threats to cryptographic systems and coordinates national quantum security initiatives.",
+        "recent_activity": "Keynoted 2025 Defense R&D Summit Jan 2025 on quantum computing threats; highlighted Google's break-even logical qubit 2024; warned \"black swan\" quantum breakthrough could \"wreck world economy\"; leading NSA post-quantum cryptography transition",
+        "strategic_problem": "Preventing catastrophic \"black swan\" quantum breakthrough from breaking encryption protecting financial systems, nuclear command-and-control, and government networks",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate national post-quantum cryptography transition while monitoring quantum computing advances to ensure encryption stays ahead of adversary capabilities",
+        "ice_breaker": "Your black swan scenario demands proactive architecture\u2014InfraFabric coordinates PQC transition and quantum monitoring to ensure defenses stay ahead of threats",
+        "priority_tier": "B",
+        "priority_score": "89"
+      },
+      "best_agent": "AcademicResearcher",
+      "best_email": "gherrera@national security agency.edu",
+      "best_confidence": 70,
+      "best_weight": 1.5923076923076922,
+      "weighted_score": 111.46153846153845,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "gil.herrera@nationalsecurityagency.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 1.5923076923076922,
+          "confidence": 70,
+          "email": "gherrera@national security agency.edu"
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Daniel",
+        "last_name": "Marcu",
+        "organization": "Goldman Sachs",
+        "role_title": "Partner & Global Head of AI Engineering and Science",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-marcu",
+        "company_website": "https://www.goldmansachs.com",
+        "email_if_public": "",
+        "why_relevant": "Appointed in 2025 to lead Goldman's AI engineering strategy where quantum-AI coordination could transform risk modeling and algorithmic trading at scale.",
+        "recent_activity": "Appointed Global Head of AI Engineering & Science 2025; leading Goldman's AI engineering transformation; driving AI strategy across risk modeling and algorithmic trading",
+        "strategic_problem": "Scaling AI engineering across Goldman Sachs' trading and risk platforms while preparing for quantum computing's impact on optimization and security",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Goldman's AI engineering with quantum-enhanced optimization for algorithmic trading and risk modeling that outperforms classical-only approaches",
+        "ice_breaker": "Your 2025 AI mandate needs quantum edge\u2014InfraFabric coordinates hybrid quantum-classical optimization for trading algorithms that outperform classical limits",
+        "priority_tier": "A",
+        "priority_score": "89"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "daniel.marcu@goldmansachs.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "daniel.marcu@goldmansachs.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Ocko",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/mattocko/",
+        "company_website": "https://www.dcvc.com",
+        "email_if_public": "",
+        "why_relevant": "Invests across quantum systems from quantum sensing to quantum computers and AI infrastructure for national resilience.",
+        "recent_activity": "DCVC invests across quantum sensing, quantum computing, and AI infrastructure; focus on national resilience and deep tech commercialization",
+        "strategic_problem": "Building quantum computing and AI portfolio that strengthens national resilience while commercializing deep tech for defense and enterprise",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate your quantum and AI portfolio companies with unified integration framework accelerating commercialization and national resilience deployment",
+        "ice_breaker": "Your quantum+AI portfolio needs integration\u2014InfraFabric coordinates your investments with unified framework accelerating deep tech commercialization and deployment",
+        "priority_tier": "B",
+        "priority_score": "89"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "matt.ocko@dcvc.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "matt.ocko@dcvc.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Bill",
+        "last_name": "Dally",
+        "organization": "NVIDIA",
+        "role_title": "Chief Scientist & SVP of Research",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/billdally",
+        "company_website": "https://www.nvidia.com",
+        "email_if_public": "",
+        "why_relevant": "Leads NVIDIA's research efforts in AI architecture and compute systems that will need to integrate with future quantum computing paradigms.",
+        "recent_activity": "Hot Chips 2024 keynote on energy-efficient AI (100 TOPS/watt test chip); published on sparsity and optical interconnects; received 2025 Queen Elizabeth Prize and Benjamin Franklin Medal",
+        "strategic_problem": "Energy efficiency and interconnect bandwidth for next-generation AI: achieving 100+ TOPS/watt while enabling high-speed GPU-to-GPU communication at scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Bridge classical AI acceleration and quantum computing through shared interconnect architectures that maximize performance per watt",
+        "ice_breaker": "Your optical interconnect research opens quantum channels\u2014InfraFabric coordinates photonic and electronic fabrics for the hybrid systems you're designing",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "best_agent": "AcademicResearcher",
+      "best_email": "bdally@nvidia.edu",
+      "best_confidence": 70,
+      "best_weight": 1.5923076923076922,
+      "weighted_score": 111.46153846153845,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "bill.dally@nvidia.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 1.5923076923076922,
+          "confidence": 70,
+          "email": "bdally@nvidia.edu"
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Niccolo",
+        "last_name": "de Masi",
+        "organization": "IonQ",
+        "role_title": "President & CEO",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/niccolo-de-masi-25929914/",
+        "company_website": "https://ionq.com",
+        "email_if_public": "",
+        "why_relevant": "Leads company expanding into quantum networking through acquisitions requiring integrated coordination between quantum systems and AI workflows.",
+        "recent_activity": "Appointed CEO Feb 2025, promoted to Chairman Aug 2025; acquired Qubitekk, IDQ, Lightsynq, Capella Space (space QKD), and proposed $1.075B Oxford Ionics; created \"most advanced quantum computing+networking roadmap\"",
+        "strategic_problem": "Executing aggressive acquisition strategy (6 companies) to build integrated quantum computing and networking powerhouse while competing with pure-play quantum computer vendors",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate IonQ's multi-vendor quantum ecosystem (computing + networking + sensing + space QKD) with AI workflows in enterprise-deployable control plane",
+        "ice_breaker": "Your acquisition spree created the quantum portfolio\u2014InfraFabric creates the orchestration layer that makes your computing, networking, and sensing assets work together",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "niccolo@ionq.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "niccolo.de masi@ionq.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "niccolo@ionq.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Lan",
+        "last_name": "Guan",
+        "organization": "Accenture",
+        "role_title": "Chief AI Officer",
+        "sector": "Professional Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/lan-guan",
+        "company_website": "https://www.accenture.com",
+        "email_if_public": "",
+        "why_relevant": "Leading $3B AI initiative across 800K employees and 9K+ clients who need coordination infrastructure for scaling quantum-AI solutions across enterprises.",
+        "recent_activity": "Leading Accenture's $3B AI initiative; coordinating AI transformation across 800K employees; deploying AI solutions for 9,000+ clients globally",
+        "strategic_problem": "Scaling AI transformation across 9,000+ clients while preparing consulting offerings for quantum-AI convergence that differentiates from competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Accenture's 9,000+ client AI deployments with quantum-ready architecture enabling future quantum-AI upgrade without client rearchitecture",
+        "ice_breaker": "Your 9,000-client scale needs quantum readiness\u2014InfraFabric coordinates deployments with quantum-ready architecture enabling seamless future quantum augmentation",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "lan.guan@accenture.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "lan.guan@accenture.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Pat",
+        "last_name": "Gelsinger",
+        "organization": "Playground Global",
+        "role_title": "General Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/patgelsinger/",
+        "company_website": "https://www.playground.vc",
+        "email_if_public": "",
+        "why_relevant": "Former Intel CEO focused on quantum computing (PsiQuantum) and next-generation chip design for AI era.",
+        "recent_activity": "Former Intel CEO now Playground GP; PsiQuantum investor; focused on quantum computing and next-gen chip design for AI era",
+        "strategic_problem": "Investing in quantum computing (PsiQuantum) and next-gen chips while leveraging decades of semiconductor and compute architecture experience",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your PsiQuantum investment with hybrid quantum-classical orchestration that integrates photonic quantum computers with classical AI accelerators",
+        "ice_breaker": "Your PsiQuantum bet needs hybrid integration\u2014InfraFabric coordinates photonic quantum with classical AI accelerators leveraging your semiconductor architecture expertise",
+        "priority_tier": "B",
+        "priority_score": "88"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "pat.gelsinger@playgroundglobal.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "pat.gelsinger@playgroundglobal.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Feldman",
+        "organization": "Cerebras Systems",
+        "role_title": "Co-Founder & CEO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/andrewdfeldman",
+        "company_website": "https://www.cerebras.ai",
+        "email_if_public": "",
+        "why_relevant": "Builds world's largest AI chips and needs coordination infrastructure to scale AI systems toward quantum-AI hybrid architectures.",
+        "recent_activity": "Launched CS-3/WSE-3 (2x CS-2 performance) 2024; Meta Llama API partnership April 2025 (18x faster inference); beat Blackwell on Llama 4 at 2,500 tokens/sec; raised $1.1B Sept 2025 at $8.1B valuation; expanded to 6 datacenters (40M tokens/sec)",
+        "strategic_problem": "Scaling inference performance to 40M+ tokens/sec across distributed datacenters while competing against NVIDIA's GPU ecosystem and proving wafer-scale differentiation",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate wafer-scale AI inference across geo-distributed datacenters using quantum networking for sub-millisecond coherence and global state synchronization",
+        "ice_breaker": "Your wafer-scale architecture pioneered unified compute\u2014InfraFabric extends that vision with quantum networking to synchronize distributed CS-3 clusters at light speed",
+        "priority_tier": "A",
+        "priority_score": "87"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "andrew@cerebrassystems.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "andrew.feldman@cerebrassystems.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "andrew@cerebrassystems.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Neema",
+        "last_name": "Raphael",
+        "organization": "Goldman Sachs",
+        "role_title": "Chief Data Officer & Head of Data Engineering",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/neema-raphael",
+        "company_website": "https://www.goldmansachs.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees data strategy and emerging technology including digital assets and AI where quantum computing integration will be critical for future infrastructure.",
+        "recent_activity": "Leading Goldman Sachs data strategy; overseeing digital assets and emerging technology initiatives; coordinating data engineering for AI and quantum readiness",
+        "strategic_problem": "Building data infrastructure for digital assets and AI while preparing for quantum computing's impact on cryptography securing financial transactions",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Secure Goldman's data infrastructure with post-quantum cryptography while orchestrating quantum-enhanced data analytics for digital assets trading",
+        "ice_breaker": "Your digital assets need quantum-safe infrastructure\u2014InfraFabric secures data with PQC while coordinating quantum-enhanced analytics for trading edge",
+        "priority_tier": "A",
+        "priority_score": "87"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "neema.raphael@goldmansachs.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "neema.raphael@goldmansachs.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Josh",
+        "last_name": "Wolfe",
+        "organization": "Lux Capital",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/josh-wolfe-7883/",
+        "company_website": "https://www.luxcapital.com",
+        "email_if_public": "",
+        "why_relevant": "Invests in frontier science solving vexing puzzles and backs quantum computing infrastructure companies like Rigetti Computing.",
+        "recent_activity": "$100M+ biotech/AI commitment 2025 offsetting Trump research cuts; board member at Anduril, Planet, Hadrian, Osmo; founding investor with Bill Gates in Kymeta satellite antennas",
+        "strategic_problem": "Identifying frontier science investments at physical-digital intersection while backing quantum computing and space communication infrastructure",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your space communications portfolio (Kymeta) with quantum networking that enables secure global satellite communications beyond classical encryption",
+        "ice_breaker": "Your Kymeta investment pioneered space comms\u2014InfraFabric extends that with quantum networking for secure global satellite communications beyond classical limits",
+        "priority_tier": "B",
+        "priority_score": "87"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "josh.wolfe@luxcapital.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "josh.wolfe@luxcapital.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Gr\u00e9goire",
+        "last_name": "Ribordy",
+        "organization": "ID Quantique (IonQ)",
+        "role_title": "CEO & Co-founder",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/gregoire-ribordy/",
+        "company_website": "https://www.idquantique.com",
+        "email_if_public": "",
+        "why_relevant": "Leads pioneer in QKD solutions now part of IonQ's quantum networking ecosystem requiring coordination infrastructure for quantum-AI integration.",
+        "recent_activity": "IonQ completed IDQ acquisition May 2025; added 300 patents (900 total for IonQ); integrated QKD, QRNGs, single-photon detectors; Singapore/Turkey intercontinental QKD deployments",
+        "strategic_problem": "Integrating 20+ years of QKD deployment experience into IonQ's quantum computing ecosystem to build unified quantum networking infrastructure",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Orchestrate end-to-end quantum networks that unify your QKD security fabric with IonQ's quantum computers and AI inference workloads",
+        "ice_breaker": "Your QKD deployments secure the channel\u2014InfraFabric orchestrates the entire quantum network from your secure links to IonQ's quantum computers",
+        "priority_tier": "A",
+        "priority_score": "86"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "gr\u00e9goire@idquantique(ionq).com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "gr\u00e9goire.ribordy@idquantique(ionq).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "gr\u00e9goire@idquantique(ionq).com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Berta",
+        "last_name": "Rodriguez-Hervas",
+        "organization": "Pfizer",
+        "role_title": "Chief AI and Analytics Officer",
+        "sector": "Pharmaceutical AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/berta-rodriguez-hervas",
+        "company_website": "https://www.pfizer.com",
+        "email_if_public": "",
+        "why_relevant": "Former Nvidia AI leader now accelerating drug discovery and clinical development with AI where quantum-AI convergence could revolutionize molecular modeling.",
+        "recent_activity": "Former NVIDIA VP of Healthcare AI; appointed Pfizer Chief AI Officer; accelerating drug discovery and clinical development with AI-driven molecular modeling",
+        "strategic_problem": "Accelerating drug discovery with AI-driven molecular modeling while preparing for quantum computing's transformative impact on pharmaceutical research",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Pfizer's AI drug discovery with quantum-enhanced molecular modeling that simulates interactions classical computers cannot handle",
+        "ice_breaker": "Your NVIDIA background knows AI limits\u2014InfraFabric coordinates hybrid quantum-classical drug discovery simulating molecular interactions beyond classical reach",
+        "priority_tier": "A",
+        "priority_score": "86"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "berta.rodriguez-hervas@pfizer.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "berta.rodriguez-hervas@pfizer.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Zachary",
+        "last_name": "Bogue",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/zackbogue/",
+        "company_website": "https://www.dcvc.com",
+        "email_if_public": "",
+        "why_relevant": "Leads deep tech investments at intersection of transformative technology including quantum computing platforms.",
+        "recent_activity": "DCVC deep tech investments in quantum computing platforms; focused on transformative technology commercialization",
+        "strategic_problem": "Investing in quantum computing platforms while building portfolio at intersection of transformative technologies requiring sophisticated coordination",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate DCVC's quantum computing investments with hybrid quantum-classical orchestration framework that accelerates portfolio company integration",
+        "ice_breaker": "Your quantum platform investments need hybrid coordination\u2014InfraFabric orchestrates your portfolio with quantum-classical integration accelerating commercialization",
+        "priority_tier": "B",
+        "priority_score": "86"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "zachary.bogue@dcvc.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "zachary.bogue@dcvc.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Elham",
+        "last_name": "Tabassi",
+        "organization": "Brookings Institution",
+        "role_title": "Director of AI & Emerging Technology Initiative and Senior Fellow",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/elham-tabassi-b5931b6/",
+        "company_website": "https://www.brookings.edu",
+        "email_if_public": "",
+        "why_relevant": "Led NIST's AI Risk Management Framework and now shapes policy research on AI governance and quantum-AI convergence at global scale.",
+        "recent_activity": "Joined Brookings March 2025 as AIET Director; led NIST AI Risk Management Framework (Jan 2023); co-authored GenAI Profile 2024; TIME 100 AI 2023",
+        "strategic_problem": "Extending NIST AI Risk Management Framework to global AI governance while researching quantum-AI convergence risk assessment",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend your AI Risk Management Framework to quantum-AI systems with unified risk assessment spanning classical and quantum-enhanced AI",
+        "ice_breaker": "Your AI RMF sets global standard\u2014InfraFabric extends that framework to quantum-AI with unified risk assessment for hybrid systems",
+        "priority_tier": "B",
+        "priority_score": "86"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "elham.tabassi@brookingsinstitution.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "elham.tabassi@brookingsinstitution.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Sid",
+        "last_name": "Sheth",
+        "organization": "d-Matrix",
+        "role_title": "Founder & CEO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/sheth",
+        "company_website": "https://www.d-matrix.ai",
+        "email_if_public": "",
+        "why_relevant": "Building AI inference compute platform that requires sophisticated coordination infrastructure for quantum-AI hybrid systems.",
+        "recent_activity": "Launched Corsair platform Nov 2024 at SC24 (DIMC architecture for inference); sampling to customers with Q2 2025 GA; SuperMicro partnership; $160M+ funding including Microsoft; Cerebral Valley Deep Dive on DIMC vs GPUs",
+        "strategic_problem": "Making inference most energy-efficient workload via Digital In-Memory Compute while building business that captures inference opportunity without GPU/HBM dependencies",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Optimize DIMC inference efficiency by orchestrating quantum preprocessing for feature extraction that feeds d-Matrix accelerators in hybrid pipelines",
+        "ice_breaker": "Your DIMC architecture eliminates GPU inefficiency\u2014InfraFabric eliminates the next layer by orchestrating quantum preprocessing that feeds Corsair at peak efficiency",
+        "priority_tier": "A",
+        "priority_score": "85"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "sid@d-matrix.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "sid.sheth@d-matrix.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "sid@d-matrix.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Steve",
+        "last_name": "Bowsher",
+        "organization": "In-Q-Tel",
+        "role_title": "President & CEO",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.iqt.org",
+        "email_if_public": "",
+        "why_relevant": "Leads IC's venture arm investing in quantum and AI startups; bridges commercial innovation to intelligence community needs.",
+        "recent_activity": "Leading In-Q-Tel investments in quantum and AI startups for intelligence community; bridging commercial innovation to IC operational needs; coordinating quantum-AI technology transition",
+        "strategic_problem": "Accelerating commercial quantum and AI technology transition to intelligence community while managing portfolio of startups across both domains",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate In-Q-Tel's quantum and AI portfolio companies with unified integration framework that accelerates IC technology transition",
+        "ice_breaker": "Your portfolio spans quantum and AI startups\u2014InfraFabric coordinates their integration into IC operations with unified orchestration framework",
+        "priority_tier": "B",
+        "priority_score": "85"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "steve@in-q-tel.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "steve.bowsher@in-q-tel.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "steve@in-q-tel.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Dan",
+        "last_name": "Priest",
+        "organization": "PwC",
+        "role_title": "Chief AI Officer US",
+        "sector": "Professional Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/dan-priest-pwc",
+        "company_website": "https://www.pwc.com",
+        "email_if_public": "",
+        "why_relevant": "Leading $1B AI investment to transform client services and internal operations where quantum-AI coordination could differentiate consulting offerings.",
+        "recent_activity": "Leading PwC's $1B AI investment; transforming client services and internal operations with AI; positioning PwC as AI-powered consulting leader",
+        "strategic_problem": "Investing $1B in AI transformation while preparing quantum-AI consulting services that differentiate PwC from Big 4 competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate PwC's $1B AI investment with quantum-AI readiness that differentiates consulting offerings before competitors develop quantum capabilities",
+        "ice_breaker": "Your $1B AI investment needs quantum differentiation\u2014InfraFabric coordinates quantum-ready architecture positioning PwC ahead of Big 4 in quantum-AI consulting",
+        "priority_tier": "A",
+        "priority_score": "85"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "dan.priest@pwc.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "dan.priest@pwc.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Martin",
+        "last_name": "Casado",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/martincasado/",
+        "company_website": "https://a16z.com",
+        "email_if_public": "",
+        "why_relevant": "Leads a16z's $1.25B infrastructure practice and pioneered software-defined networking paradigm shifts.",
+        "recent_activity": "Leads a16z $1.25B infrastructure practice; pioneered software-defined networking; focused on networking paradigm shifts",
+        "strategic_problem": "Investing in infrastructure paradigm shifts while leveraging SDN expertise to identify next-generation networking opportunities",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate quantum networks with software-defined orchestration extending your SDN paradigm to quantum networking layer",
+        "ice_breaker": "Your SDN vision pioneered programmable networks\u2014InfraFabric extends that paradigm to quantum networking with software-defined quantum orchestration",
+        "priority_tier": "B",
+        "priority_score": "85"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "martin.casado@andreessenhorowitz.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "martin.casado@andreessenhorowitz.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jordan",
+        "last_name": "Shapiro",
+        "organization": "IonQ",
+        "role_title": "President & GM - Quantum Networking",
+        "sector": "Quantum Networking",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/jordandavidshapiro/",
+        "company_website": "https://ionq.com",
+        "email_if_public": "",
+        "why_relevant": "Oversees IonQ's quantum networking division building critical quantum internet infrastructure that needs AI-quantum coordination capabilities.",
+        "recent_activity": "Appointed President & GM Quantum Networking May 2025 (from VP FP&A); spearheaded Qubitekk and IDQ acquisitions; Stanford engineering degrees; guiding quantum internet technical roadmap",
+        "strategic_problem": "Building quantum internet architecture that integrates recent acquisitions (Qubitekk, IDQ) into cohesive quantum networking business serving computing and security markets",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Architect the quantum internet by orchestrating diverse quantum networking technologies (QKD, entanglement distribution, quantum computing connectivity) in unified control plane",
+        "ice_breaker": "Your quantum internet roadmap spans computing and security\u2014InfraFabric provides the unified orchestration layer that makes your acquired technologies work as one",
+        "priority_tier": "A",
+        "priority_score": "84"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "jordan.shapiro@ionq.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jordan.shapiro@ionq.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Elizabeth",
+        "last_name": "Kelly",
+        "organization": "NIST U.S. AI Safety Institute",
+        "role_title": "Director",
+        "sector": "AI Safety & Standards",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/elizabeth-kelly-dc/",
+        "company_website": "https://www.nist.gov/artificial-intelligence-safety-institute",
+        "email_if_public": "",
+        "why_relevant": "Leads federal AI safety standards and testing critical for quantum-AI convergence infrastructure coordination.",
+        "recent_activity": "Signed Anthropic and OpenAI AI safety agreements Aug 2024; building U.S. capacity to test frontier AI models pre-deployment; CSIS keynote July 2024; coordinating with UK/Japan AI Safety Institutes",
+        "strategic_problem": "Testing frontier AI models pre-deployment while coordinating international AI safety standards with allies and developing quantum-AI convergence safety frameworks",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend AI Safety Institute testing to quantum-enhanced AI systems with unified safety framework spanning both classical and quantum-hybrid models",
+        "ice_breaker": "Your frontier AI testing needs quantum extension\u2014InfraFabric provides unified safety framework for testing quantum-enhanced AI models with your established protocols",
+        "priority_tier": "B",
+        "priority_score": "84"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "elizabeth.kelly@nistu.s.aisafetyinstitute.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "elizabeth.kelly@nistu.s.aisafetyinstitute.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Brian",
+        "last_name": "Kursar",
+        "organization": "Toyota Motor North America",
+        "role_title": "Group VP & Head of AI",
+        "sector": "Automotive AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/brian-kursar",
+        "company_website": "https://www.toyota.com",
+        "email_if_public": "",
+        "why_relevant": "Leading Toyota's North American AI strategy and Global AI Accelerator where quantum-AI infrastructure is critical for autonomous vehicle development.",
+        "recent_activity": "Leading Toyota's North American AI strategy; heading Global AI Accelerator; advancing autonomous vehicle AI requiring real-time coordination at scale",
+        "strategic_problem": "Developing autonomous vehicle AI that requires real-time sensor fusion, path planning, and coordination across vehicle fleets at Toyota scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate Toyota's autonomous vehicle fleet with quantum-enhanced communication enabling real-time sensor fusion and path planning beyond classical latency limits",
+        "ice_breaker": "Your autonomous vehicles need real-time coordination\u2014InfraFabric uses quantum communication for fleet orchestration with sensor fusion faster than classical networks",
+        "priority_tier": "A",
+        "priority_score": "84"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "brian.kursar@toyotamotornorthamerica.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "brian.kursar@toyotamotornorthamerica.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Allyson",
+        "last_name": "O'Brien",
+        "organization": "DARPA",
+        "role_title": "Program Manager - QuANET",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/allysonobrien",
+        "company_website": "https://www.darpa.mil",
+        "email_if_public": "",
+        "why_relevant": "Manages DARPA's quantum-augmented network program integrating quantum and classical communications for secure infrastructure.",
+        "recent_activity": "Managing QuANET program integrating quantum and classical communications; developing quantum-augmented networks for secure military communications; coordinating multi-vendor quantum networking research",
+        "strategic_problem": "Integrating quantum and classical communications in quantum-augmented networks that provide secure military communications without requiring full quantum internet infrastructure",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Orchestrate QuANET's quantum-augmented networks to seamlessly integrate quantum security channels with existing classical military communication infrastructure",
+        "ice_breaker": "Your QuANET vision augments classical networks with quantum\u2014InfraFabric orchestrates that integration so quantum security deploys without replacing existing infrastructure",
+        "priority_tier": "A",
+        "priority_score": "83"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "allyson.o'brien@darpa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "allyson.o'brien@darpa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Daniel",
+        "last_name": "Danker",
+        "organization": "Walmart",
+        "role_title": "EVP AI Acceleration Product and Design",
+        "sector": "Enterprise Retail AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-danker",
+        "company_website": "https://corporate.walmart.com",
+        "email_if_public": "",
+        "why_relevant": "Leading AI transformation across 2.1M employee enterprise that needs robust coordination infrastructure for AI-driven retail innovation at massive scale.",
+        "recent_activity": "Leading AI acceleration across Walmart's 2.1M employees; driving AI product and design transformation for retail innovation at global scale",
+        "strategic_problem": "Scaling AI across 2.1M employees and global supply chain while optimizing inventory, pricing, and logistics at unprecedented scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate Walmart's global supply chain AI with quantum-enhanced optimization that routes 2.1M employees and inventory more efficiently than classical systems",
+        "ice_breaker": "Your 2.1M-person scale needs quantum coordination\u2014InfraFabric orchestrates supply chain AI with quantum optimization routing inventory faster than classical limits",
+        "priority_tier": "A",
+        "priority_score": "83"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "daniel.danker@walmart.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "daniel.danker@walmart.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Dror",
+        "last_name": "Berman",
+        "organization": "Innovation Endeavors",
+        "role_title": "Founder & Managing Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/drorberman/",
+        "company_website": "https://www.innovationendeavors.com",
+        "email_if_public": "",
+        "why_relevant": "Led investments in Atom Computing (quantum) and backs founders leveraging data and compute for exponential change.",
+        "recent_activity": "Led Atom Computing (quantum) investment; backs founders using data and compute for exponential change; focus on infrastructure enabling transformation",
+        "strategic_problem": "Investing in quantum computing (Atom) and compute infrastructure that enables exponential innovation through data and computation",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your Atom Computing investment with hybrid orchestration that integrates neutral atom quantum systems with classical compute infrastructure",
+        "ice_breaker": "Your Atom Computing investment needs hybrid integration\u2014InfraFabric coordinates neutral atom quantum with classical infrastructure for seamless exponential compute",
+        "priority_tier": "B",
+        "priority_score": "83"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "dror.berman@innovationendeavors.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "dror.berman@innovationendeavors.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Rajeeb",
+        "last_name": "Hazra",
+        "organization": "Quantinuum",
+        "role_title": "CEO",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/rhazra/",
+        "company_website": "https://www.quantinuum.com",
+        "email_if_public": "",
+        "why_relevant": "CEO of leading quantum company working on quantum networking applications needing coordination infrastructure for hybrid quantum-classical systems.",
+        "recent_activity": "Appointed CEO Feb 2023; CNBC June 2025 on quantum computing demand growth; IEEE Quantum Week 2024 keynote; 25 years at Intel (led supercomputing); focus on rapid scaling phase",
+        "strategic_problem": "Scaling Quantinuum as largest standalone integrated quantum company during rapid commercialization phase while proving industrially-useful quantum advantage",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Orchestrate Quantinuum's trapped-ion systems with HPC/AI infrastructure to deliver industrially-useful hybrid quantum-classical applications at scale",
+        "ice_breaker": "Your HPC background knows hybrid systems\u2014InfraFabric coordinates Quantinuum's quantum computers with classical supercomputers for industrial applications at your scale",
+        "priority_tier": "A",
+        "priority_score": "82"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "rajeeb@quantinuum.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "rajeeb.hazra@quantinuum.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "rajeeb@quantinuum.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Lisa",
+        "last_name": "Einstein",
+        "organization": "CISA",
+        "role_title": "Chief Artificial Intelligence Officer",
+        "sector": "Cybersecurity & Critical Infrastructure",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/lisa-einstein/",
+        "company_website": "https://www.cisa.gov",
+        "email_if_public": "",
+        "why_relevant": "Leads AI security for critical infrastructure where quantum-AI convergence poses emerging coordination challenges.",
+        "recent_activity": "Leading CISA AI security strategy for critical infrastructure; coordinating AI-enhanced cybersecurity across 16 critical sectors; addressing quantum-AI convergence threats",
+        "strategic_problem": "Securing 16 critical infrastructure sectors against quantum-AI convergence threats while deploying AI-enhanced cyber defense at national scale",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Secure critical infrastructure with unified quantum-safe framework that protects both AI-enhanced defenses and critical systems from quantum attacks",
+        "ice_breaker": "Your 16-sector mandate demands unified security\u2014InfraFabric coordinates quantum-safe AI defenses across critical infrastructure with sector-spanning orchestration",
+        "priority_tier": "B",
+        "priority_score": "82"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "lisa.einstein@cisa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "lisa.einstein@cisa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Chin",
+        "organization": "AllianceBernstein",
+        "role_title": "Chief Artificial Intelligence Officer",
+        "sector": "Asset Management AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/andrewchin17",
+        "company_website": "https://www.alliancebernstein.com",
+        "email_if_public": "",
+        "why_relevant": "First CAIO at major asset manager transforming investment research and portfolio management where quantum computing will revolutionize optimization algorithms.",
+        "recent_activity": "First Chief AI Officer at major asset manager; transforming investment research and portfolio management with AI-driven insights and optimization",
+        "strategic_problem": "Optimizing investment portfolios with AI while preparing for quantum computing's revolutionary impact on multi-asset portfolio optimization",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate AllianceBernstein's portfolio optimization with quantum-enhanced algorithms that solve multi-asset allocation problems classical computers cannot",
+        "ice_breaker": "Your CAIO role pioneers AI in asset management\u2014InfraFabric coordinates quantum-enhanced portfolio optimization solving allocations beyond classical reach",
+        "priority_tier": "A",
+        "priority_score": "82"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "andrew.chin@alliancebernstein.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "andrew.chin@alliancebernstein.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Helen",
+        "last_name": "Toner",
+        "organization": "Center for Security and Emerging Technology (CSET)",
+        "role_title": "Interim Executive Director",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/helen-toner-4162439a/",
+        "company_website": "https://cset.georgetown.edu",
+        "email_if_public": "",
+        "why_relevant": "Leads CSET's research on AI policy and strategy with expertise in advising policymakers on emerging technology governance and national security implications.",
+        "recent_activity": "Interim CSET Director; former OpenAI board member (removed Sam Altman Nov 2023); TIME 100 AI 2024; launched Substack 2025; SXSW 2025 on AI guardrails",
+        "strategic_problem": "Advising policymakers on AI safety governance while researching U.S.-China AI competition and quantum-AI convergence national security implications",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend CSET's AI policy research to quantum-AI governance frameworks that address U.S.-China competition across both technologies simultaneously",
+        "ice_breaker": "Your AI policy research needs quantum extension\u2014InfraFabric provides governance frameworks addressing U.S.-China competition in quantum-AI convergence",
+        "priority_tier": "B",
+        "priority_score": "82"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "helen.toner@centerforsecurityandemergingtechnology(cset).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "helen.toner@centerforsecurityandemergingtechnology(cset).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jim",
+        "last_name": "Ricotta",
+        "organization": "Aliro Quantum",
+        "role_title": "CEO & Chairman",
+        "sector": "Quantum Networking",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/jimricotta",
+        "company_website": "https://www.aliroquantum.com",
+        "email_if_public": "",
+        "why_relevant": "CEO of company building entanglement-based quantum networks requiring coordination infrastructure to enable quantum network applications.",
+        "recent_activity": "AliroNet Quickstart live deployment 2025 (first turnkey entanglement network); supports 50+ quantum network devices Sept 2025; AFRL partnership Sept 2024; 5 prior CEO exits >$1B",
+        "strategic_problem": "Commercializing entanglement-based quantum networking (AliroNet Quickstart) from R&D phase to production enterprise deployments at scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Orchestrate entanglement-based quantum networks to coordinate QKD, quantum processor connectivity, and distributed sensing in unified multi-application fabric",
+        "ice_breaker": "Your AliroNet Quickstart pioneered turnkey entanglement networks\u2014InfraFabric orchestrates those networks for multi-application workloads spanning security, computing, and sensing",
+        "priority_tier": "A",
+        "priority_score": "81"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "jim@aliroquantum.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jim.ricotta@aliroquantum.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "jim@aliroquantum.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Nathaniel",
+        "last_name": "Bastian",
+        "organization": "DARPA",
+        "role_title": "Program Manager - SABER (AI Security)",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/nathanielbastian/",
+        "company_website": "https://www.darpa.mil",
+        "email_if_public": "",
+        "why_relevant": "Focuses on securing battlefield AI systems against cyber/EW attacks; addresses quantum-AI convergence security challenges.",
+        "recent_activity": "Managing SABER program to secure battlefield AI against cyber and electronic warfare attacks; addressing adversarial AI threats in contested environments; quantum-AI security convergence",
+        "strategic_problem": "Securing battlefield AI systems against quantum-enabled cyber attacks and adversarial AI in contested electromagnetic environments",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Secure battlefield AI with quantum-resistant encryption and quantum-enabled threat detection that protects against adversarial AI in contested environments",
+        "ice_breaker": "Your SABER program secures battlefield AI from quantum threats\u2014InfraFabric provides the PQC-secured orchestration layer that hardens AI systems against quantum attacks",
+        "priority_tier": "A",
+        "priority_score": "81"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "nathaniel.bastian@darpa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "nathaniel.bastian@darpa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Michael",
+        "last_name": "Kratsios",
+        "organization": "White House OSTP",
+        "role_title": "Director",
+        "sector": "Science & Technology Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/michaelkratsios/",
+        "company_website": "https://www.whitehouse.gov/ostp/",
+        "email_if_public": "",
+        "why_relevant": "Leads U.S. AI Action Plan and federal R&D strategy encompassing quantum-AI convergence technologies.",
+        "recent_activity": "Leading U.S. AI Action Plan and federal R&D strategy; coordinating quantum and AI initiatives across federal agencies; directing OSTP science policy",
+        "strategic_problem": "Coordinating federal quantum-AI R&D strategy across agencies while implementing U.S. AI Action Plan and quantum initiative simultaneously",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate OSTP's federal quantum and AI initiatives with unified R&D framework that accelerates convergence across agencies",
+        "ice_breaker": "Your OSTP mandate spans quantum and AI separately\u2014InfraFabric coordinates both with unified R&D framework accelerating convergence across federal agencies",
+        "priority_tier": "B",
+        "priority_score": "81"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "michael.kratsios@whitehouseostp.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "michael.kratsios@whitehouseostp.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Abhi",
+        "last_name": "Seth",
+        "organization": "Boeing",
+        "role_title": "Chief Enterprise AI & Data Officer",
+        "sector": "Aerospace AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/abhi-seth-boeing",
+        "company_website": "https://www.boeing.com",
+        "email_if_public": "",
+        "why_relevant": "Deployed GenAI platform to 170K+ employees in aerospace engineering where quantum-AI coordination infrastructure supports complex simulation and design.",
+        "recent_activity": "Deployed GenAI platform across 170K+ Boeing employees; leading aerospace AI transformation; advancing AI-driven design and complex engineering simulations",
+        "strategic_problem": "Scaling AI across 170K engineers for complex aerospace simulation and design where quantum computing could revolutionize computational fluid dynamics",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Boeing's engineering AI with quantum-enhanced CFD simulation that models airflow and structural analysis beyond classical computational limits",
+        "ice_breaker": "Your 170K-engineer AI platform needs quantum augmentation\u2014InfraFabric coordinates hybrid quantum-classical CFD simulations beyond classical aerospace limits",
+        "priority_tier": "A",
+        "priority_score": "81"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "abhi.seth@boeing.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "abhi.seth@boeing.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Wael",
+        "last_name": "Diab",
+        "organization": "ISO/IEC JTC 1/SC 42",
+        "role_title": "Chair Artificial Intelligence Standards Committee",
+        "sector": "Standards Development",
+        "persona_type": "Standards Body",
+        "linkedin_url": "https://www.linkedin.com/in/wdiab/",
+        "company_website": "https://www.iso.org",
+        "email_if_public": "",
+        "why_relevant": "Chairs international AI standardization committee developing interoperability standards critical for quantum-AI convergence and cross-border coordination frameworks.",
+        "recent_activity": "ISO/IEC JTC 1/SC 42 AI Committee Chair; 900+ patents in ICT; developing international AI standards for responsible adoption and interoperability",
+        "strategic_problem": "Developing international AI interoperability standards while preparing for quantum-AI convergence requiring new standardization approaches",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend ISO AI standards to quantum-AI interoperability ensuring systems spanning classical and quantum domains meet unified standards",
+        "ice_breaker": "Your AI standards enable global interoperability\u2014InfraFabric extends that to quantum-AI ensuring hybrid systems meet unified international standards",
+        "priority_tier": "B",
+        "priority_score": "81"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "wael.diab@iso/iecjtc1/sc42.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "wael.diab@iso/iecjtc1/sc42.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Andrew",
+        "last_name": "Shields",
+        "organization": "Toshiba Europe",
+        "role_title": "VP & GM - Quantum Technology",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/andrew-shields-366b3173/",
+        "company_website": "https://www.toshiba.eu/quantum/",
+        "email_if_public": "",
+        "why_relevant": "Leads quantum cryptography division deploying QKD networks requiring coordination infrastructure for quantum-secure communication systems.",
+        "recent_activity": "Launched integrated PQC+QKD solution March 2025 (NIST standards); twin-field QKD breakthrough April 2025 (national-scale secure communication); BT/Equinix/Toshiba London data center deployment Sept 2024; Orange 400Gbit/s quantum-secure transmission",
+        "strategic_problem": "Deploying production QKD networks at national scale while integrating post-quantum cryptography standards into commercially available quantum-safe platforms",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate Toshiba's twin-field QKD networks with PQC-secured classical channels to provide defense-in-depth security for distributed quantum-AI systems",
+        "ice_breaker": "Your twin-field QKD achieves national scale\u2014InfraFabric orchestrates those networks with PQC-secured classical channels for defense-in-depth quantum-AI security",
+        "priority_tier": "A",
+        "priority_score": "80"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "andrew.shields@toshibaeurope.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "andrew.shields@toshibaeurope.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Ollie",
+        "last_name": "Whitehouse",
+        "organization": "UK National Cyber Security Centre",
+        "role_title": "Chief Technology Officer",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.ncsc.gov.uk",
+        "email_if_public": "",
+        "why_relevant": "GCHQ's first CTO leading UK's quantum-resistant encryption roadmap by 2035; coordinates Five Eyes quantum security initiatives.",
+        "recent_activity": "GCHQ's first CTO leading UK's quantum-resistant encryption roadmap targeting 2035; coordinating Five Eyes quantum security initiatives; driving national PQC transition",
+        "strategic_problem": "Delivering UK's quantum-resistant encryption roadmap by 2035 while coordinating with Five Eyes partners on quantum security standards",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Coordinate UK's 2035 PQC roadmap with Five Eyes partners using unified orchestration that ensures interoperable quantum-resistant systems across allied nations",
+        "ice_breaker": "Your 2035 PQC roadmap needs Five Eyes alignment\u2014InfraFabric coordinates allied transitions with unified orchestration ensuring interoperable quantum-resistant systems",
+        "priority_tier": "A",
+        "priority_score": "80"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "ollie.whitehouse@uknationalcybersecuritycentre.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "ollie.whitehouse@uknationalcybersecuritycentre.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Vishal",
+        "last_name": "Talwar",
+        "organization": "FedEx",
+        "role_title": "EVP Chief Digital and Information Officer",
+        "sector": "Logistics AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/vishal-talwar-fedex",
+        "company_website": "https://www.fedex.com",
+        "email_if_public": "",
+        "why_relevant": "Leading Network 2.0 digital transformation leveraging data and AI to optimize global logistics where quantum-AI infrastructure enables supply chain optimization at scale.",
+        "recent_activity": "Leading FedEx Network 2.0 digital transformation; optimizing global logistics with data and AI; coordinating supply chain across massive geographic scale",
+        "strategic_problem": "Optimizing FedEx's global logistics network with AI while preparing for quantum computing's impact on route optimization and supply chain coordination",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate FedEx's global network with quantum-enhanced route optimization that plans logistics across your entire network faster than classical systems",
+        "ice_breaker": "Your Network 2.0 transformation needs quantum optimization\u2014InfraFabric coordinates global logistics with quantum route planning beyond classical algorithmic limits",
+        "priority_tier": "A",
+        "priority_score": "80"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "vishal.talwar@fedex.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "vishal.talwar@fedex.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Sunil",
+        "last_name": "Dhaliwal",
+        "organization": "Amplify Partners",
+        "role_title": "Founder & General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/sunildhaliwal/",
+        "company_website": "https://www.amplifypartners.com",
+        "email_if_public": "",
+        "why_relevant": "Backs technical founders building distributed systems and data infrastructure with unique insights into coordination challenges.",
+        "recent_activity": "Amplify backs technical founders building distributed systems and data infrastructure; deep insights into coordination challenges at scale",
+        "strategic_problem": "Investing in distributed systems founders who understand coordination challenges across complex infrastructure architectures",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your distributed systems portfolio with quantum networking that solves coordination challenges classical infrastructure cannot",
+        "ice_breaker": "Your distributed systems thesis sees coordination pain\u2014InfraFabric solves that with quantum networking enabling real-time coordination classical systems cannot achieve",
+        "priority_tier": "B",
+        "priority_score": "80"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "sunil.dhaliwal@amplifypartners.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "sunil.dhaliwal@amplifypartners.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Subodh",
+        "last_name": "Kulkarni",
+        "organization": "Rigetti Computing",
+        "role_title": "President & CEO",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/subodh-kulkarni-21001611/",
+        "company_website": "https://www.rigetti.com",
+        "email_if_public": "",
+        "why_relevant": "Leads quantum computing firm developing superconducting quantum networking requiring coordination frameworks for distributed quantum systems.",
+        "recent_activity": "Stanford Tech+Nat'l Security conference Oct 2024; $5.8M USAF superconducting quantum networking contract with QphoX; 36-qubit multi-chip system (99.5% gate fidelity); on track for 84-qubit Ankaa-3",
+        "strategic_problem": "Proving superconducting leads for large-scale quantum computing while building quantum networking capabilities via USAF contract and multi-chip architectures",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Network distributed superconducting quantum processors using quantum networking that preserves your 99.5% gate fidelity across multi-chip and multi-rack systems",
+        "ice_breaker": "Your multi-chip architecture proves distributed quantum\u2014InfraFabric extends that with quantum networking that coordinates Ankaa clusters while preserving 99.5% fidelity",
+        "priority_tier": "A",
+        "priority_score": "79"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "subodh@rigetticomputing.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "subodh.kulkarni@rigetticomputing.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "subodh@rigetticomputing.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Lucilla",
+        "last_name": "Sioli",
+        "organization": "European Commission AI Office",
+        "role_title": "Director",
+        "sector": "AI Regulation",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/lucilla-sioli-b944392/",
+        "company_website": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+        "email_if_public": "",
+        "why_relevant": "Oversees EU AI Act implementation and international AI governance essential for cross-border quantum-AI systems.",
+        "recent_activity": "Leading EU AI Act implementation and enforcement; coordinating international AI governance frameworks; developing cross-border AI regulatory cooperation",
+        "strategic_problem": "Implementing EU AI Act across member states while coordinating international AI governance for cross-border quantum-AI systems with non-EU partners",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate EU AI Act compliance with quantum-AI governance framework that extends high-risk AI requirements to quantum-enhanced systems",
+        "ice_breaker": "Your AI Act needs quantum-AI extension\u2014InfraFabric coordinates EU compliance framework spanning classical and quantum-enhanced high-risk AI systems",
+        "priority_tier": "B",
+        "priority_score": "79"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "lucilla.sioli@europeancommissionaioffice.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "lucilla.sioli@europeancommissionaioffice.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Nick",
+        "last_name": "Andersen",
+        "organization": "CISA",
+        "role_title": "Executive Assistant Director for Cybersecurity",
+        "sector": "Cybersecurity & Critical Infrastructure",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/nmandersen/",
+        "company_website": "https://www.cisa.gov",
+        "email_if_public": "",
+        "why_relevant": "Oversees federal cybersecurity including post-quantum cryptography and AI-enhanced threat defense coordination.",
+        "recent_activity": "Leading federal cybersecurity including PQC transition planning; coordinating AI-enhanced cyber defense; overseeing critical infrastructure protection against quantum threats",
+        "strategic_problem": "Coordinating federal post-quantum cryptography transition while deploying AI-enhanced cyber defense across government and critical infrastructure",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Coordinate CISA's PQC transition with AI-enhanced threat detection in unified cybersecurity framework protecting federal and critical infrastructure systems",
+        "ice_breaker": "Your dual PQC+AI security mandate needs coordination\u2014InfraFabric unifies both in integrated framework protecting federal systems from quantum threats",
+        "priority_tier": "A",
+        "priority_score": "79"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "nick.andersen@cisa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "nick.andersen@cisa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Peter",
+        "last_name": "Barrett",
+        "organization": "Playground Global",
+        "role_title": "Founder & General Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/peter-barrett-1b4b6439/",
+        "company_website": "https://www.playground.vc",
+        "email_if_public": "",
+        "why_relevant": "Backs next-generation compute and AI infrastructure underpinning automation across material science and drug discovery.",
+        "recent_activity": "Playground backs next-gen compute and AI infrastructure for material science and drug discovery; investing in automation and physical-digital convergence",
+        "strategic_problem": "Investing in compute infrastructure for material science and drug discovery where quantum computing will transform molecular simulation",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your materials and drug discovery portfolio with quantum-enhanced molecular simulation that complements classical AI screening",
+        "ice_breaker": "Your materials science investments need quantum simulation\u2014InfraFabric coordinates hybrid quantum-classical molecular modeling beyond classical AI screening limits",
+        "priority_tier": "B",
+        "priority_score": "79"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "peter.barrett@playgroundglobal.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "peter.barrett@playgroundglobal.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Vivek",
+        "last_name": "Chilukuri",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Director and Senior Fellow Technology & National Security Program",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/vivekchil/",
+        "company_website": "https://www.cnas.org",
+        "email_if_public": "",
+        "why_relevant": "Leads CNAS program on accelerating U.S. leadership in AI quantum and biotechnology while addressing technology competition and critical infrastructure security.",
+        "recent_activity": "CNAS Tech+Nat'l Security Director; accelerating U.S. leadership in AI, quantum, and biotech; addressing tech competition and critical infrastructure",
+        "strategic_problem": "Accelerating U.S. leadership across AI, quantum, and biotech while coordinating critical infrastructure security against adversary threats",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate CNAS research on U.S. AI and quantum leadership with unified framework addressing critical infrastructure protection across both domains",
+        "ice_breaker": "Your mandate spans AI and quantum leadership\u2014InfraFabric coordinates both with unified framework protecting critical infrastructure from adversary threats",
+        "priority_tier": "B",
+        "priority_score": "79"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "vivek.chilukuri@centerforanewamericansecurity(cnas).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "vivek.chilukuri@centerforanewamericansecurity(cnas).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Joe",
+        "last_name": "Altepeter",
+        "organization": "DARPA",
+        "role_title": "Program Manager - Quantum Benchmarking Initiative",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.darpa.mil",
+        "email_if_public": "",
+        "why_relevant": "Leads DARPA's effort to validate industrially useful quantum computers by 2033; coordinates multi-vendor quantum benchmarking.",
+        "recent_activity": "Leading DARPA's quantum benchmarking initiative targeting 2033 for industrially-useful quantum validation; coordinating multi-vendor benchmarking to validate quantum advantage; developing standardized metrics",
+        "strategic_problem": "Validating industrially-useful quantum computers by 2033 through rigorous multi-vendor benchmarking that proves quantum advantage in real-world applications",
+        "persona_bridge": "Quantum computing benchmarking & validation",
+        "problem_frame": "Orchestrate multi-vendor quantum benchmarking across diverse architectures (superconducting, trapped-ion, photonic) with standardized metrics and unified data collection",
+        "ice_breaker": "Your 2033 benchmarking targets need multi-vendor coordination\u2014InfraFabric orchestrates diverse quantum systems with standardized metrics for fair comparison",
+        "priority_tier": "A",
+        "priority_score": "78"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "joe.altepeter@darpa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "joe.altepeter@darpa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "T\u00f5nis",
+        "last_name": "Saar",
+        "organization": "NATO CCDCOE",
+        "role_title": "Director",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://ccdcoe.org",
+        "email_if_public": "",
+        "why_relevant": "Directs NATO's cyber defense center of excellence with 39 nations; coordinates quantum-secure communications for alliance operations.",
+        "recent_activity": "Directing NATO CCDCOE with 39 member nations; coordinating quantum-secure communications for alliance cyber defense; leading NATO quantum cryptography initiatives",
+        "strategic_problem": "Coordinating quantum-secure communications across 39 NATO nations with diverse infrastructures and interoperability requirements for alliance operations",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate NATO's 39-nation quantum-secure communications with unified coordination framework that ensures interoperability across diverse national infrastructures",
+        "ice_breaker": "Your 39-nation coordination demands interoperability\u2014InfraFabric orchestrates NATO's quantum-secure communications with unified framework spanning diverse national systems",
+        "priority_tier": "B",
+        "priority_score": "78"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "t\u00f5nis.saar@natoccdcoe.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "t\u00f5nis.saar@natoccdcoe.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Bilal",
+        "last_name": "Zuberi",
+        "organization": "Lux Capital",
+        "role_title": "General Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/bzuberi/",
+        "company_website": "https://www.luxcapital.com",
+        "email_if_public": "",
+        "why_relevant": "Focuses on deep tech and infrastructure solving complex problems in climate and enterprise systems requiring coordination.",
+        "recent_activity": "Deep tech investing in infrastructure for climate and enterprise systems; focused on solving complex coordination problems at scale",
+        "strategic_problem": "Investing in deep tech infrastructure that solves complex coordination problems across climate and enterprise systems requiring sophisticated orchestration",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your climate and enterprise infrastructure portfolio with quantum networking that enables real-time monitoring and optimization at global scale",
+        "ice_breaker": "Your infrastructure thesis demands coordination\u2014InfraFabric orchestrates your climate and enterprise portfolio with quantum networking for global real-time optimization",
+        "priority_tier": "B",
+        "priority_score": "78"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "bilal.zuberi@luxcapital.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "bilal.zuberi@luxcapital.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Dewey",
+        "last_name": "Murdick",
+        "organization": "Center for Security and Emerging Technology (CSET)",
+        "role_title": "Executive Director",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/murdick",
+        "company_website": "https://cset.georgetown.edu",
+        "email_if_public": "",
+        "why_relevant": "Directs CSET's AI policy research and emerging technology analysis with background as former DHS Chief Analytics Officer specializing in technology foresight.",
+        "recent_activity": "CSET Executive Director; former DHS Chief Analytics Officer; leading AI policy research and emerging technology foresight analysis",
+        "strategic_problem": "Directing technology foresight research while analyzing quantum-AI convergence implications for national security policy",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend CSET's technology foresight to quantum-AI convergence scenarios informing national security policy across both domains",
+        "ice_breaker": "Your DHS background knows convergence threats\u2014InfraFabric provides quantum-AI foresight frameworks for national security policy spanning both technologies",
+        "priority_tier": "B",
+        "priority_score": "78"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "dewey.murdick@centerforsecurityandemergingtechnology(cset).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "dewey.murdick@centerforsecurityandemergingtechnology(cset).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Kevin",
+        "last_name": "Chalker",
+        "organization": "Qrypt",
+        "role_title": "Founder & CEO",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/kevin-chalker-8b2b06a6/",
+        "company_website": "https://www.qrypt.com",
+        "email_if_public": "",
+        "why_relevant": "Leads quantum-secure encryption company requiring coordination infrastructure to integrate quantum security with AI-driven systems.",
+        "recent_activity": "Mattermost partnership announced Feb 2025 for quantum-secure DoD/intelligence communications; coordinates global business development and strategic partnerships; peer-reviewed quantum entropy encryption",
+        "strategic_problem": "Delivering quantum-safe cryptography to critical infrastructure and defense customers who need protection against both current and future quantum computing threats",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Integrate Qrypt's quantum-secure encryption into hybrid quantum-AI systems that require end-to-end protection from training through inference",
+        "ice_breaker": "Your quantum entropy encryption secures data at rest\u2014InfraFabric secures the entire quantum-AI workflow from data ingestion through hybrid compute to inference",
+        "priority_tier": "A",
+        "priority_score": "77"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "kevin@qrypt.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "kevin.chalker@qrypt.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "kevin@qrypt.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Adam",
+        "last_name": "Beaumont",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Interim Director",
+        "sector": "AI Security & Safety",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/adam-beaumont-uk/",
+        "company_website": "https://www.aisi.gov.uk",
+        "email_if_public": "",
+        "why_relevant": "Former GCHQ AI chief leading national AI security evaluations relevant to quantum-enhanced AI threat modeling.",
+        "recent_activity": "Leading UK AI security evaluations as former GCHQ AI chief; coordinating with international AI safety partners; developing quantum-enhanced AI threat models",
+        "strategic_problem": "Evaluating frontier AI security threats including quantum-enhanced AI attack scenarios while coordinating with GCHQ and international partners",
+        "persona_bridge": "Quantum-safe AI infrastructure orchestration",
+        "problem_frame": "Secure UK's AI systems against quantum-enhanced threats with unified security framework spanning PQC-secured AI infrastructure and quantum threat detection",
+        "ice_breaker": "Your GCHQ background sees quantum threats\u2014InfraFabric secures AI systems with PQC encryption and quantum threat detection in unified security framework",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "adam.beaumont@ukaisecurityinstitute(aisi).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "adam.beaumont@ukaisecurityinstitute(aisi).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Anjney",
+        "last_name": "Midha",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/anjney/",
+        "company_website": "https://a16z.com",
+        "email_if_public": "",
+        "why_relevant": "Invests in AI infrastructure and open source technology with focus on hardware evolution for AI inference workloads.",
+        "recent_activity": "a16z investments in AI infrastructure and open source; focused on hardware evolution for AI inference workloads at scale",
+        "strategic_problem": "Investing in AI inference hardware evolution while preparing for quantum computing's impact on accelerating inference workloads",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your AI inference portfolio with quantum preprocessing that accelerates feature extraction feeding classical inference accelerators",
+        "ice_breaker": "Your inference focus needs quantum preprocessing\u2014InfraFabric coordinates hybrid systems with quantum feature extraction feeding your classical accelerators",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "anjney.midha@andreessenhorowitz.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "anjney.midha@andreessenhorowitz.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Martin",
+        "last_name": "Ward",
+        "organization": "ETSI ISG QKD",
+        "role_title": "Chair Quantum Key Distribution Industry Specification Group",
+        "sector": "Standards Development",
+        "persona_type": "Standards Body",
+        "linkedin_url": "https://www.linkedin.com/in/martin-ward-toshiba/",
+        "company_website": "https://www.etsi.org",
+        "email_if_public": "",
+        "why_relevant": "Leads ETSI quantum key distribution standards development ensuring secure quantum communication networks enabling quantum-AI infrastructure coordination.",
+        "recent_activity": "ETSI ISG QKD Chair developing quantum key distribution standards; ensuring secure quantum communication networks; coordinating with Toshiba QKD deployments",
+        "strategic_problem": "Developing QKD standards for secure quantum communications while enabling quantum network infrastructure for quantum-AI coordination",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Extend ETSI QKD standards to quantum-AI orchestration ensuring secure quantum communications coordinate with AI workloads",
+        "ice_breaker": "Your QKD standards secure quantum communications\u2014InfraFabric extends those standards to quantum-AI coordination securing hybrid workloads",
+        "priority_tier": "B",
+        "priority_score": "77"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "martin.ward@etsiisgqkd.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "martin.ward@etsiisgqkd.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Turek",
+        "organization": "DARPA",
+        "role_title": "Deputy Director - Information Innovation Office",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/matthew-turek-0b2b665/",
+        "company_website": "https://www.darpa.mil",
+        "email_if_public": "",
+        "why_relevant": "Guides DARPA's AI strategy where 70% of programs now use AI/ML; oversees trustworthy AI development for national security.",
+        "recent_activity": "Overseeing 70% of DARPA programs now using AI/ML; leading trustworthy AI development for national security; coordinating AI strategy across Information Innovation Office",
+        "strategic_problem": "Ensuring 70% of DARPA programs using AI/ML meet trustworthy AI standards while coordinating quantum-AI convergence across defense R&D portfolio",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate DARPA's quantum and AI programs with unified governance framework ensuring trustworthy AI principles extend to quantum-enhanced systems",
+        "ice_breaker": "Your 70% AI adoption demands trustworthy coordination\u2014InfraFabric extends your AI governance framework to quantum-enhanced systems across DARPA's portfolio",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "matt.turek@darpa.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "matt.turek@darpa.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Josephine",
+        "last_name": "Teo",
+        "organization": "Singapore Ministry of Digital Development",
+        "role_title": "Minister for Digital Development and Information",
+        "sector": "Government Digital Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/josephine-teo-104054184/",
+        "company_website": "https://www.mci.gov.sg",
+        "email_if_public": "",
+        "why_relevant": "Oversees Singapore's AI governance framework and Smart Nation initiatives foundational to quantum-AI adoption.",
+        "recent_activity": "Leading Singapore's AI governance framework and Smart Nation digital transformation; coordinating Southeast Asian digital policy; quantum-AI readiness for financial hub",
+        "strategic_problem": "Positioning Singapore as quantum-AI ready financial and technology hub while coordinating digital transformation and AI governance across Smart Nation",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Singapore's Smart Nation quantum-AI readiness with governance framework that positions the city-state as Asia's quantum-secure financial hub",
+        "ice_breaker": "Your Smart Nation vision needs quantum readiness\u2014InfraFabric coordinates Singapore's quantum-AI governance positioning you as Asia's quantum-secure financial hub",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "josephine.teo@singaporeministryofdigitaldevelopment.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "josephine.teo@singaporeministryofdigitaldevelopment.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jennifer",
+        "last_name": "Li",
+        "organization": "Andreessen Horowitz",
+        "role_title": "General Partner",
+        "sector": "Infrastructure VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/jenniferhli/",
+        "company_website": "https://a16z.com",
+        "email_if_public": "",
+        "why_relevant": "Focuses on enterprise infrastructure in data systems and AI requiring coordination across distributed architectures.",
+        "recent_activity": "a16z enterprise infrastructure investments in data systems and AI; focused on coordination across distributed architectures",
+        "strategic_problem": "Investing in distributed data systems and AI infrastructure requiring sophisticated cross-architecture coordination at enterprise scale",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate your distributed data portfolio with quantum networking that enables real-time synchronization across geo-distributed enterprise systems",
+        "ice_breaker": "Your distributed systems focus needs quantum coordination\u2014InfraFabric provides quantum networking for real-time geo-distributed enterprise data synchronization",
+        "priority_tier": "B",
+        "priority_score": "76"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "jennifer.li@andreessenhorowitz.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jennifer.li@andreessenhorowitz.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Robin",
+        "last_name": "Blume-Kohout",
+        "organization": "Sandia National Laboratories",
+        "role_title": "Co-Director - Quantum Performance Laboratory",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/robin-blume-kohout-8861286/",
+        "company_website": "https://qpl.sandia.gov",
+        "email_if_public": "",
+        "why_relevant": "Pioneering quantum computer benchmarking and performance assessment critical for coordination infrastructure validation.",
+        "recent_activity": "Co-directing Sandia's Quantum Performance Laboratory; pioneering quantum benchmarking methodologies; developing performance assessment frameworks for quantum systems",
+        "strategic_problem": "Developing rigorous quantum performance benchmarking that validates vendor claims and enables fair comparison across architectures for defense procurement",
+        "persona_bridge": "Quantum computing benchmarking & validation",
+        "problem_frame": "Coordinate Sandia's quantum benchmarking across multi-vendor systems with standardized metrics that validate performance for defense procurement decisions",
+        "ice_breaker": "Your quantum benchmarking sets the gold standard\u2014InfraFabric orchestrates multi-vendor testing with your standardized metrics for defense-grade validation",
+        "priority_tier": "A",
+        "priority_score": "75"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "robin.blume-kohout@sandianationallaboratories.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "robin.blume-kohout@sandianationallaboratories.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Jade",
+        "last_name": "Leung",
+        "organization": "UK AI Security Institute (AISI)",
+        "role_title": "Chief Technology Officer & PM's AI Adviser",
+        "sector": "AI Security & Governance",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/jade-l-2620bb9a/",
+        "company_website": "https://www.aisi.gov.uk",
+        "email_if_public": "",
+        "why_relevant": "Leads frontier AI evaluations and advises PM on AI policy where quantum-AI capabilities require new governance models.",
+        "recent_activity": "Leading frontier AI evaluations at UK AISI; advising Prime Minister on AI policy; developing quantum-AI governance models for advanced systems",
+        "strategic_problem": "Evaluating frontier AI systems for national security risks while developing governance models for quantum-AI capabilities that require new regulatory approaches",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend UK's frontier AI evaluation framework to quantum-enhanced systems with governance models spanning classical and quantum-hybrid AI capabilities",
+        "ice_breaker": "Your frontier AI evaluations need quantum extension\u2014InfraFabric provides governance framework for evaluating quantum-enhanced AI systems with unified protocols",
+        "priority_tier": "B",
+        "priority_score": "75"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "jade.leung@ukaisecurityinstitute(aisi).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "jade.leung@ukaisecurityinstitute(aisi).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Constanza",
+        "last_name": "Vidal Bustamante",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Fellow Technology & National Security Program",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/constanzavidal/",
+        "company_website": "https://www.cnas.org",
+        "email_if_public": "",
+        "why_relevant": "Directs CNAS quantum technology policy portfolio investigating quantum's role in national security and policy solutions to advance U.S. quantum innovation.",
+        "recent_activity": "CNAS quantum technology policy portfolio lead; investigating quantum's national security role and policy solutions for U.S. quantum innovation",
+        "strategic_problem": "Researching quantum technology national security implications while developing policy solutions for U.S. quantum-AI convergence leadership",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend your quantum policy research to quantum-AI convergence frameworks that advance U.S. leadership across both technologies simultaneously",
+        "ice_breaker": "Your quantum policy focus needs AI integration\u2014InfraFabric provides convergence frameworks advancing U.S. leadership in quantum-AI simultaneously",
+        "priority_tier": "B",
+        "priority_score": "75"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "constanza.vidal bustamante@centerforanewamericansecurity(cnas).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "constanza.vidal bustamante@centerforanewamericansecurity(cnas).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Denis",
+        "last_name": "Mandich",
+        "organization": "Qrypt",
+        "role_title": "CTO & Co-founder",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/denismandich/",
+        "company_website": "https://www.qrypt.com",
+        "email_if_public": "",
+        "why_relevant": "Technical lead for post-quantum cryptography needing coordination frameworks to deploy quantum-safe security across AI infrastructures.",
+        "recent_activity": "Spoke at IQT Quantum+AI NYC Oct 2024; Quantum World Congress 2024; founding member QED-C and Mid-Atlantic Quantum Alliance; 20 years US Intelligence Community; advises ANSI and ITU-T",
+        "strategic_problem": "Standardizing post-quantum cryptography deployment across financial services and telecommunications while bridging PQC algorithms and quantum security systems",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Coordinate PQC algorithm deployment with quantum key distribution in unified security architecture that protects AI infrastructure end-to-end",
+        "ice_breaker": "Your PQC+QKD expertise spans the quantum security spectrum\u2014InfraFabric orchestrates both in unified architecture protecting hybrid quantum-AI systems",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "denis.mandich@qrypt.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "denis.mandich@qrypt.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Clara",
+        "last_name": "Chappaz",
+        "organization": "French Government",
+        "role_title": "State Secretary for AI and Digital Affairs",
+        "sector": "AI Policy & Innovation",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://fr.linkedin.com/in/clarachappaz",
+        "company_website": "https://www.gouvernement.fr",
+        "email_if_public": "",
+        "why_relevant": "France's first AI minister driving national AI strategy where quantum computing integration is emerging priority.",
+        "recent_activity": "France's first AI minister driving national AI strategy; coordinating French quantum computing initiatives; positioning France as European AI leader",
+        "strategic_problem": "Driving French national AI strategy while integrating quantum computing priorities and positioning France as European AI-quantum convergence leader",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate France's AI and quantum initiatives with unified national strategy that positions French industry as European quantum-AI leader",
+        "ice_breaker": "Your AI ministry pioneers national coordination\u2014InfraFabric extends that to quantum-AI convergence positioning France as European hybrid systems leader",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "clara.chappaz@frenchgovernment.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "clara.chappaz@frenchgovernment.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Salil",
+        "last_name": "Gunashekar",
+        "organization": "RAND Europe",
+        "role_title": "Senior Research Leader and Deputy Director Science & Emerging Technology",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/salilgunashekar/",
+        "company_website": "https://www.rand.org",
+        "email_if_public": "",
+        "why_relevant": "Leads RAND's Quantum Technology Observatory for Policy and Society (QTOPS) examining quantum skills talent supply chains and technology governance frameworks.",
+        "recent_activity": "Leads RAND's Quantum Technology Observatory for Policy and Society (QTOPS); researching quantum skills, talent, supply chains, and governance",
+        "strategic_problem": "Researching quantum technology policy and governance while examining quantum-AI convergence workforce and supply chain implications",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend QTOPS research to quantum-AI convergence governance addressing workforce development and supply chain coordination across both domains",
+        "ice_breaker": "Your QTOPS research spans quantum ecosystem\u2014InfraFabric extends that to quantum-AI convergence governance spanning workforce and supply chains",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "best_agent": "AcademicResearcher",
+      "best_email": "sgunashekar@rand europe.edu",
+      "best_confidence": 70,
+      "best_weight": 1.5923076923076922,
+      "weighted_score": 111.46153846153845,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "salil.gunashekar@randeurope.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 1.5923076923076922,
+          "confidence": 70,
+          "email": "sgunashekar@rand europe.edu"
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Janet",
+        "last_name": "Egan",
+        "organization": "Center for a New American Security (CNAS)",
+        "role_title": "Senior Fellow and Deputy Director Technology & National Security Program",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/janet-egan-a8a066127/",
+        "company_website": "https://www.cnas.org",
+        "email_if_public": "",
+        "why_relevant": "Researches national security implications of AI and emerging technologies including compute governance for advanced AI systems coordination.",
+        "recent_activity": "CNAS Deputy Director researching AI national security implications; expertise in compute governance for advanced AI systems coordination",
+        "strategic_problem": "Researching compute governance for advanced AI while analyzing quantum computing's impact on national security and AI systems coordination",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Extend your compute governance research to quantum-AI systems addressing coordination challenges spanning classical and quantum compute resources",
+        "ice_breaker": "Your compute governance research needs quantum extension\u2014InfraFabric addresses coordination challenges for AI systems spanning classical and quantum resources",
+        "priority_tier": "B",
+        "priority_score": "74"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "janet.egan@centerforanewamericansecurity(cnas).com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "janet.egan@centerforanewamericansecurity(cnas).com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Prineha",
+        "last_name": "Narang",
+        "organization": "Aliro Quantum",
+        "role_title": "CTO & Co-founder",
+        "sector": "Quantum Networking",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "",
+        "company_website": "https://www.aliroquantum.com",
+        "email_if_public": "",
+        "why_relevant": "Technical leader in quantum networking commercialization needing AI-quantum coordination for scalable quantum network deployment.",
+        "recent_activity": "Promoted to full professor UCLA July 2023 (Howard Reiss Chair); named U.S. Science Envoy 2023; Guggenheim Fellowship 2023; leading AliroNet quantum network commercialization with Cisco backing",
+        "strategic_problem": "Bridging quantum networking research (UCLA) and commercialization (Aliro) to build scalable distributed quantum systems that transition from lab to production",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Coordinate quantum network research deployments with AI-driven optimization to accelerate transition from academic prototypes to commercial-scale quantum internets",
+        "ice_breaker": "Your dual research-commercial role needs unified tooling\u2014InfraFabric coordinates quantum network R&D and production deployments with AI-driven orchestration",
+        "priority_tier": "B",
+        "priority_score": "73"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "prineha.narang@aliroquantum.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "prineha.narang@aliroquantum.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Edward",
+        "last_name": "Parker",
+        "organization": "RAND Corporation",
+        "role_title": "Senior Physical Scientist",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/edward-parker-753b77159/",
+        "company_website": "https://www.rand.org",
+        "email_if_public": "",
+        "why_relevant": "Researches quantum technology policy and U.S.-China quantum competition with expertise in quantum computing applications and post-quantum cryptography preparedness.",
+        "recent_activity": "RAND research on quantum technology policy and U.S.-China quantum competition; expertise in quantum computing applications and PQC preparedness",
+        "strategic_problem": "Analyzing U.S.-China quantum competition while researching post-quantum cryptography preparedness and quantum computing policy",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Extend your U.S.-China quantum research to quantum-AI convergence competition addressing both quantum computing advantage and PQC preparedness",
+        "ice_breaker": "Your U.S.-China quantum research needs AI extension\u2014InfraFabric addresses quantum-AI convergence competition spanning computing advantage and security",
+        "priority_tier": "B",
+        "priority_score": "73"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "edward.parker@randcorporation.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "edward.parker@randcorporation.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Andy",
+        "last_name": "Leaver",
+        "organization": "Arqit Quantum",
+        "role_title": "CEO",
+        "sector": "Quantum Cryptography",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/aleaver/",
+        "company_website": "https://arqit.uk",
+        "email_if_public": "",
+        "why_relevant": "Scaling quantum encryption solutions requiring coordination infrastructure to integrate quantum-safe security with AI and classical systems.",
+        "recent_activity": "Appointed CEO Sept 2024 (from Notion Capital Operating Partner); named IDC Innovator for PQC 2024; H.C. Wainwright presentation Feb 2025; driving revenue and operational growth phase",
+        "strategic_problem": "Transitioning Arqit from development phase to revenue growth by scaling quantum encryption software that secures any networked device or cloud machine",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate Arqit's encryption software across multi-cloud and edge deployments to secure distributed quantum-AI workloads with unified key management",
+        "ice_breaker": "Your encryption software secures any networked device\u2014InfraFabric orchestrates those devices in quantum-AI deployments with unified quantum-safe key management",
+        "priority_tier": "A",
+        "priority_score": "72"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "andy@arqitquantum.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "andy.leaver@arqitquantum.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "andy@arqitquantum.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Karine",
+        "last_name": "Perset",
+        "organization": "OECD",
+        "role_title": "Acting Head of AI & Emerging Digital Technologies Division",
+        "sector": "International AI Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://fr.linkedin.com/in/karineperset",
+        "company_website": "https://oecd.ai/",
+        "email_if_public": "karine.perset@oecd.org",
+        "why_relevant": "Coordinates global AI policy standards and international collaboration essential for quantum-AI infrastructure alignment.",
+        "recent_activity": "Leading OECD AI policy coordination across 38 member countries; developing international AI governance standards; coordinating quantum-AI policy alignment",
+        "strategic_problem": "Coordinating AI governance standards across 38 OECD countries while developing quantum-AI policy frameworks for international collaboration",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate OECD's 38-country AI governance with quantum-AI extension that ensures member nations' quantum initiatives align with international standards",
+        "ice_breaker": "Your 38-country coordination sets global standards\u2014InfraFabric extends OECD AI governance to quantum-AI ensuring international alignment",
+        "priority_tier": "B",
+        "priority_score": "72"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "karine.perset@oecd.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "karine.perset@oecd.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Graham",
+        "last_name": "Brookie",
+        "organization": "Atlantic Council",
+        "role_title": "Vice President Technology Programs and Senior Director DFRLab",
+        "sector": "Tech Policy Research",
+        "persona_type": "Think Tank/Research Institute",
+        "linkedin_url": "https://www.linkedin.com/in/gbrookie/",
+        "company_website": "https://www.atlanticcouncil.org",
+        "email_if_public": "",
+        "why_relevant": "Oversees Atlantic Council's technology programs examining intersection of governance technology security and AI's role in global digital infrastructure.",
+        "recent_activity": "Atlantic Council VP Technology Programs; DFRLab Senior Director; examining governance, technology, security intersection; AI's role in global digital infrastructure",
+        "strategic_problem": "Researching AI's role in global digital infrastructure security while examining quantum-AI convergence governance implications",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Extend Atlantic Council's tech governance research to quantum-AI frameworks addressing global digital infrastructure security across both domains",
+        "ice_breaker": "Your global digital infrastructure research needs quantum\u2014InfraFabric provides governance frameworks for quantum-AI convergence in global infrastructure",
+        "priority_tier": "B",
+        "priority_score": "72"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "graham.brookie@atlanticcouncil.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "graham.brookie@atlanticcouncil.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Bridget",
+        "last_name": "Walshe",
+        "organization": "Canadian Centre for Cyber Security",
+        "role_title": "Associate Head",
+        "sector": "National Security Innovation",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/bridget-walshe-b32a14165/",
+        "company_website": "https://www.cyber.gc.ca",
+        "email_if_public": "",
+        "why_relevant": "Leading Canada's post-quantum cryptography roadmap; Five Eyes partner coordinating quantum-safe infrastructure transition.",
+        "recent_activity": "Leading Canada's post-quantum cryptography transition roadmap; coordinating with Five Eyes partners on quantum-safe infrastructure; developing PQC standards for critical infrastructure",
+        "strategic_problem": "Coordinating Canada's post-quantum cryptography transition across government and critical infrastructure while aligning with Five Eyes partners",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate Canada's PQC transition with Five Eyes partners using unified coordination framework that ensures interoperability across allied infrastructures",
+        "ice_breaker": "Your PQC roadmap needs Five Eyes coordination\u2014InfraFabric orchestrates allied PQC transitions with unified framework ensuring interoperable quantum-safe infrastructure",
+        "priority_tier": "A",
+        "priority_score": "71"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "bridget.walshe@canadiancentreforcybersecurity.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "bridget.walshe@canadiancentreforcybersecurity.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Stephen",
+        "last_name": "Burt",
+        "organization": "Treasury Board of Canada Secretariat",
+        "role_title": "Chief Data Officer of Canada",
+        "sector": "Government Data & AI Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://ca.linkedin.com/in/stephen-burt-199519174",
+        "company_website": "https://www.canada.ca/en/treasury-board-secretariat.html",
+        "email_if_public": "",
+        "why_relevant": "Leads Canada's federal AI strategy and data governance frameworks needed for quantum-AI systems integration.",
+        "recent_activity": "Leading Canada's federal AI and data strategy; coordinating government-wide data governance; developing quantum-AI integration frameworks for federal systems",
+        "strategic_problem": "Implementing federal AI strategy while developing data governance frameworks that support quantum-AI integration across Canadian government",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Canada's federal AI and data governance with quantum-AI framework that ensures government systems are ready for hybrid quantum-classical integration",
+        "ice_breaker": "Your federal data governance needs quantum extension\u2014InfraFabric coordinates Canadian government quantum-AI integration with unified data governance framework",
+        "priority_tier": "B",
+        "priority_score": "70"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "stephen.burt@treasuryboardofcanadasecretariat.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "stephen.burt@treasuryboardofcanadasecretariat.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 0.5769230769230769,
+          "confidence": 40,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Lucy",
+        "last_name": "Poole",
+        "organization": "Australian Digital Transformation Agency",
+        "role_title": "Deputy CEO - Digital Strategy Policy and Performance",
+        "sector": "Government Digital Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/lucy-poole-a12b531a/",
+        "company_website": "https://www.dta.gov.au",
+        "email_if_public": "",
+        "why_relevant": "Champions Australia's AI assurance framework and responsible AI adoption critical for quantum technology convergence.",
+        "recent_activity": "Leading Australia's AI assurance framework; driving responsible AI adoption across government; coordinating quantum technology policy with digital transformation",
+        "strategic_problem": "Developing AI assurance framework for Australian government while coordinating quantum technology convergence with digital transformation initiatives",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Australia's AI assurance with quantum governance framework ensuring responsible AI principles extend to quantum-enhanced government systems",
+        "ice_breaker": "Your AI assurance framework needs quantum extension\u2014InfraFabric coordinates Australian quantum-AI governance with unified responsible AI principles",
+        "priority_tier": "B",
+        "priority_score": "69"
+      },
+      "best_agent": "InvestigativeJournalist",
+      "best_email": "lucy@australiandigitaltransformationagency.com",
+      "best_confidence": 75,
+      "best_weight": 2.0,
+      "weighted_score": 150.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "lucy.poole@australiandigitaltransformationagency.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": "lucy@australiandigitaltransformationagency.com"
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Simon",
+        "last_name": "Knowles",
+        "organization": "Graphcore",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/simon-knowles-58b0182",
+        "company_website": "https://www.graphcore.ai",
+        "email_if_public": "",
+        "why_relevant": "Architect of IPU systems designed for intelligence workloads that will benefit from quantum-AI coordination frameworks.",
+        "recent_activity": "Received Royal Society Fellowship May 2024; Graphcore acquired by SoftBank July 2024 for ~$500M; pioneered 3D wafer-on-wafer IPU (40% faster, 16% more efficient)",
+        "strategic_problem": "Proving IPU differentiation for intelligence workloads post-SoftBank acquisition while competing in crowded AI accelerator market with limited resources",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Position IPUs as premier quantum-classical hybrid processors by optimizing graph-based workloads spanning both computational paradigms seamlessly",
+        "ice_breaker": "Your IPU graph architecture naturally maps to quantum circuits\u2014InfraFabric coordinates hybrid graph workloads across IPU clusters and quantum processors",
+        "priority_tier": "B",
+        "priority_score": "68"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "simon.knowles@graphcore.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "simon.knowles@graphcore.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    },
+    {
+      "contact": {
+        "first_name": "Kunle",
+        "last_name": "Olukotun",
+        "organization": "SambaNova Systems",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/kunle-olukotun-80a2735",
+        "company_website": "https://sambanova.ai",
+        "email_if_public": "",
+        "why_relevant": "Pioneer in multicore processing and AI acceleration who needs infrastructure to coordinate increasingly complex AI compute systems.",
+        "recent_activity": "Launched deep research agents with CrewAI March 2025 (3x faster than GPUs); Forbes AI 50 2025; CNBC at Slush 2024; company exploring sale Oct 2025 after fundraising struggles",
+        "strategic_problem": "Commercializing SambaNova's Agentic Router and dataflow architecture amid funding challenges while proving differentiation against GPU-centric competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate SambaNova's agentic research systems with quantum-enhanced routing that coordinates specialized agents across hybrid quantum-classical compute fabrics",
+        "ice_breaker": "Your Agentic Router pioneered intelligent workload steering\u2014InfraFabric extends that to quantum-classical routing for research agents that span both paradigms",
+        "priority_tier": "B",
+        "priority_score": "64"
+      },
+      "best_agent": "ProfessionalNetworker",
+      "best_email": "kunle.olukotun@sambanovasystems.com",
+      "best_confidence": 65,
+      "best_weight": 1.0,
+      "weighted_score": 65.0,
+      "contact_found": true,
+      "agent_results": {
+        "ProfessionalNetworker": {
+          "weight": 1.0,
+          "confidence": 65,
+          "email": "kunle.olukotun@sambanovasystems.com"
+        },
+        "InvestigativeJournalist": {
+          "weight": 2.0,
+          "confidence": 75,
+          "email": null
+        },
+        "AcademicResearcher": {
+          "weight": 0.3,
+          "confidence": 20,
+          "email": null
+        }
+      },
+      "learning_applied": true
+    }
+  ],
+  "philosophy": "Recursive learning demonstrates IF self-improvement",
+  "meta": "The system that learns from itself improves itself"
+}

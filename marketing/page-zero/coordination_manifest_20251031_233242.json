@@ -1,0 +1,109 @@
+{
+  "timestamp": "2025-10-31T23:32:42.924891",
+  "coordinator_version": "1.0",
+  "plans_executed": [
+    "strategy_evolver",
+    "agent_weight_learner",
+    "meta_learning_dashboard",
+    "bug_pattern_learner"
+  ],
+  "weighted_outcomes": {
+    "strategy_evolver": {
+      "base_score": 1.0,
+      "time_bonus": 0.09994028329849243,
+      "output_bonus": 0.0,
+      "raw_score": 1.0999402832984924,
+      "weight": 1.2,
+      "weighted_score": 1.3199283399581907,
+      "contribution_pct": 20.306589845510626
+    },
+    "agent_weight_learner": {
+      "base_score": 1.0,
+      "time_bonus": 0.09993444204330444,
+      "output_bonus": 0.0,
+      "raw_score": 1.0999344420433044,
+      "weight": 1.5,
+      "weighted_score": 1.6499016630649566,
+      "contribution_pct": 25.38310250869164
+    },
+    "meta_learning_dashboard": {
+      "base_score": 1.0,
+      "time_bonus": 0.09993337154388428,
+      "output_bonus": 0.05,
+      "raw_score": 1.1499333715438844,
+      "weight": 1.0,
+      "weighted_score": 1.1499333715438844,
+      "contribution_pct": 17.69128263913668
+    },
+    "bug_pattern_learner": {
+      "base_score": 1.0,
+      "time_bonus": 0.09991228222846986,
+      "output_bonus": 0.1,
+      "raw_score": 1.19991228222847,
+      "weight": 1.3,
+      "weighted_score": 1.559885966897011,
+      "contribution_pct": 23.9982456445694
+    }
+  },
+  "provenance": [
+    {
+      "plan": "strategy_evolver",
+      "timestamp": "2025-10-31T23:32:42.980334",
+      "success": true,
+      "execution_time_seconds": 0.035830020904541016,
+      "outputs": {
+        "result_files": [],
+        "report_files": []
+      },
+      "weight": 1.2,
+      "weighted_score": 1.3199283399581907,
+      "contribution": 20.306589845510626
+    },
+    {
+      "plan": "agent_weight_learner",
+      "timestamp": "2025-10-31T23:32:42.980343",
+      "success": true,
+      "execution_time_seconds": 0.039334774017333984,
+      "outputs": {
+        "result_files": [],
+        "report_files": []
+      },
+      "weight": 1.5,
+      "weighted_score": 1.6499016630649566,
+      "contribution": 25.38310250869164
+    },
+    {
+      "plan": "meta_learning_dashboard",
+      "timestamp": "2025-10-31T23:32:42.980346",
+      "success": true,
+      "execution_time_seconds": 0.039977073669433594,
+      "outputs": {
+        "result_files": [
+          "meta_learning_20251031_233242.json"
+        ],
+        "report_files": []
+      },
+      "weight": 1.0,
+      "weighted_score": 1.1499333715438844,
+      "contribution": 17.69128263913668
+    },
+    {
+      "plan": "bug_pattern_learner",
+      "timestamp": "2025-10-31T23:32:42.980348",
+      "success": true,
+      "execution_time_seconds": 0.05263066291809082,
+      "outputs": {
+        "result_files": [
+          "bug_patterns_20251031_233242.json"
+        ],
+        "report_files": [
+          "bug_prevention_report_20251031_233242.txt"
+        ]
+      },
+      "weight": 1.3,
+      "weighted_score": 1.559885966897011,
+      "contribution": 23.9982456445694
+    }
+  ],
+  "total_execution_time": 0.055443525314331055
+}

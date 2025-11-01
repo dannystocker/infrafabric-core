@@ -1,0 +1,431 @@
+{
+  "batch_id": "batch_009",
+  "timestamp": "2025-10-31T23:04:00.975069",
+  "worktree": null,
+  "contacts_processed": 4,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Stephen",
+        "last_name": "Burt",
+        "organization": "Treasury Board of Canada Secretariat",
+        "role_title": "Chief Data Officer of Canada",
+        "context": "Leads Canada's federal AI strategy and data governance frameworks needed for quantum-AI systems integration."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 79,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/stephen-burt",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 27,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 73,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 75.72727272727272,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 75.72727272727272,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/stephen-burt",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Stephen",
+        "last_name": "Burt",
+        "organization": "Treasury Board of Canada Secretariat",
+        "role_title": "Chief Data Officer of Canada",
+        "sector": "Government Data & AI Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://ca.linkedin.com/in/stephen-burt-199519174",
+        "company_website": "https://www.canada.ca/en/treasury-board-secretariat.html",
+        "email_if_public": "",
+        "why_relevant": "Leads Canada's federal AI strategy and data governance frameworks needed for quantum-AI systems integration.",
+        "recent_activity": "Leading Canada's federal AI and data strategy; coordinating government-wide data governance; developing quantum-AI integration frameworks for federal systems",
+        "strategic_problem": "Implementing federal AI strategy while developing data governance frameworks that support quantum-AI integration across Canadian government",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Canada's federal AI and data governance with quantum-AI framework that ensures government systems are ready for hybrid quantum-classical integration",
+        "ice_breaker": "Your federal data governance needs quantum extension\u2014InfraFabric coordinates Canadian government quantum-AI integration with unified data governance framework",
+        "priority_tier": "B",
+        "priority_score": "70"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Lucy",
+        "last_name": "Poole",
+        "organization": "Australian Digital Transformation Agency",
+        "role_title": "Deputy CEO - Digital Strategy Policy and Performance",
+        "context": "Champions Australia's AI assurance framework and responsible AI adoption critical for quantum technology convergence."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 65,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/lucy-poole",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 39,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "deputy@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 64.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 64.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/lucy-poole",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Lucy",
+        "last_name": "Poole",
+        "organization": "Australian Digital Transformation Agency",
+        "role_title": "Deputy CEO - Digital Strategy Policy and Performance",
+        "sector": "Government Digital Policy",
+        "persona_type": "Government/Regulatory Agency",
+        "linkedin_url": "https://www.linkedin.com/in/lucy-poole-a12b531a/",
+        "company_website": "https://www.dta.gov.au",
+        "email_if_public": "",
+        "why_relevant": "Champions Australia's AI assurance framework and responsible AI adoption critical for quantum technology convergence.",
+        "recent_activity": "Leading Australia's AI assurance framework; driving responsible AI adoption across government; coordinating quantum technology policy with digital transformation",
+        "strategic_problem": "Developing AI assurance framework for Australian government while coordinating quantum technology convergence with digital transformation initiatives",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Australia's AI assurance with quantum governance framework ensuring responsible AI principles extend to quantum-enhanced government systems",
+        "ice_breaker": "Your AI assurance framework needs quantum extension\u2014InfraFabric coordinates Australian quantum-AI governance with unified responsible AI principles",
+        "priority_tier": "B",
+        "priority_score": "69"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Simon",
+        "last_name": "Knowles",
+        "organization": "Graphcore",
+        "role_title": "Co-Founder & CTO",
+        "context": "Architect of IPU systems designed for intelligence workloads that will benefit from quantum-AI coordination frameworks."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/simon-knowles",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 36,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 29,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 50,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 61.333333333333336,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 61.333333333333336,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/simon-knowles",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Simon",
+        "last_name": "Knowles",
+        "organization": "Graphcore",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/simon-knowles-58b0182",
+        "company_website": "https://www.graphcore.ai",
+        "email_if_public": "",
+        "why_relevant": "Architect of IPU systems designed for intelligence workloads that will benefit from quantum-AI coordination frameworks.",
+        "recent_activity": "Received Royal Society Fellowship May 2024; Graphcore acquired by SoftBank July 2024 for ~$500M; pioneered 3D wafer-on-wafer IPU (40% faster, 16% more efficient)",
+        "strategic_problem": "Proving IPU differentiation for intelligence workloads post-SoftBank acquisition while competing in crowded AI accelerator market with limited resources",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Position IPUs as premier quantum-classical hybrid processors by optimizing graph-based workloads spanning both computational paradigms seamlessly",
+        "ice_breaker": "Your IPU graph architecture naturally maps to quantum circuits\u2014InfraFabric coordinates hybrid graph workloads across IPU clusters and quantum processors",
+        "priority_tier": "B",
+        "priority_score": "68"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Kunle",
+        "last_name": "Olukotun",
+        "organization": "SambaNova Systems",
+        "role_title": "Co-Founder & CTO",
+        "context": "Pioneer in multicore processing and AI acceleration who needs infrastructure to coordinate increasingly complex AI compute systems."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/kunle-olukotun",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 89,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Kunle.Olukotun@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 60,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 78.57142857142857,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 78.57142857142857,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Kunle.Olukotun@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Kunle",
+        "last_name": "Olukotun",
+        "organization": "SambaNova Systems",
+        "role_title": "Co-Founder & CTO",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/kunle-olukotun-80a2735",
+        "company_website": "https://sambanova.ai",
+        "email_if_public": "",
+        "why_relevant": "Pioneer in multicore processing and AI acceleration who needs infrastructure to coordinate increasingly complex AI compute systems.",
+        "recent_activity": "Launched deep research agents with CrewAI March 2025 (3x faster than GPUs); Forbes AI 50 2025; CNBC at Slush 2024; company exploring sale Oct 2025 after fundraising struggles",
+        "strategic_problem": "Commercializing SambaNova's Agentic Router and dataflow architecture amid funding challenges while proving differentiation against GPU-centric competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Orchestrate SambaNova's agentic research systems with quantum-enhanced routing that coordinates specialized agents across hybrid quantum-classical compute fabrics",
+        "ice_breaker": "Your Agentic Router pioneered intelligent workload steering\u2014InfraFabric extends that to quantum-classical routing for research agents that span both paradigms",
+        "priority_tier": "B",
+        "priority_score": "64"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    }
+  ]
+}

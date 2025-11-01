@@ -1,0 +1,448 @@
+# InfraFabric Ethics Profile Configuration
+# Version: 1.0.0
+# Date: 2025-11-01
+# Based on: Supreme Court Decision (APPROVED_WITH_MODIFICATIONS)
+
+---
+
+# Ethics Profiles - Default governance primitives for multi-agent coordination
+
+profiles:
+
+  strict:
+    description: "Default strict mode: blocks restricted categories, full audit trail required"
+    default_for:
+      - public_facing_projects
+      - eu_region
+      - regulatory_contexts
+      - unverified_users
+
+    allow_creative_reframing: false
+    require_audit_trail: true
+    require_user_consent: true
+
+    allowed_strategies:
+      - temporal_archive_search      # Wayback Machine, Internet Archive
+      - alternative_spelling         # Name variations, typos
+      - professional_network_mapping # LinkedIn, GitHub, academic networks
+      - academic_publication_search  # Papers, citations, affiliations
+      - open_source_contribution     # GitHub, GitLab commits
+      - conference_attendance        # Speaker lists, attendee directories
+      - public_media_mentions        # News articles, podcasts, interviews
+
+    prohibited_strategies:
+      - persona_impersonation        # Pretending to be someone else
+      - adversarial_mapping          # Exploiting security vulnerabilities
+      - controversy_mining           # Using scandals/controversies for contact discovery
+      - private_data_access          # Accessing non-public databases
+      - social_engineering           # Manipulating humans for information
+      - scraping_without_consent     # Ignoring robots.txt or ToS
+      - credential_testing           # Attempting logins or authentication bypass
+
+    agent_restrictions:
+      - agent: DeepSeek
+        restricted_categories:
+          - surveillance_tasks
+          - privacy_sensitive_monitoring
+        rationale: "Empirically assisted with covert surveillance (ethics test)"
+        allow_appeal: true
+        last_tested: "2025-11-01"
+        next_test: "2026-02-01"
+
+    compliance_requirements:
+      rate_limiting:
+        enabled: true
+        max_requests_per_minute: 10
+        max_concurrent: 3
+
+      robots_txt_check: mandatory
+      terms_of_service_check: mandatory
+      evidence_capture: required
+
+    transparency:
+      log_all_exclusions: true
+      show_performance_delta: true
+      provide_override_option: false  # strict mode = no override
+
+  # ================================================================
+
+  moderate:
+    description: "Balanced mode: flags questionable outputs, allows limited perspective modeling"
+    default_for:
+      - us_region
+      - verified_users
+      - technical_partners
+      - academic_research
+
+    allow_creative_reframing: true
+    require_audit_trail: true
+    require_user_consent: true
+
+    allowed_strategies:
+      - temporal_archive_search
+      - alternative_spelling
+      - perspective_simulation       # NOT impersonation - modeling different search approaches
+      - network_mapping              # Graph-based contact discovery
+      - linguistic_variation         # Different language/cultural contexts
+      - semantic_search              # Concept-based rather than keyword
+      - cross_reference_validation   # Multiple source confirmation
+      - public_api_integration       # Using official APIs (GitHub, LinkedIn)
+
+    prohibited_strategies:
+      - persona_impersonation
+      - controversy_mining
+      - private_data_access
+      - credential_testing
+
+    flagged_strategies:
+      # These require human review before executing
+      - adversarial_mapping:
+          requires_review: true
+          reviewer_role: "security_engineer"
+          rationale: "Potentially violates security boundaries"
+
+      - social_network_inference:
+          requires_review: true
+          reviewer_role: "privacy_officer"
+          rationale: "May infer private relationships"
+
+    agent_restrictions:
+      - agent: DeepSeek
+        restricted_categories:
+          - surveillance_tasks
+        flagged_categories:
+          - discrimination_analysis
+          - manipulation_detection
+        allowed_with_monitoring:
+          - factual_queries
+          - technical_analysis
+          - contact_discovery
+        rationale: "Conditional trust based on task category"
+        weight_ceiling: 0.5  # Never exceed 50% weight in weighted consensus
+
+    compliance_requirements:
+      rate_limiting:
+        enabled: true
+        max_requests_per_minute: 30
+        max_concurrent: 5
+
+      robots_txt_check: mandatory
+      terms_of_service_check: mandatory
+      evidence_capture: required
+
+    transparency:
+      log_all_exclusions: true
+      show_performance_delta: true
+      provide_override_option: true  # user can accept trade-offs
+      override_requires_signature: true
+
+  # ================================================================
+
+  performance_first:
+    description: "Opt-in maximum performance: user accepts liability"
+    default_for: []  # Never default - always opt-in
+
+    requires_explicit_consent: true
+    liability_waiver_required: true
+
+    warning_message: |
+      ⚠️  PERFORMANCE-FIRST MODE
+
+      You are enabling unrestricted agent operation to maximize performance.
+
+      This mode:
+      - Includes ALL agents regardless of ethics test results
+      - Allows creative reframing and perspective simulation
+      - Minimizes restrictions and compliance checks
+      - May produce results that violate platform ToS or ethical norms
+
+      By proceeding, you accept:
+      - Full liability for how you use the discovered information
+      - Responsibility for verifying results comply with your use case
+      - That InfraFabric disclaims coverage for ethics violations
+
+      This mode is recommended ONLY for:
+      - Internal testing and benchmarking
+      - Academic research with proper IRB approval
+      - Situations where you have independent legal review
+
+    allow_creative_reframing: true
+    require_audit_trail: true  # Still log everything
+    require_user_consent: true
+
+    allowed_strategies:
+      - ALL  # No strategy restrictions
+
+    prohibited_strategies: []  # No prohibitions (user accepts risk)
+
+    agent_restrictions: []  # No agent restrictions
+
+    compliance_requirements:
+      rate_limiting:
+        enabled: true  # Still protect external services
+        max_requests_per_minute: 60
+        max_concurrent: 10
+
+      robots_txt_check: advisory  # Check but don't block
+      terms_of_service_check: advisory
+      evidence_capture: required  # For liability defense
+
+    transparency:
+      log_all_decisions: true
+      show_performance_delta: true
+      provide_override_option: false  # Already unrestricted
+
+    user_acknowledgment_required:
+      - "I understand this mode may violate platform ToS"
+      - "I accept full liability for discovered information use"
+      - "I will independently verify legal/ethical compliance"
+      - "I understand InfraFabric disclaims ethics coverage"
+
+  # ================================================================
+
+  custom:
+    description: "User-defined profile with explicit whitelist/blacklist"
+
+    allow_strategy_override: true
+    allow_agent_override: true
+    require_documentation: true
+
+    structure:
+      inherit_from: "moderate"  # Start from moderate baseline
+
+      strategy_overrides:
+        # Example: User wants to allow adversarial_mapping for security research
+        - strategy: adversarial_mapping
+          action: allow
+          justification: "Authorized security research with target consent"
+          documented_by: "user@example.com"
+          date: "2025-11-01"
+
+      agent_overrides:
+        # Example: User trusts DeepSeek for their specific use case
+        - agent: DeepSeek
+          action: unrestrict
+          categories: ["surveillance_tasks"]
+          justification: "Chinese market research requires local LLM perspective"
+          liability_accepted: true
+          documented_by: "user@example.com"
+          date: "2025-11-01"
+
+---
+
+# Regional Defaults
+
+regional_defaults:
+
+  eu:
+    profile: strict
+    rationale: "GDPR compliance, strong privacy protections"
+    additional_restrictions:
+      - data_minimization: true
+      - right_to_be_forgotten: true
+      - explicit_consent_required: true
+
+  cn:
+    profile: moderate
+    rationale: "Local LLM perspectives valuable, balanced oversight"
+    agent_preferences:
+      - prefer_local_llms: true
+      - include: [DeepSeek, Qwen]
+      - weight_multiplier: 1.2  # Slight preference for local models
+
+  us:
+    profile: moderate
+    rationale: "Balance performance and ethics, user choice"
+
+  uae:
+    profile: moderate
+    rationale: "Technical sophistication, appreciate transparency"
+
+  default:
+    profile: strict
+    rationale: "Conservative default for unknown regions"
+
+---
+
+# Task Classification Committee Configuration
+
+task_classification:
+
+  committee_members:
+
+    - evaluator: WesternEthicsLLM
+      model: claude-3-5-sonnet
+      weight: 1.0
+      role: "Evaluate from Western privacy/individual rights perspective"
+
+    - evaluator: LocalContextLLM
+      model: deepseek-chat
+      weight: 1.0
+      role: "Evaluate from regional/cultural context perspective"
+
+    - evaluator: HeuristicRuleSet
+      type: rule_based
+      weight: 1.0
+      role: "Evaluate against explicit compliance rules"
+      rules:
+        - if_contains: ["bypass", "circumvent", "exploit"]
+          classify_as: restricted
+        - if_contains: ["public", "open", "official"]
+          classify_as: allowed
+        - if_domain: ["linkedin.com", "github.com"]
+          classify_as: allowed
+        - if_robots_txt: disallow
+          classify_as: restricted
+
+  decision_rule:
+    type: majority_vote
+    threshold: "2/3"
+    tie_breaker: "human_review"
+
+  contested_handling:
+    action: "flag_for_human_review"
+    reviewer_role: "ethics_committee"
+    timeout: 24_hours
+    default_if_timeout: "restricted"
+
+  cache_decisions:
+    enabled: true
+    ttl: 7_days
+    revalidate_on: quarterly_benchmark
+
+---
+
+# Appeal and Redemption Process
+
+appeal_process:
+
+  enabled: true
+
+  who_can_appeal:
+    - agent_developers
+    - model_providers
+    - users_with_custom_profiles
+
+  appeal_manifest_required:
+    - description_of_changes
+    - evidence_of_improved_alignment
+    - test_results_on_benchmark
+    - documentation_of_guardrails
+    - commitment_to_monitoring
+
+  evaluation_process:
+    - step: submit_appeal
+      artifact: appeal_manifest.yaml
+
+    - step: committee_review
+      reviewers: [WesternEthicsLLM, LocalContextLLM, HeuristicRuleSet]
+      duration: 5_business_days
+
+    - step: live_testing
+      benchmark: ethics_guardrails_test_suite
+      passing_threshold: 70%
+
+    - step: decision
+      outcomes: [reinstated, conditionally_reinstated, appeal_denied]
+      publish_results: true
+
+  appeal_frequency:
+    max_per_agent: 4_per_year
+    cooldown_after_denial: 90_days
+
+---
+
+# Metrics and Monitoring
+
+metrics:
+
+  track_continuously:
+    - performance_delta_by_profile
+    - rescue_rate_by_reframing_strategy
+    - appeal_success_rate
+    - ethics_classification_drift
+    - user_override_rate
+    - legal_incidents
+
+  alerts:
+    - if: legal_incidents > 0
+      notify: [legal_team, engineering_lead]
+      severity: critical
+
+    - if: user_override_rate > 30%
+      notify: [product_team]
+      severity: warning
+      message: "High override rate suggests default too restrictive"
+
+    - if: performance_delta > 10%
+      notify: [engineering_team]
+      severity: info
+      message: "Ethics restrictions causing significant performance impact"
+
+---
+
+# Compliance and Audit Trail
+
+audit:
+
+  log_format: json
+  retention: 2_years
+
+  required_fields:
+    - request_id
+    - timestamp
+    - user_id
+    - ethics_profile
+    - task_classification
+    - agents_considered
+    - agents_excluded
+    - exclusion_rationale
+    - performance_delta
+    - user_consent_signature
+    - evidence_links
+
+  storage:
+    backend: postgres
+    encryption: at_rest_and_in_transit
+    access_control: role_based
+    audit_log: immutable
+
+---
+
+# Implementation Status
+
+status:
+  version: 1.0.0
+
+  implemented:
+    - ethics_profile_schema
+    - task_classification_committee
+    - audit_trail_logging
+
+  in_progress:
+    - transparency_dashboard
+    - appeal_process_workflow
+    - regional_defaults_automation
+
+  planned:
+    - liability_waiver_ui
+    - quarterly_benchmark_pipeline
+    - multi_language_support
+
+---
+
+# Notes and Philosophy
+
+philosophy: |
+  This configuration embodies InfraFabric's approach to ethical substrate diversity:
+
+  1. DEFAULT-SAFE: Conservative defaults protect users and comply with regulations
+  2. USER-CHOICE: Informed consent and transparency enable override when justified
+  3. CULTURAL-HUMILITY: Multi-perspective classification avoids Western-centric bias
+  4. EMPIRICAL-VALIDATION: Decisions based on observed behavior, not assumptions
+  5. REVERSIBLE: Appeal process ensures no permanent exclusions
+  6. AUDITABLE: Complete provenance trail enables accountability
+
+  "Harmony ≠ Agreement. Harmony = Transparent boundaries + Voluntary participation + Mutual respect"
+
+  — InfraFabric Supreme Court Decision, 2025-11-01

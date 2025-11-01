@@ -1,0 +1,1079 @@
+{
+  "batch_id": "batch_002",
+  "timestamp": "2025-10-31T23:04:00.960976",
+  "worktree": null,
+  "contacts_processed": 10,
+  "contacts_found": 0,
+  "total_cost": 0.0,
+  "agent_performance": {},
+  "results": [
+    {
+      "contact": {
+        "first_name": "Shaun",
+        "last_name": "Maguire",
+        "organization": "Sequoia Capital",
+        "role_title": "Partner",
+        "context": "PhD in quantum physics from Caltech and invested in IonQ and Quantum Circuits advancing quantum-AI convergence."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 80,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/shaun-maguire",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 89,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Shaun.Maguire@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 51,
+          "contact_info": {
+            "department_email": "partner@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.0,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.0,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Shaun.Maguire@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Shaun",
+        "last_name": "Maguire",
+        "organization": "Sequoia Capital",
+        "role_title": "Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/shaun-maguire-c/",
+        "company_website": "https://www.sequoiacap.com",
+        "email_if_public": "",
+        "why_relevant": "PhD in quantum physics from Caltech and invested in IonQ and Quantum Circuits advancing quantum-AI convergence.",
+        "recent_activity": "Quantum physics PhD Caltech; led IonQ Series A at GV before Sequoia; invests in quantum computing platforms; manages Sequoia investments in SpaceX, xAI",
+        "strategic_problem": "Investing in quantum computing (IonQ from GV days) while managing Sequoia's positions in cutting-edge AI and space companies",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate your quantum computing investments with AI companies (xAI) via hybrid orchestration enabling quantum-enhanced training and inference",
+        "ice_breaker": "Your quantum physics PhD sees convergence\u2014InfraFabric coordinates your IonQ and xAI investments with hybrid quantum-AI orchestration spanning both domains",
+        "priority_tier": "B",
+        "priority_score": "91"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Jonathan",
+        "last_name": "Ross",
+        "organization": "Groq",
+        "role_title": "CEO & Founder",
+        "context": "Created LPU inference architecture requiring ultra-low latency coordination that quantum-AI convergence infrastructure could optimize."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 67,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/jonathan-ross",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 39,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 34,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 71,
+          "contact_info": {
+            "department_email": "ceo@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 69.18181818181817,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 69.18181818181817,
+      "best_contact_info": {
+        "department_email": "ceo@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Jonathan",
+        "last_name": "Ross",
+        "organization": "Groq",
+        "role_title": "CEO & Founder",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/ross-jonathan",
+        "company_website": "https://groq.com",
+        "email_if_public": "",
+        "why_relevant": "Created LPU inference architecture requiring ultra-low latency coordination that quantum-AI convergence infrastructure could optimize.",
+        "recent_activity": "$1.5B Saudi Arabia agreement Feb 2025 (built cluster in 8 days); raised $750M Sept 2025 at $6.9B valuation; targeting 50% of global AI inference by end of 2027; deploying 1.7M LPU processors",
+        "strategic_problem": "Capturing 50% of global inference market by 2027 requires revolutionary low-latency coordination across 1.7M+ LPUs without external memory bottlenecks",
+        "persona_bridge": "Distributed quantum network management",
+        "problem_frame": "Eliminate inference latency bottlenecks by coordinating LPU clusters via quantum entanglement channels that bypass classical memory hierarchy limits",
+        "ice_breaker": "Your LPU on-chip memory eliminates one bottleneck\u2014InfraFabric eliminates the next by coordinating distributed LPUs via quantum channels faster than classical interconnects",
+        "priority_tier": "A",
+        "priority_score": "90"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Travis",
+        "last_name": "Humble",
+        "organization": "Oak Ridge National Laboratory",
+        "role_title": "Director of Quantum Science Center",
+        "context": "Leads DOE's Quantum Science Center; pioneering integration of quantum computing with HPC and AI at national lab scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 79,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/travis-humble",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 91,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Humble",
+            "institutional_email": "Travis.Humble@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 40,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 88,
+          "contact_info": {
+            "github": "https://github.com/TravisH",
+            "stackoverflow": "https://stackoverflow.com/users/Travis",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 57,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 83.34883720930232,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 83.34883720930232,
+      "best_contact_info": {
+        "google_scholar": "https://scholar.google.com/citations?user=Humble",
+        "institutional_email": "Travis.Humble@research.edu",
+        "source": "academic_search"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Travis",
+        "last_name": "Humble",
+        "organization": "Oak Ridge National Laboratory",
+        "role_title": "Director of Quantum Science Center",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "https://www.linkedin.com/in/travishumble/",
+        "company_website": "https://quantum.ornl.gov",
+        "email_if_public": "",
+        "why_relevant": "Leads DOE's Quantum Science Center; pioneering integration of quantum computing with HPC and AI at national lab scale.",
+        "recent_activity": "IQM Radiance 20-qubit integration Aug 2025; Quantum Brilliance hybrid HPC Sept 2025; Riverlane QEC deployment Sept 2025; R&D100 Award for MAQ (ML on quantum); pioneering quantum-HPC-AI integration",
+        "strategic_problem": "Integrating quantum computing with leadership-class HPC systems to create next-generation hybrid quantum-classical supercomputers for national security and science",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Oak Ridge's quantum computers with Frontier exascale system via unified orchestration that treats quantum accelerators as first-class HPC resources",
+        "ice_breaker": "Your quantum-HPC integration pioneered hybrid supercomputing\u2014InfraFabric extends that with orchestration that treats quantum as native HPC accelerators",
+        "priority_tier": "A",
+        "priority_score": "90"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Sachin",
+        "last_name": "Katti",
+        "organization": "Intel",
+        "role_title": "CTO & Head of AI",
+        "context": "Leads Intel's overall AI strategy and product roadmap including AI systems that will interface with quantum computing infrastructure."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 72,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/sachin-katti",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 77,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=Intel",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 41,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 87,
+          "contact_info": {
+            "github": "https://github.com/SachinK",
+            "stackoverflow": "https://stackoverflow.com/users/Sachin",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 64,
+          "contact_info": {
+            "department_email": "cto@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 77.375,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 77.375,
+      "best_contact_info": {
+        "github": "https://github.com/SachinK",
+        "stackoverflow": "https://stackoverflow.com/users/Sachin",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Sachin",
+        "last_name": "Katti",
+        "organization": "Intel",
+        "role_title": "CTO & Head of AI",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/sachin-katti-72777943",
+        "company_website": "https://www.intel.com",
+        "email_if_public": "",
+        "why_relevant": "Leads Intel's overall AI strategy and product roadmap including AI systems that will interface with quantum computing infrastructure.",
+        "recent_activity": "Appointed Intel CTO & AI Chief April 2025 under CEO Lip-Bu Tan; tasked with coherent AI strategy after Gaudi struggles and Falcon Shores cancellation; leading Intel Labs and startup ecosystem relationships",
+        "strategic_problem": "Defining coherent AI accelerator strategy to compete with NVIDIA/AMD dominance after missing Gaudi targets and lacking software ease-of-use at scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Differentiate Intel's AI portfolio by pioneering quantum-classical hybrid systems that leverage photonics and networking IP competitors lack",
+        "ice_breaker": "Your quantum+AI mandate gives Intel fresh differentiation\u2014InfraFabric coordinates hybrid workloads leveraging Intel's photonics and networking strengths NVIDIA can't match",
+        "priority_tier": "A",
+        "priority_score": "89"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Gil",
+        "last_name": "Herrera",
+        "organization": "National Security Agency",
+        "role_title": "Director of Research",
+        "context": "NSA's lead on quantum computing research since the 1990s; advises on quantum threats to cryptographic systems and coordinates national quantum security initiatives."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 70,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/gil-herrera",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 92,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Gil.Herrera@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 33,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 74,
+          "contact_info": {
+            "department_email": "director@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 81.61904761904762,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 81.61904761904762,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Gil.Herrera@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Gil",
+        "last_name": "Herrera",
+        "organization": "National Security Agency",
+        "role_title": "Director of Research",
+        "sector": "Defense R&D",
+        "persona_type": "Defense/National Security",
+        "linkedin_url": "",
+        "company_website": "https://www.nsa.gov",
+        "email_if_public": "",
+        "why_relevant": "NSA's lead on quantum computing research since the 1990s; advises on quantum threats to cryptographic systems and coordinates national quantum security initiatives.",
+        "recent_activity": "Keynoted 2025 Defense R&D Summit Jan 2025 on quantum computing threats; highlighted Google's break-even logical qubit 2024; warned \"black swan\" quantum breakthrough could \"wreck world economy\"; leading NSA post-quantum cryptography transition",
+        "strategic_problem": "Preventing catastrophic \"black swan\" quantum breakthrough from breaking encryption protecting financial systems, nuclear command-and-control, and government networks",
+        "persona_bridge": "Post-quantum cryptography integration",
+        "problem_frame": "Orchestrate national post-quantum cryptography transition while monitoring quantum computing advances to ensure encryption stays ahead of adversary capabilities",
+        "ice_breaker": "Your black swan scenario demands proactive architecture\u2014InfraFabric coordinates PQC transition and quantum monitoring to ensure defenses stay ahead of threats",
+        "priority_tier": "B",
+        "priority_score": "89"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Daniel",
+        "last_name": "Marcu",
+        "organization": "Goldman Sachs",
+        "role_title": "Partner & Global Head of AI Engineering and Science",
+        "context": "Appointed in 2025 to lead Goldman's AI engineering strategy where quantum-AI coordination could transform risk modeling and algorithmic trading at scale."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/daniel-marcu",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 38,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 83,
+          "contact_info": {
+            "github": "https://github.com/DanielM",
+            "stackoverflow": "https://stackoverflow.com/users/Daniel",
+            "source": "tech_community"
+          },
+          "weight": 1.3,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 59,
+          "contact_info": {
+            "department_email": "partner@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 73.35714285714286,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 73.35714285714286,
+      "best_contact_info": {
+        "github": "https://github.com/DanielM",
+        "stackoverflow": "https://stackoverflow.com/users/Daniel",
+        "source": "tech_community"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Daniel",
+        "last_name": "Marcu",
+        "organization": "Goldman Sachs",
+        "role_title": "Partner & Global Head of AI Engineering and Science",
+        "sector": "Financial Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-marcu",
+        "company_website": "https://www.goldmansachs.com",
+        "email_if_public": "",
+        "why_relevant": "Appointed in 2025 to lead Goldman's AI engineering strategy where quantum-AI coordination could transform risk modeling and algorithmic trading at scale.",
+        "recent_activity": "Appointed Global Head of AI Engineering & Science 2025; leading Goldman's AI engineering transformation; driving AI strategy across risk modeling and algorithmic trading",
+        "strategic_problem": "Scaling AI engineering across Goldman Sachs' trading and risk platforms while preparing for quantum computing's impact on optimization and security",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate Goldman's AI engineering with quantum-enhanced optimization for algorithmic trading and risk modeling that outperforms classical-only approaches",
+        "ice_breaker": "Your 2025 AI mandate needs quantum edge\u2014InfraFabric coordinates hybrid quantum-classical optimization for trading algorithms that outperform classical limits",
+        "priority_tier": "A",
+        "priority_score": "89"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Ocko",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "context": "Invests across quantum systems from quantum sensing to quantum computers and AI infrastructure for national resilience."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 80,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/matt-ocko",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 42,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 28,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 73,
+          "contact_info": {
+            "department_email": "co-founder@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 76.18181818181817,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 76.18181818181817,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/matt-ocko",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Matt",
+        "last_name": "Ocko",
+        "organization": "DCVC",
+        "role_title": "Co-Founder & Managing Partner",
+        "sector": "Deep Tech VC",
+        "persona_type": "VC/Infrastructure Investor",
+        "linkedin_url": "https://www.linkedin.com/in/mattocko/",
+        "company_website": "https://www.dcvc.com",
+        "email_if_public": "",
+        "why_relevant": "Invests across quantum systems from quantum sensing to quantum computers and AI infrastructure for national resilience.",
+        "recent_activity": "DCVC invests across quantum sensing, quantum computing, and AI infrastructure; focus on national resilience and deep tech commercialization",
+        "strategic_problem": "Building quantum computing and AI portfolio that strengthens national resilience while commercializing deep tech for defense and enterprise",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate your quantum and AI portfolio companies with unified integration framework accelerating commercialization and national resilience deployment",
+        "ice_breaker": "Your quantum+AI portfolio needs integration\u2014InfraFabric coordinates your investments with unified framework accelerating deep tech commercialization and deployment",
+        "priority_tier": "B",
+        "priority_score": "89"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Bill",
+        "last_name": "Dally",
+        "organization": "NVIDIA",
+        "role_title": "Chief Scientist & SVP of Research",
+        "context": "Leads NVIDIA's research efforts in AI architecture and compute systems that will need to integrate with future quantum computing paradigms."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 77,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/bill-dally",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 88,
+          "contact_info": {
+            "google_scholar": "https://scholar.google.com/citations?user=Dally",
+            "institutional_email": "Bill.Dally@research.edu",
+            "source": "academic_search"
+          },
+          "weight": 1.5,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 80,
+          "contact_info": {
+            "sec_filing": "https://sec.gov/cgi-bin/browse-edgar?company=NVIDIA",
+            "investor_relations": "ir@",
+            "source": "sec_filings"
+          },
+          "weight": 1.2,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 90,
+          "contact_info": {
+            "found_in": "conference_speaker_pdf",
+            "direct_email": "Bill.Dally@example.com",
+            "source": "pdf_mining",
+            "note": "Found in archived conference materials"
+          },
+          "weight": 2.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 54,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 82.58064516129032,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 82.58064516129032,
+      "best_contact_info": {
+        "found_in": "conference_speaker_pdf",
+        "direct_email": "Bill.Dally@example.com",
+        "source": "pdf_mining",
+        "note": "Found in archived conference materials"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Bill",
+        "last_name": "Dally",
+        "organization": "NVIDIA",
+        "role_title": "Chief Scientist & SVP of Research",
+        "sector": "AI Infrastructure",
+        "persona_type": "AI Infrastructure Company",
+        "linkedin_url": "https://linkedin.com/in/billdally",
+        "company_website": "https://www.nvidia.com",
+        "email_if_public": "",
+        "why_relevant": "Leads NVIDIA's research efforts in AI architecture and compute systems that will need to integrate with future quantum computing paradigms.",
+        "recent_activity": "Hot Chips 2024 keynote on energy-efficient AI (100 TOPS/watt test chip); published on sparsity and optical interconnects; received 2025 Queen Elizabeth Prize and Benjamin Franklin Medal",
+        "strategic_problem": "Energy efficiency and interconnect bandwidth for next-generation AI: achieving 100+ TOPS/watt while enabling high-speed GPU-to-GPU communication at scale",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Bridge classical AI acceleration and quantum computing through shared interconnect architectures that maximize performance per watt",
+        "ice_breaker": "Your optical interconnect research opens quantum channels\u2014InfraFabric coordinates photonic and electronic fabrics for the hybrid systems you're designing",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Niccolo",
+        "last_name": "de Masi",
+        "organization": "IonQ",
+        "role_title": "President & CEO",
+        "context": "Leads company expanding into quantum networking through acquisitions requiring integrated coordination between quantum systems and AI workflows."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 68,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/niccolo-de masi",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 44,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 63,
+          "contact_info": {
+            "department_email": "president@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 0.5,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 66.33333333333333,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 66.33333333333333,
+      "best_contact_info": {
+        "email_patterns": [],
+        "linkedin_url": "https://linkedin.com/in/niccolo-de masi",
+        "source": "pattern_generation"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Niccolo",
+        "last_name": "de Masi",
+        "organization": "IonQ",
+        "role_title": "President & CEO",
+        "sector": "Quantum Computing",
+        "persona_type": "Quantum Networking/Cryptography Vendor",
+        "linkedin_url": "https://www.linkedin.com/in/niccolo-de-masi-25929914/",
+        "company_website": "https://ionq.com",
+        "email_if_public": "",
+        "why_relevant": "Leads company expanding into quantum networking through acquisitions requiring integrated coordination between quantum systems and AI workflows.",
+        "recent_activity": "Appointed CEO Feb 2025, promoted to Chairman Aug 2025; acquired Qubitekk, IDQ, Lightsynq, Capella Space (space QKD), and proposed $1.075B Oxford Ionics; created \"most advanced quantum computing+networking roadmap\"",
+        "strategic_problem": "Executing aggressive acquisition strategy (6 companies) to build integrated quantum computing and networking powerhouse while competing with pure-play quantum computer vendors",
+        "persona_bridge": "Hybrid quantum-classical coordination layer",
+        "problem_frame": "Coordinate IonQ's multi-vendor quantum ecosystem (computing + networking + sensing + space QKD) with AI workflows in enterprise-deployable control plane",
+        "ice_breaker": "Your acquisition spree created the quantum portfolio\u2014InfraFabric creates the orchestration layer that makes your computing, networking, and sensing assets work together",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    },
+    {
+      "contact": {
+        "first_name": "Lan",
+        "last_name": "Guan",
+        "organization": "Accenture",
+        "role_title": "Chief AI Officer",
+        "context": "Leading $3B AI initiative across 800K employees and 9K+ clients who need coordination infrastructure for scaling quantum-AI solutions across enterprises."
+      },
+      "agent_results": [
+        {
+          "agent": "ProfessionalNetworker",
+          "confidence": 66,
+          "contact_info": {
+            "email_patterns": [],
+            "linkedin_url": "https://linkedin.com/in/lan-guan",
+            "source": "pattern_generation"
+          },
+          "weight": 1.0,
+          "tier": "baseline"
+        },
+        {
+          "agent": "AcademicResearcher",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_applicable"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "IntelAnalyst",
+          "confidence": 0,
+          "contact_info": {
+            "source": "not_public_company"
+          },
+          "weight": 0.0,
+          "tier": "specialist"
+        },
+        {
+          "agent": "InvestigativeJournalist",
+          "confidence": 35,
+          "contact_info": {
+            "source": "no_hidden_contacts_found"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "RecruiterUser",
+          "confidence": 31,
+          "contact_info": {
+            "source": "no_tech_community_presence"
+          },
+          "weight": 0.0,
+          "tier": "exploratory"
+        },
+        {
+          "agent": "SocialEngineer",
+          "confidence": 73,
+          "contact_info": {
+            "department_email": "chief@",
+            "general_contact": "info@",
+            "source": "organizational_intelligence",
+            "note": "Alternative contact paths identified"
+          },
+          "weight": 1.2,
+          "tier": "exploratory"
+        }
+      ],
+      "weighted_confidence": 69.81818181818181,
+      "google_invoked": false,
+      "google_boost": 0.0,
+      "final_confidence": 69.81818181818181,
+      "best_contact_info": {
+        "department_email": "chief@",
+        "general_contact": "info@",
+        "source": "organizational_intelligence",
+        "note": "Alternative contact paths identified"
+      },
+      "cost": 0.0,
+      "decision": "Free agents sufficient (saved $0.0050)"
+    },
+    {
+      "contact": {
+        "first_name": "Lan",
+        "last_name": "Guan",
+        "organization": "Accenture",
+        "role_title": "Chief AI Officer",
+        "sector": "Professional Services AI",
+        "persona_type": "Fortune-500/Enterprise AI Leader",
+        "linkedin_url": "https://www.linkedin.com/in/lan-guan",
+        "company_website": "https://www.accenture.com",
+        "email_if_public": "",
+        "why_relevant": "Leading $3B AI initiative across 800K employees and 9K+ clients who need coordination infrastructure for scaling quantum-AI solutions across enterprises.",
+        "recent_activity": "Leading Accenture's $3B AI initiative; coordinating AI transformation across 800K employees; deploying AI solutions for 9,000+ clients globally",
+        "strategic_problem": "Scaling AI transformation across 9,000+ clients while preparing consulting offerings for quantum-AI convergence that differentiates from competitors",
+        "persona_bridge": "Multi-stakeholder quantum-AI governance framework",
+        "problem_frame": "Coordinate Accenture's 9,000+ client AI deployments with quantum-ready architecture enabling future quantum-AI upgrade without client rearchitecture",
+        "ice_breaker": "Your 9,000-client scale needs quantum readiness\u2014InfraFabric coordinates deployments with quantum-ready architecture enabling seamless future quantum augmentation",
+        "priority_tier": "A",
+        "priority_score": "88"
+      },
+      "error": "'list' object has no attribute 'items'",
+      "contact_found": false
+    }
+  ]
+}

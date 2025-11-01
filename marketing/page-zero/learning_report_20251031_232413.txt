@@ -1,0 +1,74 @@
+================================================================================
+RECURSIVE LEARNING REPORT
+Agent Weight Learning - Historical Analysis
+================================================================================
+
+📚 Historical Data:
+   Runs analyzed: 3
+   Agents tracked: 6
+
+📊 Agent Performance (Sorted by Contribution):
+
+  ProfessionalNetworker:
+    Attempts: 84
+    Success Rate: 71.4%
+    Avg Confidence: 72.7
+    Contribution Score: 230.56
+    → Learned Weight: 1.2
+
+  SocialEngineer:
+    Attempts: 84
+    Success Rate: 21.4%
+    Avg Confidence: 63.0
+    Contribution Score: 60.02
+    → Learned Weight: 0.26
+
+  InvestigativeJournalist:
+    Attempts: 84
+    Success Rate: 25.0%
+    Avg Confidence: 52.8
+    Contribution Score: 58.64
+    → Learned Weight: 0.25
+
+  RecruiterUser:
+    Attempts: 84
+    Success Rate: 15.5%
+    Avg Confidence: 38.8
+    Contribution Score: 26.68
+    → Learned Weight: 0.12
+
+  IntelAnalyst:
+    Attempts: 84
+    Success Rate: 8.3%
+    Avg Confidence: 6.7
+    Contribution Score: 2.49
+    → Learned Weight: 0.1
+
+  AcademicResearcher:
+    Attempts: 84
+    Success Rate: 4.8%
+    Avg Confidence: 4.4
+    Contribution Score: 0.92
+    → Learned Weight: 0.1
+
+🎯 Weight Changes (Learning Outcome):
+
+  AcademicResearcher: 0.1 - ⚪ MINIMAL (keep for diversity)
+  IntelAnalyst: 0.1 - ⚪ MINIMAL (keep for diversity)
+  InvestigativeJournalist: 0.25 - ⚪ MINIMAL (keep for diversity)
+  ProfessionalNetworker: 1.2 - 🟢 HIGH (dominant contributor)
+  RecruiterUser: 0.12 - ⚪ MINIMAL (keep for diversity)
+  SocialEngineer: 0.26 - ⚪ MINIMAL (keep for diversity)
+
+💡 Insights:
+
+  • Best performer: ProfessionalNetworker (71.4% success)
+  • Needs improvement: AcademicResearcher (4.8% success)
+
+🔄 Next Steps:
+  1. Apply learned weights to next run
+  2. Measure improvement (delta vs baseline)
+  3. Iterate weights based on new results
+  4. Gradually reduce underperforming agent budget
+
+================================================================================

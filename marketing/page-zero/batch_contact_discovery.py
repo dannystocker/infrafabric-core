@@ -32,14 +32,14 @@ import concurrent.futures
 try:
     # Try to import - file exists in same directory
     import weighted_multi_agent_finder as wmaf
-    find_contact_weighted = wmaf.find_contact_weighted if hasattr(wmaf, 'find_contact_weighted') else None
+    MultiAgentWeightedCoordinator = wmaf.MultiAgentWeightedCoordinator if hasattr(wmaf, 'MultiAgentWeightedCoordinator') else None
     AGENT_PROFILES = wmaf.AGENT_PROFILES if hasattr(wmaf, 'AGENT_PROFILES') else {}
-    WEIGHTED_FINDER_AVAILABLE = True
+    WEIGHTED_FINDER_AVAILABLE = True if MultiAgentWeightedCoordinator else False
 except ImportError as e:
     WEIGHTED_FINDER_AVAILABLE = False
     print(f"WARNING: weighted_multi_agent_finder.py import failed: {e}")
     print("Batch processing will use simulated results for demonstration")
-    find_contact_weighted = None
+    MultiAgentWeightedCoordinator = None
     AGENT_PROFILES = {}
 
 # Import IF Guardians for ethical oversight
@@ -80,6 +80,12 @@ class BatchContactDiscovery:
         self.batches = []
         self.results = []
 
+        # Initialize coordinator if available
+        if WEIGHTED_FINDER_AVAILABLE and MultiAgentWeightedCoordinator:
+            self.coordinator = MultiAgentWeightedCoordinator()
+        else:
+            self.coordinator = None
+
         # Ensure output directory exists
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -94,7 +100,7 @@ class BatchContactDiscovery:
         print(f"✅ Loaded {len(self.contacts)} contacts")
 
         # Validate required fields
-        required = ['first_name', 'last_name', 'org']
+        required = ['first_name', 'last_name', 'organization']
         for i, contact in enumerate(self.contacts):
             missing = [f for f in required if f not in contact or not contact[f]]
             if missing:
@@ -188,23 +194,29 @@ class BatchContactDiscovery:
 
             try:
                 # Use weighted multi-agent finder (free agents only)
-                result = find_contact_weighted(
-                    first_name=contact.get('first_name', ''),
-                    last_name=contact.get('last_name', ''),
-                    organization=contact.get('org', ''),
-                    role=contact.get('role', ''),
-                    additional_context=contact.get('context', ''),
-                    use_paid_agents=False  # FREE AGENTS ONLY
-                )
+                if self.coordinator:
+                    # Format contact dict for coordinator
+                    contact_dict = {
+                        'first_name': contact.get('first_name', ''),
+                        'last_name': contact.get('last_name', ''),
+                        'organization': contact.get('organization', ''),
+                        'role_title': contact.get('role_title', ''),
+                        'context': contact.get('why_relevant', '')
+                    }
+                    result = self.coordinator.find_contact(contact_dict)
+                else:
+                    raise Exception("MultiAgentWeightedCoordinator not available")
 
                 batch_results['results'].append(result)
                 batch_results['contacts_processed'] += 1
 
-                if result.get('contact_found'):
+                # Check if contact found (confidence >= 70)
+                if result.get('final_confidence', 0) >= 70:
                     batch_results['contacts_found'] += 1
 
-                # Track agent performance
-                for agent_name, agent_result in result.get('agent_results', {}).items():
+                # Track agent performance - agent_results is a list
+                for agent_result in result.get('agent_results', []):
+                    agent_name = agent_result.get('agent', 'Unknown')
                     if agent_name not in batch_results['agent_performance']:
                         batch_results['agent_performance'][agent_name] = {
                             'attempts': 0,

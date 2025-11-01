@@ -60,14 +60,6 @@ except ImportError:
     QWEN_AVAILABLE = False
     print("Warning: qwen_code_agent not found - Qwen diversity substrate unavailable")
 
-# Import DeepSeek Code Agent for substrate diversity
-try:
-    from deepseek_code_agent import DeepSeekCodeAgent
-    DEEPSEEK_AVAILABLE = True
-except ImportError:
-    DEEPSEEK_AVAILABLE = False
-    print("Warning: deepseek_code_agent not found - DeepSeek diversity substrate unavailable")
-
 # Configuration
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', '')
 GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID', '')
@@ -126,13 +118,6 @@ AGENT_PROFILES = {
         'success_threshold': 75,
         'tier': 'llm_substrate',
         'description': 'Qwen3-Coder LLM reasoning (Chinese-developed, substrate diversity)'
-    },
-    'DeepSeekCodeAgent': {
-        'base_weight': 0.5,
-        'success_bonus': 1.0,
-        'success_threshold': 75,
-        'tier': 'llm_substrate',
-        'description': 'DeepSeek-Coder LLM reasoning (Chinese-developed, substrate diversity)'
     }
 }
 
@@ -169,16 +154,6 @@ class MultiAgentWeightedCoordinator:
             except Exception as e:
                 print(f"⚠️  Qwen3-Coder unavailable: {e}")
                 self.qwen_agent = None
-
-        # Initialize DeepSeek agent if available
-        self.deepseek_agent = None
-        if DEEPSEEK_AVAILABLE:
-            try:
-                self.deepseek_agent = DeepSeekCodeAgent()
-                print("✅ DeepSeek-Coder initialized (substrate diversity enabled)")
-            except Exception as e:
-                print(f"⚠️  DeepSeek-Coder unavailable: {e}")
-                self.deepseek_agent = None
 
     def find_contact(self, contact: Dict) -> Dict:
         """Main coordination flow with all 6 agents"""
@@ -227,34 +202,14 @@ class MultiAgentWeightedCoordinator:
                     'model': qwen_result.get('model', 'qwen/qwen3-coder:free')
                 },
                 'sources': ['LLM reasoning'],
-                'weight': 0.0,  # Will be calculated
-                'tier': 'llm_substrate'  # Mark as LLM substrate diversity agent
-            }
-            result['agent_results'].append(agent_result)
-
-        # Add DeepSeek if available
-        if self.deepseek_agent:
-            deepseek_result = self.deepseek_agent.find_contact(contact)
-            # Convert DeepSeek response to agent_result format
-            agent_result = {
-                'agent': 'DeepSeekCodeAgent',
-                'confidence': deepseek_result.get('confidence', 0),
-                'contact_info': {
-                    'reasoning': deepseek_result.get('reasoning', ''),
-                    'sources': 'LLM reasoning (GitHub, tech communities, academic pubs)',
-                    'provider': deepseek_result.get('provider', 'deepseek'),
-                    'model': deepseek_result.get('model', 'deepseek-chat')
-                },
-                'sources': ['LLM reasoning'],
-                'weight': 0.0,  # Will be calculated
-                'tier': 'llm_substrate'  # Mark as LLM substrate diversity agent
+                'weight': 0.0  # Will be calculated
             }
             result['agent_results'].append(agent_result)
 
         # Display results
         for agent_result in result['agent_results']:
             self._update_agent_stats(agent_result)
-            print(f"  {agent_result['agent']:24s}: confidence={agent_result['confidence']:3.0f}, "
+            print(f"  {agent_result['agent']:24s}: confidence={agent_result['confidence']:3d}, "
                   f"weight={agent_result['weight']:.1f}, tier={agent_result['tier']}")
 
         # Calculate weighted confidence

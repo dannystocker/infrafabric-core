@@ -1,0 +1,273 @@
+{
+  "timestamp": "2025-10-31T23:32:42.961982",
+  "learning_history": [
+    {
+      "type": "execution",
+      "timestamp": "2025-10-31T21:17:26.258534",
+      "total_contacts": 0,
+      "success_rate": 0,
+      "source": "run-20251031-211726-manifest.json"
+    },
+    {
+      "type": "agent_weights",
+      "timestamp": "2025-10-31T23:24:13.054617",
+      "iteration": 3,
+      "weights": {
+        "ProfessionalNetworker": 1.2,
+        "AcademicResearcher": 0.1,
+        "IntelAnalyst": 0.1,
+        "InvestigativeJournalist": 0.25,
+        "RecruiterUser": 0.12,
+        "SocialEngineer": 0.26
+      },
+      "stats": {
+        "ProfessionalNetworker": {
+          "attempts": 84,
+          "successes": 60,
+          "total_confidence": 6103.0,
+          "failures": 0,
+          "avg_confidence": 72.6547619047619,
+          "success_rate": 0.7142857142857143,
+          "contribution_score": 230.5569780472823
+        },
+        "AcademicResearcher": {
+          "attempts": 84,
+          "successes": 4,
+          "total_confidence": 366.0,
+          "failures": 0,
+          "avg_confidence": 4.357142857142857,
+          "success_rate": 0.047619047619047616,
+          "contribution_score": 0.9217745804282629
+        },
+        "IntelAnalyst": {
+          "attempts": 84,
+          "successes": 7,
+          "total_confidence": 564.0,
+          "failures": 0,
+          "avg_confidence": 6.714285714285714,
+          "success_rate": 0.08333333333333333,
+          "contribution_score": 2.4857691554172012
+        },
+        "InvestigativeJournalist": {
+          "attempts": 84,
+          "successes": 21,
+          "total_confidence": 4435.0,
+          "failures": 0,
+          "avg_confidence": 52.79761904761905,
+          "success_rate": 0.25,
+          "contribution_score": 58.64035215040046
+        },
+        "RecruiterUser": {
+          "attempts": 84,
+          "successes": 13,
+          "total_confidence": 3260.0,
+          "failures": 0,
+          "avg_confidence": 38.80952380952381,
+          "success_rate": 0.15476190476190477,
+          "contribution_score": 26.6836111465504
+        },
+        "SocialEngineer": {
+          "attempts": 84,
+          "successes": 18,
+          "total_confidence": 5296.0,
+          "failures": 0,
+          "avg_confidence": 63.04761904761905,
+          "success_rate": 0.21428571428571427,
+          "contribution_score": 60.021125138705905
+        }
+      },
+      "source": "learned_weights_20251031_232413.json"
+    },
+    {
+      "type": "agent_weights",
+      "timestamp": "2025-10-31T23:32:42.960397",
+      "iteration": 3,
+      "weights": {
+        "ProfessionalNetworker": 1.2,
+        "AcademicResearcher": 0.1,
+        "IntelAnalyst": 0.1,
+        "InvestigativeJournalist": 0.25,
+        "RecruiterUser": 0.12,
+        "SocialEngineer": 0.26
+      },
+      "stats": {
+        "ProfessionalNetworker": {
+          "attempts": 84,
+          "successes": 60,
+          "total_confidence": 6103.0,
+          "failures": 0,
+          "avg_confidence": 72.6547619047619,
+          "success_rate": 0.7142857142857143,
+          "contribution_score": 230.5569780472823
+        },
+        "AcademicResearcher": {
+          "attempts": 84,
+          "successes": 4,
+          "total_confidence": 366.0,
+          "failures": 0,
+          "avg_confidence": 4.357142857142857,
+          "success_rate": 0.047619047619047616,
+          "contribution_score": 0.9217745804282629
+        },
+        "IntelAnalyst": {
+          "attempts": 84,
+          "successes": 7,
+          "total_confidence": 564.0,
+          "failures": 0,
+          "avg_confidence": 6.714285714285714,
+          "success_rate": 0.08333333333333333,
+          "contribution_score": 2.4857691554172012
+        },
+        "InvestigativeJournalist": {
+          "attempts": 84,
+          "successes": 21,
+          "total_confidence": 4435.0,
+          "failures": 0,
+          "avg_confidence": 52.79761904761905,
+          "success_rate": 0.25,
+          "contribution_score": 58.64035215040046
+        },
+        "RecruiterUser": {
+          "attempts": 84,
+          "successes": 13,
+          "total_confidence": 3260.0,
+          "failures": 0,
+          "avg_confidence": 38.80952380952381,
+          "success_rate": 0.15476190476190477,
+          "contribution_score": 26.6836111465504
+        },
+        "SocialEngineer": {
+          "attempts": 84,
+          "successes": 18,
+          "total_confidence": 5296.0,
+          "failures": 0,
+          "avg_confidence": 63.04761904761905,
+          "success_rate": 0.21428571428571427,
+          "contribution_score": 60.021125138705905
+        }
+      },
+      "source": "learned_weights_20251031_233242.json"
+    }
+  ],
+  "meta_metrics": {
+    "curves": {
+      "agent_weights": {
+        "ProfessionalNetworker": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 1.2
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 1.2
+          }
+        ],
+        "AcademicResearcher": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 0.1
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 0.1
+          }
+        ],
+        "IntelAnalyst": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 0.1
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 0.1
+          }
+        ],
+        "InvestigativeJournalist": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 0.25
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 0.25
+          }
+        ],
+        "RecruiterUser": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 0.12
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 0.12
+          }
+        ],
+        "SocialEngineer": [
+          {
+            "timestamp": "2025-10-31T23:24:13.054617",
+            "weight": 0.26
+          },
+          {
+            "timestamp": "2025-10-31T23:32:42.960397",
+            "weight": 0.26
+          }
+        ]
+      },
+      "execution_performance": [
+        {
+          "timestamp": "2025-10-31T21:17:26.258534",
+          "success_rate": 0
+        }
+      ],
+      "strategy_diversity": []
+    },
+    "velocity": {},
+    "calibration": {
+      "agent_calibration": {
+        "ProfessionalNetworker": {
+          "avg_confidence": 72.6547619047619,
+          "actual_success": 71.42857142857143,
+          "error": 1.2261904761904674,
+          "status": "WELL CALIBRATED"
+        },
+        "AcademicResearcher": {
+          "avg_confidence": 4.357142857142857,
+          "actual_success": 4.761904761904762,
+          "error": 0.4047619047619051,
+          "status": "WELL CALIBRATED"
+        },
+        "IntelAnalyst": {
+          "avg_confidence": 6.714285714285714,
+          "actual_success": 8.333333333333332,
+          "error": 1.6190476190476177,
+          "status": "WELL CALIBRATED"
+        },
+        "InvestigativeJournalist": {
+          "avg_confidence": 52.79761904761905,
+          "actual_success": 25.0,
+          "error": 27.79761904761905,
+          "status": "POORLY CALIBRATED"
+        },
+        "RecruiterUser": {
+          "avg_confidence": 38.80952380952381,
+          "actual_success": 15.476190476190476,
+          "error": 23.333333333333336,
+          "status": "POORLY CALIBRATED"
+        },
+        "SocialEngineer": {
+          "avg_confidence": 63.04761904761905,
+          "actual_success": 21.428571428571427,
+          "error": 41.61904761904762,
+          "status": "POORLY CALIBRATED"
+        }
+      },
+      "overall_calibration": "UNKNOWN"
+    },
+    "diminishing_returns": {
+      "detected": false,
+      "recommendation": "CONTINUE",
+      "reasoning": "Insufficient data to detect diminishing returns"
+    }
+  },
+  "notes": "Meta-learning dashboard results. Tracks learning about learning."
+}
