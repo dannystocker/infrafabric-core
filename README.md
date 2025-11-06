@@ -8,6 +8,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- **[InfraFabric Component Index](#infrafabric-component-index)** - Complete IF.* component map
+  - 📄 Documented in Research Papers (12 components with links)
+  - 🔬 Proposed in Annexes (IF.vesicle, IF.sam, IF.kernel)
+  - 🔧 Operational & Integration Components
+  - 🌐 Domain-Specific Applications (IF.chase, IF.collapse, IF.garp)
+  - 🏗️ Architectural Patterns
+  - 🔮 Future/Conceptual Components
 - [Research Papers](#research-papers)
   - **[1. IF.vision - Vision and Architecture](IF-vision.md)** (4,099 words)
     - Cyclical Coordination Model (Manic/Depressive/Dream/Reward)
@@ -118,6 +125,61 @@
 InfraFabric is a research framework for coordinating multiple large language models (LLMs) through cyclical governance and guardian councils, validated across hardware debugging, healthcare AI, police oversight, and civilizational collapse analysis.
 
 **Key Achievement**: 100× false positive reduction (4% → 0.04%) while maintaining 100% true positive retention in production deployment (IF.yologuard, 6 months live).
+
+## InfraFabric Component Index
+
+Complete map of all IF.* components mentioned across papers and annexes:
+
+### 📄 **Documented in Research Papers**
+- **[IF.vision](IF-vision.md)** - Cyclical coordination model & guardian council architecture
+- **[IF.foundations](IF-foundations.md)** - Consolidates IF.ground, IF.search, IF.persona methodologies
+- **[IF.armour](IF-armour.md)** - 4-tier security architecture with biological false positive reduction
+- **[IF.witness](IF-witness.md)** - Meta-validation via IF.forge & IF.swarm
+- **[IF.ground](IF-foundations.md#2-part-1-ifground---the-epistemology)** - 8 anti-hallucination principles, epistemological foundation
+- **[IF.search](IF-foundations.md#3-part-2-ifsearch---the-investigation)** - 8-pass investigation methodology with multi-engine consensus
+- **[IF.persona](IF-foundations.md#4-part-3-ifpersona---the-agent)** - Bloom patterns, cognitive diversity, character bible system
+- **[IF.philosophy](philosophy/IF.philosophy-database.yaml)** - Queryable database mapping 2,500 years of philosophy to AI safety
+- **[IF.forge](IF-witness.md)** - 7-stage Multi-Agent Reflexion Loop (MARL)
+- **[IF.swarm](IF-witness.md)** - 15-agent epistemic swarm for rapid validation
+- **[IF.yologuard](IF-armour.md)** - Production-validated secret redaction (96.43% accuracy, 6 months live)
+- **[IF.guard](annexes/infrafabric-IF-annexes.md)** - Guardian council deliberation system (10 annexes)
+
+### 🔬 **Proposed in Annexes**
+- **[IF.vesicle](annexes/infrafabric-IF-annexes.md#annex-e-dossier-05---neurogenesis-biological-parallels)** - Biological memory transport inspired component (Annex E)
+- **[IF.sam](annexes/infrafabric-IF-annexes.md#annex-h-consolidation-debate---extended-20-voice-council)** - 16 facets of Sam Altman's strategic spectrum (8 Light + 8 Dark, Annex H)
+- **[IF.kernel](annexes/infrafabric-IF-annexes.md#annex-f-dossier-06---kernel-framework-integration)** - KERNEL framework integration (6 principles, Annex F)
+
+### 🔧 **Operational & Integration Components**
+- **IF.optimise** - Token efficiency and delegation strategy
+- **IF.router** - Request routing and model selection
+- **IF.memory** - Context and state management
+- **IF.trace** - Audit trail and observability
+- **IF.pulse** - System health monitoring
+
+### 🌐 **Domain-Specific Applications**
+- **IF.chase** - Police pursuit coordination (Annex D: 97.3% approval)
+- **IF.collapse** - Civilizational pattern analysis (Annex G: 100% consensus ⭐)
+- **IF.garp** - Singapore governance framework (Annex B: 77.5-80%)
+- **IF.pursuit** - High-stakes decision coordination
+
+### 🏗️ **Architectural Patterns**
+- **IF.mesh** - Distributed coordination topology
+- **IF.federate** - Cross-organization collaboration
+- **IF.barrier** - Safety and constraint enforcement
+- **IF.veil** - Privacy and redaction layer
+- **IF.constitution** - Governance rules and protocols
+
+### 🔮 **Future/Conceptual**
+Components mentioned but not yet fully specified:
+- IF.amplify, IF.arbitrate, IF.ceo, IF.core, IF.governance, IF.guardian, IF.guardians, IF.marl, IF.mcp, IF.methodology, IF.quiet, IF.reflect, IF.resource, IF.simplify, IF.synergy
+
+**Legend:**
+- 📄 Clickable links navigate to documented content
+- 🔬 Proposed components with working specifications
+- 🔧 Operational infrastructure components
+- 🌐 Domain-specific case studies
+- 🏗️ Architectural patterns
+- 🔮 Conceptual/future components (not yet clickable)
 
 ## Research Papers
 
