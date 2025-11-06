@@ -5,6 +5,34 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![arXiv](https://img.shields.io/badge/arXiv-Pending-red.svg)](https://arxiv.org/)
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Research Papers](#research-papers)
+  - [IF.vision - Vision and Architecture](#1-ifvision---infrafabric-vision-and-architecture)
+  - [IF.foundations - Foundational Methodologies](#2-iffoundations---foundational-methodologies)
+  - [IF.armour - Security Architecture](#3-ifarmour---security-architecture)
+  - [IF.witness - Meta-Validation](#4-ifwitness---meta-validation-as-architecture)
+- [IF.philosophy Database](#ifphilosophy-database)
+- [Production Validation](#production-validation)
+  - [IF.yologuard (6 Months Live)](#ifyologuard-6-months-live-deployment)
+  - [Cross-Domain Validation](#cross-domain-validation)
+- [Architecture Highlights](#architecture-highlights)
+  - [Cyclical Coordination Model](#cyclical-coordination-model)
+  - [Guardian Council Archetypes](#guardian-council-archetypes)
+  - [Epistemic Personas](#epistemic-personas-ifground)
+- [Repository Structure](#repository-structure)
+- [Supplementary Materials](#supplementary-materials)
+- [Installation & Usage](#installation--usage)
+  - [Philosophy Database Queries](#philosophy-database-queries)
+  - [Guardian Council Simulation](#guardian-council-simulation)
+- [Research Methodology](#research-methodology)
+- [License](#license)
+- [Citation](#citation)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+- [Status](#status)
+
 ## Overview
 
 InfraFabric is a research framework for coordinating multiple large language models (LLMs) through cyclical governance and guardian councils, validated across hardware debugging, healthcare AI, police oversight, and civilizational collapse analysis.
