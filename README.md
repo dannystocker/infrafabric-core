@@ -9,28 +9,64 @@
 
 - [Overview](#overview)
 - [Research Papers](#research-papers)
-  - [IF.vision - Vision and Architecture](#1-ifvision---infrafabric-vision-and-architecture)
-  - [IF.foundations - Foundational Methodologies](#2-iffoundations---foundational-methodologies)
-  - [IF.armour - Security Architecture](#3-ifarmour---security-architecture)
-  - [IF.witness - Meta-Validation](#4-ifwitness---meta-validation-as-architecture)
+  - [1. IF.vision - Vision and Architecture](#1-ifvision---infrafabric-vision-and-architecture)
+    - Novel Contributions
+  - [2. IF.foundations - Foundational Methodologies](#2-iffoundations---foundational-methodologies)
+    - Novel Contributions
+  - [3. IF.armour - Security Architecture](#3-ifarmour---security-architecture)
+    - Novel Contributions
+  - [4. IF.witness - Meta-Validation](#4-ifwitness---meta-validation-as-architecture)
+    - Novel Contributions
 - [IF.philosophy Database](#ifphilosophy-database)
+  - 12 Philosophers (Locke, Popper, Peirce, Quine, Dewey, Epictetus, Buddha, Vienna Circle)
+  - 20 Components
+  - 8 Anti-Hallucination Principles
+  - Human-Readable Formats
 - [Production Validation](#production-validation)
-  - [IF.yologuard (6 Months Live)](#ifyologuard-6-months-live-deployment)
+  - [IF.yologuard (6 Months Live Deployment)](#ifyologuard-6-months-live-deployment)
   - [Cross-Domain Validation](#cross-domain-validation)
+    - Hardware Debugging (99.1%)
+    - Healthcare AI (97.0%)
+    - Police AI Oversight (97.3%)
+    - Civilizational Collapse (100%)
 - [Architecture Highlights](#architecture-highlights)
   - [Cyclical Coordination Model](#cyclical-coordination-model)
+    - Manic Phase
+    - Depressive Phase
+    - Dream Phase
+    - Reward Phase
   - [Guardian Council Archetypes](#guardian-council-archetypes)
-  - [Epistemic Personas](#epistemic-personas-ifground)
+    - Default Weights
+    - Context-Adaptive Weighting
+  - [Epistemic Personas (IF.ground)](#epistemic-personas-ifground)
+    - 7 Personas (Crime Beat Reporter, Forensic Investigator, Internal Affairs, etc.)
 - [Repository Structure](#repository-structure)
 - [Supplementary Materials](#supplementary-materials)
+  - Annex A-G: 7 Dossiers
+    - Dossier 01: RRAM Hardware Acceleration (99.1%)
+    - Dossier 02: Singapore GARP Governance (77.5-80%)
+    - Dossier 03: NVIDIA Integration (97.7%)
+    - Dossier 04: Police Chase Coordination (97.3%)
+    - Dossier 05: Neurogenesis Biological Parallels (89.1%)
+    - Dossier 06: KERNEL Framework Integration (70.0%)
+    - Dossier 07: Civilizational Collapse Patterns (100% ⭐)
+  - Annex H: Consolidation Debate (82.87%)
+  - Annex I: IF.yologuard Test Data (31,000+ operations)
+  - Annex J: External Citations Database (30 sources)
 - [Installation & Usage](#installation--usage)
   - [Philosophy Database Queries](#philosophy-database-queries)
   - [Guardian Council Simulation](#guardian-council-simulation)
 - [Research Methodology](#research-methodology)
+  - 6 Validation Pillars
 - [License](#license)
+  - CC BY 4.0 Terms
 - [Citation](#citation)
+  - Temporary BibTeX
+  - Future arXiv Citations
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+  - LLM Contributors
+  - Philosophy Database Contributors
 - [Status](#status)
 
 ## Overview
