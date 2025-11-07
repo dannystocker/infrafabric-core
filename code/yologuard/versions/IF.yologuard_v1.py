@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Secret Detection v1.0
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
 """
 Secure Claude Code Multi-Agent Bridge
 Production-lean MCP server with auth, redaction, and safety controls

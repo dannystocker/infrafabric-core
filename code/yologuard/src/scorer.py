@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Scoring Script
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
+
 """
 IF.yologuard v3 Scoring Script
 Aligns detections against ground truth and calculates TP/FP/FN/Recall/Precision

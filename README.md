@@ -158,8 +158,10 @@ This is a research project documenting a real development journey. All sources a
 
 ## 📄 License
 
-Research papers: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-Code: MIT License (see individual components)
+- **Research papers and documentation:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Source code:** [MIT License](LICENSE-CODE) - See individual files for SPDX identifiers
+
+All code files include standard license headers with copyright attribution.
 
 ---
 

@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Benchmark Runner
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
+
 """
 IF.yologuard v2 Benchmark Test - Leaky Repo (OPTIMIZED)
 Skips binary files >100KB to avoid entropy analysis hangs

@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Secret Detection v3.0
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
 """
 IF.yologuard v3.0 - Confucian Relationship-Based Secret Detector
 Adds: Relationship mapping, Wu Lun philosophy, contextual validation

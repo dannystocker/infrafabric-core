@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Secret Detection v2.0
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
 """
 IF.yologuard v2.0 - Enhanced Secret Redaction
 Adds: Entropy detection, Base64/hex decoding, JSON/XML/YAML parsing, 14 new patterns
