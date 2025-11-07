@@ -29,16 +29,16 @@ import re
 import signal
 from contextlib import contextmanager
 
-# Import v3 philosophical detector
-sys.path.insert(0, '/home/setup/work/mcp-multiagent-bridge')
+# Import v3 philosophical detector from repo
 import importlib.util
-spec = importlib.util.spec_from_file_location("yologuard_v3", "/home/setup/work/mcp-multiagent-bridge/IF.yologuard_v3.py")
+REPO_ROOT = Path(__file__).parent.parent
+spec = importlib.util.spec_from_file_location("yologuard_v3", REPO_ROOT / "src/IF.yologuard_v3.py")
 yologuard_v3 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(yologuard_v3)
 SecretRedactorV3 = yologuard_v3.SecretRedactorV3
 
 # Benchmark configuration
-LEAKY_REPO_PATH = Path('/home/setup/digital-lab.ca/infrafabric/yologuard/benchmarks/leaky-repo')
+LEAKY_REPO_PATH = REPO_ROOT / "benchmarks/leaky-repo"
 EXCLUDE_DIRS = {'.git', '.leaky-meta'}
 
 # Safety limits
@@ -279,7 +279,7 @@ def main():
         print(f"{status} {file_path:50s} | GT:{gt:2d} | Detected:{len(secrets):2d}")
 
     # Write summary
-    output_path = Path('/home/setup/digital-lab.ca/infrafabric/yologuard/benchmarks/leaky_repo_v3_fast_v2_results.txt')
+    output_path = REPO_ROOT / "benchmarks/leaky_repo_v3_fast_v2_results.txt"
     with open(output_path, 'w') as f:
         f.write("=" * 90 + "\n")
         f.write("IF.yologuard v3.0 - FAST BENCHMARK RESULTS (v2 - FIXED)\n")

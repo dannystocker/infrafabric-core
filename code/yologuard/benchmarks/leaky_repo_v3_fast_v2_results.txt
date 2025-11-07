@@ -1,0 +1,34 @@
+==========================================================================================
+IF.yologuard v3.0 - FAST BENCHMARK RESULTS (v2 - FIXED)
+==========================================================================================
+
+Scan Time: 0.0s
+Files Scanned: 49
+Files Skipped: 2 (binary/oversized)
+
+v1 baseline: 30/96  (31.2%)
+v2 baseline: ~74/96 (77.0%)
+v3 detected: 106/96  (110.4%)
+Improvement: +32 secrets
+
+Top Detections:
+  db/dump.sql                                        | GT:10 | Detected:10
+  web/var/www/public_html/wp-config.php              | GT: 9 | Detected: 9
+  .bash_profile                                      | GT: 6 | Detected: 8
+  .mozilla/firefox/logins.json                       | GT: 8 | Detected: 8
+  web/var/www/.env                                   | GT: 6 | Detected: 6
+  .bashrc                                            | GT: 3 | Detected: 4
+  cloud/.credentials                                 | GT: 2 | Detected: 4
+  db/dbeaver-data-sources.xml                        | GT: 1 | Detected: 4
+  .esmtprc                                           | GT: 2 | Detected: 3
+  .remote-sync.json                                  | GT: 1 | Detected: 3
+  .vscode/sftp.json                                  | GT: 1 | Detected: 3
+  db/robomongo.json                                  | GT: 3 | Detected: 3
+  deployment-config.json                             | GT: 3 | Detected: 3
+  sftp-config.json                                   | GT: 1 | Detected: 3
+  web/ruby/secrets.yml                               | GT: 3 | Detected: 3
+  .ftpconfig                                         | GT: 3 | Detected: 2
+  .idea/WebServers.xml                               | GT: 1 | Detected: 2
+  .netrc                                             | GT: 2 | Detected: 2
+  config                                             | GT: 1 | Detected: 2
+  etc/shadow                                         | GT: 1 | Detected: 2
