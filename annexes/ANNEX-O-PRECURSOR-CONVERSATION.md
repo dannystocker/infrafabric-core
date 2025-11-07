@@ -5,7 +5,7 @@
 **Location:** Claude.ai web interface
 **Participants:** Danny Stocker, Claude (Anthropic)
 **Status:** Primary philosophical source, predates InfraFabric technical inception by 10 days
-**Source:** `IF_CONVERSATIONS/seeking-confirmation-oct16-2025_29abca1b.json` (735 KB)
+**Source:** [seeking-confirmation-oct16-2025_29abca1b.json](https://github.com/dannystocker/infrafabric/blob/master/docs/evidence/session-conversations/seeking-confirmation-oct16-2025_29abca1b.json) (735 KB)
 
 ---
 

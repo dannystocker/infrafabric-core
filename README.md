@@ -45,9 +45,11 @@ infrafabric/
 │       ├── benchmarks/              # Test corpus & validation
 │       └── VERSION_ROADMAP.md       # Evolution → IF.armour.yologuard
 │
-└── validation/                      # Proof & validation documentation
-    ├── briefing/                    # Complete briefings (v2, v3, v4)
-    └── page-zero/                   # Multi-agent validation experiments
+└── docs/                            # Documentation & evidence
+    ├── philosophy/                  # Philosophical foundations (Page Zero)
+    ├── archive/                     # Historical briefings (v2, v3, v4)
+    └── evidence/                    # Proof & validation materials
+        └── session-conversations/   # Complete conversation logs
 ```
 
 ---
@@ -150,7 +152,7 @@ See [IF.yologuard README](code/yologuard/README.md) for secret detection impleme
 
 This is a research project documenting a real development journey. All sources are preserved for reproducibility.
 
-**Validation docs:** See [validation/](validation/) for multi-agent proof experiments and complete briefings.
+**Documentation:** See [docs/philosophy/](docs/philosophy/) for philosophical foundations, [docs/evidence/](docs/evidence/) for proof materials and session logs.
 
 ---
 

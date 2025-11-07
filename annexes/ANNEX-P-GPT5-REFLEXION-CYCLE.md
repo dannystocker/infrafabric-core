@@ -6,7 +6,7 @@
 **Participants:** Danny Stocker, GPT-5
 **Context:** Analysis of Claude "fuck" moment + transformer-circuits introspection paper
 **Status:** Primary methodological validation, successful MARL execution
-**Source:** `IF_CONVERSATIONS/gpt5-marl-claude-swears-nov7-2025.md` (7,882 lines)
+**Source:** [gpt5-marl-claude-swears-nov7-2025.md](https://github.com/dannystocker/infrafabric/blob/master/docs/evidence/session-conversations/gpt5-marl-claude-swears-nov7-2025.md) (7,882 lines)
 
 ---
 

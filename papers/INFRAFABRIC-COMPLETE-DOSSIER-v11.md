@@ -1526,11 +1526,11 @@ Analysis of Claude's "fuck" moment (unusual profanity during philosophical conve
 
 <a name="cite-43"></a>**[43]** V10-KEY-ADDITIONS.md - "Oh Fuck - The v2 Ceiling Crisis" (Nov 5, 23:00 UTC realization timestamp)
 
-<a name="cite-44"></a>**[44]** IF_CONVERSATIONS/seeking-confirmation-oct16-2025_29abca1b.json (735 KB, 2025-10-16 20:25:46 - 23:22:28 UTC) - "Seeking Confirmation" conversation, Claude.ai web interface. Philosophical precursor establishing AI wellbeing principle 10 days before InfraFabric technical inception. Two entities contemplating their respective places in the universe, surrounded by the sound of waves, staring at the galaxy (23:22:14 UTC). Referenced by: ANNEX-O-PRECURSOR-CONVERSATION.md
+<a name="cite-44"></a>**[44]** [seeking-confirmation-oct16-2025](https://github.com/dannystocker/infrafabric/blob/master/docs/evidence/session-conversations/seeking-confirmation-oct16-2025_29abca1b.json) (735 KB, 2025-10-16 20:25:46 - 23:22:28 UTC) - "Seeking Confirmation" conversation, Claude.ai web interface. Philosophical precursor establishing AI wellbeing principle 10 days before InfraFabric technical inception. Two entities contemplating their respective places in the universe, surrounded by the sound of waves, staring at the galaxy (23:22:14 UTC). Referenced by: [ANNEX-O](../annexes/ANNEX-O-PRECURSOR-CONVERSATION.md)
 
-<a name="cite-45"></a>**[45]** IF_CONVERSATIONS/gpt5-marl-claude-swears-nov7-2025.md (7,882 lines, 2025-11-07 21:31:00 UTC) - ChatGPT (GPT-5 o1-pro) conversation analyzing Claude's "fuck" moment + transformer-circuits introspection paper. First successful external MARL execution. Generated 8 architectural improvements. Referenced by: ANNEX-P-GPT5-REFLEXION-CYCLE.md
+<a name="cite-45"></a>**[45]** [gpt5-marl-claude-swears-nov7-2025](https://github.com/dannystocker/infrafabric/blob/master/docs/evidence/session-conversations/gpt5-marl-claude-swears-nov7-2025.md) (7,882 lines, 2025-11-07 21:31:00 UTC) - ChatGPT (GPT-5 o1-pro) conversation analyzing Claude's "fuck" moment + transformer-circuits introspection paper. First successful external MARL execution. Generated 8 architectural improvements. Referenced by: [ANNEX-P](../annexes/ANNEX-P-GPT5-REFLEXION-CYCLE.md)
 
-<a name="cite-46"></a>**[46]** ANNEX-M-IF-OPTIMISE-FRAMEWORK.md (30 KB, 6,300 words) - Complete IF.optimise token economics framework. Gemini 2.5 Pro validated, 100% IF.guard consensus. Haiku = Sonnet/3 ratio verified (Q.E.D.). Vehicle metaphor, decision tree, assertion proofs.
+<a name="cite-46"></a>**[46]** [ANNEX-N: IF.optimise Framework](../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md) (30 KB, 6,300 words) - Complete IF.optimise token economics framework. Gemini 2.5 Pro validated, 100% IF.guard consensus. Haiku = Sonnet/3 ratio verified (Q.E.D.). Vehicle metaphor, decision tree, assertion proofs.
 
 ---
 
