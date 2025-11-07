@@ -151,3 +151,41 @@ All contacts researched using:
 **Generated**: October 2025
 **Research Period**: January 2024 - October 2025
 **Campaign Type**: Strategic B2B Outreach - Deep Tech Infrastructure
+
+## Projects
+
+### IF.yologuard: Multi-Criteria Contextual Secret Detection
+
+Secret detection system using relationship-based validation (Wu Lun framework) to distinguish genuine credentials from benign high-entropy strings.
+
+**Achievements:**
+- 99% recall on Leaky Repo benchmark (95/96 secrets)
+- 100% precision (0 false positives)
+- Independently verified by GPT-5 and Gemini
+- Trust rating: 8/10
+
+**Timeline:**
+- 12 hours: v1 → v3 development
+- 3 days: Multi-vendor validation
+- 504× faster than traditional 7-month research cycle
+
+**Key Innovation:**
+Confucian relational philosophy (Wu Lun) applied to secret detection:
+- 君臣 (cert-authority): Trust chain validation
+- 父子 (token-session): Temporal relationships  
+- 夫婦 (key-endpoint): Functional pairing
+- 朋友 (user-password): Symmetric credentials
+- 兄弟 (config-secret): Spatial proximity
+
+**Documentation:**
+- [Project README](projects/yologuard/README.md)
+- [Academic Paper](projects/yologuard/docs/IF_YOLOGUARD_V3_PAPER.md)
+- [IF.witness Integration Case Study](projects/yologuard/integration/IF_WITNESS_INTEGRATION.md)
+
+**Usage:**
+```bash
+python3 projects/yologuard/src/IF.yologuard_v3.py --scan /path/to/repo
+python3 projects/yologuard/benchmarks/run_leaky_repo_v3_philosophical_fast_v2.py
+```
+
+See [projects/yologuard/](projects/yologuard/) for full documentation.
