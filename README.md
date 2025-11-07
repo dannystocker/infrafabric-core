@@ -45,8 +45,9 @@ infrafabric/
 │       ├── benchmarks/              # Test corpus & validation
 │       └── VERSION_ROADMAP.md       # Evolution → IF.armour.yologuard
 │
-└── marketing/                       # Outreach materials
-    └── page-zero/                   # Strategic contacts (84 decision-makers)
+└── validation/                      # Proof & validation documentation
+    ├── briefing/                    # Complete briefings (v2, v3, v4)
+    └── page-zero/                   # Multi-agent validation experiments
 ```
 
 ---
@@ -149,7 +150,7 @@ See [IF.yologuard README](code/yologuard/README.md) for secret detection impleme
 
 This is a research project documenting a real development journey. All sources are preserved for reproducibility.
 
-**For inquiries:** See [marketing/page-zero/](marketing/page-zero/) for strategic contact information.
+**Validation docs:** See [validation/](validation/) for multi-agent proof experiments and complete briefings.
 
 ---
 
