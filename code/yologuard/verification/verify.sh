@@ -1,5 +1,11 @@
 #!/bin/bash
-# IF.yologuard verification script
+# Copyright (c) 2025 Danny Stocker
+# SPDX-License-Identifier: MIT
+#
+# InfraFabric - IF.yologuard Verification Script
+# Source: https://github.com/dannystocker/infrafabric
+# Licensed under the MIT License. See LICENSE-CODE file in the project root.
+#
 # Runs the test suite and compares against expected output
 
 set -e
