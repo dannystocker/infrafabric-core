@@ -1,0 +1,59 @@
+{
+  "commit_hash": "dbcc851299ff2038f54f40f2812028e081d33024",
+  "python_version": "3.12.3",
+  "date": "2025-11-08",
+  "benchmark_results": {
+    "detections": "107/96",
+    "file_coverage": "42/42",
+    "recall_percentage": 111.5,
+    "files_scanned": 49,
+    "files_skipped": 2,
+    "runtime_seconds": 0.1,
+    "improvement_over_v2": "+33 secrets (+34.5 percentage points)"
+  },
+  "environment": {
+    "platform": "linux",
+    "os_version": "6.6.87.2-microsoft-standard-WSL2",
+    "required_packages": [],
+    "optional_packages": [
+      "regex (for enhanced regex timeout support)"
+    ]
+  },
+  "detector_configuration": {
+    "version": "3.0",
+    "patterns_count": 62,
+    "detection_modes": [
+      "pattern_matching",
+      "entropy_detection",
+      "decoding_pipeline",
+      "format_extraction",
+      "relationship_scoring"
+    ],
+    "max_file_size_bytes": 1048576,
+    "file_scan_timeout_seconds": 5,
+    "entropy_threshold": 4.5,
+    "min_token_length": 16
+  },
+  "test_corpus": {
+    "path": "code/yologuard/benchmarks/leaky-repo",
+    "total_files": 49,
+    "ground_truth_files": 42,
+    "ground_truth_secrets": 96,
+    "excluded_dirs": [".git", ".leaky-meta"],
+    "binary_extensions_skipped": [
+      ".db", ".sqlite", ".sqlite3",
+      ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ".webp",
+      ".pdf", ".doc", ".docx", ".xls", ".xlsx",
+      ".zip", ".tar", ".gz", ".bz2", ".7z", ".rar",
+      ".exe", ".dll", ".so", ".dylib",
+      ".bin", ".dat", ".pyc", ".pyo"
+    ]
+  },
+  "validation_metadata": {
+    "benchmark_script": "code/yologuard/benchmarks/run_leaky_repo_v3_philosophical_fast_v2.py",
+    "detector_source": "code/yologuard/src/IF.yologuard_v3.py",
+    "results_archive": "code/yologuard/benchmarks/leaky_repo_v3_fast_v2_results.txt",
+    "reproducibility_guide": "code/yologuard/repro/REPRODUCE.md",
+    "ablation_studies": "docs/ABLATIONS.md"
+  }
+}
