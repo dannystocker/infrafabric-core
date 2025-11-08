@@ -779,6 +779,8 @@ if __name__ == "__main__":
     _parser.add_argument('--stats', action='store_true', help='Print compact stats (files, detections, usable/components)')
     _parser.add_argument('--max-file-bytes', type=int, default=DEFAULT_MAX_FILE_BYTES, help=f'Skip files larger than this size (default: {DEFAULT_MAX_FILE_BYTES} bytes)')
     _parser.add_argument('--profile', choices=['ci','ops','audit','research','forensics'], help='Preset profile for thresholds/mode (ci, ops, audit, research, forensics)')
+    _parser.add_argument('--simple-output', action='store_true', help='Print beginner-friendly per-detection lines')
+    _parser.add_argument('--format', dest='out_format', choices=['default','json-simple'], default='default', help='Choose JSON output format when using --json (default or json-simple)')
     _parser.add_argument('--demo', action='store_true', help='Run built-in relationship demo')
     _args, _unknown = _parser.parse_known_args()
 
@@ -1144,6 +1146,15 @@ if __name__ == "__main__":
             _components = sum(1 for r in _results if r.get('classification') == 'component')
             print(f"stats: files={len(_files)} detections={_count} usable={_usable} components={_components}")
 
+        # Simple output lines for beginners
+        if _args.simple_output and _results:
+            for _r in _results:
+                _f = _r.get('file','?')
+                _ln = _r.get('line', -1)
+                _sev = _r.get('severity','NOTE')
+                _pat = _r.get('pattern','')
+                print(f"simple: {_f}:{_ln} [{_sev}] {_pat}")
+
         # Optional outputs
         if _args.text_out:
             try:
@@ -1157,7 +1168,18 @@ if __name__ == "__main__":
         if _args.json_out:
             try:
                 with open(_args.json_out, 'w') as _jf:
-                    json.dump(_results, _jf, indent=2)
+                    if _args.out_format == 'json-simple':
+                        _simple = []
+                        for _r in _results:
+                            _simple.append({
+                                'file': _r.get('file'),
+                                'line': _r.get('line'),
+                                'pattern': _r.get('pattern'),
+                                'severity': _r.get('severity'),
+                            })
+                        json.dump(_simple, _jf, indent=2)
+                    else:
+                        json.dump(_results, _jf, indent=2)
                 print(f"Wrote JSON:    {_args.json_out}")
             except Exception as _e:
                 print(f"WARN: failed writing JSON: {_e}")
