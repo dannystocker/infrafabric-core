@@ -43,11 +43,11 @@ The detector scans for AWS key patterns:
 
 ---
 
-## Phase 3: Relationship Mapping (Wu Lun)
+## Phase 3: Relationship Scoring
 
 **Source:** `/home/setup/infrafabric/code/yologuard/src/IF.yologuard_v3.py:385-450`
 
-The Confucian relationship mapper (Wu Lun) finds **contextual relationships**:
+The relationship mapper finds **contextual relationships** between secrets (using the Wu Lun framework):
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -238,10 +238,11 @@ All claims cite actual code locations:
 - **Example:** `AKIA*` prefix is AWS-specific
 - **Confidence:** High because of deterministic structure
 
-### 2. **Relationship Mapping (Wu Lun)**
-- **What:** Context around the secret makes it meaningful
-- **Example:** "aws_access_key + aws_secret_key in same dict"
+### 2. **Relationship Scoring**
+- **What:** Context around the secret makes it meaningful (calculates a relationship score from 0.0 to 1.0)
+- **Example:** "aws_access_key + aws_secret_key in same dict" = 0.94 (very high confidence)
 - **Why:** Isolated tokens are noise; related tokens are secrets
+- **Technical:** Uses Wu Lun (五倫) framework from Confucian philosophy
 
 ### 3. **Classification**
 - **Usable:** Can be used immediately (API keys, credentials)
