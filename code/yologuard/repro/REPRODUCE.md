@@ -173,6 +173,40 @@ IF.yologuard v3 intentionally over-detects to catch:
 
 ---
 
+## Verification
+
+After running the benchmark, use this table to compare your results against expected values:
+
+| Metric | Expected | Your Result | Status |
+|--------|----------|-------------|--------|
+| Detections | 107/96 (111.5%) | _______ | □ |
+| File Coverage | 42/42 | _______ | □ |
+| Scan Time | ~0.1s | _______ | □ |
+| Python Version | 3.11+ | _______ | □ |
+
+**Instructions for recording your results:**
+
+1. Run the benchmark:
+   ```bash
+   python3 code/yologuard/benchmarks/run_leaky_repo_v3_philosophical_fast_v2.py
+   ```
+
+2. From the output, fill in the "Your Result" column:
+   - **Detections:** Look for `v3 detected:` line in output (format: `XX/96`)
+   - **File Coverage:** Look for `Files with detects:` line (format: `XX/42`)
+   - **Scan Time:** Look for `Scan time:` line (format: `0.Xs`)
+   - **Python Version:** Run `python3 --version` and record the version
+
+3. Mark the Status checkbox (□) as complete (✓) once you've verified each metric
+
+**Troubleshooting mismatches:**
+- If Detections < 107: See "Benchmark detects fewer than 107 secrets" section
+- If File Coverage < 42: Check that all files in `benchmarks/leaky-repo/` are present
+- If Scan Time > 1s: See "Benchmark runs slowly" section
+- If Python version < 3.11: Upgrade Python and retest
+
+---
+
 ## Verifying Results by File Category
 
 ### Critical Files (High Priority)
