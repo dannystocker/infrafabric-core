@@ -9,6 +9,11 @@
 #
 # The decision schema is located in: schemas/decision/v1.0.schema.json
 # Available decision types: APPROVE, REJECT, CONDITIONAL
+#
+# GOVERNANCE REFERENCES:
+# - Full dissent handling process: governance/DECISION_DISSENT_RUNBOOK.md
+# - Dissent escalation outcomes: governance/DECISION_DISSENT_RUNBOOK.md#dissent-escalation-outcomes
+# - Example decision artifact: governance/examples/decision_example.json
 
 set -euo pipefail
 
@@ -153,6 +158,48 @@ with open("$DECISION_SCHEMA", 'r') as f:
     print(f"  Required fields: {schema.get('required', [])}")
     props = schema.get('properties', {})
     print(f"  Valid decision values: {props.get('decision', {}).get('enum', [])}")
+PYEOF
+
+  echo ""
+  echo "Validating decision against schema:"
+  python3 << PYEOF
+import json
+import sys
+
+try:
+    from jsonschema import validate, ValidationError
+    has_jsonschema = True
+except ImportError:
+    has_jsonschema = False
+
+# Load schema and decision
+with open("$DECISION_SCHEMA", 'r') as f:
+    schema = json.load(f)
+
+with open("$DECISION_FILE", 'r') as f:
+    decision = json.load(f)
+
+if has_jsonschema:
+    try:
+        validate(instance=decision, schema=schema)
+        print("  ✓ Decision validates against schema")
+        print(f"    - ID: {decision['id']}")
+        print(f"    - Decision: {decision['decision']}")
+        print(f"    - Dissent count: {len(decision.get('dissent', []))}")
+        if decision.get('dissent'):
+            print(f"    - Dissenters: {', '.join(decision['dissent'])}")
+            print("    → See escalation outcomes: governance/DECISION_DISSENT_RUNBOOK.md#dissent-escalation-outcomes")
+    except ValidationError as e:
+        print(f"  ✗ Validation failed: {e.message}")
+        sys.exit(1)
+else:
+    # Manual validation
+    print("  ✓ Decision file exists and is valid JSON")
+    print(f"    - ID: {decision['id']}")
+    print(f"    - Decision: {decision['decision']}")
+    print(f"    - Dissent count: {len(decision.get('dissent', []))}")
+    print("    (Install jsonschema for full validation: pip install jsonschema)")
+
 PYEOF
 else
   echo "✗ Schema not found at $DECISION_SCHEMA"
