@@ -23,6 +23,10 @@ Expected performance gain: 80%+ recall (v2) → 90%+ precision with relationship
 """
 
 import re
+try:
+    import regex as _regex  # optional: enables timeout in matching
+except Exception:
+    _regex = None
 import base64
 import binascii
 import math
@@ -34,6 +38,20 @@ import hashlib
 import subprocess
 from datetime import datetime
 import json as _jsonmod
+
+# ============================================================================
+# CONSTANTS (avoid magic numbers)
+# ============================================================================
+
+DEFAULT_ERROR_THRESHOLD = 0.75
+DEFAULT_WARN_THRESHOLD = 0.50
+AUDIT_ERROR_THRESHOLD = 0.70
+AUDIT_WARN_THRESHOLD = 0.40
+RESEARCH_ERROR_THRESHOLD = 0.60
+RESEARCH_WARN_THRESHOLD = 0.40
+FORENSICS_ERROR_THRESHOLD = 0.65
+FORENSICS_WARN_THRESHOLD = 0.45
+DEFAULT_MAX_FILE_BYTES = 5_000_000
 
 # ============================================================================
 # ENTROPY DETECTION
@@ -531,7 +549,11 @@ class SecretRedactorV3:
 
     def __init__(self):
         """Initialize v3 redactor with Confucian + Aristotelian features."""
-        self.patterns_compiled = [(re.compile(p, re.DOTALL | re.MULTILINE), r) for p, r in self.PATTERNS]
+        flags = (re.DOTALL | re.MULTILINE)
+        if _regex:
+            self.patterns_compiled = [(_regex.compile(p, flags), r) for p, r in self.PATTERNS]
+        else:
+            self.patterns_compiled = [(re.compile(p, flags), r) for p, r in self.PATTERNS]
 
     def scan_with_patterns(self, text: str) -> List[Tuple[str, str, int]]:
         """Scan text with all compiled patterns.
@@ -540,8 +562,16 @@ class SecretRedactorV3:
         """
         matches = []
         for pattern, replacement in self.patterns_compiled:
-            for match in pattern.finditer(text):
-                matches.append((replacement, match.group(0), match.start()))
+            try:
+                if _regex and hasattr(pattern, 'finditer'):
+                    for match in pattern.finditer(text, timeout=0.02):
+                        matches.append((replacement, match.group(0), match.start()))
+                else:
+                    for match in pattern.finditer(text):
+                        matches.append((replacement, match.group(0), match.start()))
+            except Exception:
+                # Timeout or matching error – skip this pattern for this text
+                continue
         return matches
 
     def predecode_and_rescan(self, text: str) -> List[Tuple[str, str, int]]:
@@ -624,9 +654,19 @@ class SecretRedactorV3:
         - Same secret at SAME position (multiple patterns) → keep only first
         - Same secret at DIFFERENT positions → keep all occurrences
         """
+        # Binary sniff – skip likely binary files
+        try:
+            with open(file_path, 'rb') as fb:
+                chunk = fb.read(512)
+                non_text = sum(1 for b in chunk if b < 32 and b not in (9, 10, 13))
+                if len(chunk) and (non_text / len(chunk)) > 0.30:
+                    return []
+        except Exception:
+            return []
+
         try:
             content = file_path.read_text(encoding='utf-8', errors='ignore')
-        except:
+        except Exception:
             return []
 
         matches = self.predecode_and_rescan(content)
@@ -733,11 +773,11 @@ if __name__ == "__main__":
     _parser.add_argument('--pq-report', dest='pq_report', help='Write Quantum Readiness (QES) report JSON to file')
     _parser.add_argument('--sbom', dest='sbom_path', help='Path to CycloneDX SBOM or lockfile directory (optional)')
     # (added below to avoid duplication)
-    _parser.add_argument('--error-threshold', type=float, default=0.75, help='Relationship score threshold for ERROR (default: 0.75)')
-    _parser.add_argument('--warn-threshold', type=float, default=0.5, help='Relationship score threshold for WARNING (default: 0.5)')
+    _parser.add_argument('--error-threshold', type=float, default=DEFAULT_ERROR_THRESHOLD, help=f'Relationship score threshold for ERROR (default: {DEFAULT_ERROR_THRESHOLD})')
+    _parser.add_argument('--warn-threshold', type=float, default=DEFAULT_WARN_THRESHOLD, help=f'Relationship score threshold for WARNING (default: {DEFAULT_WARN_THRESHOLD})')
     _parser.add_argument('--mode', choices=['usable','component','both'], default='both', help='Filter by detection type (default: both)')
     _parser.add_argument('--stats', action='store_true', help='Print compact stats (files, detections, usable/components)')
-    _parser.add_argument('--max-file-bytes', type=int, default=5_000_000, help='Skip files larger than this size (default: 5MB)')
+    _parser.add_argument('--max-file-bytes', type=int, default=DEFAULT_MAX_FILE_BYTES, help=f'Skip files larger than this size (default: {DEFAULT_MAX_FILE_BYTES} bytes)')
     _parser.add_argument('--profile', choices=['ci','ops','audit','research','forensics'], help='Preset profile for thresholds/mode (ci, ops, audit, research, forensics)')
     _parser.add_argument('--demo', action='store_true', help='Run built-in relationship demo')
     _args, _unknown = _parser.parse_known_args()
@@ -753,39 +793,44 @@ if __name__ == "__main__":
             if _args.profile == 'ci':
                 # Low-noise PR gating: usable-only, conservative thresholds, 5MB cap
                 _args.mode = 'usable'
-                _args.error_threshold = 0.75 if _args.error_threshold == 0.75 else _args.error_threshold
-                _args.warn_threshold = 0.5 if _args.warn_threshold == 0.5 else _args.warn_threshold
-                _args.max_file_bytes = 5_000_000 if _args.max_file_bytes == 5_000_000 else _args.max_file_bytes
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = DEFAULT_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = DEFAULT_WARN_THRESHOLD
+                if _args.max_file_bytes == DEFAULT_MAX_FILE_BYTES:
+                    _args.max_file_bytes = DEFAULT_MAX_FILE_BYTES
             elif _args.profile == 'ops':
                 # Security operations: include components, balanced thresholds
                 _args.mode = 'both' if _args.mode == 'both' else _args.mode
-                _args.error_threshold = 0.75 if _args.error_threshold == 0.75 else _args.error_threshold
-                _args.warn_threshold = 0.5 if _args.warn_threshold == 0.5 else _args.warn_threshold
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = DEFAULT_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = DEFAULT_WARN_THRESHOLD
                 _args.max_file_bytes = max(_args.max_file_bytes, 10_000_000)
             elif _args.profile == 'audit':
                 # Broad audit: include components, lower warn bar, larger files
                 _args.mode = 'both'
-                if _args.error_threshold == 0.75:
-                    _args.error_threshold = 0.70
-                if _args.warn_threshold == 0.5:
-                    _args.warn_threshold = 0.40
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = AUDIT_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = AUDIT_WARN_THRESHOLD
                 _args.max_file_bytes = max(_args.max_file_bytes, 20_000_000)
             elif _args.profile == 'research':
                 # Maximum sensitivity for research sweeps
                 _args.mode = 'both'
-                if _args.error_threshold == 0.75:
-                    _args.error_threshold = 0.60
-                if _args.warn_threshold == 0.5:
-                    _args.warn_threshold = 0.40
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = RESEARCH_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = RESEARCH_WARN_THRESHOLD
                 _args.max_file_bytes = max(_args.max_file_bytes, 100_000_000)
             elif _args.profile == 'forensics':
                 # Forensics profile: enable assays/graph, broad mode, lower thresholds
                 _args.forensics = True
                 _args.mode = 'both'
-                if _args.error_threshold == 0.75:
-                    _args.error_threshold = 0.65
-                if _args.warn_threshold == 0.5:
-                    _args.warn_threshold = 0.45
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = FORENSICS_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = FORENSICS_WARN_THRESHOLD
                 _args.max_file_bytes = max(_args.max_file_bytes, 50_000_000)
 
         detector = SecretRedactorV3()

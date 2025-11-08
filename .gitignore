@@ -1,6 +1,18 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
 
-# YOLOGuard test artifacts and reports
+# Virtual environments/tools
+.venv/
+.venv*/
+.venv_tools/
+
+# Tool artifacts and reports
 code/yologuard/reports/
 code/yologuard/benchmarks/results.json
-code/yologuard/benchmarks/*.sarif
-code/yologuard/benchmarks/*.json
+code/yologuard/benchmarks/leaky_repo_v3_fast_v2_results.txt
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

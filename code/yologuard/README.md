@@ -11,23 +11,19 @@
 
 ### Installation
 
+Option A (clone and run):
 ```bash
-cd code/yologuard
-# Scan a directory, write JSON + text summary
-python3 src/IF.yologuard_v3.py \
-  --scan benchmarks/leaky-repo \
-  --mode both \
-  --json results.json \
-  --out summary.txt \
-  --stats
+git clone https://github.com/dannystocker/infrafabric.git
+cd infrafabric/code/yologuard
+python3 src/IF.yologuard_v3.py --help
+```
 
-# Emit SARIF for CI (e.g., GitHub Advanced Security)
-python3 src/IF.yologuard_v3.py \
-  --scan benchmarks/leaky-repo \
-  --sarif results.sarif
-
-# Run the original demo instead
-python3 src/IF.yologuard_v3.py --demo
+Option B (optional venv for head‑to‑head tools):
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install trufflehog   # optional
+# Install gitleaks from vendor releases if desired
 ```
 
 ### Run Scanner
@@ -251,6 +247,12 @@ See **[ANNEX_A_TECHNICAL_SPEC.md](docs/ANNEX_A_TECHNICAL_SPEC.md)** for categori
 ### Heuristics (Transparent Disclosure)
 - Relationship weights (e.g., user-password 0.85, metadata-sibling 0.60) are initial heuristics, not empirically fitted constants. They are subject to calibration using future FP/performance benchmarks.
 - Severity thresholds (`--error-threshold`, `--warn-threshold`) default to 0.75/0.5 and can be tuned per environment.
+
+### PQ Disclaimer (Experimental)
+- Quantum Readiness analysis (`--pq-report`, `--sbom`) is a prototype in v3.1. It provides heuristic detection and a Quantum Exposure Score (QES) for early guidance. Calibration, SBOM parsing, and version awareness will be expanded in v4.
+
+### Versions Directory
+- The `versions/` folder contains snapshot copies of historical or frozen versions for reproducibility. The current implementation lives in `src/`. Use `src/` for all runtime/CLI operations.
 
 ### TTT: Traceability • Trust • Transparency
 - Traceability: Every detection includes `provenance` (repo commit, file SHA-256, scan timestamp) and a `rationale` list (pattern, relations, relation score, thresholds, classification).
