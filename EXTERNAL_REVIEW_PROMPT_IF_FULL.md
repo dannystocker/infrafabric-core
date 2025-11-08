@@ -60,4 +60,10 @@ Quality bar:
 - Cite everything (paths + lines). Mark any aspirational claims as such. Prefer empirical validation to assertions.
 - Be critical. Identify circular dependencies, latency bottlenecks, security risks, over‑precise heuristics, and missing tests.
 
+Evidence‑Binding Mandate (CRITICAL):
+- For every Weakness, any score below 8/10, and any Critical Issue, include a direct, verifiable citation to a provided source file.
+- Format: prefer `path:line` (e.g., `code/yologuard/src/IF.yologuard_v3.py:763`). If section‑based, use `[Evidence: FILENAME.md, Section Heading]` and ensure the section text supports the claim.
+- Rule: If you cannot find a specific textual artifact to support a criticism, do not make that criticism. Instead state: "No significant flaws found in this area based on provided documents."
+- Principle: All critiques must be falsifiable and grounded in observable evidence. Speculation is not allowed.
+
 Thank you for your thorough review.
