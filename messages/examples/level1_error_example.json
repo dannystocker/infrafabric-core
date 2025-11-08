@@ -1,0 +1,20 @@
+{
+  "id": "msg-002",
+  "timestamp": "2025-11-08T14:32:15Z",
+  "level": 1,
+  "source": "IF.yologuard",
+  "destination": "IF.guard",
+  "version": "1.0",
+  "traceId": "trace-def",
+  "payload": {
+    "file": "src/api/config.py",
+    "pattern": "AWS_ACCESS_KEY_REDACTED",
+    "line": 45,
+    "severity": "ERROR",
+    "detectionType": "credential",
+    "matchedValue": "AKIA2... (20 chars redacted)",
+    "entropy": 4.87,
+    "relationshipScore": 0.92,
+    "component": "aws-integration"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "msg-004",
+  "timestamp": "2025-11-08T16:45:30Z",
+  "level": 2,
+  "source": "IF.yologuard",
+  "destination": "IF.guard",
+  "version": "1.0",
+  "traceId": "trace-jkl",
+  "payload": {
+    "file": "migrations/db_init.sql",
+    "pattern": "HARDCODED_CREDENTIALS_PATTERN",
+    "line": 156,
+    "severity": "ERROR",
+    "detectionType": "credential",
+    "matchedValue": "Password=... (20 chars redacted)",
+    "entropy": 5.12,
+    "relationshipScore": 0.89,
+    "component": "database-migration",
+    "forensicsData": {
+      "fileHash": "sha256:a3f7d8c9e2b1f4a6",
+      "fileSize": 8742,
+      "lastModified": "2025-11-08T10:15:00Z",
+      "gitHistory": {
+        "commits": 3,
+        "authors": ["alice@company.com", "bob@company.com"],
+        "lastCommitHash": "7c9f4a2e1b8d3c5a"
+      },
+      "contextLines": {
+        "before": "-- Initialize database with default user",
+        "matched": "INSERT INTO users (username, password) VALUES ('admin', 'Password=SecurePass123!');",
+        "after": "-- Set permissions for admin user"
+      },
+      "riskFactors": [
+        "credentials in version control",
+        "hardcoded password in SQL migration",
+        "admin account with weak entropy"
+      ],
+      "recommendedAction": "Rotate credentials immediately, use secrets management"
+    }
+  }
+}
