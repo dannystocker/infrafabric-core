@@ -1,0 +1,17 @@
+{
+  "citation_id":"if://citation/9f2b3a1e-4d8a-4c7d-bf2c-e7a3d0a1b5f2",
+  "claim_id":"if://doc/IF-vision.md/§Abstract",
+  "sources":[
+    {"type":"paper","ref":"papers/IF-vision.md:1","hash":"sha256:PLACEHOLDER","note":"Vision abstract"},
+    {"type":"code","ref":"code/yologuard/src/IF.yologuard_v3.py:1210","hash":"sha256:PLACEHOLDER","note":"Provenance capture"}
+  ],
+  "rationale":"Links abstract claims to implemented provenance",
+  "verified_at": null,
+  "verified_by": null,
+  "status":"unverified",
+  "created_by":"if://agent/manual-seed",
+  "created_at":"2025-11-08T16:45:00Z",
+  "signature":"ed25519:REDACTED",
+  "adjacent_decisions":[],
+  "meta":{"manifest":"code/yologuard/reports/last_manifest.json"}
+}

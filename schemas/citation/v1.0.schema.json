@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IF.citation.v1",
+  "type": "object",
+  "required": ["citation_id","claim_id","sources","created_by","created_at","status","signature"],
+  "properties": {
+    "citation_id": {"type":"string","description":"if://citation/<uuid> or URL"},
+    "claim_id": {"type":"string","description":"if://claim/<doc>/<section> or external id"},
+    "sources": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["type","ref","hash"],
+        "properties":{
+          "type":{"type":"string","enum":["paper","code","conversation","dataset","web","other"]},
+          "ref":{"type":"string","description":"doi:/path or path:line or URL"},
+          "hash":{"type":"string","description":"sha256:<hex> or content-address"},
+          "note":{"type":"string"}
+        }
+      }
+    },
+    "rationale":{"type":"string"},
+    "verified_at":{"type":["string","null"], "format":"date-time"},
+    "verified_by":{"type":["string","null"]},
+    "status":{"type":"string","enum":["unverified","verified","disputed","revoked"], "default":"unverified"},
+    "created_by":{"type":"string"},
+    "created_at":{"type":"string","format":"date-time"},
+    "signature":{"type":"string","description":"ed25519:<base64sig> or placeholder"},
+    "adjacent_decisions":{"type":"array","items":{"type":"string"}},
+    "meta":{"type":"object","additionalProperties":true}
+  }
+}

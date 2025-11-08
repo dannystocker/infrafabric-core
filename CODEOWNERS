@@ -1,0 +1,10 @@
+# Default owners (adjust as collaborators join)
+* @dannystocker
+
+# Component ownership
+/code/yologuard/ @dannystocker
+/schemas/ @dannystocker
+/governance/ @dannystocker
+/docs/ @dannystocker
+/messages/ @dannystocker
+/rfcs/ @dannystocker
