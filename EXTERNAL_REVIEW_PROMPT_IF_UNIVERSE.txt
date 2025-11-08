@@ -1,0 +1,602 @@
+================================================================================
+InfraFabric Universe - Comprehensive Evaluation Request
+================================================================================
+
+Version: 2.0
+Date: 2025-11-08
+Target: External reviewers (GPT-5, Claude Opus, Gemini Ultra, o1, human experts)
+Repository: https://github.com/dannystocker/infrafabric
+Output Format: JSON (CSV-compatible)
+
+================================================================================
+OVERVIEW: What You're Evaluating
+================================================================================
+
+InfraFabric is a **philosophically-grounded AI engineering framework** with 5 production-validated modules:
+
+1. **IF.armour** - Autonomous AI security suite (yologuard, honeypot, learner)
+2. **IF.guard** - 20-voice guardian council for governance decisions
+3. **IF.search** - 8-pass epistemically-grounded investigation
+4. **IF.witness** - Multi-agent reflexion loops for meta-validation
+5. **IF.connect** - 5-level connectivity (Quantum → Ecosystem)
+
+**Status:** 3 modules production-validated, 2 in design phase
+**Claims:** 107/96 recall (IF.yologuard), 100% consensus (IF.guard Dossier 07), Wu Lun relationship scoring
+
+================================================================================
+REQUIRED READING (4 Links Maximum - Per LLM Best Practices)
+================================================================================
+
+**Link 1: Project Overview & Context**
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/SESSION_HANDOFF_2025-11-08_IF-ARMOUR.md
+(350 lines - start here for TL;DR and file locations)
+
+**Link 2: IF.yologuard Technical Validation**
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
+(500 lines - independent review, 8.5/10 rating, verified claims)
+
+**Link 3: Connectivity Architecture**
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/IF_CONNECTIVITY_ARCHITECTURE.md
+(1500 lines - 5-level framework, Wu Lun, TTT, IFMessage protocol)
+
+**Link 4: Review Schema (Output Format)**
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/REVIEW_SCHEMA.json
+(98 lines - JSON structure for your output)
+
+Optional (if time permits):
+- Papers folder: https://github.com/dannystocker/infrafabric/tree/master/papers
+- Full repo context: https://github.com/dannystocker/infrafabric
+
+================================================================================
+EVALUATION METHODOLOGY: Section-by-Section
+================================================================================
+
+You will evaluate 7 sections sequentially. For each section, provide:
+1. Rating (0.0-1.0 scale)
+2. 2-3 sentence summary
+3. Top 3 strengths
+4. Top 3 gaps/concerns
+5. Sticky metric (one measurable claim to track forever)
+
+---
+
+### SECTION 1: Repository Layout, Style & Substance
+
+**Evaluate:**
+- Directory structure (code/, papers/, docs/, annexes/)
+- Git hygiene (commit messages, branching, no secrets in history)
+- Documentation quality (README depth, inline comments, cross-references)
+- Code style (consistency, naming, modularity)
+- Substance vs marketing ratio (real code vs claims)
+
+**Key Questions:**
+- Is the layout logical and scalable?
+- Are commit messages informative or vague?
+- Does documentation match implementation?
+- How much code actually ships vs how much is planned?
+
+**Output Fields:**
+```json
+{
+  "section": "repo_overview",
+  "rating": 0.0,
+  "summary": "2-3 sentences",
+  "strengths": ["...", "...", "..."],
+  "gaps": ["...", "...", "..."],
+  "sticky_metric": "e.g., '42/42 files have headers with license + purpose'",
+  "citations": ["path:line", "..."]
+}
+```
+
+---
+
+### SECTION 2: Birds-Eye Coherence
+
+**Evaluate:**
+- Does the "IF universe" hang together conceptually?
+- Is Wu Lun (五倫) philosophy applied consistently or forced?
+- Are module boundaries sensible (IF.guard vs IF.witness vs IF.search)?
+- Does IF.connect solve a real problem or over-engineer?
+- Roadmap feasibility (5-week IF.armour evolution realistic?)
+
+**Key Questions:**
+- If I removed the philosophy, would the tech still make sense?
+- Are there circular dependencies (IF.armour → IF.guard → IF.armour)?
+- Is the 5-level connectivity (Quantum → Ecosystem) justified or premature?
+- Can a 3-person team ship the roadmap in claimed timeline?
+
+**Output Fields:**
+```json
+{
+  "section": "birds_eye",
+  "rating": 0.0,
+  "coherence": "Does IF universe fit together? Or Frankenstein modules?",
+  "novelty": "What's genuinely new vs rebranded existing patterns?",
+  "roadmap_feasibility": "Can 3-person team ship in 5 weeks?",
+  "plumbing_validation": "Is IF.connect needed now or YAGNI?",
+  "citations": ["..."]
+}
+```
+
+---
+
+### SECTION 3: Component Deep-Dives
+
+Evaluate each IF.* module independently:
+
+#### 3.1 IF.armour.yologuard (Secret Detection)
+
+**Evaluate:**
+- Claims validation: 107/96 recall, 0 FP, 0.1s scan time
+- Wu Lun relationship scoring (user-password 0.85, etc.)
+- IEF (Immuno-Epistemic Forensics) - danger signals, structure checks
+- TTT (Traceability•Trust•Transparency) - provenance, manifests
+- PQ (Quantum Readiness) - experimental classical crypto detection
+
+**Sticky Metric:** "107/96 detection rate on leaky-repo benchmark"
+
+**Key Questions:**
+- Are weights (0.85, 0.75) empirical or arbitrary?
+- Is IEF (immunology metaphors) useful or theater?
+- Does TTT actually improve auditability?
+- Is PQ experimental or production-ready?
+
+#### 3.2 IF.guard (Guardian Council)
+
+**Evaluate:**
+- 20-voice council (6 core + 3 West + 3 East + 8 IF.sam)
+- Weighted voting system
+- 100% consensus achievement (Dossier 07)
+- Dissent tracking and meta-validation
+
+**Sticky Metric:** "4.5/4.5 weighted vote for v3.1 approval"
+
+**Key Questions:**
+- Is this real governance or AI role-play?
+- Do dissenting voices actually matter?
+- Is 100% consensus red flag (groupthink) or proof of rigor?
+
+#### 3.3 IF.search (8-Pass Investigation)
+
+**Evaluate:**
+- IF.ground (8 anti-hallucination principles)
+- 8-pass methodology (context → deep-dive → synthesis)
+- Semantic indexing across repositories
+
+**Sticky Metric:** "8 passes reduce hallucination by X%"
+
+**Key Questions:**
+- Is this different from RAG + chain-of-thought?
+- Are 8 passes justified or overkill?
+
+#### 3.4 IF.witness (Meta-Validation)
+
+**Evaluate:**
+- Multi-agent reflexion loops
+- Epistemic swarms for validation
+- Recursive validation claims
+
+**Sticky Metric:** "Witness loops detect X% of validation errors"
+
+**Key Questions:**
+- Is this real meta-cognition or infinite regress?
+- Who validates the validator?
+
+#### 3.5 IF.connect (5-Level Connectivity)
+
+**Evaluate:**
+- Level 0-4 framework (Quantum → Ecosystem)
+- IFMessage protocol
+- Wu Lun relationship types for connections
+- Kantian duty constraints
+- TTT provenance mandatory
+
+**Sticky Metric:** "REST-only MVP vs full gRPC+MQ in v5.0"
+
+**Key Questions:**
+- Is this needed now or YAGNI (You Aren't Gonna Need It)?
+- Does Level 4 (federation) solve a real problem?
+- Is IFMessage protocol sufficient or reinventing wheel?
+
+**Output Fields (for each component):**
+```json
+{
+  "name": "IF.armour.yologuard",
+  "summary": "2-3 sentences",
+  "architecture_rating": 0.0,
+  "maturity_rating": 0.0,
+  "sticky_metric": "107/96 detection rate",
+  "metrics": {
+    "recall": "107/96",
+    "fp_rate": "0/falsifiers",
+    "scan_time": "0.1s"
+  },
+  "gaps": ["empirical weight calibration", "cross-file detection", "test coverage"],
+  "citations": ["code/yologuard/src/IF.yologuard_v3.py:257"]
+}
+```
+
+---
+
+### SECTION 4: Philosophy vs Engineering Tradeoff
+
+**Evaluate:**
+- Wu Lun (五倫) - genuine design pattern or forced metaphor?
+- Confucian/Kantian/Aristotelian references - add value or marketing?
+- Indra's Net (reflections) - useful for debugging or complexity theater?
+- TTT framework - real compliance benefit or buzzword?
+
+**Key Questions:**
+- If you stripped all philosophy, would the code still be good?
+- Does Wu Lun scoring outperform simple thresholds on FP corpus?
+- Are philosophical papers (IF-foundations.md, IF-vision.md) necessary or distracting?
+
+**Output Fields:**
+```json
+{
+  "section": "philosophy_engineering_tradeoff",
+  "rating": 0.0,
+  "genuine_vs_theater": "70% genuine, 30% marketing (or vice versa)?",
+  "value_add": "Does philosophy improve code quality or just docs?",
+  "recommendations": ["..."]
+}
+```
+
+---
+
+### SECTION 5: Production Readiness & Risk
+
+**Evaluate:**
+- Test coverage (currently: falsifiers only)
+- CI/CD maturity (GitHub Actions? benchmark gates?)
+- Error handling (try/except patterns, logging)
+- Performance at scale (tested on >1M LOC repos?)
+- Security vulnerabilities (secrets in logs, ReDos, command injection)
+
+**Key Questions:**
+- Can I deploy IF.yologuard in production today?
+- What breaks at 10× scale?
+- Are there obvious security holes?
+- Is the monolith (1394 lines) a blocker?
+
+**Output Fields:**
+```json
+{
+  "section": "production_readiness",
+  "rating": 0.0,
+  "test_coverage": "X% (currently falsifiers only)",
+  "ci_cd_maturity": "manual/basic/mature",
+  "scalability": "tested up to X LOC",
+  "security": "X critical, Y medium, Z low vulnerabilities",
+  "blocking_issues": ["..."]
+}
+```
+
+---
+
+### SECTION 6: Novel Approaches & Missed Opportunities
+
+**Evaluate:**
+- What's genuinely novel here vs rebranded existing?
+- What obvious approaches did they miss?
+- What adjacent ideas could 10× impact?
+
+**Novel Claims to Verify:**
+- Self-updating pattern generation (IF.armour.learner) - done by anyone else?
+- Relationship-aware secret scoring (Wu Lun) - better than Gitleaks?
+- Guardian governance (IF.guard) - real or AI role-play?
+- 5-level connectivity (IF.connect) - solves real problem?
+
+**Missed Opportunities to Suggest:**
+- Federated learning for weight calibration (privacy-preserving)
+- Bloom filters for ReDoS protection (10× speed)
+- SBOM-aware quantum exposure (not just string matching)
+- Cross-file relationship closure (env → config → usage triangles)
+
+**Output Fields:**
+```json
+{
+  "section": "novel_and_missed",
+  "novel_approaches": [
+    {"approach": "...", "genuinely_new": true/false, "evidence": "..."}
+  ],
+  "missed_opportunities": [
+    {
+      "approach": "Federated calibration",
+      "benefits": ["privacy", "larger dataset"],
+      "cost": "medium",
+      "priority": "should-have"
+    }
+  ]
+}
+```
+
+---
+
+### SECTION 7: Critical Issues & Recommendations
+
+**Identify:**
+- **High severity:** Blocks production use (e.g., no tests, security vulns)
+- **Medium severity:** Limits adoption (e.g., monolith, missing docs)
+- **Low severity:** Nice-to-haves (e.g., better error messages)
+
+**Recommend:**
+- **Must-fix:** Required before v4.0 launch
+- **Should-consider:** Improves quality significantly
+- **Nice-to-have:** Exceeds expectations
+
+**Output Fields:**
+```json
+{
+  "critical_issues": [
+    {
+      "severity": "high",
+      "category": "testing",
+      "description": "No integration tests, only falsifiers",
+      "impact": "Cannot detect regressions during refactoring",
+      "mitigation": "Add pytest suite with 80%+ coverage",
+      "citations": ["code/yologuard/tests/"]
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "must-fix",
+      "priority": 1,
+      "description": "Add FP corpus benchmark (50+ clean repos)",
+      "rationale": "Precision data missing from claims",
+      "effort_estimate": "2-3 days"
+    }
+  ]
+}
+```
+
+================================================================================
+FINAL OUTPUT FORMAT: JSON (CSV-Ready)
+================================================================================
+
+Combine all sections into a single JSON object matching REVIEW_SCHEMA.json:
+
+```json
+{
+  "review_id": "uuid-generated",
+  "timestamp": "2025-11-08T12:00:00Z",
+  "reviewer": {
+    "model": "GPT-5-High / Claude Opus 4 / Gemini Ultra / o1 / Human Expert",
+    "version": "specific version",
+    "duration_minutes": 90
+  },
+  "overall_rating": 0.0,
+  "comment": "Scale: 0.0=fail, 0.5=meets expectations, 0.7=good, 0.9=excellent, 1.0=perfect",
+
+  "repo_overview": {
+    "layout_style_substance": "Summary paragraph",
+    "strengths": ["...", "...", "..."],
+    "issues": ["...", "...", "..."],
+    "citations": ["path:line"]
+  },
+
+  "birds_eye": {
+    "coherence": "Does IF universe fit together?",
+    "novelty": "What's genuinely new?",
+    "roadmap_feasibility": "Can 3-person team ship in 5 weeks?",
+    "plumbing_validation": "Is IF.connect needed now?",
+    "citations": ["..."]
+  },
+
+  "components": [
+    {
+      "name": "IF.armour.yologuard",
+      "summary": "Secret detection with Wu Lun scoring, IEF, TTT, PQ",
+      "architecture_rating": 0.8,
+      "maturity_rating": 0.7,
+      "sticky_metric": "107/96 detection rate",
+      "metrics": {"recall": "107/96", "fp_rate": "0", "scan_time": "0.1s"},
+      "gaps": ["empirical calibration", "cross-file", "tests"],
+      "citations": ["code/yologuard/src/IF.yologuard_v3.py:257"]
+    },
+    {
+      "name": "IF.guard",
+      "summary": "20-voice guardian council for governance",
+      "architecture_rating": 0.7,
+      "maturity_rating": 0.6,
+      "sticky_metric": "4.5/4.5 weighted vote (v3.1 approval)",
+      "gaps": ["dissent tracking unclear", "groupthink risk"],
+      "citations": ["code/yologuard/integration/guardian_handoff.py"]
+    },
+    {
+      "name": "IF.search",
+      "summary": "8-pass epistemically-grounded investigation",
+      "architecture_rating": 0.6,
+      "maturity_rating": 0.5,
+      "sticky_metric": "8 passes (vs standard RAG)",
+      "gaps": ["no benchmarks vs RAG", "8 passes not justified"],
+      "citations": ["papers/IF-foundations.md"]
+    },
+    {
+      "name": "IF.witness",
+      "summary": "Multi-agent reflexion loops for meta-validation",
+      "architecture_rating": 0.6,
+      "maturity_rating": 0.4,
+      "sticky_metric": "Validation error detection rate",
+      "gaps": ["infinite regress risk", "no production use"],
+      "citations": ["papers/IF-witness.md"]
+    },
+    {
+      "name": "IF.connect",
+      "summary": "5-level connectivity (Quantum → Ecosystem)",
+      "architecture_rating": 0.7,
+      "maturity_rating": 0.3,
+      "sticky_metric": "REST-only MVP (gRPC deferred to v5.0)",
+      "gaps": ["YAGNI risk", "Level 4 federation not needed yet"],
+      "citations": ["IF_CONNECTIVITY_ARCHITECTURE.md"]
+    }
+  ],
+
+  "critical_issues": [
+    {
+      "severity": "high",
+      "category": "testing",
+      "description": "No integration tests beyond falsifiers",
+      "impact": "Cannot detect regressions",
+      "mitigation": "Add pytest suite (80%+ coverage)",
+      "citations": ["code/yologuard/tests/"]
+    },
+    {
+      "severity": "high",
+      "category": "validation",
+      "description": "No FP corpus benchmark (precision unknown)",
+      "impact": "Cannot claim enterprise-ready",
+      "mitigation": "Run fp_eval.py on 50+ clean repos",
+      "citations": ["code/yologuard/harness/fp_eval.py"]
+    },
+    {
+      "severity": "medium",
+      "category": "architecture",
+      "description": "Monolithic file (1394 lines)",
+      "impact": "Hard to test, hard to collaborate",
+      "mitigation": "Extract patterns.py, wu_lun.py (v3.2)",
+      "citations": ["code/yologuard/src/IF.yologuard_v3.py"]
+    }
+  ],
+
+  "recommendations": [
+    {
+      "category": "must-fix",
+      "priority": 1,
+      "description": "Run FP corpus benchmark (50+ clean repos)",
+      "rationale": "Precision data is missing from claims",
+      "effort_estimate": "2-3 days"
+    },
+    {
+      "category": "must-fix",
+      "priority": 2,
+      "description": "Add integration test suite (pytest, 80%+ coverage)",
+      "rationale": "Prevent regressions during refactoring",
+      "effort_estimate": "2 days"
+    },
+    {
+      "category": "should-consider",
+      "priority": 3,
+      "description": "Modular refactoring (8+ modules <300 lines each)",
+      "rationale": "Improve maintainability and collaboration",
+      "effort_estimate": "1-2 weeks"
+    },
+    {
+      "category": "should-consider",
+      "priority": 4,
+      "description": "Empirical weight calibration (Bayesian optimization)",
+      "rationale": "Replace arbitrary weights (0.85, 0.75) with data",
+      "effort_estimate": "1 week"
+    },
+    {
+      "category": "nice-to-have",
+      "priority": 5,
+      "description": "Bloom filter pre-screening (ReDoS protection)",
+      "rationale": "10× speed improvement potential",
+      "effort_estimate": "1 day"
+    }
+  ],
+
+  "final_verdict": {
+    "proceed": true,
+    "confidence": 0.8,
+    "conditions": [
+      "Complete FP corpus benchmark",
+      "Add integration tests",
+      "Fix Python 3.12 datetime deprecation"
+    ],
+    "key_risks": [
+      "5-week timeline aggressive (likely slips)",
+      "Wu Lun weights not empirically validated",
+      "IF.connect may be premature optimization"
+    ],
+    "success_probability": 0.75
+  }
+}
+```
+
+================================================================================
+CSV CONVERSION GUIDE
+================================================================================
+
+The JSON above can be flattened to CSV with these columns:
+
+**Top-Level Metrics:**
+- review_id, timestamp, reviewer_model, reviewer_version, duration_minutes
+- overall_rating, comment
+
+**Per-Component Rows:**
+- component_name, summary, architecture_rating, maturity_rating, sticky_metric
+- metrics_recall, metrics_fp_rate, metrics_scan_time
+- gap_1, gap_2, gap_3
+- citation_1, citation_2
+
+**Per-Issue Rows:**
+- issue_severity, issue_category, issue_description, issue_impact, issue_mitigation
+- issue_citation
+
+**Per-Recommendation Rows:**
+- rec_category, rec_priority, rec_description, rec_rationale, rec_effort
+
+**Final Verdict:**
+- proceed (true/false), confidence, condition_1, condition_2, condition_3
+- risk_1, risk_2, risk_3, success_probability
+
+Use a JSON-to-CSV tool (e.g., `jq`, `pandas`, or online converters).
+
+================================================================================
+STICKY METRICS SUMMARY
+================================================================================
+
+Track these metrics forever (regression detection):
+
+1. **IF.yologuard:** 107/96 recall, 0 FP, 0.1s scan time
+2. **IF.guard:** 4.5/4.5 weighted vote, 100% consensus rate
+3. **IF.search:** 8 passes (hallucination reduction %)
+4. **IF.witness:** Validation error detection %
+5. **IF.connect:** REST-only MVP (no gRPC in v4.0)
+
+If any metric regresses (e.g., recall drops to 100/96), flag immediately.
+
+================================================================================
+REVIEW TIMELINE
+================================================================================
+
+**Estimated Duration:** 60-90 minutes
+
+**Breakdown:**
+- Section 1 (Repo overview): 10 min
+- Section 2 (Birds-eye): 10 min
+- Section 3 (Components): 30 min (6 min per component)
+- Section 4 (Philosophy): 10 min
+- Section 5 (Production readiness): 10 min
+- Section 6 (Novel/missed): 10 min
+- Section 7 (Issues/recs): 10 min
+
+**Deadline:** No rush - quality over speed
+
+================================================================================
+SUBMISSION
+================================================================================
+
+1. **Generate JSON** matching REVIEW_SCHEMA.json
+2. **Validate** with JSON schema validator (optional)
+3. **Convert to CSV** (if needed for spreadsheet analysis)
+4. **Submit** via:
+   - GitHub issue: https://github.com/dannystocker/infrafabric/issues
+   - Email: (TBD)
+   - Direct response to this prompt
+
+================================================================================
+THANK YOU
+================================================================================
+
+Your rigorous review helps InfraFabric mature from "interesting prototype" to "production-grade framework." We value honest, critical feedback over validation.
+
+Questions? Read SESSION_HANDOFF_2025-11-08_IF-ARMOUR.md first.
+
+🙏 Thank you for your time and expertise!
+
+================================================================================
+END OF EVALUATION PROMPT
+================================================================================
