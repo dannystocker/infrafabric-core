@@ -1,3 +1,4 @@
+# Copy this file to .github/workflows/review.yml in a PR with workflow permission
 name: Review Enforcement
 
 on:
