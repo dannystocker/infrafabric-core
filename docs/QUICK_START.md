@@ -58,3 +58,55 @@ Want to understand how IF.yologuard works? Check out our visual documentation:
 - See docs/EXAMPLES for more scripts
 - Use `--profile ci` for PR gating
 - For deeper context, try `--profile forensics` to include graph/manifests
+
+---
+
+## Message Contract (IFMessage v1.0)
+
+IFMessage is the universal detection format used throughout the InfraFabric ecosystem. It provides a standardized way for detection agents (like IF.yologuard) to communicate security findings to processing agents (like IF.guard) and other downstream systems.
+
+### Purpose
+
+The IFMessage contract ensures:
+- **Consistency**: All detections use the same structure regardless of source
+- **Interoperability**: Different detection tools can be swapped without changing the processing pipeline
+- **Traceability**: Each message carries metadata for debugging and audit trails
+- **Extensibility**: Optional fields allow rich context without breaking compatibility
+
+### Simple Example
+
+Here's a minimal IFMessage showing a detected AWS credential in source code:
+
+```json
+{
+  "id": "msg-001",
+  "timestamp": "2025-11-08T12:00:00Z",
+  "level": 1,
+  "source": "IF.yologuard",
+  "destination": "IF.guard",
+  "version": "1.0",
+  "traceId": "trace-abc",
+  "payload": {
+    "file": "benchmarks/leaky-repo/.netrc",
+    "pattern": "AWS_SECRET_REDACTED",
+    "line": 12,
+    "severity": "ERROR"
+  }
+}
+```
+
+### Key Fields
+
+- **id**: Unique identifier for this message (format: `msg-NNN`)
+- **timestamp**: RFC 3339 datetime of detection
+- **level**: Connectivity level (1 = function-to-function, 2 = module-to-module)
+- **source/destination**: Agent names (e.g., `IF.yologuard`, `IF.guard`)
+- **version**: Contract version (currently `1.0`)
+- **traceId**: Optional correlation ID for distributed tracing
+- **payload**: Detection data (file, pattern, line number, severity, and optional enrichment fields)
+
+### Learn More
+
+- **Schema Definition**: See `schemas/ifmessage/v1.0.schema.json` for the complete specification
+- **Example Messages**: Check `messages/examples/` for ERROR, WARN, and forensics examples
+- **Validation**: Use `scripts/validate_message.py <schema> <message.json>` to validate new messages

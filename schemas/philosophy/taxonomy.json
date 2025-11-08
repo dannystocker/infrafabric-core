@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IF.philosophy Taxonomy v1",
+  "type": "object",
+  "properties": {
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "novice_alias", "dimension"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "novice_alias": {"type": "string"},
+          "dimension": {"type": "string", "enum": ["ethics", "epistemology", "process"]},
+          "synonyms": {"type": "array", "items": {"type": "string"}},
+          "default_weights": {"type": "object"},
+          "usage": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  },
+  "principles": [
+    {"id": "wulun", "name": "Wu Lun", "novice_alias": "Relationship Score", "dimension": "epistemology", "synonyms": ["contextual relation"], "usage": ["severity", "graph"]},
+    {"id": "popper", "name": "Falsifiability", "novice_alias": "Can be disproven", "dimension": "epistemology", "usage": ["governance", "reviews"]},
+    {"id": "kant", "name": "Duty", "novice_alias": "Safety rules", "dimension": "ethics", "usage": ["no exfiltration", "redaction"]},
+    {"id": "indra", "name": "Interdependence", "novice_alias": "Connections matter", "dimension": "epistemology", "usage": ["graph", "boosting"]},
+    {"id": "stoic", "name": "Prudence", "novice_alias": "SLOs & limits", "dimension": "process", "usage": ["latency", "fallbacks"]},
+    {"id": "coherent", "name": "Coherentism", "novice_alias": "Fits the evidence", "dimension": "epistemology", "usage": ["reviews", "schemas"]},
+    {"id": "pragmatic", "name": "Pragmatism", "novice_alias": "What works", "dimension": "process", "usage": ["REST-first", "profiles"]}
+  ]
+}
