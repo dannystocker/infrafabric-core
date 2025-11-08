@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IF.guard Decision Artifact v1.0",
+  "type": "object",
+  "required": ["id", "timestamp", "submitter", "decision"],
+  "properties": {
+    "id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "submitter": {"type": "string"},
+    "decision": {"type": "string", "enum": ["APPROVE", "REJECT", "CONDITIONAL"]},
+    "dissent": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  }
+}
+

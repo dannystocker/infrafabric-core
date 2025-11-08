@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IFMessage v1.0 (Beginner Subset)",
+  "type": "object",
+  "required": ["id", "timestamp", "level", "source", "destination", "payload"],
+  "properties": {
+    "id": {"type": "string", "description": "Unique message ID"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "level": {"type": "integer", "minimum": 1, "maximum": 2, "description": "Connectivity level: 1=function→function, 2=module→module"},
+    "source": {"type": "string", "description": "Emitter (e.g., IF.yologuard)"},
+    "destination": {"type": "string", "description": "Receiver (e.g., IF.guard)"},
+    "traceId": {"type": "string", "description": "Optional trace correlation ID"},
+    "version": {"type": "string", "description": "Message contract version"},
+    "payload": {"type": "object", "description": "Message data (validated by receiver)"}
+  }
+}
+
