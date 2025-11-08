@@ -1,0 +1,21 @@
+{
+  "id": "msg-003",
+  "timestamp": "2025-11-08T15:18:42Z",
+  "level": 1,
+  "source": "IF.yologuard",
+  "destination": "IF.guard",
+  "version": "1.0",
+  "traceId": "trace-ghi",
+  "payload": {
+    "file": "tests/fixtures/.env.example",
+    "pattern": "GITHUB_TOKEN_PATTERN",
+    "line": 8,
+    "severity": "WARN",
+    "detectionType": "token",
+    "matchedValue": "ghp_... (15 chars redacted)",
+    "entropy": 4.23,
+    "relationshipScore": 0.67,
+    "component": "github-integration",
+    "context": "Test fixture - likely example/placeholder but flagged for review"
+  }
+}
