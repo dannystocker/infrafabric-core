@@ -255,6 +255,16 @@ with open("${TEST_DIR}/audit_log.json", 'r') as f:
 PYEOF
 
 echo ""
+echo "=== Validate Decision JSON ==="
+python3 "${PROJECT_ROOT}/scripts/validate_message.py" \
+  "${PROJECT_ROOT}/schemas/decision/v1.0.schema.json" \
+  "$DECISION_FILE"
+
+echo ""
+echo "✅ Decision JSON is valid against schema"
+echo "See full governance process: governance/DECISION_DISSENT_RUNBOOK.md"
+
+echo ""
 echo "=== Summary: Governance Workflow ==="
 echo ""
 echo "1. SCAN      - Run IF.yologuard to find secrets"
