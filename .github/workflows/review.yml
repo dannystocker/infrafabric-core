@@ -1,0 +1,41 @@
+name: Review Enforcement
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema
+      - name: Validate IFMessage samples
+        run: |
+          if ls messages/examples/*.json 1> /dev/null 2>&1; then \
+            for f in messages/examples/*.json; do \
+              python scripts/validate_message.py schemas/ifmessage/v1.0.schema.json "$f"; \
+            done; \
+          else \
+            echo "No message samples to validate"; \
+          fi
+      - name: Validate Decision JSON example
+        run: |
+          if [ -f governance/examples/decision_example.json ]; then \
+            python - << 'PY'
+import json, jsonschema
+jsonschema.validate(
+  json.load(open('governance/examples/decision_example.json')),
+  json.load(open('schemas/decision/v1.0.schema.json'))
+)
+print("✅ Decision example valid")
+PY
+          else \
+            echo "No decision example found"; \
+          fi
