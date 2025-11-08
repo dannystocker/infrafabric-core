@@ -1,0 +1,16 @@
+{
+  "id": "msg-001",
+  "timestamp": "2025-11-08T12:00:00Z",
+  "level": 1,
+  "source": "IF.yologuard",
+  "destination": "IF.guard",
+  "version": "1.0",
+  "traceId": "trace-abc",
+  "payload": {
+    "file": "benchmarks/leaky-repo/.netrc",
+    "pattern": "AWS_SECRET_REDACTED",
+    "line": 12,
+    "severity": "ERROR"
+  }
+}
+

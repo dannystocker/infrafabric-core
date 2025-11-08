@@ -1,0 +1,9 @@
+{
+  "id": "dec-2025-11-08-001",
+  "timestamp": "2025-11-08T12:30:00Z",
+  "submitter": "release-coordinator",
+  "decision": "APPROVE",
+  "dissent": ["contrarian-guardian"],
+  "notes": "Approve v3.1.1 with conditions: add latency SLO doc and IFMessage schema validation in CI. Dissent logged; review team to confirm within 24h."
+}
+
