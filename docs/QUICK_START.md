@@ -21,6 +21,28 @@ python3 src/IF.yologuard_v3.py   --scan /tmp/example.txt   --simple-output   --j
 cat /tmp/results.json
 ```
 
+## Visual Guides
+
+Want to understand how IF.yologuard works? Check out our visual documentation:
+
+### Architecture & Concepts
+- **[Architecture Overview](VISUALS/architecture_simple.md)** - System design with Mermaid diagrams
+  - Three-pillar architecture (detection → deception → learning)
+  - Complete data flow from code to security action
+  - Key design principles explained visually
+
+### How It Works
+- **[Detection Pipeline](VISUALS/how_detection_works.md)** - Step-by-step detection process
+  - Stage-by-stage explanation (file read → pattern match → entropy → relationships → validation)
+  - Detailed examples at each stage
+  - Decision points and severity determination
+
+### Choosing the Right Settings
+- **[Profiles Explained](VISUALS/profiles_explained.md)** - Profile comparison and selection
+  - CI, OPS, AUDIT, and RESEARCH profiles compared
+  - Decision tree for choosing the right profile
+  - Performance characteristics and use cases
+
 ## Next Steps
 - See docs/EXAMPLES for more scripts
 - Use `--profile ci` for PR gating
