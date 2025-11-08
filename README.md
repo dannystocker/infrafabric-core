@@ -59,7 +59,7 @@ infrafabric/
 ### IF.vision - Cyclical Coordination
 - **4 Cycles:** Manic (exploration) → Depressive (consolidation) → Dream (synthesis) → Reward (validation)
 - **AI Wellbeing:** Functional requirement, not ethical aspiration
-- **Guardian Council:** 20-voice validation (6 core + 12 philosophers + 8 IF.sam facets)
+- **Guardian Council:** 20-voice validation (6 core + 12 philosophers + 8 IF.ceo facets)
 
 ### IF.ground - Anti-Hallucination Framework
 - **8 Epistemological Principles:** Grounding, provenance, explicit unknowns, reversibility, etc.

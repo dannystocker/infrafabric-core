@@ -1,0 +1,6 @@
+
+# YOLOGuard test artifacts and reports
+code/yologuard/reports/
+code/yologuard/benchmarks/results.json
+code/yologuard/benchmarks/*.sarif
+code/yologuard/benchmarks/*.json

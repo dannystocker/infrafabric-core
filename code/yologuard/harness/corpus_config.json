@@ -1,0 +1,22 @@
+{
+  "repos": [
+    {"url": "https://github.com/psf/requests.git"},
+    {"url": "https://github.com/pallets/flask.git"},
+    {"url": "https://github.com/pallets/jinja.git"},
+    {"url": "https://github.com/pallets/click.git"},
+    {"url": "https://github.com/tiangolo/fastapi.git"},
+    {"url": "https://github.com/tqdm/tqdm.git"},
+    {"url": "https://github.com/encode/starlette.git"},
+    {"url": "https://github.com/axios/axios.git"},
+    {"url": "https://github.com/expressjs/express.git"},
+    {"url": "https://github.com/gin-gonic/gin.git"},
+    {"url": "https://github.com/spring-projects/spring-petclinic.git"},
+    {"url": "https://github.com/serde-rs/serde.git"}
+  ],
+  "exclude": [".git", "node_modules", "dist", "build"],
+  "binary_ext": [
+    ".db", ".sqlite", ".sqlite3", ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ".webp",
+    ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".tar", ".gz", ".bz2", ".7z", ".rar",
+    ".exe", ".dll", ".so", ".dylib", ".bin", ".dat", ".pyc", ".pyo"
+  ]
+}

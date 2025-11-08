@@ -12,21 +12,51 @@
 ### Installation
 
 ```bash
-cd projects/yologuard
-python3 src/IF.yologuard_v3.py --help
+cd code/yologuard
+# Scan a directory, write JSON + text summary
+python3 src/IF.yologuard_v3.py \
+  --scan benchmarks/leaky-repo \
+  --mode both \
+  --json results.json \
+  --out summary.txt \
+  --stats
+
+# Emit SARIF for CI (e.g., GitHub Advanced Security)
+python3 src/IF.yologuard_v3.py \
+  --scan benchmarks/leaky-repo \
+  --sarif results.sarif
+
+# Run the original demo instead
+python3 src/IF.yologuard_v3.py --demo
 ```
 
 ### Run Scanner
 
 ```bash
-# Scan a directory
-python3 src/IF.yologuard_v3.py --scan /path/to/repo
+# Scan a directory using preset profiles
+# ci: low-noise PR gating (usable-only, conservative thresholds)
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --profile ci --sarif results.sarif --stats
 
-# Scan with detailed output
-python3 src/IF.yologuard_v3.py --scan /path/to/repo --verbose
+# ops: security operations (both usable + components, balanced thresholds)
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --profile ops --json results.json --stats
 
-# Use specific detection mode (philosophical, fast, etc.)
-python3 src/IF.yologuard_v3.py --scan /path/to/repo --mode philosophical
+# audit: broad audit (components included, lower WARN, larger files)
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --profile audit --json audit.json --stats
+
+# research: maximum sensitivity (components included, lower thresholds)
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --profile research --json research.json --stats
+
+# Or configure explicitly without a profile
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --mode both
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --mode usable
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --mode component
+
+# Tune severity thresholds (heuristics; see note below)
+python3 src/IF.yologuard_v3.py --scan /path/to/repo \
+  --error-threshold 0.8 --warn-threshold 0.6
+
+# One-line CI stats
+python3 src/IF.yologuard_v3.py --scan /path/to/repo --stats
 ```
 
 ### Run Benchmark Tests
@@ -80,7 +110,7 @@ Isolated high-entropy strings are common in code (random IDs, UUIDs, hashes). Bu
 | **Precision** | Low | ~85% | **100%*** |
 | **F1-Score** | ~0.31 | 0.81 | **0.995** |
 | **Scan Time (49 files)** | 2.1s | 0.8s | **0.4s** |
-| **Detection Patterns** | 12 | 35 | **58** |
+| **Detection Patterns** | 12 | 35 | **78 variants** |
 
 *Pending independent human security audit
 
@@ -190,7 +220,7 @@ python3 verification/verify.sh
 
 ## Pattern Library
 
-IF.yologuard includes 58 detection patterns across these categories:
+IF.yologuard includes ~78 pattern variants across core categories:
 
 ### Credential Patterns (22)
 - AWS keys and secrets
@@ -216,7 +246,20 @@ IF.yologuard includes 58 detection patterns across these categories:
 - License keys
 - API keys for 20+ services
 
-See **[ANNEX_A_TECHNICAL_SPEC.md](docs/ANNEX_A_TECHNICAL_SPEC.md)** for complete pattern list.
+See **[ANNEX_A_TECHNICAL_SPEC.md](docs/ANNEX_A_TECHNICAL_SPEC.md)** for categories and representative patterns.
+
+### Heuristics (Transparent Disclosure)
+- Relationship weights (e.g., user-password 0.85, metadata-sibling 0.60) are initial heuristics, not empirically fitted constants. They are subject to calibration using future FP/performance benchmarks.
+- Severity thresholds (`--error-threshold`, `--warn-threshold`) default to 0.75/0.5 and can be tuned per environment.
+
+### TTT: Traceability • Trust • Transparency
+- Traceability: Every detection includes `provenance` (repo commit, file SHA-256, scan timestamp) and a `rationale` list (pattern, relations, relation score, thresholds, classification).
+- Trust: Two-tier promotion (hard ERRORs for private keys/passwords/tokens; otherwise thresholds + relationships). Experimental forgery/structure checks are being added.
+- Transparency: A run manifest (`--manifest manifest.json`) records configs, inputs, and results; SARIF/JSON include rationale and provenance for auditability.
+
+### Comparisons and Benchmarks
+- Competitor comparison: see **[COMPARISON.md](docs/COMPARISON.md)** (capabilities, modes, output formats).
+- False-positive and performance harness: see **harness/** scripts to run evaluations on your own corpora.
 
 ---
 

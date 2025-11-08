@@ -30,6 +30,10 @@ import json
 import xml.etree.ElementTree as ET
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
+import hashlib
+import subprocess
+from datetime import datetime
+import json as _jsonmod
 
 # ============================================================================
 # ENTROPY DETECTION
@@ -254,6 +258,36 @@ def detect_cert_authority_relationship(token: str, text: str, position: int) -> 
 
     return None
 
+def detect_metadata_sibling_relationship(token: str, text: str, position: int) -> Optional[Tuple]:
+    """
+    兄弟 (Older-Younger Brother): metadata-data sibling relationship.
+
+    Detect clusters of related config keys within a window around the token.
+    If two or more semantically-related keys are present (e.g., user/password,
+    key/secret, endpoint/token), treat as a sibling relationship.
+    """
+    start = max(0, position - 300)
+    end = min(len(text), position + 400)
+    window = text[start:end]
+
+    keyval_re = re.compile(r'(?i)([A-Za-z0-9_\.\-]+)\s*[:=]\s*["\']?([^\s"\'\n]+)')
+    keys = [m.group(1).lower() for m in keyval_re.finditer(window)]
+    if not keys:
+        return None
+
+    sensitive = {'password', 'pass', 'secret', 'token', 'key'}
+    metadata = {'user', 'username', 'account', 'endpoint', 'url', 'host', 'client', 'app', 'region'}
+
+    has_sensitive = any(any(s in k for s in sensitive) for k in keys)
+    related = [k for k in keys if any(t in k for t in sensitive | metadata)]
+
+    if has_sensitive and len(set(related)) >= 2:
+        k1 = next(k for k in related if any(s in k for s in sensitive))
+        k2 = next(k for k in related if k != k1)
+        return ('metadata-sibling', k1, k2)
+
+    return None
+
 def find_secret_relationships(token: str, file_content: str, token_position: int) -> List[Tuple]:
     """
     Confucian: Secrets validated by relationships (Wu Lun - Five Relationships)
@@ -288,6 +322,10 @@ def find_secret_relationships(token: str, file_content: str, token_position: int
     if cert_authority:
         relationships.append(cert_authority)
 
+    metadata_sibling = detect_metadata_sibling_relationship(token, file_content, token_position)
+    if metadata_sibling:
+        relationships.append(metadata_sibling)
+
     return relationships
 
 def confucian_relationship_score(relationships: List[Tuple]) -> float:
@@ -313,6 +351,7 @@ def confucian_relationship_score(relationships: List[Tuple]) -> float:
         'cert-authority': 0.82,     # Trust chain (君臣)
         'key-endpoint': 0.75,       # Functional pair (夫婦)
         'token-session': 0.65,      # Temporal scope (父子)
+        'metadata-sibling': 0.60,   # Sibling keys/metadata cluster (兄弟)
     }
 
     # Sum weighted relationships
@@ -602,12 +641,38 @@ class SecretRedactorV3:
                 # Position unknown (decoded content) - use find() as fallback
                 line_num = content[:content.find(match_text)].count('\n') + 1 if match_text in content else -1
 
+            # Relationship analysis
+            rels = []
+            rel_score = 0.0
+            try:
+                pos_for_rel = position if position >= 0 else (content.find(match_text) if match_text in content else -1)
+                if pos_for_rel >= 0:
+                    rels = find_secret_relationships(match_text, content, pos_for_rel)
+                    rel_score = confucian_relationship_score(rels)
+            except Exception:
+                pass
+
+            # Classification: component vs usable (based on pattern label)
+            def _is_component(pattern_label: str) -> bool:
+                components = {
+                    'AWS_KEY_REDACTED',      # Access Key ID (needs secret key)
+                    'FTP_USER_REDACTED',
+                    'FILEZILLA_USER_REDACTED',
+                    'SALESFORCE_ORG_ID_REDACTED',
+                }
+                return pattern_label in components
+
+            classification = 'component' if _is_component(replacement) else 'usable'
+
             secrets.append({
                 'file': str(file_path),
                 'pattern': replacement,
                 'match': match_text[:50] + '...' if len(match_text) > 50 else match_text,
                 'line': line_num,
-                'position': position
+                'position': position,
+                'relationship_score': round(rel_score, 3),
+                'relationships': [r[0] for r in rels] if rels else [],
+                'classification': classification,
             })
 
         # Location-aware deduplication: deduplicate by (match_text, position)
@@ -627,7 +692,565 @@ class SecretRedactorV3:
 # EXAMPLE USAGE & TESTS
 # ============================================================================
 
+def _sha256_file(path: Path) -> str:
+    try:
+        h = hashlib.sha256()
+        with open(path, 'rb') as f:
+            for chunk in iter(lambda: f.read(8192), b''):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return ''
+
+
+def _git_commit_for(path: Path) -> str:
+    try:
+        # Use git from the directory if possible
+        proc = subprocess.run(['git', '-C', str(path), 'rev-parse', 'HEAD'],
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if proc.returncode == 0:
+            return proc.stdout.strip()
+    except Exception:
+        pass
+    return ''
+
+
 if __name__ == "__main__":
+    # Minimal CLI: --scan <path> [--json out.json] [--out summary.txt] [--demo]
+    import argparse, json, sys
+    from pathlib import Path as _Path
+
+    _parser = argparse.ArgumentParser(description="IF.yologuard v3 - Secret detector")
+    _parser.add_argument('--scan', help='File or directory to scan')
+    _parser.add_argument('--json', dest='json_out', help='Write detections to JSON file')
+    _parser.add_argument('--out', dest='text_out', help='Write a text summary to file')
+    _parser.add_argument('--sarif', dest='sarif_out', help='Write detections to SARIF v2.1.0 file')
+    _parser.add_argument('--manifest', dest='manifest_out', help='Write TTT manifest JSON to file')
+    _parser.add_argument('--forensics', action='store_true', help='Enable Immuno‑Epistemic Forensics (IEF) assays and graph output')
+    _parser.add_argument('--graph-out', dest='graph_out', help='Write Indra graph JSON to file (implies --forensics)')
+    _parser.add_argument('--memory-state', dest='memory_state', default='code/yologuard/state/memory.json', help='Path to adaptive memory state file')
+    _parser.add_argument('--reset-memory', action='store_true', help='Reset adaptive memory state before run')
+    _parser.add_argument('--pq-report', dest='pq_report', help='Write Quantum Readiness (QES) report JSON to file')
+    _parser.add_argument('--sbom', dest='sbom_path', help='Path to CycloneDX SBOM or lockfile directory (optional)')
+    # (added below to avoid duplication)
+    _parser.add_argument('--error-threshold', type=float, default=0.75, help='Relationship score threshold for ERROR (default: 0.75)')
+    _parser.add_argument('--warn-threshold', type=float, default=0.5, help='Relationship score threshold for WARNING (default: 0.5)')
+    _parser.add_argument('--mode', choices=['usable','component','both'], default='both', help='Filter by detection type (default: both)')
+    _parser.add_argument('--stats', action='store_true', help='Print compact stats (files, detections, usable/components)')
+    _parser.add_argument('--max-file-bytes', type=int, default=5_000_000, help='Skip files larger than this size (default: 5MB)')
+    _parser.add_argument('--profile', choices=['ci','ops','audit','research','forensics'], help='Preset profile for thresholds/mode (ci, ops, audit, research, forensics)')
+    _parser.add_argument('--demo', action='store_true', help='Run built-in relationship demo')
+    _args, _unknown = _parser.parse_known_args()
+
+    if _args.scan and not _args.demo:
+        _base = _Path(_args.scan)
+        if not _base.exists():
+            print(f"ERROR: path not found: {_base}")
+            sys.exit(1)
+
+        # Apply profile presets (can be overridden by explicit flags)
+        if _args.profile:
+            if _args.profile == 'ci':
+                # Low-noise PR gating: usable-only, conservative thresholds, 5MB cap
+                _args.mode = 'usable'
+                _args.error_threshold = 0.75 if _args.error_threshold == 0.75 else _args.error_threshold
+                _args.warn_threshold = 0.5 if _args.warn_threshold == 0.5 else _args.warn_threshold
+                _args.max_file_bytes = 5_000_000 if _args.max_file_bytes == 5_000_000 else _args.max_file_bytes
+            elif _args.profile == 'ops':
+                # Security operations: include components, balanced thresholds
+                _args.mode = 'both' if _args.mode == 'both' else _args.mode
+                _args.error_threshold = 0.75 if _args.error_threshold == 0.75 else _args.error_threshold
+                _args.warn_threshold = 0.5 if _args.warn_threshold == 0.5 else _args.warn_threshold
+                _args.max_file_bytes = max(_args.max_file_bytes, 10_000_000)
+            elif _args.profile == 'audit':
+                # Broad audit: include components, lower warn bar, larger files
+                _args.mode = 'both'
+                if _args.error_threshold == 0.75:
+                    _args.error_threshold = 0.70
+                if _args.warn_threshold == 0.5:
+                    _args.warn_threshold = 0.40
+                _args.max_file_bytes = max(_args.max_file_bytes, 20_000_000)
+            elif _args.profile == 'research':
+                # Maximum sensitivity for research sweeps
+                _args.mode = 'both'
+                if _args.error_threshold == 0.75:
+                    _args.error_threshold = 0.60
+                if _args.warn_threshold == 0.5:
+                    _args.warn_threshold = 0.40
+                _args.max_file_bytes = max(_args.max_file_bytes, 100_000_000)
+            elif _args.profile == 'forensics':
+                # Forensics profile: enable assays/graph, broad mode, lower thresholds
+                _args.forensics = True
+                _args.mode = 'both'
+                if _args.error_threshold == 0.75:
+                    _args.error_threshold = 0.65
+                if _args.warn_threshold == 0.5:
+                    _args.warn_threshold = 0.45
+                _args.max_file_bytes = max(_args.max_file_bytes, 50_000_000)
+
+        detector = SecretRedactorV3()
+        # Simple binary filter + exclude internal meta dirs
+        _binary_ext = {
+            '.db', '.sqlite', '.sqlite3', '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.ico', '.webp',
+            '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.zip', '.tar', '.gz', '.bz2', '.7z', '.rar',
+            '.exe', '.dll', '.so', '.dylib', '.bin', '.dat', '.pyc', '.pyo'
+        }
+        _exclude_dirs = {'.git', '.leaky-meta'}
+
+        if _base.is_dir():
+            _files = [
+                p for p in _base.rglob('*')
+                if p.is_file() and not any(ed in p.parts for ed in _exclude_dirs) and p.suffix.lower() not in _binary_ext
+            ]
+        else:
+            _files = [_base]
+
+        _results = []
+        _count = 0
+        _skipped_large = 0
+        _file_sha_cache = {}
+        _now_iso = datetime.utcnow().isoformat() + 'Z'
+        # Try to capture a repo commit for provenance (best-effort)
+        _repo_commit = _git_commit_for(_base if _base.is_dir() else _base.parent)
+
+        # Indra graph structures (nodes/edges)
+        graph_nodes = []
+        graph_edges = []
+
+        # Simple adaptive memory
+        _mem_path = Path(_args.memory_state)
+        if _args.reset_memory and _mem_path.exists():
+            try:
+                _mem_path.unlink()
+            except Exception:
+                pass
+        try:
+            _mem_path.parent.mkdir(parents=True, exist_ok=True)
+        except Exception:
+            pass
+        try:
+            _memory = json.loads(_mem_path.read_text()) if _mem_path.exists() else {}
+        except Exception:
+            _memory = {}
+
+        # PQ readiness accumulators
+        pq_repo = {
+            'classicalUse': {
+                'rsa': 0, 'ecdsa': 0, 'ecdh': 0, 'x25519': 0, 'aes128': 0, 'sha1md5': 0, 'tls12': 0
+            },
+            'pqUse': {
+                'kyber': 0, 'dilithium': 0, 'falcon': 0, 'liboqs': 0
+            },
+            'sbomFindings': [],
+            'exposureScores': [],
+        }
+
+        def _analyze_pq_text(txt: str) -> dict:
+            txt_l = txt.lower()
+            found = {
+                'algorithms': [],
+                'keySize': None,
+                'protocols': [],
+            }
+            # Classical
+            if 'rsa' in txt_l:
+                found['algorithms'].append('RSA')
+            if 'ecdsa' in txt_l:
+                found['algorithms'].append('ECDSA')
+            if 'ecdh' in txt_l or 'x25519' in txt_l:
+                if 'ecdh' in txt_l: found['algorithms'].append('ECDH')
+                if 'x25519' in txt_l: found['algorithms'].append('X25519')
+            if 'aes-128' in txt_l or 'aes128' in txt_l:
+                found['algorithms'].append('AES-128')
+            if 'sha1' in txt_l or 'md5' in txt_l:
+                found['algorithms'].append('SHA1/MD5')
+            if 'tls1.2' in txt_l or 'tls 1.2' in txt_l:
+                found['protocols'].append('TLS1.2')
+            # PQ
+            for pq in ('kyber','dilithium','falcon','liboqs','oqs'):
+                if pq in txt_l:
+                    found['algorithms'].append(pq.upper())
+            # Key sizes
+            m = re.search(r'\b(2048|1024|4096)\b', txt)
+            if m:
+                found['keySize'] = int(m.group(1))
+            return found
+
+        def _compute_qes(cls: str, rels: list, pqf: dict, file_path: str) -> dict:
+            score = 0
+            drivers = []
+            algs = [a.upper() for a in pqf.get('algorithms', [])]
+            if any(a in algs for a in ('RSA','ECDSA','ECDH','X25519')):
+                score += 30; drivers.append('classical_public_key')
+            if 'AES-128' in algs:
+                score += 10; drivers.append('aes128')
+            if 'SHA1/MD5' in algs:
+                score += 15; drivers.append('sha1_md5')
+            if cls == 'usable':
+                score += 10; drivers.append('usable_secret')
+            if any(r in ('key-endpoint','user-password','token-session') for r in rels or []):
+                score += 10; drivers.append('relation_context')
+            if re.search(r'backup|archive|export|dump', file_path, re.IGNORECASE):
+                score += 10; drivers.append('long_lived_data_hint')
+            # PQ presence dampens risk
+            if any(a in algs for a in ('KYBER','DILITHIUM','FALCON','LIBOQS','OQS')):
+                score = max(0, score - 15); drivers.append('pq_present')
+            return {'score': min(100, score), 'drivers': drivers}
+
+        # SBOM/lockfile scan (best-effort)
+        sbom_meta = {}
+        if _args.sbom_path:
+            sp = Path(_args.sbom_path)
+            try:
+                if sp.is_file() and sp.suffix.lower() in ('.json', '.cdx'):
+                    data = _jsonmod.loads(sp.read_text())
+                    comps = data.get('components') or []
+                    for c in comps:
+                        name = (c.get('name') or '').lower()
+                        ver = c.get('version') or ''
+                        if any(k in name for k in ('openssl','bouncycastle','crypto','liboqs','oqs')):
+                            pq_repo['sbomFindings'].append({'name': name, 'version': ver})
+                            if 'oqs' in name:
+                                pq_repo['pqUse']['liboqs'] += 1
+                elif sp.is_dir():
+                    # look for package manifests
+                    for lf in sp.rglob('*'):
+                        if lf.name in ('package.json','poetry.lock','Pipfile.lock','pom.xml','build.gradle','go.mod','go.sum','Cargo.toml','Cargo.lock'):
+                            txt = lf.read_text(encoding='utf-8', errors='ignore').lower()
+                            if any(k in txt for k in ('liboqs','oqs','openquantum','pqclean')):
+                                pq_repo['sbomFindings'].append({'name': lf.name, 'hint': 'pq_libs_present'})
+                                pq_repo['pqUse']['liboqs'] += 1
+            except Exception:
+                pass
+        for _fp in _files:
+            try:
+                # Skip large files
+                try:
+                    if _fp.stat().st_size > _args.max_file_bytes:
+                        _skipped_large += 1
+                        continue
+                except Exception:
+                    pass
+                _dets = detector.scan_file(_fp)
+            except Exception:
+                _dets = []
+            if _dets:
+                for _d in _dets:
+                    cls = _d.get('classification', 'usable')
+                    if _args.mode == 'usable' and cls != 'usable':
+                        continue
+                    if _args.mode == 'component' and cls != 'component':
+                        continue
+
+                    rel_score = float(_d.get('relationship_score') or 0.0)
+                    always_error = {
+                        'PRIVATE_KEY_REDACTED', 'OPENSSH_PRIVATE_REDACTED', 'PASSWORD_REDACTED',
+                        'JSON_PASSWORD_REDACTED', 'PHP_PASSWORD_REDACTED', 'AWS_SECRET_REDACTED',
+                        'JWT_REDACTED', 'GITHUB_PAT_REDACTED', 'NPM_TOKEN_REDACTED',
+                    }
+                    pat = _d.get('pattern','')
+                    if pat in always_error:
+                        sev = 'error'
+                    elif rel_score >= _args.error_threshold and cls == 'usable':
+                        sev = 'error'
+                    elif rel_score >= _args.warn_threshold:
+                        sev = 'warning'
+                    else:
+                        sev = 'note'
+
+                    # Danger signals (heuristic)
+                    danger = []
+                    try:
+                        txt = _fp.read_text(encoding='utf-8', errors='ignore')
+                        if re.search(r'[A-Za-z0-9+/]{120,}={0,2}', txt):
+                            danger.append('encoded_blob_in_text')
+                        if re.search(r'(?i)canary|honey(token)?', txt):
+                            danger.append('honeypot_marker')
+                    except Exception:
+                        pass
+
+                    # Structure checks (JWT/PEM) – no exfiltration
+                    structure = {}
+                    try:
+                        if 'JWT' in pat or re.search(r'eyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.', _d.get('match','')):
+                            parts = _d.get('match','').split('.')
+                            if len(parts) >= 2:
+                                import base64, json as _json
+                                def b64d(s):
+                                    s = s + '='*((4-len(s)%4)%4)
+                                    return base64.urlsafe_b64decode(s.encode('utf-8'))
+                                try:
+                                    h = _json.loads(b64d(parts[0]).decode('utf-8','ignore'))
+                                    p = _json.loads(b64d(parts[1]).decode('utf-8','ignore'))
+                                    structure['jwt_struct_valid'] = True
+                                except Exception:
+                                    structure['jwt_struct_valid'] = False
+                        if 'PRIVATE_KEY' in pat or 'OPENSSH' in pat or 'PEM' in _d.get('match',''):
+                            if re.search(r'-----BEGIN[^-]+-----[\s\S]+-----END[^-]+-----', _d.get('match','')):
+                                structure['pem_block'] = True
+                    except Exception:
+                        pass
+
+                    # Two‑source rule – simple: pattern+relations or pattern+danger
+                    sources = []
+                    if pat:
+                        sources.append('pattern')
+                    if _d.get('relationships'):
+                        sources.append('relations')
+                    if danger:
+                        sources.append('danger')
+                    two_source = len(set(sources)) >= 2
+
+                    # Traceability (TTT): per-file hash and rationale
+                    _fpath = _fp if _base.is_dir() else _fp
+                    if _fpath not in _file_sha_cache:
+                        _file_sha_cache[_fpath] = _sha256_file(_fpath)
+                    rationale = [
+                        f"pattern:{pat}",
+                        f"classification:{cls}",
+                        f"relations:{','.join(_d.get('relationships', []))}",
+                        f"relation_score:{rel_score}",
+                        f"always_error:{pat in always_error}",
+                        f"thresholds:error={_args.error_threshold},warn={_args.warn_threshold}",
+                        f"two_source:{two_source}",
+                    ]
+
+                    _results.append({
+                        'file': str(_fp.relative_to(_base)) if _base.is_dir() else str(_fp),
+                        'line': _d.get('line', -1),
+                        'pattern': pat,
+                        'match': _d.get('match', ''),
+                        'severity': sev.upper(),
+                        'relationshipScore': round(rel_score,3),
+                        'relations': _d.get('relationships', []),
+                        'classification': cls,
+                        'dangerSignals': danger,
+                        'structureChecks': structure,
+                        'pqRisk': None,  # populated below
+                        'apcPacket': {
+                            'provenance': {
+                                'repoCommit': _repo_commit,
+                                'fileSha256': _file_sha_cache[_fpath],
+                                'scanTimestamp': _now_iso,
+                            },
+                            'relations': _d.get('relationships', []),
+                            'dangerSignals': danger,
+                        },
+                        'provenance': {
+                            'repoCommit': _repo_commit,
+                            'fileSha256': _file_sha_cache[_fpath],
+                            'scanTimestamp': _now_iso,
+                        },
+                        'rationale': rationale,
+                    })
+                    _count += 1
+
+                    # PQ analysis on file text (best-effort)
+                    try:
+                        txt = _fp.read_text(encoding='utf-8', errors='ignore')
+                        pqf = _analyze_pq_text(txt)
+                        if pqf.get('algorithms'):
+                            # accumulate repo counters
+                            for a in pqf['algorithms']:
+                                al = a.lower()
+                                if al in ('rsa','ecdsa','ecdh','x25519'):
+                                    pq_repo['classicalUse'][al] += 1
+                                if al in ('aes-128','sha1/md5','tls1.2'):
+                                    # map to counters
+                                    if al == 'aes-128': pq_repo['classicalUse']['aes128'] += 1
+                                    if al == 'sha1/md5': pq_repo['classicalUse']['sha1md5'] += 1
+                                    if al == 'tls1.2': pq_repo['classicalUse']['tls12'] += 1
+                                if al in ('kyber','dilithium','falcon','liboqs','oqs'):
+                                    key = 'liboqs' if al in ('liboqs','oqs') else al
+                                    pq_repo['pqUse'][key] += 1
+                            qes = _compute_qes(cls, _d.get('relationships', []), pqf, str(_fp))
+                            _results[-1]['pqRisk'] = { **pqf, 'qes': qes }
+                            pq_repo['exposureScores'].append(qes['score'])
+                    except Exception:
+                        pass
+
+                    # Indra graph nodes/edges
+                    if _args.forensics or _args.graph_out:
+                        det_id = f"{_fp}:{_d.get('line',-1)}:{pat}"
+                        graph_nodes.append({'id': det_id, 'type': 'antigen', 'file': str(_fp), 'pattern': pat, 'severity': sev.upper()})
+                        graph_nodes.append({'id': str(_fp), 'type': 'file'})
+                        graph_edges.append({'source': str(_fp), 'target': det_id, 'type': 'contains'})
+                        for r in _d.get('relationships', []):
+                            graph_edges.append({'source': det_id, 'target': r, 'type': 'relation'})
+                        for dg in danger:
+                            graph_edges.append({'source': det_id, 'target': dg, 'type': 'danger'})
+
+        print("="*80)
+        print("IF.yologuard v3.0 - SCAN SUMMARY")
+        print("="*80)
+        print(f"Files scanned: {len(_files)}")
+        print(f"Detections:   {_count}")
+        if _results:
+            _usable = sum(1 for r in _results if r.get('classification') == 'usable')
+            _components = sum(1 for r in _results if r.get('classification') == 'component')
+            print(f"  • Usable credentials:   {_usable}")
+            print(f"  • Credential components: {_components}")
+        if _skipped_large:
+            print(f"  • Skipped large files:  {_skipped_large} (> {_args.max_file_bytes} bytes)")
+
+        if _args.stats:
+            _usable = sum(1 for r in _results if r.get('classification') == 'usable')
+            _components = sum(1 for r in _results if r.get('classification') == 'component')
+            print(f"stats: files={len(_files)} detections={_count} usable={_usable} components={_components}")
+
+        # Optional outputs
+        if _args.text_out:
+            try:
+                with open(_args.text_out, 'w') as _f:
+                    for _r in _results:
+                        _f.write(f"{_r['file']}:{_r['line']} [{_r['severity']}] {_r['classification']} {_r['pattern']} {_r['match']}\n")
+                print(f"Wrote summary: {_args.text_out}")
+            except Exception as _e:
+                print(f"WARN: failed writing summary: {_e}")
+
+        if _args.json_out:
+            try:
+                with open(_args.json_out, 'w') as _jf:
+                    json.dump(_results, _jf, indent=2)
+                print(f"Wrote JSON:    {_args.json_out}")
+            except Exception as _e:
+                print(f"WARN: failed writing JSON: {_e}")
+
+        # SARIF output
+        if _args.sarif_out:
+            try:
+                def _to_sarif(detections):
+                    tool = {
+                        "driver": {
+                            "name": "IF.yologuard",
+                            "version": "3.0",
+                            "informationUri": "https://github.com/dannystocker/infrafabric",
+                            "rules": [
+                                {
+                                    "id": "IF.YOLOGUARD.SECRET",
+                                    "name": "Secret Detected",
+                                    "shortDescription": {"text": "Potential secret or credential detected"},
+                                    "fullDescription": {"text": "IF.yologuard detected a potential secret/credential"},
+                                    "defaultConfiguration": {"level": "error"},
+                                    "properties": {"tags": ["security", "secret", "credential"]}
+                                }
+                            ]
+                        }
+                    }
+                    results = []
+                    for d in detections:
+                        file_uri = str(d.get('file', '')).replace('\\', '/')
+                        line = int(d.get('line') or 1)
+                        msg = f"{d.get('pattern','')}: {d.get('match','')}"
+                        lvl = (d.get('severity') or 'ERROR').lower()
+                        if lvl not in ('error','warning','note'):
+                            lvl = 'error'
+                        results.append({
+                            "ruleId": "IF.YOLOGUARD.SECRET",
+                            "level": lvl,
+                            "message": {"text": msg},
+                            "locations": [
+                                {
+                                    "physicalLocation": {
+                                        "artifactLocation": {"uri": file_uri},
+                                        "region": {"startLine": line if line > 0 else 1}
+                                    }
+                                }
+                            ],
+                            "properties": {
+                                "pattern": d.get('pattern',''),
+                                "relationshipScore": d.get('relationshipScore', 0.0),
+                                "relations": d.get('relations', []),
+                                "classification": d.get('classification',''),
+                                "provenance": d.get('provenance', {}),
+                                "rationale": d.get('rationale', []),
+                                "pqRisk": d.get('pqRisk', {}),
+                            }
+                        })
+                    return {
+                        "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+                        "version": "2.1.0",
+                        "runs": [
+                            {
+                                "tool": tool,
+                                "results": results
+                            }
+                        ]
+                    }
+                with open(_args.sarif_out, 'w') as _sf:
+                    json.dump(_to_sarif(_results), _sf, indent=2)
+                print(f"Wrote SARIF:   {_args.sarif_out}")
+            except Exception as _e:
+                print(f"WARN: failed writing SARIF: {_e}")
+
+        # Write Indra graph
+        if (_args.forensics or _args.graph_out) and (_args.graph_out):
+            try:
+                with open(_args.graph_out, 'w') as gf:
+                    json.dump({'nodes': graph_nodes, 'edges': graph_edges}, gf, indent=2)
+                print(f"Wrote graph:   {_args.graph_out}")
+            except Exception as _e:
+                print(f"WARN: failed writing graph: {_e}")
+
+        # Manifest (TTT) output
+        if _args.manifest_out:
+            try:
+                # Best-effort import of manifest tool
+                try:
+                    import sys as _sys
+                    _root = Path(__file__).resolve().parents[4]
+                    _sys.path.insert(0, str(_root))
+                    from infrafabric.manifests import create_manifest
+                except Exception:
+                    create_manifest = None
+                summary = {
+                    'files_scanned': len(_files),
+                    'detections': _count,
+                    'usable': sum(1 for r in _results if r.get('classification') == 'usable'),
+                    'components': sum(1 for r in _results if r.get('classification') == 'component'),
+                    'skipped_large': _skipped_large,
+                    'quantum': {
+                        'classicalUse': pq_repo['classicalUse'],
+                        'pqUse': pq_repo['pqUse'],
+                        'avgExposureScore': (sum(pq_repo['exposureScores'])/len(pq_repo['exposureScores'])) if pq_repo['exposureScores'] else 0.0,
+                    }
+                }
+                cfg = {
+                    'mode': _args.mode,
+                    'profile': _args.profile,
+                    'error_threshold': _args.error_threshold,
+                    'warn_threshold': _args.warn_threshold,
+                    'max_file_bytes': _args.max_file_bytes,
+                }
+                if create_manifest:
+                    m = create_manifest(config=cfg, inputs={'scan': str(_base)}, results=summary)
+                    m.add_philosophical_insight('TTT: Traceability-Trust-Transparency manifest recorded')
+                    m.save(_args.manifest_out)
+                else:
+                    with open(_args.manifest_out, 'w') as _mf:
+                        json.dump({'config': cfg, 'inputs': {'scan': str(_base)}, 'results': summary}, _mf, indent=2)
+                print(f"Wrote manifest: {_args.manifest_out}")
+            except Exception as _e:
+                print(f"WARN: failed writing manifest: {_e}")
+
+        # PQ report output
+        if _args.pq_report:
+            try:
+                with open(_args.pq_report,'w') as pqf:
+                    _jsonmod.dump({
+                        'classicalUse': pq_repo['classicalUse'],
+                        'pqUse': pq_repo['pqUse'],
+                        'sbomFindings': pq_repo['sbomFindings'],
+                        'exposureScores': pq_repo['exposureScores'],
+                        'avgExposureScore': (sum(pq_repo['exposureScores'])/len(pq_repo['exposureScores'])) if pq_repo['exposureScores'] else 0.0,
+                    }, pqf, indent=2)
+                print(f"Wrote PQ report: {_args.pq_report}")
+            except Exception as _e:
+                print(f"WARN: failed writing PQ report: {_e}")
+
+        sys.exit(0)
+
+    # Default: fall back to built-in demo
     print("="*80)
     print("IF.yologuard v3.0 - CONFUCIAN RELATIONSHIP MAPPER TEST")
     print("="*80)
@@ -763,15 +1386,9 @@ Wu Lun (Five Relationships) as applied to secrets:
    - Weight: 0.85
 
 5. 兄弟 (Older-Younger Brother): metadata-data hierarchy
-   - Not yet implemented (future enhancement)
+   - Implemented: sibling config keys (e.g., user/password, key/secret, endpoint/token)
 
 KEY INSIGHT:
 A token's meaning emerges from its relationships, not from pattern matching alone.
 Isolated tokens are noise; tokens in relationship are secrets.
     """)
-
-print("\n✅ IF.yologuard v3.0 loaded successfully")
-print(f"Total patterns: {len(SecretRedactorV3.PATTERNS)} (original patterns)")
-print("Features: Entropy detection, Base64/hex decoding, JSON/XML parsing,")
-print("          Aristotelian essence classification, Confucian relationship mapper")
-print("Philosophy: Wu Lun (Five Relationships) - meaning through connection")

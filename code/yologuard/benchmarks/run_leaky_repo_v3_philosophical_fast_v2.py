@@ -8,20 +8,22 @@
 
 """
 IF.yologuard v3 Benchmark Test - Leaky Repo (PHILOSOPHICAL - FAST MODE v2)
-Optimized for speed by using pattern matching only (no entropy/decoding analysis)
+Optimized for speed while using SecretRedactorV3 (local src) with position-aware
+deduplication and safe scanning protections.
 
-FIXED VERSION - Addresses binary file hang issues:
-- Skips binary files larger than 1MB
-- Adds timeout protection (max 5 seconds per file)
-- Handles UTF-8 decode errors gracefully
-- Continues scanning after errors
-- Detects and skips common binary file types
+Fixes / features:
+- Skips binary/large files (1MB)
+- Timeout protection per file (5s)
+- UTF-8 errors handled gracefully
+- Local import of src/IF.yologuard_v3.py (no external paths)
+- Optional: "--output-json <path>" to emit a flat JSON list of detections
 
 Run this for quick feedback during development.
 Run the full version for complete philosophical analysis.
 """
 
 import sys
+import json
 from pathlib import Path
 from collections import defaultdict
 import time
@@ -193,6 +195,23 @@ def main():
 
     start_time = time.time()
     detector = SecretRedactorV3()
+    # Minimal CLI: support optional --output-json <file> and --output-sarif <file>
+    output_json = None
+    output_sarif = None
+    if '--output-json' in sys.argv:
+        try:
+            i = sys.argv.index('--output-json')
+            output_json = sys.argv[i+1]
+        except Exception:
+            print('WARN: --output-json missing path; ignoring')
+            output_json = None
+    if '--output-sarif' in sys.argv:
+        try:
+            i = sys.argv.index('--output-sarif')
+            output_sarif = sys.argv[i+1]
+        except Exception:
+            print('WARN: --output-sarif missing path; ignoring')
+            output_sarif = None
     total_detected = 0
     files_with_detections = 0
     matched_ground_truth = set()
@@ -297,6 +316,97 @@ def main():
             f.write(f"  {file_path:50s} | GT:{gt:2d} | Detected:{len(secrets):2d}\n")
 
     print(f"\n✅ Results written to: {output_path}")
+    # Optional JSON output for verification scripts
+    if output_json:
+        flat = []
+        for rel, dets in results.items():
+            for d in dets:
+                flat.append({
+                    'file': rel,
+                    'line': d.get('line', -1),
+                    'pattern': d.get('pattern', ''),
+                    'match': d.get('match', ''),
+                    # simple severity stub for downstream scripts
+                    'severity': 'HIGH',
+                    'relationshipScore': d.get('relationship_score', 0.0),
+                    'relations': d.get('relationships', []),
+                })
+        try:
+            with open(output_json, 'w') as jf:
+                json.dump(flat, jf, indent=2)
+            print(f"✅ JSON results written to: {output_json}")
+        except Exception as e:
+            print(f"WARN: failed to write JSON results: {e}")
+    # Optional SARIF output
+    if output_sarif:
+        try:
+            def _to_sarif(detections):
+                tool = {
+                    "driver": {
+                        "name": "IF.yologuard Benchmark",
+                        "version": "3.0",
+                        "informationUri": "https://github.com/dannystocker/infrafabric",
+                        "rules": [
+                            {
+                                "id": "IF.YOLOGUARD.SECRET",
+                                "name": "Secret Detected",
+                                "shortDescription": {"text": "Potential secret or credential detected"},
+                                "fullDescription": {"text": "IF.yologuard detected a potential secret/credential"},
+                                "defaultConfiguration": {"level": "error"},
+                                "properties": {"tags": ["security", "secret", "credential"]}
+                            }
+                        ]
+                    }
+                }
+                res = []
+                for d in detections:
+                    file_uri = str(d.get('file', '')).replace('\\', '/')
+                    line = int(d.get('line') or 1)
+                    msg = f"{d.get('pattern','')}: {d.get('match','')}"
+                    res.append({
+                        "ruleId": "IF.YOLOGUARD.SECRET",
+                        "level": "error",
+                        "message": {"text": msg},
+                        "locations": [
+                            {
+                                "physicalLocation": {
+                                    "artifactLocation": {"uri": file_uri},
+                                    "region": {"startLine": line if line > 0 else 1}
+                                }
+                            }
+                        ],
+                        "properties": {"pattern": d.get('pattern','')}
+                    })
+                return {
+                    "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+                    "version": "2.1.0",
+                    "runs": [
+                        {
+                            "tool": tool,
+                            "results": res
+                        }
+                    ]
+                }
+
+            # Build flatten detections (reuse JSON if produced)
+            if output_json and 'flat' in locals():
+                flat_for_sarif = flat
+            else:
+                flat_for_sarif = []
+                for rel, dets in results.items():
+                    for d in dets:
+                        flat_for_sarif.append({
+                            'file': rel,
+                            'line': d.get('line', -1),
+                            'pattern': d.get('pattern', ''),
+                            'match': d.get('match', ''),
+                        })
+
+            with open(output_sarif, 'w') as sf:
+                json.dump(_to_sarif(flat_for_sarif), sf, indent=2)
+            print(f"✅ SARIF results written to: {output_sarif}")
+        except Exception as e:
+            print(f"WARN: failed to write SARIF results: {e}")
     print()
 
     return 0

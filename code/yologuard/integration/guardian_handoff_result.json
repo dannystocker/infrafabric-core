@@ -1,0 +1,14 @@
+{
+  "decision": "approve",
+  "weighted_votes": {
+    "approve": 4.5,
+    "conditional": 0.0,
+    "reject": 0.0
+  },
+  "required_safeguards": [],
+  "red_lines_violated": [],
+  "dissenting_opinions": [],
+  "late_bloomers": [],
+  "provenance": {},
+  "timestamp": "2025-11-08T05:56:07.266349"
+}

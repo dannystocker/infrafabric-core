@@ -770,8 +770,9 @@ A token's meaning emerges from its relationships, not from pattern matching alon
 Isolated tokens are noise; tokens in relationship are secrets.
     """)
 
-print("\n✅ IF.yologuard v3.0 loaded successfully")
-print(f"Total patterns: {len(SecretRedactorV3.PATTERNS)} (original patterns)")
-print("Features: Entropy detection, Base64/hex decoding, JSON/XML parsing,")
-print("          Aristotelian essence classification, Confucian relationship mapper")
-print("Philosophy: Wu Lun (Five Relationships) - meaning through connection")
+if __name__ == "__main__":
+    print("\n✅ IF.yologuard v3.0 loaded successfully")
+    print(f"Total patterns: {len(SecretRedactorV3.PATTERNS)} (original patterns)")
+    print("Features: Entropy detection, Base64/hex decoding, JSON/XML parsing,")
+    print("          Aristotelian essence classification, Confucian relationship mapper")
+    print("Philosophy: Wu Lun (Five Relationships) - meaning through connection")
