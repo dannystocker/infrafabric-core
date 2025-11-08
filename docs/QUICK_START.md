@@ -9,11 +9,22 @@ cd infrafabric/code/yologuard
 ## 2) Run your first scan
 ```
 # Create a tiny test file
-printf "api_key=ghp_exampletoken1234567890
-" > /tmp/example.txt
+printf "api_key=ghp_exampletoken1234567890\n" > /tmp/example.txt
 
-# Scan it (simple output + simple JSON)
-python3 src/IF.yologuard_v3.py   --scan /tmp/example.txt   --simple-output   --json /tmp/results.json   --format json-simple   --stats
+# Beginner mode: simple output + simple JSON + CI profile
+python3 src/IF.yologuard_v3.py \
+  --scan /tmp/example.txt \
+  --beginner-mode \
+  --json /tmp/results.json \
+  --stats
+
+# Or explicitly (simple output + simple JSON)
+python3 src/IF.yologuard_v3.py \
+  --scan /tmp/example.txt \
+  --simple-output \
+  --json /tmp/results.json \
+  --format json-simple \
+  --stats
 ```
 
 ## 3) View results

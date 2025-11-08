@@ -781,6 +781,7 @@ if __name__ == "__main__":
     _parser.add_argument('--profile', choices=['ci','ops','audit','research','forensics'], help='Preset profile for thresholds/mode (ci, ops, audit, research, forensics)')
     _parser.add_argument('--simple-output', action='store_true', help='Print beginner-friendly per-detection lines')
     _parser.add_argument('--format', dest='out_format', choices=['default','json-simple'], default='default', help='Choose JSON output format when using --json (default or json-simple)')
+    _parser.add_argument('--beginner-mode', action='store_true', help='Shortcut: sets --profile ci, --simple-output, and --format json-simple (unless overridden)')
     _parser.add_argument('--demo', action='store_true', help='Run built-in relationship demo')
     _args, _unknown = _parser.parse_known_args()
 
@@ -834,6 +835,19 @@ if __name__ == "__main__":
                 if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
                     _args.warn_threshold = FORENSICS_WARN_THRESHOLD
                 _args.max_file_bytes = max(_args.max_file_bytes, 50_000_000)
+
+        # Beginner mode applies default choices unless the user overrode them
+        if _args.beginner_mode:
+            if not _args.profile:
+                _args.profile = 'ci'
+                _args.mode = 'usable'
+                if _args.error_threshold == DEFAULT_ERROR_THRESHOLD:
+                    _args.error_threshold = DEFAULT_ERROR_THRESHOLD
+                if _args.warn_threshold == DEFAULT_WARN_THRESHOLD:
+                    _args.warn_threshold = DEFAULT_WARN_THRESHOLD
+            _args.simple_output = True
+            if _args.out_format == 'default':
+                _args.out_format = 'json-simple'
 
         detector = SecretRedactorV3()
         # Simple binary filter + exclude internal meta dirs
