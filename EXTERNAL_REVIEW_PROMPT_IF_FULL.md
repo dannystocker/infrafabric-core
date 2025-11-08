@@ -6,13 +6,13 @@ Objective: Produce a rigorous, independent review of the entire InfraFabric repo
 
 Quick Access Links (Raw where possible):
 - Repo root: https://github.com/dannystocker/infrafabric
-- Connectivity architecture (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/IF_CONNECTIVITY_ARCHITECTURE.md
-- Session handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/SESSION_HANDOFF_2025-11-08_IF-ARMOUR.md
-- Yologuard main README (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/README.md
-- Yologuard detector (CLI, raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/src/IF.yologuard_v3.py
-- Guardian handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
-- External review results (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
-- External review update (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
+- Connectivity architecture (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/IF_CONNECTIVITY_ARCHITECTURE.md
+- Session handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/SESSION_HANDOFF_2025-11-08_IF-ARMOUR.md
+- Yologuard main README (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/README.md
+- Yologuard detector (CLI, raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/src/IF.yologuard_v3.py
+- Guardian handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
+- External review results (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
+- External review update (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
 - Papers index (directory): https://github.com/dannystocker/infrafabric/tree/master/papers
 
 Instructions:

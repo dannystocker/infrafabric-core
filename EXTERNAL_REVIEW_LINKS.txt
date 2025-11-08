@@ -1,22 +1,22 @@
 InfraFabric — External Review Links (raw GitHub content)
 
 Arena Prompt (single paste):
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/EXTERNAL_REVIEW_ARENA_PROMPT.md
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/EXTERNAL_REVIEW_ARENA_PROMPT.md
 
 Full Review Prompt (project-wide):
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/EXTERNAL_REVIEW_PROMPT_IF_FULL.md
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/EXTERNAL_REVIEW_PROMPT_IF_FULL.md
 
 Call For External Review:
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/CALL_FOR_EXTERNAL_REVIEW.md
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/CALL_FOR_EXTERNAL_REVIEW.md
 
 Schema (raw):
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/REVIEW_SCHEMA.json
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/REVIEW_SCHEMA.json
 
 Sticky Metrics (raw):
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/STICKY_METRICS.md
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/STICKY_METRICS.md
 
 Single-File Review Bundle (offline-friendly):
-https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/EXTERNAL_REVIEW_ARENA_BUNDLE.md
+https://raw.githubusercontent.com/dannystocker/infrafabric/master/EXTERNAL_REVIEW_ARENA_BUNDLE.md
 
 Full Repo (zip archive):
 https://codeload.github.com/dannystocker/infrafabric/zip/refs/heads/master

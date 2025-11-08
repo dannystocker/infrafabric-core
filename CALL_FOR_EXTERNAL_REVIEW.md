@@ -16,12 +16,12 @@ How to review:
 4) Submit via PR under `code/yologuard/reviews/<date>_<reviewer>/` (include your JSON and MD)
 
 Artifacts to help (Raw links where possible):
-- Review prompt (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/EXTERNAL_REVIEW_PROMPT_IF_FULL.md
-- JSON schema (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/REVIEW_SCHEMA.json
-- Sticky metrics (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/STICKY_METRICS.md
-- Yologuard update (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
-- Yologuard external results (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
-- Yologuard guardian handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/refs/heads/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
+- Review prompt (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/EXTERNAL_REVIEW_PROMPT_IF_FULL.md
+- JSON schema (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/REVIEW_SCHEMA.json
+- Sticky metrics (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/STICKY_METRICS.md
+- Yologuard update (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
+- Yologuard external results (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
+- Yologuard guardian handoff (raw): https://raw.githubusercontent.com/dannystocker/infrafabric/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
 
 Ethical boundaries:
 - No live credential validation; no data exfiltration
