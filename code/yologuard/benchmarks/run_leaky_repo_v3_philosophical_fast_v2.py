@@ -186,13 +186,13 @@ def main():
     print(f"v1 baseline:  30/96  (31.2% recall)")
     print(f"v2 baseline:  ~74/96 (77.0% recall)")
     print(f"v3 target:    85-90/96 (88-94% recall)")
-    print(f"\nMode: PATTERN-ONLY (fast, no entropy/decoding)")
+    print(f"\nMode: Full SecretRedactorV3 with deduplication")
     print(f"Safety: 1MB max file size, 5s timeout, binary file detection")
     print("=" * 90)
     print()
 
     start_time = time.time()
-    detector = FastPhilosophicalDetector()
+    detector = SecretRedactorV3()
     total_detected = 0
     files_with_detections = 0
     matched_ground_truth = set()

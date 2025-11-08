@@ -1,0 +1,27 @@
+# Files to Provide to GPT-5 for Independent Validation
+
+## Documentation (READ FIRST)
+./GPT5_HANDOFF.md                    - Quick start guide
+./VALIDATION_PACKAGE_FOR_GPT5.md     - Full explanation of bugs found & fixed
+
+## Source Code
+./src/IF.yologuard_v3.py             - Main detector (1017 lines)
+./versions/IF.yologuard_v3.py        - Synced copy
+
+## Test Infrastructure  
+./benchmarks/run_leaky_repo_v3_philosophical_fast_v2.py  - Benchmark script
+./benchmarks/leaky-repo/             - Test corpus (49 files)
+
+## Optional Context
+./README.md                          - Project overview
+./benchmarks/leaky_repo_v3_fast_v2_results.txt  - Latest benchmark output
+
+---
+
+TOTAL SIZE: ~500KB (small enough to paste/upload)
+
+MINIMAL PACKAGE (if size is an issue):
+- GPT5_HANDOFF.md
+- src/IF.yologuard_v3.py  
+- benchmarks/run_leaky_repo_v3_philosophical_fast_v2.py
+- benchmarks/leaky-repo/* (all 49 test files)

@@ -411,6 +411,7 @@ class SecretRedactorV3:
         # npm auth tokens
         (r'(?:_authToken|//registry[^:]+:_authToken)\s*=\s*([^\s]+)', 'NPM_TOKEN_REDACTED'),
         (r'npm_[A-Za-z0-9]{36}', 'NPM_TOKEN_REDACTED'),
+        (r'_auth\s*=\s*([A-Za-z0-9+/=]{8,})', 'NPM_AUTH_REDACTED'),
 
         # PuTTY private keys (multiline header)
         (r'PuTTY-User-Key-File-[\d]+:.*?Private-Lines:\s*\d+', 'PUTTY_KEY_REDACTED'),
@@ -442,15 +443,17 @@ class SecretRedactorV3:
         # .netrc format (machine ... login ... password ...)
         (r'machine\s+\S+\s+login\s+\S+\s+password\s+(\S+)', 'NETRC_PASSWORD_REDACTED'),
 
-        # FileZilla XML passwords (Base64 encoded)
+        # FileZilla XML passwords (Base64 encoded) and users
         (r'<Pass[^>]*>([A-Za-z0-9+/=]{8,})</Pass>', 'FILEZILLA_PASSWORD_REDACTED'),
+        (r'<User>([^<]+)</User>', 'FILEZILLA_USER_REDACTED'),
 
         # Git credentials (protocol://user:pass@host) - username can contain @, password until final @
         (r'https?://([^:]+):([^@\s]+@[^@\s]+)@', 'GIT_CREDENTIALS_REDACTED'),
 
         # Cloud provider credentials files (.s3cfg, .credentials)
-        (r'(?i)(?:aws_access_key_id|access_key)\s*[=:]\s*([A-Z0-9]{20})', 'AWS_ACCESS_KEY_REDACTED'),
-        (r'(?i)(?:aws_secret_access_key|secret_key)\s*[=:]\s*([A-Za-z0-9/+=]{40})', 'AWS_SECRET_REDACTED'),
+        # Note: \b before access_key/secret_key prevents matching inside longer key names
+        (r'(?i)(?:aws_access_key_id|\baccess_key)\s*[=:]\s*([A-Z0-9]{20})', 'AWS_ACCESS_KEY_REDACTED'),
+        (r'(?i)(?:aws_secret_access_key|\bsecret_key)\s*[=:]\s*([A-Za-z0-9/+=]{32,64})', 'AWS_SECRET_REDACTED'),
 
         # Salesforce session tokens
         (r'00D[A-Z0-9]{15}![A-Z0-9._]{32,}', 'SALESFORCE_SESSION_REDACTED'),
@@ -476,38 +479,48 @@ class SecretRedactorV3:
         # Salesforce credentials in JS/Python code (conn.login pattern)
         (r"(?:conn\.login|sf_login|salesforce.*login)\s*\(\s*['\"]([^'\"]+)['\"],\s*['\"]([^'\"]+)['\"]", 'SALESFORCE_CREDENTIALS_REDACTED'),
 
-        # JSON credentials (robomongo, config files) - with optional whitespace
-        (r'"(?:userPassword|sshUserPassword|sshPassphrase|password|pass|pwd|secret)"\s*:\s*"([^"]{4,})"', 'JSON_PASSWORD_REDACTED'),
+        # JSON credentials (robomongo, config files, Docker) - with optional whitespace
+        (r'"(?:auth|userPassword|sshUserPassword|sshPassphrase|password|pass|pwd|secret)"\s*:\s*"([^"]{4,})"', 'JSON_PASSWORD_REDACTED'),
 
         # PHP variable assignments ($var = 'value';)
         (r'\$(?:dbpasswd|password|pass|pwd|secret)\s*=\s*["\']([^"\']+)["\']', 'PHP_PASSWORD_REDACTED'),
 
-        # FTP config files (.ftpconfig)
-        (r'(?i)"(?:password|pass)"\s*:\s*"([^"]+)"', 'FTP_PASSWORD_REDACTED'),
+        # FTP/SFTP config files (.ftpconfig, sftp-config.json) - includes passphrase, user, and username
+        (r'(?i)"(?:password|pass|passphrase)"\s*:\s*"([^"]+)"', 'FTP_PASSWORD_REDACTED'),
+        (r'"(?:user|username)"\s*:\s*"([^"]+)"', 'FTP_USER_REDACTED'),
     ]
 
     def __init__(self):
         """Initialize v3 redactor with Confucian + Aristotelian features."""
         self.patterns_compiled = [(re.compile(p, re.DOTALL | re.MULTILINE), r) for p, r in self.PATTERNS]
 
-    def scan_with_patterns(self, text: str) -> List[Tuple[str, str]]:
-        """Scan text with all compiled patterns."""
+    def scan_with_patterns(self, text: str) -> List[Tuple[str, str, int]]:
+        """Scan text with all compiled patterns.
+
+        Returns: List of (replacement, match_text, start_position) tuples
+        """
         matches = []
         for pattern, replacement in self.patterns_compiled:
             for match in pattern.finditer(text):
-                matches.append((replacement, match.group(0)))
+                matches.append((replacement, match.group(0), match.start()))
         return matches
 
-    def predecode_and_rescan(self, text: str) -> List[Tuple[str, str]]:
+    def predecode_and_rescan(self, text: str) -> List[Tuple[str, str, int]]:
         """
         Enhanced scanning with:
-        1. Original text scan
-        2. High-entropy token detection + Base64/hex decode + rescan
-        3. JSON/XML value extraction + rescan
+        1. Original text scan (with accurate positions)
+        2. High-entropy token detection + Base64/hex decode + rescan (position = -1)
+        3. JSON/XML value extraction + rescan (position = -1)
+
+        Returns: List of (replacement, match_text, position) tuples
+        Position is -1 for decoded/extracted content where original position is unknown.
+
+        Note: Deduplication moved to scan_file() for location-aware dedup.
+        This allows same secret at different locations to be counted separately.
         """
         results = []
 
-        # Scan original text
+        # Scan original text (has accurate positions)
         results.extend(self.scan_with_patterns(text))
 
         # Find high-entropy tokens (likely Base64)
@@ -521,7 +534,9 @@ class SecretRedactorV3:
                     try:
                         decoded_text = decoded_b64.decode('utf-8', errors='ignore')
                         if decoded_text:
-                            results.extend(self.scan_with_patterns(decoded_text))
+                            # Decoded content has unknown position
+                            for repl, match_text, pos in self.scan_with_patterns(decoded_text):
+                                results.append((repl, match_text, -1))
                     except:
                         pass
 
@@ -531,19 +546,25 @@ class SecretRedactorV3:
                 try:
                     decoded_text = decoded_hex.decode('utf-8', errors='ignore')
                     if decoded_text:
-                        results.extend(self.scan_with_patterns(decoded_text))
+                        # Decoded content has unknown position
+                        for repl, match_text, pos in self.scan_with_patterns(decoded_text):
+                            results.append((repl, match_text, -1))
                 except:
                     pass
 
         # Try JSON extraction
         if '{' in text:
             for value in extract_values_from_json(text):
-                results.extend(self.scan_with_patterns(value))
+                # Extracted values have unknown position
+                for repl, match_text, pos in self.scan_with_patterns(value):
+                    results.append((repl, match_text, -1))
 
         # Try XML extraction
         if '<' in text:
             for value in extract_values_from_xml(text):
-                results.extend(self.scan_with_patterns(value))
+                # Extracted values have unknown position
+                for repl, match_text, pos in self.scan_with_patterns(value):
+                    results.append((repl, match_text, -1))
 
         return results
 
@@ -552,13 +573,18 @@ class SecretRedactorV3:
         matches = self.predecode_and_rescan(text)
 
         redacted = text
-        for replacement, match_text in matches:
+        for replacement, match_text, position in matches:
             redacted = redacted.replace(match_text, replacement)
 
         return redacted
 
     def scan_file(self, file_path: Path) -> List[Dict]:
-        """Scan a file and return all detected secrets with metadata."""
+        """Scan a file and return all detected secrets with metadata.
+
+        Uses location-aware deduplication:
+        - Same secret at SAME position (multiple patterns) → keep only first
+        - Same secret at DIFFERENT positions → keep all occurrences
+        """
         try:
             content = file_path.read_text(encoding='utf-8', errors='ignore')
         except:
@@ -567,15 +593,34 @@ class SecretRedactorV3:
         matches = self.predecode_and_rescan(content)
 
         secrets = []
-        for replacement, match_text in matches:
+        for replacement, match_text, position in matches:
+            # Calculate line number from position
+            if position >= 0:
+                # Accurate position from regex match
+                line_num = content[:position].count('\n') + 1
+            else:
+                # Position unknown (decoded content) - use find() as fallback
+                line_num = content[:content.find(match_text)].count('\n') + 1 if match_text in content else -1
+
             secrets.append({
                 'file': str(file_path),
                 'pattern': replacement,
                 'match': match_text[:50] + '...' if len(match_text) > 50 else match_text,
-                'line': content[:content.find(match_text)].count('\n') + 1 if match_text in content else -1
+                'line': line_num,
+                'position': position
             })
 
-        return secrets
+        # Location-aware deduplication: deduplicate by (match_text, position)
+        # This keeps same secret at different positions but removes duplicate patterns at same position
+        seen = set()
+        deduplicated = []
+        for secret in secrets:
+            key = (secret['match'], secret['position'])
+            if key not in seen:
+                seen.add(key)
+                deduplicated.append(secret)
+
+        return deduplicated
 
 
 # ============================================================================
