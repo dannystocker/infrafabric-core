@@ -36,7 +36,7 @@ from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 import hashlib
 import subprocess
-from datetime import datetime
+from datetime import datetime, UTC
 import json as _jsonmod
 
 # ============================================================================
@@ -854,7 +854,8 @@ if __name__ == "__main__":
         _count = 0
         _skipped_large = 0
         _file_sha_cache = {}
-        _now_iso = datetime.utcnow().isoformat() + 'Z'
+        # Use timezone-aware UTC to avoid deprecation and standardize to Z suffix
+        _now_iso = datetime.now(UTC).isoformat().replace('+00:00', 'Z')
         # Try to capture a repo commit for provenance (best-effort)
         _repo_commit = _git_commit_for(_base if _base.is_dir() else _base.parent)
 
