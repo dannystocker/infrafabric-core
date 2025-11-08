@@ -25,8 +25,10 @@ How serious a detection is:
 
 ## Simple Terms → Technical Terms
 
-**Relationship Score** → Wu Lun (五倫)
-When secrets appear together in the same file, they're more likely to be real. IF.yologuard uses Confucian philosophy to measure these relationships (朋友=friends, 夫婦=partners, etc.).
+**Relationship Score**
+When secrets appear together in the same file, they're more likely to be real. IF.yologuard calculates a "relationship score" (0.0 to 1.0) to measure how connected the secrets are. Higher scores mean stronger evidence that the secrets are real and related.
+
+Technical note: This uses the Wu Lun (五倫) framework from Confucian philosophy (朋友=friends, 夫婦=partners, etc.).
 
 **Extra Checks** → IEF (Immuno-Epistemic Forensics)
 Additional validation steps to verify a secret is real:
