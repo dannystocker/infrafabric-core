@@ -4,6 +4,17 @@ Audience: GPT‑5‑High, Claude Opus/Sonnet, Gemini Ultra, human experts (secur
 
 Objective: Produce a rigorous, independent review of the entire InfraFabric repository (master branch), grounded in verifiable artifacts, with actionable recommendations and a standardized JSON output for aggregation.
 
+Quick Access Links (GitHub):
+- Repo root: https://github.com/dannystocker/infrafabric
+- Connectivity architecture: https://github.com/dannystocker/infrafabric/blob/master/IF_CONNECTIVITY_ARCHITECTURE.md
+- Session handoff: https://github.com/dannystocker/infrafabric/blob/master/SESSION_HANDOFF_2025-11-08_IF-ARMOUR.md
+- Yologuard main README: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/README.md
+- Yologuard detector (CLI): https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/src/IF.yologuard_v3.py
+- Guardian handoff: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
+- External review results: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
+- External review update: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
+- Papers index: https://github.com/dannystocker/infrafabric/tree/master/papers
+
 Instructions:
 1) Clone and read.
    - Repo: https://github.com/dannystocker/infrafabric (branch: master)

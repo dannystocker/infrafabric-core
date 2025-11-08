@@ -15,10 +15,13 @@ How to review:
    - Structured JSON using REVIEW_SCHEMA.json
 4) Submit via PR under `code/yologuard/reviews/<date>_<reviewer>/` (include your JSON and MD)
 
-Artifacts to help:
-- Head‑to‑head corpus results in `code/yologuard/reports/<timestamp>/`
-- Yologuard delta briefs under `code/yologuard/EXTERNAL_REVIEW_UPDATE.md` and `EXTERNAL_REVIEW_RESULTS.md`
-- Governance artifacts under `code/yologuard/integration/`
+Artifacts to help (GitHub links):
+- Review prompt: https://github.com/dannystocker/infrafabric/blob/master/EXTERNAL_REVIEW_PROMPT_IF_FULL.md
+- JSON schema: https://github.com/dannystocker/infrafabric/blob/master/REVIEW_SCHEMA.json
+- Sticky metrics: https://github.com/dannystocker/infrafabric/blob/master/STICKY_METRICS.md
+- Yologuard update: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/EXTERNAL_REVIEW_UPDATE.md
+- Yologuard external results: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/EXTERNAL_REVIEW_RESULTS.md
+- Yologuard guardian handoff: https://github.com/dannystocker/infrafabric/blob/master/code/yologuard/integration/GUARDIAN_HANDOFF_v3.1_IEF.md
 
 Ethical boundaries:
 - No live credential validation; no data exfiltration
