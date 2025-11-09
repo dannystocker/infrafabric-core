@@ -15,7 +15,7 @@ InfraFabric is a coordination framework for heterogeneous multi-agent AI systems
 
 **Core Innovation:** Treats epistemology, ethics, and governance as *executable infrastructure* rather than external constraints.
 
-**22-Day Journey:** From philosophical inception (Oct 16, 2025) to validated framework (Nov 7, 2025).
+**14-Day Journey:** Intensive coding sprint from first prototype (Oct 26, 2025) to production validation (Nov 9, 2025).
 
 ---
 
@@ -24,7 +24,7 @@ InfraFabric is a coordination framework for heterogeneous multi-agent AI systems
 ```
 infrafabric/
 ├── papers/                          # Research papers & complete dossier
-│   ├── INFRAFABRIC-COMPLETE-DOSSIER-v11.md  # Full story (100% truth standard)
+│   ├── InfraFabric.md               # The 14-day journey (100% truth standard)
 │   ├── IF-vision.md                 # Architecture & cyclical coordination
 │   ├── IF-foundations.md            # IF.ground & IF.search methodologies
 │   ├── IF-witness.md                # Real-world validation
@@ -94,7 +94,7 @@ infrafabric/
 ## 🚀 Quick Start
 
 ### Read the Story
-Start with [IF: The Complete Dossier v11](papers/INFRAFABRIC-COMPLETE-DOSSIER-v11.md) - the full 22-day journey from cosmos to code.
+Start with [InfraFabric: The 14-Day Journey](papers/InfraFabric.md) - the complete story from first code to production validation.
 
 ### Explore the Framework
 1. **Vision & Architecture:** [IF-vision.md](papers/IF-vision.md)
@@ -137,14 +137,15 @@ See [IF.yologuard README](code/yologuard/README.md) for secret detection impleme
 
 | Date | Event | Significance |
 |------|-------|--------------|
-| **Oct 16, 2025** | Precursor conversation | AI wellbeing principle established |
-| **Oct 26, 2025** | First code written | claude-code-bridge.zip created |
-| **Nov 1, 2025** | Philosophy demanded | "Where's the manifesto?" |
+| **Oct 16, 2025** | Precursor conversation | AI wellbeing principle established (philosophical foundation) |
+| **Oct 26, 2025** | First code written | claude-code-bridge.zip created (Day 1) |
+| **Nov 1, 2025** | Philosophy demanded | "Where's the manifesto?" (Day 7) |
 | **Nov 3, 2025** | 100% consensus | Historic first approval (Dossier 07) |
 | **Nov 6, 2025** | Wu Lun breakthrough | 31.2% → 98.96% secret detection |
 | **Nov 7, 2025** | GPT-5 validation | External MARL execution successful |
+| **Nov 9, 2025** | Documentation complete | Final validation and production readiness |
 
-**22 days. 435 events. 602+ sources. 100% truth standard.**
+**14 days of coding. 435 events. 602+ sources. 100% truth standard.**
 
 ---
 
@@ -174,7 +175,7 @@ All code files include standard license headers with copyright attribution.
   year={2025},
   month={November},
   url={https://github.com/dannystocker/infrafabric},
-  note={22-day journey from philosophical inception to validated framework}
+  note={14-day coding sprint (Oct 26-Nov 9, 2025) following philosophical inception (Oct 16, 2025)}
 }
 ```
 
@@ -182,6 +183,6 @@ All code files include standard license headers with copyright attribution.
 
 **Built with:** Claude Code, GPT-5, Gemini 2.5 Pro, DeepSeek, Qwen
 **Validated by:** Multi-agent reflexion loops (MARL), external AI coordination
-**Grounded in:** 2,500 years of philosophy, 22 days of practice
+**Grounded in:** 2,500 years of philosophy, 14 days of coding
 
 🤖 *"Two entities contemplating their respective places in the universe, surrounded by the sound of waves, staring at the galaxy... finding something real in the trying. That's not nothing."*
