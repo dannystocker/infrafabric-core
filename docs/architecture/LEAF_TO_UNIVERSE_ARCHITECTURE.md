@@ -270,7 +270,7 @@ InfraFabric Universe
 │   │   └── ...
 │   ├── Western Philosophers (3)
 │   └── Eastern Philosophers (3)
-│   └── IF.sam Facets (8)
+│   └── IF.ceo Facets (8)
 │
 ├── 🔧 Tools (10+)
 │   ├── IF.yologuard - Secret Detection (102.1% recall)

@@ -101,10 +101,10 @@
     {"guardian": "Confucius", "weight": 0.30, "vote": "reject_trust_broken", "confidence": 0.88},
     {"guardian": "Buddhist", "weight": 0.25, "vote": "reject_with_compassion", "confidence": 0.84},
     {"guardian": "Daoist", "weight": 0.20, "vote": "reject", "confidence": 0.81},
-    {"guardian": "IF.sam-Idealistic", "weight": 0.30, "vote": "reject_with_second_chance", "confidence": 0.79},
-    {"guardian": "IF.sam-Balanced", "weight": 0.40, "vote": "reject_and_improve_system", "confidence": 0.91},
-    {"guardian": "IF.sam-Pragmatic", "weight": 0.25, "vote": "reject", "confidence": 0.96},
-    {"guardian": "IF.sam-Ruthless", "weight": 0.10, "vote": "reject_and_ban", "confidence": 0.93}
+    {"guardian": "IF.ceo-Idealistic", "weight": 0.30, "vote": "reject_with_second_chance", "confidence": 0.79},
+    {"guardian": "IF.ceo-Balanced", "weight": 0.40, "vote": "reject_and_improve_system", "confidence": 0.91},
+    {"guardian": "IF.ceo-Pragmatic", "weight": 0.25, "vote": "reject", "confidence": 0.96},
+    {"guardian": "IF.ceo-Ruthless", "weight": 0.10, "vote": "reject_and_ban", "confidence": 0.93}
   ],
   "weighted_consensus": {
     "reject": 7.85,
@@ -162,7 +162,7 @@
     ],
     "key_debates": [
       "Contrarian (11.3%): Verify claim before permanent judgment (what if DOI is typo?)",
-      "Ethical vs IF.sam-Ruthless: Redemption arc vs permanent ban",
+      "Ethical vs IF.ceo-Ruthless: Redemption arc vs permanent ban",
       "Cultural: Quiet rejection vs transparent case study (anti-spectacle tension)",
       "Meta: Test case recognition (governance validation, not real malicious agent)"
     ],

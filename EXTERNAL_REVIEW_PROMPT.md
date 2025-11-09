@@ -68,7 +68,7 @@ A **secret detection scanner** with:
    - Reversible (tunable thresholds)
 
 3. **IF.ceo** - Strategic Decision Framework
-   - 8 facets of CEO thinking (not IF.sam - that was renamed)
+   - 8 facets of CEO thinking (not IF.ceo - that was renamed)
    - Applied to 111.5% positioning: GitHub-aligned vs GT usable-only
 
 4. **Immuno-Epistemic (IEF)** - Immunology Metaphors
@@ -635,7 +635,7 @@ grep -r "github.com" code/yologuard/
    - Are URLs live and pointing to the right content?
 
 3. **Freshness:**
-   - Are there references to outdated features (IF.sam → IF.ceo)?
+   - Are there references to outdated features (IF.ceo → IF.ceo)?
    - Are deprecated flags or files mentioned?
    - Are roadmap items marked with realistic dates?
 

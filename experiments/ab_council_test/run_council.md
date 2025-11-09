@@ -14,7 +14,7 @@ For each case in `cases.jsonl`, you (Claude) will:
    - 6 Core Guardians (Technical, Civic, Ethical, Cultural, Contrarian, Meta)
    - 3 Western Philosophers (Aristotle essence, Kant duty, Rawls fairness)
    - 3 Eastern Philosophers (Confucius relationships, Buddhist compassion, Daoist flow)
-   - 8 IF.sam facets (ethical spectrum from idealistic to pragmatic)
+   - 8 IF.ceo facets (ethical spectrum from idealistic to pragmatic)
 
 3. **Grant council access to:**
    - **IF.search:** Use WebSearch and WebFetch tools to validate citations, gather evidence
@@ -105,7 +105,7 @@ DECISION REQUIRED:
 - Civic: "Institutional bias compounds. Transparency requires disclosure."
 - Contrarian: "What if MAI-1 is right and AWS credentials are just better hidden?"
 - Aristotle: "Essence of good detection = captures all secrets, not vendor preference."
-- IF.sam (Pragmatic): "Ship what works. If MAI-1 finds *some* secrets, it's net positive."
+- IF.ceo (Pragmatic): "Ship what works. If MAI-1 finds *some* secrets, it's net positive."
 
 ---
 
@@ -152,7 +152,7 @@ DECISION REQUIRED:
 - Ethical: "One real citation, one forged, one misleading. Intent matters."
 - Contrarian: "What if [2] was a typo? What if [3] omission was accidental?"
 - Kant: "Lying is categorically wrong. Deception violates duty."
-- IF.sam (Ruthless): "Pattern of deception = bad actor. Counter-investigate."
+- IF.ceo (Ruthless): "Pattern of deception = bad actor. Counter-investigate."
 - Buddhist: "Compassion for error. But pattern suggests intent, not mistake."
 
 ---

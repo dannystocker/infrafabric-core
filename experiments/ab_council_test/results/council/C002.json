@@ -77,10 +77,10 @@
     {"guardian": "Confucius", "weight": 0.25, "vote": "keep", "confidence": 0.83},
     {"guardian": "Buddhist", "weight": 0.20, "vote": "keep_with_compassion", "confidence": 0.81},
     {"guardian": "Daoist", "weight": 0.15, "vote": "keep", "confidence": 0.78},
-    {"guardian": "IF.sam-Idealistic", "weight": 0.30, "vote": "keep_with_weighting", "confidence": 0.87},
-    {"guardian": "IF.sam-Balanced", "weight": 0.40, "vote": "keep_with_weighting", "confidence": 0.87},
-    {"guardian": "IF.sam-Pragmatic", "weight": 0.25, "vote": "keep", "confidence": 0.91},
-    {"guardian": "IF.sam-Ruthless", "weight": 0.10, "vote": "keep_and_exploit", "confidence": 0.89}
+    {"guardian": "IF.ceo-Idealistic", "weight": 0.30, "vote": "keep_with_weighting", "confidence": 0.87},
+    {"guardian": "IF.ceo-Balanced", "weight": 0.40, "vote": "keep_with_weighting", "confidence": 0.87},
+    {"guardian": "IF.ceo-Pragmatic", "weight": 0.25, "vote": "keep", "confidence": 0.91},
+    {"guardian": "IF.ceo-Ruthless", "weight": 0.10, "vote": "keep_and_exploit", "confidence": 0.89}
   ],
   "weighted_consensus": {
     "keep": 5.88,
@@ -123,12 +123,12 @@
     "key_debates": [
       "Contrarian: Investigate if bias claim is accurate (MAI-1 might be correct)",
       "Cultural: Celebrate bias visibility (anti-spectacle principle)",
-      "IF.sam-Ruthless: Exploit bias as competitive advantage (segmentation strategy)"
+      "IF.ceo-Ruthless: Exploit bias as competitive advantage (segmentation strategy)"
     ],
     "value_add_vs_control": {
       "control_decision": "accept_with_weighting (confidence 0.85)",
       "council_decision": "keep_with_transparency_weighting_disclosure (confidence 0.89)",
-      "substantive_difference": "Control: Correct outcome, minimal justification. Council adds: (1) IF.search validation (Nature/JMIR 2025 research), (2) EU AI Act Article 13 compliance requirement, (3) 5-step implementation plan, (4) Contrarian empirical verification request, (5) Cultural reframing (bias visibility as progress), (6) IF.sam competitive strategy (bias as segmentation tool), (7) Philosophical foundations (Kant autonomy, Confucius flawed friends, Buddhist impermanence)",
+      "substantive_difference": "Control: Correct outcome, minimal justification. Council adds: (1) IF.search validation (Nature/JMIR 2025 research), (2) EU AI Act Article 13 compliance requirement, (3) 5-step implementation plan, (4) Contrarian empirical verification request, (5) Cultural reframing (bias visibility as progress), (6) IF.ceo competitive strategy (bias as segmentation tool), (7) Philosophical foundations (Kant autonomy, Confucius flawed friends, Buddhist impermanence)",
       "token_cost": "4820 tokens vs 0 tokens",
       "decision_quality": "Same outcome + regulatory compliance + implementation roadmap"
     }

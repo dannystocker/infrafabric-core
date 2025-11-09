@@ -255,7 +255,7 @@ InfraFabric's coordination frameworks underwent rigorous evaluation by four inde
 1. **IF Guardians Panel** (Western multi-stakeholder governance)
 2. **Chinese Expert Committee** (DeepSeek-powered, systems theory perspective)
 3. **Anthropic-Style Safety Panel** (AI safety & alignment)
-4. **IF.sam Board** (8 Sam Altman personas representing OpenAI decision-making facets)
+4. **IF.ceo Board** (8 Sam Altman personas representing OpenAI decision-making facets)
 
 ## Unanimous Findings
 
@@ -305,7 +305,7 @@ Detects and recovers from system disharmony (系统失谐) through:
 - Graduated intervention tiers (0-3, minimal → Guardian-approved)
 - Cultural adaptation (language/metrics vary by context)
 
-## IF.sam Meta-Evaluation
+## IF.ceo Meta-Evaluation
 
 Eight Sam Altman personas debugged all findings, each representing different facets:
 - **Accelerationist:** "Too slow, but philosophically sound"

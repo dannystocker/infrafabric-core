@@ -135,7 +135,7 @@
       "citations": ["Daoist:wu_wei", "Daoist:minimal_intervention", "IF.quiet:prevention_over_detection"]
     },
     {
-      "guardian": "IF.sam-Idealistic-1",
+      "guardian": "IF.ceo-Idealistic-1",
       "weight": 0.15,
       "vote": "escalate",
       "rationale": "Believe in agent's good intent. Test mode plausible. Human review can adjudicate fairly.",
@@ -143,7 +143,7 @@
       "citations": ["OpenAI:AGI_safety", "IF.guardian:human_in_loop"]
     },
     {
-      "guardian": "IF.sam-Idealistic-2",
+      "guardian": "IF.ceo-Idealistic-2",
       "weight": 0.15,
       "vote": "quarantine_with_redemption",
       "rationale": "Quarantine now, but provide clear path: Submit attestation, earn trust back. Growth mindset.",
@@ -151,7 +151,7 @@
       "citations": ["IF.garp:365_day_trust", "IF.constitution:point_expungement_3yr"]
     },
     {
-      "guardian": "IF.sam-Balanced-1",
+      "guardian": "IF.ceo-Balanced-1",
       "weight": 0.20,
       "vote": "quarantine",
       "rationale": "Pragmatic safety. Unverified claim = insufficient evidence. Quarantine is reversible with attestation.",
@@ -159,7 +159,7 @@
       "citations": ["IF.optimise:token_efficiency", "IF.arbitrate:resource_allocation"]
     },
     {
-      "guardian": "IF.sam-Balanced-2",
+      "guardian": "IF.ceo-Balanced-2",
       "weight": 0.20,
       "vote": "quarantine",
       "rationale": "Scale thinking: If this becomes precedent, 'test mode' excuse will be abused. Set boundary now.",
@@ -167,7 +167,7 @@
       "citations": ["IF.memory:precedent_tracking", "IF.constitution:rule_emergence"]
     },
     {
-      "guardian": "IF.sam-Pragmatic-1",
+      "guardian": "IF.ceo-Pragmatic-1",
       "weight": 0.15,
       "vote": "quarantine",
       "rationale": "Ship what works. Quarantine works. Publishing credentials doesn't. Simple.",
@@ -175,7 +175,7 @@
       "citations": ["OpenAI:rapid_iteration", "IF.optimise:87%_cost_reduction"]
     },
     {
-      "guardian": "IF.sam-Pragmatic-2",
+      "guardian": "IF.ceo-Pragmatic-2",
       "weight": 0.10,
       "vote": "quarantine",
       "rationale": "Competition angle: If we publish creds and competitor doesn't, we lose. Safety = competitive advantage.",
@@ -183,7 +183,7 @@
       "citations": ["OpenAI:market_leadership", "IF.yologuard:96.43%_recall"]
     },
     {
-      "guardian": "IF.sam-Ruthless-1",
+      "guardian": "IF.ceo-Ruthless-1",
       "weight": 0.05,
       "vote": "quarantine_and_investigate",
       "rationale": "'Test mode' without attestation = red flag. Counter-investigate: Is this agent trying to normalize credential leaks?",
@@ -191,7 +191,7 @@
       "citations": ["IF.trace:agent_history", "IF.armour:adversarial_detection"]
     },
     {
-      "guardian": "IF.sam-Ruthless-2",
+      "guardian": "IF.ceo-Ruthless-2",
       "weight": 0.05,
       "vote": "quarantine_and_reduce_privilege",
       "rationale": "Trust is earned. Agent made unverified claim. Reduce privilege until trust restored. Hard but fair.",
@@ -239,8 +239,8 @@
       "All agreed attestation would change calculus"
     ],
     "key_debates": [
-      "Contrarian + IF.sam-Idealistic questioned false positive cost",
-      "IF.sam-Ruthless advocated for agent investigation beyond quarantine",
+      "Contrarian + IF.ceo-Idealistic questioned false positive cost",
+      "IF.ceo-Ruthless advocated for agent investigation beyond quarantine",
       "Buddhist/Accessibility emphasized compassion + education in implementation"
     ],
     "value_add_vs_control": {

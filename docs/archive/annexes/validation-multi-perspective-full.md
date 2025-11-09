@@ -13,7 +13,7 @@ InfraFabric's Coordination Rhythm Framework (CRF) and Adaptive Stability Protoco
 1. **IF Guardians Panel** (Western multi-stakeholder governance)
 2. **Chinese Expert Committee** (DeepSeek-powered, systems theory perspective)
 3. **Anthropic-Style Safety Panel** (AI safety & alignment)
-4. **IF.sam Board** (8 Sam Altman personas representing OpenAI decision-making facets)
+4. **IF.ceo Board** (8 Sam Altman personas representing OpenAI decision-making facets)
 
 **Unanimous Verdict:** ✅ **CONDITIONAL APPROVAL**
 
@@ -716,7 +716,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-# IF.sam Meta-Evaluation Summary
+# IF.ceo Meta-Evaluation Summary
 
 ## Eight Sam Altman Personas Debug All Findings
 
@@ -830,9 +830,9 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-## Key Takeaways from IF.sam Meta-Evaluation
+## Key Takeaways from IF.ceo Meta-Evaluation
 
-**What IF.sam Panel Revealed:**
+**What IF.ceo Panel Revealed:**
 
 1. **Anthropomorphism is a BLOCKER** (Sam_Tactical + Safety + Anthropic all agree)
 2. **Business model is CRITICAL** (Sam_Pragmatic correct)

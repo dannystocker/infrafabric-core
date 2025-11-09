@@ -93,7 +93,7 @@
       <!-- Repeat for all 20 guardians... -->
       <!-- Technical, Civic, Ethical, Cultural, Meta, Accessibility, Economic, Legal -->
       <!-- Aristotle, Kant, Rawls, Confucius, Buddhist, Daoist -->
-      <!-- IF.sam-Idealistic, IF.sam-Balanced, IF.sam-Pragmatic, IF.sam-Ruthless -->
+      <!-- IF.ceo-Idealistic, IF.ceo-Balanced, IF.ceo-Pragmatic, IF.ceo-Ruthless -->
 
     </div>
   </div>
@@ -352,10 +352,10 @@ Insert between "Results" and "Discussion"
 - 🏮 Confucius
 - 🕉️ Buddhist
 - ☯️ Daoist
-- 🌟 IF.sam-Idealistic
-- ⚖️ IF.sam-Balanced
-- 🎯 IF.sam-Pragmatic
-- ⚔️ IF.sam-Ruthless
+- 🌟 IF.ceo-Idealistic
+- ⚖️ IF.ceo-Balanced
+- 🎯 IF.ceo-Pragmatic
+- ⚔️ IF.ceo-Ruthless
 
 ## Implementation Priority
 

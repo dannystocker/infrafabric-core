@@ -124,24 +124,24 @@
     - Rationale: "Wu wei = accept reality, don't force interpretations. Reality = mixed signals (AWS resilience + Epic failures). 68% flows with mixed evidence."
     - Confidence: 0.78
 
-#### IF.sam Facets (8)
+#### IF.ceo Facets (8)
 
-17-18. **IF.sam (Idealistic 1-2)** - Weight: 0.30
+17-18. **IF.ceo (Idealistic 1-2)** - Weight: 0.30
     - Vote: **APPROVE - GROWTH MINDSET**
     - Rationale: "Reducing confidence acknowledges Epic's AWS partnership (growth). But maintaining 68% recognizes persistent challenges (realism). Balanced."
     - Avg Confidence: 0.80
 
-19-20. **IF.sam (Balanced 1-2)** - Weight: 0.40
+19-20. **IF.ceo (Balanced 1-2)** - Weight: 0.40
     - Vote: **APPROVE - DATA-DRIVEN**
     - Rationale: "IF.swarm data-driven forensics trumps initial impression. 68% is justified by evidence (budget constraints + AWS dependency + Nov 1 failure)."
     - Avg Confidence: 0.91
 
-21-22. **IF.sam (Pragmatic 1-2)** - Weight: 0.25
+21-22. **IF.ceo (Pragmatic 1-2)** - Weight: 0.25
     - Vote: **APPROVE - SHIP ACCURACY**
     - Rationale: "Ship what's accurate, not what's sensational. 68% is more defensible than 87%. If challenged, we have forensic evidence (IF.swarm report)."
     - Avg Confidence: 0.94
 
-23-24. **IF.sam (Ruthless 1-2)** - Weight: 0.10
+23-24. **IF.ceo (Ruthless 1-2)** - Weight: 0.10
     - Vote: **REJECT - HOLD AT 80%+**
     - Rationale: "Competitors won't give Epic benefit of doubt. Nov 1 capacity failure = incompetence. Use 80%+ to pressure Epic decision-makers. 68% is too soft."
     - Avg Confidence: 0.86
@@ -253,9 +253,9 @@ All claims below are traceable with cryptographic provenance:
 
 7. `if://citation/2025-11-08/if-guard-epic-consensus-82-7-percent`
    - **Type:** Governance decision
-   - **Council:** 20-voice (6 Core + 4 Specialist + 6 Philosophers + 4 IF.sam facets)
+   - **Council:** 20-voice (6 Core + 4 Specialist + 6 Philosophers + 4 IF.ceo facets)
    - **Vote:** 82.7% APPROVE confidence reduction to 68%
-   - **Dissent:** Contrarian (9.5%) + IF.sam-Ruthless (7.9%) advocate 75-80%
+   - **Dissent:** Contrarian (9.5%) + IF.ceo-Ruthless (7.9%) advocate 75-80%
    - **Rationale:** IF.swarm forensics + mixed evidence (AWS resilience + Epic failures)
    - **Veto check:** 82.7% < 95% (no veto triggered)
 
@@ -326,7 +326,7 @@ All claims below are traceable with cryptographic provenance:
 
 ### What IF.guard Added
 
-1. **Minority dissent:** Contrarian + IF.sam-Ruthless argued for 75-80% (9.5% + 7.9% dissent)
+1. **Minority dissent:** Contrarian + IF.ceo-Ruthless argued for 75-80% (9.5% + 7.9% dissent)
 2. **Multi-perspective validation:** 20 voices (Western + Eastern + Sam Altman spectrum)
 3. **Legal defensibility:** Legal Guardian noted 68% = "more likely than not" (litigation-safe)
 4. **Cultural reframing:** Cultural Guardian noted 68% is "anti-spectacle" (sober vs sensational)

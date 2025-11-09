@@ -302,7 +302,7 @@ submissions, privilege restoration."
 - Cost: $0.00, Duration: <0.01s
 
 **Tier 2: Weighted Guardians (20% of cases)**
-- Use: 6 core guardians only (no philosophers, no IF.sam)
+- Use: 6 core guardians only (no philosophers, no IF.ceo)
 - Examples: Bias detection, routine governance
 - Cost: ~$0.05, Duration: ~30s
 

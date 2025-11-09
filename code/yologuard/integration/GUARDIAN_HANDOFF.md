@@ -51,7 +51,7 @@ This handoff requests Guardian approval to publish IF.yologuard v3.1 updates and
 - Expand competitor comparisons with measured head‑to‑head results
 
 ## Governance Note
-- IF.ceo (not IF.sam) is the correct name for the executive strategic spectrum referenced in council docs.
+- IF.ceo (not IF.ceo) is the correct name for the executive strategic spectrum referenced in council docs.
 
 ## How to Run the Debate
 

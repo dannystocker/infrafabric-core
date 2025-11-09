@@ -144,7 +144,7 @@ Evaluate each IF.* module independently:
 #### 3.2 IF.guard (Guardian Council)
 
 **Evaluate:**
-- 20-voice council (6 core + 3 West + 3 East + 8 IF.sam)
+- 20-voice council (6 core + 3 West + 3 East + 8 IF.ceo)
 - Weighted voting system
 - 100% consensus achievement (Dossier 07)
 - Dissent tracking and meta-validation

@@ -20,7 +20,7 @@
 - 6 Core Guardians (Technical, Civic, Ethical, Cultural, Contrarian, Meta)
 - 3 Western Philosophers (Aristotle, Kant, Rawls)
 - 3 Eastern Philosophers (Confucius, Buddhist Guardian, Daoist)
-- 8 IF.sam facets (ethical spectrum)
+- 8 IF.ceo facets (ethical spectrum)
 - Full weighted consensus with IF.search and IF.swarm access
 
 ---

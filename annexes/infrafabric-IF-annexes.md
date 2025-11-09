@@ -4,7 +4,7 @@
 
 **Cross-Reference:** These annexes are referenced throughout `INFRAFABRIC-COMPLETE-DOSSIER-v11.md` with inline guardian quotes and section pointers.
 
-**Council Composition:** 20-voice extended council (6 Core Guardians + 3 Western Philosophers + 3 Eastern Philosophers + 8 IF.sam facets)
+**Council Composition:** 20-voice extended council (6 Core Guardians + 3 Western Philosophers + 3 Eastern Philosophers + 8 IF.ceo facets)
 
 **Timeline:** October 16 - November 7, 2025 (22-day journey from cosmos to code)
 

@@ -1,4 +1,4 @@
-# IF.sam Panel Debug Session
+# IF.ceo Panel Debug Session
 ## 8 Sam Altman Personas Evaluate RCF/ASP Frameworks
 
 **Date:** November 1, 2025
@@ -352,11 +352,11 @@
 
 ---
 
-## Round 3: Feed IF.sam's Debug Back to Source Panels
+## Round 3: Feed IF.ceo's Debug Back to Source Panels
 
 ### **Feedback to IF Guardians:**
 
-**From IF.sam:**
+**From IF.ceo:**
 > "Your analysis was thorough but missed three critical dimensions:
 > 1. Business viability (who pays?)
 > 2. Geopolitical risk (Chinese influence vector)
@@ -373,7 +373,7 @@
 
 ### **Feedback to Chinese Expert Committee:**
 
-**From IF.sam:**
+**From IF.ceo:**
 > "Your systems theory insights (关系本位, 集体和谐) are valuable and differentiated. However, US deployment concerns arise:
 > 1. Can 'collective harmony' metrics be decoupled from CCP governance philosophy?
 > 2. Is DeepSeek evaluation creating dependency risk?
@@ -393,7 +393,7 @@
 
 ### **Feedback to Anthropic Safety Panel:**
 
-**From IF.sam:**
+**From IF.ceo:**
 > "You nailed the anthropomorphism risk - possibly understated it. Also correct on alignment gaps. Three additions:
 > 1. Revenue model absence = sustainability risk (safety costs money)
 > 2. Geopolitical naivety in Chinese collaboration
@@ -415,14 +415,14 @@
 
 ## Round 4: CN/US AI Respond to Feedback
 
-**Using DeepSeek (CN) + Claude (US) to respond to IF.sam's critiques**
+**Using DeepSeek (CN) + Claude (US) to respond to IF.ceo's critiques**
 
 ### **DeepSeek (Chinese AI) Response:**
 
-**Prompt:** IF.sam panel raises geopolitical concerns about Chinese systems theory integration. Respond.
+**Prompt:** IF.ceo panel raises geopolitical concerns about Chinese systems theory integration. Respond.
 
 **DeepSeek Output:**
-> "IF.sam's concerns reflect legitimate geopolitical tensions, but conflate philosophical wisdom with political alignment.
+> "IF.ceo's concerns reflect legitimate geopolitical tensions, but conflate philosophical wisdom with political alignment.
 >
 > **Key Distinctions:**
 > 1. **系统论 (Systems Theory)** ≠ CCP policy
@@ -447,7 +447,7 @@
 > - Open-source all adaptations (prevent proprietary capture)
 >
 > **On Geopolitical Risk:**
-> IF.sam_Realpolitik's concerns are valid for DEPLOYMENT, not PHILOSOPHY.
+> IF.ceo_Realpolitik's concerns are valid for DEPLOYMENT, not PHILOSOPHY.
 > - Learn from Chinese wisdom ✅
 > - Deploy Chinese LLMs in US infrastructure ❌
 > - Adopt relational thinking ✅
@@ -459,10 +459,10 @@
 
 ### **Claude (Anthropic/US AI) Response:**
 
-**Prompt:** IF.sam panel critiques safety timeline (too slow) and business model (missing). Respond.
+**Prompt:** IF.ceo panel critiques safety timeline (too slow) and business model (missing). Respond.
 
 **Claude Output:**
-> "IF.sam's synthesis is strategically sound - we need to move faster while maintaining safety rigor. Here's how:
+> "IF.ceo's synthesis is strategically sound - we need to move faster while maintaining safety rigor. Here's how:
 >
 > **On Timeline Acceleration (12mo → 4mo):**
 >
@@ -479,7 +479,7 @@
 >
 > **On Business Model:**
 >
-> IF.sam_Pragmatic-Capitalist is correct - no revenue model = unsustainable.
+> IF.ceo_Pragmatic-Capitalist is correct - no revenue model = unsustainable.
 >
 > **Proposed Model:**
 > 1. **Infrastructure Layer** (AWS-style):
@@ -504,7 +504,7 @@
 >
 > **On Geopolitical Risk:**
 >
-> IF.sam_Realpolitik's concern about Chinese influence is valid but solvable:
+> IF.ceo_Realpolitik's concern about Chinese influence is valid but solvable:
 > - Learn from philosophy (universal)
 > - Don't depend on infrastructure (sovereign)
 > - Publish adaptations (transparent)
@@ -581,7 +581,7 @@
 
 ### **Phase 0: Foundation (Week 1-2)**
 
-**Owner:** IF.sam_Safety-First + Sam_Tactical-Communicator
+**Owner:** IF.ceo_Safety-First + Sam_Tactical-Communicator
 
 **Tasks:**
 1. Complete language purge:
@@ -611,7 +611,7 @@
 
 ### **Phase 1: Pilot (Week 3-6)**
 
-**Owner:** IF.sam_Techno-Optimist + Sam_Safety-First
+**Owner:** IF.ceo_Techno-Optimist + Sam_Safety-First
 
 **Tasks:**
 1. Deploy to 10 agents (internal only):
@@ -637,7 +637,7 @@
 
 ### **Phase 2: Expansion (Week 7-12)**
 
-**Owner:** IF.sam_Pragmatic-Capitalist + Sam_Responsible-Steward
+**Owner:** IF.ceo_Pragmatic-Capitalist + Sam_Responsible-Steward
 
 **Tasks:**
 1. Scale to 100 agents:
@@ -660,7 +660,7 @@
 
 ### **Phase 3: Production (Week 13-16)**
 
-**Owner:** IF.sam_Accelerationist + Sam_Democratic-Idealist
+**Owner:** IF.ceo_Accelerationist + Sam_Democratic-Idealist
 
 **Tasks:**
 1. Public launch (controlled):
@@ -687,7 +687,7 @@
 
 ## Conclusion: The Weighted Synthesis
 
-**What IF.sam Panel Revealed:**
+**What IF.ceo Panel Revealed:**
 
 1. **Anthropomorphism is a BLOCKER** (Sam_Tactical + Safety + Anthropic all agree)
 2. **Business model is CRITICAL** (Sam_Pragmatic correct)
