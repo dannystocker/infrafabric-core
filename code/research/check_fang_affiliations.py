@@ -15,7 +15,8 @@ FANG_KEYWORDS = [
     "Amazon", "AWS", "Amazon Web Services",
     "Netflix",
     "Microsoft", "MSR", "Microsoft Research",  # Often grouped with FANG
-    "OpenAI", "Anthropic"  # Major AI labs
+    "OpenAI", "Anthropic",  # Major AI labs
+    "Epic Games", "Epic", "Unreal Engine"  # Gaming/real-time systems
 ]
 
 def fetch_paper_affiliations(arxiv_url: str) -> list:
