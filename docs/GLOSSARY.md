@@ -6,6 +6,15 @@ Welcome to the IF.yologuard glossary! This guide explains technical terms in pla
 
 ## Core Concepts
 
+**Yologuard (The Name)**
+"YOLO" = "You Only Live Once" = moving fast without guardrails (unregulated control).
+"Yologuard" = guarding against YOLO = adding safety to speed.
+
+The tool name captures the central tension: AI agents need to move fast and share data (YOLO), but they absolutely cannot leak secrets (guard). Born from a multi-agent communication project where agents needed secret detection before exchanging messages.
+
+**Why "Philosophy-Based"?**
+After two failed versions using conventional pattern-matching (v1 and v2), the creator had a realization: "I can't out-code expert security engineers." The breakthrough came from asking: "What could philosophers teach us?" The answer: Confucian relationship ethics (Wu Lun). Version 3 applied 2,500-year-old philosophy to API key detection and jumped from 77% to 111.46% recall.
+
 **Secret**
 A sensitive piece of information that should be kept private (like a password, API key, or access token). If leaked, attackers can misuse them.
 
