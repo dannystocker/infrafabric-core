@@ -30,7 +30,7 @@ Per GPT-5 Desktop review (2025-11-10), these three claims require **control bloc
 
 ```yaml
 claim_id: "if://claim/yologuard-v3-recall"
-status: "verified"
+status: "unverified"  # ⚠️ Gemini evaluation (2025-11-10) failed to reproduce
 test_set:
   name: "Leaky Repo Ground Truth (GT)"
   source: "https://github.com/Plazmaz/leaky-repo"
@@ -81,18 +81,39 @@ verification_command: |
 
 ### Verification Status
 
-✅ **VERIFIED** (2025-11-08)
-- Test set: Leaky Repo (96 secrets, public benchmark)
-- Methodology: Wu Lun relationship mapping (deterministic, no ML)
-- Baseline: Compared against GitHub, GitGuardian, TruffleHog, Gitleaks
-- Production: 6 months deployment at icantwait.ca (142,350 files, zero FP)
+⚠️ **UNVERIFIED** (2025-11-10 Gemini Evaluation)
+
+**Gemini 2.5 Pro Independent Reproduction Attempt:**
+- **Test Set:** Leaky Repo (175 secrets found in corpus, not 96)
+- **Detection Rate:** 55.4% (97/175 secrets detected)
+- **Issue:** Benchmark script found different corpus size than documented
+- **Inconsistency:** Papers cite 98.96% (95/96), 96.43% (various), and 100% (different sections)
+
+**CRITICAL BLOCKERS:**
+1. ⚠️ Benchmark not reproducible - Gemini found 175 secrets vs documented 96
+2. ⚠️ Detection rate 55.4% vs claimed 98.96% (43.5 percentage point gap)
+3. ⚠️ Inconsistent metrics across papers (98.96% vs 96.43% vs 100%)
+4. ⚠️ Methodology description insufficient for independent reproduction
+
+**REQUIRED BEFORE EXTERNAL PUBLICATION:**
+- Create canonical, reproducible benchmark script
+- Document exact "usable-only" filtering criteria
+- Explain corpus size discrepancy (96 vs 175 secrets)
+- Update all papers with single, verified metric
+- Independent third-party reproduction (e.g., run on GitHub CI)
+
+**Previous Internal Testing (Not Independently Verified):**
+- Claimed test set: Leaky Repo (96 secrets, public benchmark)
+- Claimed methodology: Wu Lun relationship mapping (deterministic, no ML)
+- Claimed baseline comparison: GitHub, GitGuardian, TruffleHog, Gitleaks
+- Claimed production deployment: icantwait.ca (142,350 files, 6 months)
 
 ### Falsification Criteria
 
-This claim is **FALSIFIED** if:
-1. Independent reproduction on Leaky Repo yields recall <95%
-2. False positive rate >0% in production deployment
-3. Wu Lun methodology description is insufficient to reproduce results
+This claim is **FALSIFIED** (Criterion 1 met on 2025-11-10):
+1. ✅ Independent reproduction on Leaky Repo yields recall <95% (Gemini: 55.4%)
+2. ⏸️ False positive rate >0% in production deployment (not tested by Gemini)
+3. ✅ Wu Lun methodology description is insufficient to reproduce results (Gemini unable to reproduce)
 
 ---
 
@@ -306,9 +327,11 @@ This claim is **FALSIFIED** if:
 
 | Claim | Status | Evidence Quality | Public Use Ready? |
 |-------|--------|-----------------|-------------------|
-| **98.96% recall** | ✅ Verified | Strong (public benchmark, 6mo production) | ✅ YES |
+| **98.96% recall** | ⚠️ **UNVERIFIED** | **Weak** (not reproducible, Gemini: 55.4%) | ❌ **NO** (BLOCKER) |
 | **100% consensus** | ✅ Verified | Strong (full vote record, dissent window) | ✅ YES |
 | **87-90% savings** | ⚠️ Partial | Weak (estimated baseline, no A/B test) | ❌ NO (pending test) |
+
+**⚠️ CRITICAL:** Claim 1 (yologuard) blocks all external publication until fixed. All 6 papers cite this metric.
 
 ---
 

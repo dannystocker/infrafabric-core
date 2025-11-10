@@ -16,9 +16,22 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-# Add IF.yologuard to path
-sys.path.insert(0, '/home/setup/work/mcp-multiagent-bridge')
-from IF.yologuard import SecretRedactor
+import importlib.util
+
+def load_redactor():
+    """Dynamically load the SecretRedactorV3 class from its source file."""
+    # Path to the source file
+    src_path = Path('/home/setup/infrafabric/code/yologuard/src/IF.yologuard_v3.py')
+    if not src_path.exists():
+        print(f"✗ Source file not found at {src_path}", file=sys.stderr)
+        sys.exit(1)
+    spec = importlib.util.spec_from_file_location('IF_yologuard_v3', src_path)
+    if spec is None:
+        print(f"✗ Could not create module spec for {src_path}", file=sys.stderr)
+        sys.exit(1)
+    yologuard_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(yologuard_module)
+    return yologuard_module.SecretRedactorV3()
 
 def scan_file(file_path, redactor):
     """Scan a single file and return found secrets"""
@@ -48,7 +61,7 @@ def main():
     print()
 
     # Initialize redactor
-    redactor = SecretRedactor()
+    redactor = load_redactor()
     print(f"✓ Loaded IF.yologuard with {len(redactor.PATTERNS)} patterns")
 
     # Locate Leaky Repo

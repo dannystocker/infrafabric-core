@@ -83,6 +83,7 @@ Everything that followed—the 14 days of code, the philosophy database, the 98.
 - **Nov 3 (Day 8):** 100% consensus achieved (Dossier 07) [⁶](#cite-6)
 - **Nov 7 (Day 12):** Universe-first realization at 12:20:46 UTC [⁷](#cite-7)
 - **Nov 9 (Day 14):** Final documentation and validation completion
+- **Nov 10 (Post-launch):** Operational framework deployment - Session handover system (prevents context exhaustion), philosophy-grounded Haiku swarm testing, IF.TTT (Traceable/Transparent/Trustworthy) compliance, IFMessage validator with philosophy lint rules, guarded claims validation [⁴⁷](#cite-47)
 
 **Core Achievement:**
 IF.armour.yologuard secret detection improved from **31.2% recall** [⁸](#cite-8) (v1) through **~77% recall** [⁹](#cite-9) (v2 baseline estimate) to **98.96% recall (usable-only) / 111.5% recall (GitHub-aligned component detection)** [¹⁰](#cite-10) (v3) via Confucian Wu Lun (五伦) relationship mapping. Achieves GitHub-parity with zero false positives.
@@ -160,7 +161,7 @@ Twenty-three documents is overwhelming. Most frameworks dump a README and call i
 
 - **[../docs/GLOSSARY.md](../docs/GLOSSARY.md)** - Comprehensive glossary of InfraFabric components, terminology, and philosophical concepts.
 
-- **[../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md](../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md)** - Canonical IF.optimise documentation (50+ pages): token-efficient orchestration, Haiku swarm economics, 87-90% cost reduction.
+- **[../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md](../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md)** - Canonical IF.optimise documentation (50+ pages): token-efficient orchestration, Haiku swarm economics, 87-90% cost reduction. [⁴⁶](#cite-46)
 
 ---
 
@@ -578,7 +579,7 @@ From 77% to 99% in 22 hours. Not through more engineering. Through *different th
 
 Plateaus don't break with harder work. They break with **paradigm shifts.**
 
-The "oh fuck" moment wasn't failure. It was the moment we stopped being engineers and started being philosophers.
+The "oh fuck" moment wasn't failure. It was the moment we stopped being engineers and started being philosophers. [⁴⁵](#cite-45)
 
 ### The Philosophical Rescue
 
@@ -852,7 +853,7 @@ The best metaphors operate on multiple levels simultaneously.
 
 ---
 
-## SECTION 10: Token Economics - IF.optimise Framework
+## SECTION 10: Token Economics - IF.optimise Framework [⁴⁶](#cite-46)
 
 IF.optimise performs real-time cost-benefit analysis to determine optimal agent deployment strategy.
 
@@ -1407,7 +1408,7 @@ A dossier about AI coordination validation that failed its own validation, caugh
 
 ---
 
-### ANNEX N: IF.optimise Token Economics Framework
+### ANNEX N: IF.optimise Token Economics Framework [⁴⁶](#cite-46)
 
 **Document:** ANNEX-M-IF-OPTIMISE-FRAMEWORK.md (30 KB, 6,300 words)
 **IF.guard Approval:** 100% consensus (all 20 voices)
@@ -1471,7 +1472,7 @@ AI wellbeing is not an ethical "nice-to-have" - it is a **core, functional compo
 
 ---
 
-### ANNEX P: The GPT-5 Reflexion Cycle - MARL Validation
+### ANNEX P: The GPT-5 Reflexion Cycle - MARL Validation [⁴⁵](#cite-45)
 
 **Document:** ANNEX-P-GPT5-REFLEXION-CYCLE.md
 **Date:** November 7, 2025, 21:31 UTC
@@ -1630,13 +1631,15 @@ Analysis of Claude's "fuck" moment (unusual profanity during philosophical conve
 
 <a name="cite-46"></a>**[46]** [ANNEX-N: IF.optimise Framework](../annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md) (30 KB, 6,300 words) - Complete IF.optimise token economics framework. Gemini 2.5 Pro validated, 100% IF.guard consensus. Haiku = Sonnet/3 ratio verified (Q.E.D.). Vehicle metaphor, decision tree, assertion proofs.
 
+<a name="cite-47"></a>**[47]** Operational Framework Deployment (2025-11-10) - Session handover system ([SESSION-RESUME.md](../SESSION-RESUME.md), [SESSION-ONBOARDING.md](../SESSION-ONBOARDING.md), [COMPONENT-INDEX.md](../COMPONENT-INDEX.md)), philosophy-grounded Haiku swarm testing ([HAIKU-SWARM-TEST-FRAMEWORK.md](../docs/HAIKU-SWARM-TEST-FRAMEWORK.md), [PHILOSOPHY-TO-TECH-MAPPING.md](../docs/PHILOSOPHY-TO-TECH-MAPPING.md)), IF.TTT compliance framework ([agents.md](../agents.md)), philosophy lint validator ([tools/ifctl.py](../tools/ifctl.py)), guarded claims validation ([GUARDED-CLAIMS.md](../docs/GUARDED-CLAIMS.md)). Git commits: [c6c24f0](https://github.com/dannystocker/infrafabric/commit/c6c24f0), [c9ae9e5](https://github.com/dannystocker/infrafabric/commit/c9ae9e5). Implements GPT-5 Desktop feedback for V3.2.1 operational readiness.
+
 ---
 
 ## DOCUMENT METADATA
 
 **Version:** 11.0 - COMPLETE EDITION
 **Word Count:** ~11,100 total words (includes Cold Open + all annexes)
-**Citations:** 46 primary source references
+**Citations:** 47 primary source references
 **Verification Standard:** 100% truth - all factual claims cited
 **Generated:** 2025-11-09
 **Authors:** Danny Stocker (primary), Claude Sonnet 4.5 (synthesis), Claude Haiku 4.5 (integration)
