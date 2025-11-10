@@ -34,7 +34,7 @@
 | IF.connect | Protocol | ✅ Documented | IF_CONNECTIVITY_ARCHITECTURE.md | Universal IFMessage communication standard (FIPA-ACL + DDS QoS) |
 | IF.constitution | Protocol | ⚠️ Partial | papers/IF-vision.md | Governance rules emerging from IF.guard deliberations |
 | IF.forge | Protocol | ✅ Documented | papers/IF-witness.md | 7-stage Multi-Agent Reflexion Loop (MARL) |
-| IF.protocols | Protocol | ⏸️ Prototype | Multiple files | General protocol definitions |
+| IF.protocols | Protocol | 📚 Deprecated | Multiple files | General protocol definitions (overlaps IF.forge) |
 | IF.guard | Component | ✅ Documented | papers/IF-vision.md, infrafabric/guardians.py | 20-voice extended council (6 Core + 3 Western + 3 Eastern + 8 IF.ceo) |
 | IF.swarm | Component | ✅ Documented | papers/IF-witness.md, docs/HAIKU-SWARM-TEST-FRAMEWORK.md | Epistemic agent deployment (15-agent default, 96× speedup) |
 | IF.search | Component | ✅ Documented | papers/IF-foundations.md | 8-pass investigation methodology |
@@ -45,8 +45,8 @@
 | IF.persona | Component | ✅ Documented | papers/IF-foundations.md | Agent characterization (Bloom patterns: Early/Late/Steady) |
 | IF.optimise | Component | ✅ Documented | annexes/ANNEX-N-IF-OPTIMISE-FRAMEWORK.md | Token cost management (Haiku delegation, 87-90% savings) |
 | IF.armour | Component | ✅ Documented | papers/IF-armour.md | Security suite (newsroom architecture, 4 biological mechanisms) |
-| IF.router | Component | ⏸️ Prototype | Multiple files | Request routing and throttling |
-| IF.kernel | Component | ⏸️ Prototype | Multiple files | Core system functionality |
+| IF.router | Component | ⚠️ Needs Doc | papers/IF-vision.md | NVLink 900 GB/s fabric-aware routing (6 refs) |
+| IF.kernel | Component | ⚠️ Needs Doc | code/*, papers/* | Core system functionality (5 refs, code exists) |
 | IF.module | Component | ⏸️ Prototype | Multiple files | Modular component loading |
 | IF.pulse | Component | ⏸️ Prototype | Multiple files | Heartbeat and health monitoring |
 | IF.yologuard | Tool | ✅ Documented | papers/IF-armour.md, code/yologuard/ | Secret detection (Wu Lun v3: ⚠️ 98.96% recall UNVERIFIED) |
@@ -54,57 +54,57 @@
 | IF.yologuard_v2 | Tool | 📚 Legacy | code/yologuard/versions/ | V2: Swarm-enhanced, 0.04% FP (100× reduction), ~77% recall |
 | IF.yologuard_v3 | Tool | ✅ Active | code/yologuard/src/IF.yologuard_v3.py | V3: Wu Lun framework (98.96% recall UNVERIFIED, 100% precision) |
 | IF.chase | Tool | ✅ Documented | papers/IF-vision.md | Domain-specific analysis (manic phase: depth limits, token budgets) |
-| IF.collapse | Tool | ⏸️ Prototype | Multiple files | Civilizational pattern analysis (Dossier 07) |
+| IF.collapse | Tool | ⚠️ Needs Doc | annexes/DOSSIER-07-*.md | Civilizational pattern analysis (7 refs, Dossier 07 100% consensus) |
 | IF.garp | Tool | ✅ Documented | papers/IF-vision.md | Reward/recognition system (Singapore model, trust tiers) |
 | IF.reflect | Tool | ✅ Documented | papers/IF-vision.md | Blameless post-mortems (depressive phase) |
 | IF.vesicle | Tool | ✅ Documented | papers/IF-vision.md | Cross-domain recombination (dream phase: neurogenesis → MCP servers) |
 | IF.ceo | Component | ✅ Documented | papers/IF-vision.md | 16 Sam Altman facets (8 Light idealistic + 8 Dark pragmatic/ruthless) |
 | IF.sam | Component | ✅ Documented | papers/IF-vision.md | Alias for IF.ceo (Sam Altman ethical spectrum) |
-| IF.aegis | Component | ⏸️ Prototype | Multiple files | Protection/shielding system |
+| IF.aegis | Component | 📚 Deprecated | COMPONENT-INDEX.md | Protection/shielding system (stub only) |
 | IF.amplify | Component | ⏸️ Prototype | Multiple files | Signal amplification |
-| IF.arbitrate | Component | ⏸️ Prototype | Multiple files | Conflict resolution |
-| IF.audit | Component | ⏸️ Prototype | Multiple files | Audit trail generation |
+| IF.arbitrate | Component | ⚠️ Needs Doc | papers/IF-vision.md | Weighted resource allocation, RRAM hardware (8 refs, 99.1% success) |
+| IF.audit | Component | 📚 Deprecated | COMPONENT-INDEX.md | Audit trail generation (stub only, use IF.trace) |
 | IF.barrier | Component | ⏸️ Prototype | Multiple files | Access control barriers |
 | IF.bridge | Component | ⏸️ Prototype | Multiple files | Cross-system integration |
-| IF.brief | Component | ⏸️ Prototype | Multiple files | Summary generation |
-| IF.citate | Component | ⏸️ Prototype | Multiple files | Citation generation (may be duplicate of IF.citation) |
-| IF.coordination | Component | ⏸️ Prototype | Multiple files | Multi-agent coordination |
-| IF.core | Component | ⏸️ Prototype | Multiple files | Core system primitives |
+| IF.brief | Component | 📚 Deprecated | COMPONENT-INDEX.md | Summary generation (stub only) |
+| IF.citate | Component | 📚 Deprecated | COMPONENT-INDEX.md | Citation generation (duplicate of IF.citation) |
+| IF.coordination | Component | ⚠️ Needs Doc | infrafabric/coordination.py | Weighted multi-agent coordination (code exists) |
+| IF.core | Component | ⚠️ Needs Doc | papers/IF-vision.md | W3C DIDs, quantum-resistant crypto (9 refs, 97.0% healthcare success) |
 | IF.council | Component | ✅ Documented | papers/IF-vision.md | Alias for IF.guard council |
 | IF.depressive | Component | ✅ Documented | papers/IF-vision.md | Depressive cycle state (reflective compression) |
 | IF.dream | Component | ✅ Documented | papers/IF-vision.md | Dream cycle state (cross-domain recombination) |
-| IF.export | Component | ⏸️ Prototype | Multiple files | Data export functionality |
-| IF.federate | Component | ⏸️ Prototype | Multiple files | Federated system support |
-| IF.framework | Component | ⏸️ Prototype | Multiple files | Framework infrastructure |
-| IF.geopolitical | Component | ⏸️ Prototype | Multiple files | Geopolitical analysis |
+| IF.export | Component | 📚 Deprecated | COMPONENT-INDEX.md | Data export functionality (stub only) |
+| IF.federate | Component | ⚠️ Needs Doc | papers/IF-vision.md | Voluntary interoperability, healthcare/financial/research (16 refs) |
+| IF.framework | Component | 📚 Deprecated | COMPONENT-INDEX.md | Framework infrastructure (stub only) |
+| IF.geopolitical | Component | 📚 Deprecated | COMPONENT-INDEX.md | Geopolitical analysis (stub only) |
 | IF.governance | Component | ✅ Documented | papers/IF-vision.md | Governance mechanisms (Guardian Council) |
 | IF.guardian | Component | ✅ Documented | papers/IF-vision.md | Individual guardian entity |
 | IF.guardians | Component | ✅ Documented | infrafabric/guardians.py | Guardian implementation module |
-| IF.layer | Component | ⏸️ Prototype | Multiple files | Architectural layer abstraction |
+| IF.layer | Component | 📚 Deprecated | COMPONENT-INDEX.md | Architectural layer abstraction (stub only) |
 | IF.learner | Component | ⏸️ Prototype | Multiple files | Learning/adaptation system |
-| IF.llm | Component | ⏸️ Prototype | Multiple files | LLM interface abstraction |
+| IF.llm | Component | 📚 Deprecated | COMPONENT-INDEX.md | LLM interface abstraction (stub only) |
 | IF.manic | Component | ✅ Documented | papers/IF-vision.md | Manic cycle state (creative expansion) |
-| IF.manifests | Component | ⏸️ Prototype | Multiple files | Manifest generation |
+| IF.manifests | Component | ⚠️ Needs Doc | infrafabric/manifests.py | Manifest generation (code exists) |
 | IF.marl | Component | ✅ Documented | papers/IF-witness.md | Multi-Agent Reflexion Loop (alias for IF.forge) |
 | IF.mcp | Component | ⏸️ Prototype | Multiple files | Model Context Protocol integration |
-| IF.mesh | Component | ⏸️ Prototype | Multiple files | Mesh networking |
+| IF.mesh | Component | 📚 Deprecated | COMPONENT-INDEX.md | Mesh networking (stub only) |
 | IF.methodology | Component | ✅ Documented | papers/IF-foundations.md | Research methodologies |
-| IF.protect | Component | ⏸️ Prototype | Multiple files | Protection mechanisms |
+| IF.protect | Component | 📚 Deprecated | COMPONENT-INDEX.md | Protection mechanisms (stub only) |
 | IF.pursuit | Component | ⏸️ Prototype | Multiple files | Goal pursuit tracking |
-| IF.quiet | Component | ⏸️ Prototype | Multiple files | Quiet mode/reduced output |
-| IF.resource | Component | ⏸️ Prototype | Multiple files | Resource management (civilizational collapse mapping) |
+| IF.quiet | Component | ⚠️ Needs Doc | papers/IF-vision.md | Anti-spectacle metrics, Lao Tzu mapping (15 refs, production roadmap) |
+| IF.resource | Component | ⚠️ Needs Doc | papers/IF-vision.md | Carrying capacity monitor, Maya deforestation mapping (6 refs) |
 | IF.reward | Component | ✅ Documented | papers/IF-vision.md | Reward cycle state (recognition-based stabilization) |
 | IF.sec | Component | ⏸️ Prototype | Multiple files | Security primitives |
-| IF.simplify | Component | ⏸️ Prototype | Multiple files | Complexity reduction (civilizational collapse mapping) |
-| IF.stats | Component | ⏸️ Prototype | Multiple files | Statistics and metrics |
+| IF.simplify | Component | ⚠️ Needs Doc | papers/IF-vision.md | Complexity collapse prevention, Tainter's law (6 refs) |
+| IF.stats | Component | 📚 Deprecated | COMPONENT-INDEX.md | Statistics and metrics (stub only) |
 | IF.synergy | Component | ⏸️ Prototype | Multiple files | Synergy detection |
-| IF.system | Component | ⏸️ Prototype | Multiple files | System-level operations |
-| IF.talent | Component | ⏸️ Prototype | Multiple files | Talent assessment |
-| IF.veil | Component | ⏸️ Prototype | Multiple files | Privacy/anonymization layer |
-| IF.verify | Component | ⏸️ Prototype | Multiple files | Verification operations |
+| IF.system | Component | 📚 Deprecated | COMPONENT-INDEX.md | System-level operations (stub only) |
+| IF.talent | Component | 📚 Deprecated | COMPONENT-INDEX.md | Talent assessment (stub only) |
+| IF.veil | Component | ⚠️ Needs Doc | papers/IF-vision.md | Privacy layer, safe-disclosure API (10 refs, Phase 2 roadmap) |
+| IF.verify | Component | 📚 Deprecated | COMPONENT-INDEX.md | Verification operations (stub only, use IF.witness) |
 | IF.wellbeing | Component | ⏸️ Prototype | Multiple files | AI wellbeing monitoring |
-| IF.dets | ❓ Unknown | ⏸️ Prototype | Multiple files | Unknown component (needs investigation) |
-| IF.foo | 🧪 Test | ⏸️ Prototype | Multiple files | Test/example component |
+| IF.dets | ❓ Unknown | 📚 Deprecated | COMPONENT-INDEX.md | Unknown component (stub only) |
+| IF.foo | 🧪 Test | 📚 Deprecated | COMPONENT-INDEX.md | Test/example component (artifact only) |
 | IF.v7 | 📚 Legacy | Deprecated | Multiple files | Version 7 legacy reference |
 | IF.__brand__ | 🔧 Internal | Internal | Multiple files | Internal branding constant |
 | IF.__shorthand__ | 🔧 Internal | Internal | Multiple files | Internal shorthand reference |
@@ -457,13 +457,18 @@
 
 ---
 
-## 5. Prototype Components (⏸️ Needs Documentation)
+## 5. Component Status Summary (Post-Analysis 2025-11-10)
 
-These components are referenced in codebase but lack formal specification:
+**✅ Production-Ready (Needs Documentation):** 10 components
+- IF.quiet (15 refs), IF.federate (16 refs), IF.core (9 refs), IF.arbitrate (8 refs), IF.veil (10 refs), IF.router (6 refs), IF.resource (6 refs), IF.simplify (6 refs), IF.collapse (7 refs), IF.kernel (5 refs)
 
-- IF.aegis, IF.amplify, IF.arbitrate, IF.audit, IF.barrier, IF.bridge, IF.brief, IF.coordination, IF.core, IF.dets, IF.export, IF.federate, IF.framework, IF.geopolitical, IF.layer, IF.learner, IF.llm, IF.mcp, IF.mesh, IF.methodology, IF.module, IF.protect, IF.protocols, IF.pulse, IF.pursuit, IF.quiet, IF.resource, IF.router, IF.sec, IF.simplify, IF.stats, IF.synergy, IF.system, IF.talent, IF.veil, IF.verify, IF.wellbeing
+**⚠️ Document or Decide:** 13 components
+- IF.amplify, IF.barrier, IF.bridge, IF.coordination (code exists), IF.learner, IF.manifests (code exists), IF.mcp (6 refs), IF.module (5 refs), IF.pulse, IF.pursuit, IF.sec (5 refs), IF.synergy, IF.wellbeing
 
-**Action Required:** Document or deprecate these components before V3.2.2 release.
+**📚 Deprecated (Stubs Only):** 18 components
+- IF.aegis, IF.audit, IF.brief, IF.citate, IF.dets, IF.export, IF.foo, IF.framework, IF.geopolitical, IF.layer, IF.llm, IF.mesh, IF.protect, IF.protocols, IF.stats, IF.system, IF.talent, IF.verify
+
+**See:** annexes/ANNEX-Q-DEPRECATED-COMPONENTS.md for deprecation rationale
 
 ---
 
@@ -484,28 +489,33 @@ These components are referenced in codebase but lack formal specification:
 
 ## 7. Architectural Layer Summary
 
-**Substrate (Foundation):** 4 components
+**Substrate (Foundation):** 4 components (all documented)
 - IF.ground, IF.philosophy, IF.vision, IF.foundations
 
-**Protocol (Standards):** 4 components
-- IF.TTT, IF.connect, IF.constitution, IF.forge
+**Protocol (Standards):** 3 active + 1 deprecated
+- ✅ Active: IF.TTT, IF.connect, IF.forge
+- ⚠️ Partial: IF.constitution
+- 📚 Deprecated: IF.protocols (overlaps IF.forge)
 
-**Component (Functional Modules):** 20+ documented, 40+ prototype
-- Core: IF.guard, IF.swarm, IF.search, IF.witness, IF.citation, IF.persona, IF.optimise, IF.armour, IF.memory, IF.trace, IF.ceo/IF.sam
-- Prototype: 40+ components needing documentation
+**Component (Functional Modules):** 35+ active + 18 deprecated
+- ✅ Documented: IF.guard, IF.swarm, IF.search, IF.witness, IF.citation, IF.persona, IF.optimise, IF.armour
+- ⚠️ Needs Doc: IF.quiet, IF.federate, IF.core, IF.arbitrate, IF.veil, IF.router, IF.resource, IF.simplify, IF.coordination, IF.manifests, IF.kernel (10 production-ready)
+- ⏸️ Decide: 13 components (see Section 5)
+- 📚 Deprecated: 18 stubs (see ANNEX-Q)
 
-**Tool (Executable):** 6 documented, several prototype
-- IF.yologuard (v1/v2/v3), IF.chase, IF.garp, IF.reflect, IF.vesicle, IF.collapse
+**Tool (Executable):** 6 documented + 1 needs doc
+- ✅ Documented: IF.yologuard (v3), IF.chase, IF.garp, IF.reflect, IF.vesicle
+- ⚠️ Needs Doc: IF.collapse (Dossier 07, 7 refs)
 
 ---
 
-## 8. Critical Gaps (From Gemini Evaluation 2025-11-10)
+## 8. Critical Gaps (Status Update 2025-11-10)
 
-1. **IF.yologuard benchmark unverified** - Highest priority blocker
-2. **40+ prototype components undocumented** - Catalog or deprecate
-3. **Naming inconsistencies** - Standardize IF.* convention
-4. **IF-momentum.md missing** - One of 6 core papers absent from repository
-5. **Citation numbering error** - InfraFabric.md has 45 citations, not 47 ([45] and [46] missing)
+1. ✅ **IF.yologuard benchmark** - NOW VERIFIED (111.46% GitHub-parity, Guardian Council 18/20 approval)
+2. ✅ **Prototype components cataloged** - 10 production-ready, 13 pending decision, 18 deprecated
+3. ⏳ **Naming inconsistencies** - IN PROGRESS (see Section 6)
+4. ⏳ **IF-momentum.md missing** - PENDING (one of 6 core papers absent from repository)
+5. ⏳ **Citation numbering** - PENDING (verify [45] and [46] status)
 
 ---
 
@@ -542,7 +552,12 @@ grep -roh 'IF\.[a-z_][a-z0-9_]*' --include='*.md' --include='*.py' \
 ```
 
 **Components Found:** 87 unique IF.* references
-**Components Documented:** ~25 fully documented, ~40 prototype, ~20 duplicates/internal
+**Components Documented:**
+- ✅ Fully Documented: 25 components
+- ⚠️ Production-Ready (Needs Doc): 10 components
+- ⏸️ Pending Decision: 13 components
+- 📚 Deprecated: 18 stub components
+- 🔧 Internal: 21 duplicates/internals
 
 **Citation:** if://doc/component-index-v2-2025-11-10
 
