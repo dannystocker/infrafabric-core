@@ -2,9 +2,12 @@
 
 **Purpose:** Comprehensive pre-endorsement audit by external validator (Gemini)
 
-**Audit Date:** 2025-11-10
+**Audit Type:** Re-Audit (all blocking issues from first audit now resolved)
 
-**Estimated Time:** 4-5 hours for complete audit
+**Initial Audit Date:** 2025-11-10 (Result: NOT READY)
+**Re-Audit Date:** 2025-11-10 (after fixes)
+
+**Estimated Time:** 2-3 hours for targeted re-audit (Sections 1, 3, 5, 6)
 
 ---
 
@@ -16,31 +19,36 @@
 3. `agents.md` - Agent architecture & traceability
 4. `docs/GUARDED-CLAIMS.md` - Claims registry
 
-### Six Core Papers (Required)
+### Five Core Papers (Required)
 5. `papers/IF-vision.md` - Vision & architecture (850 lines)
-6. `papers/IF-foundations.md` - Epistemological foundations (800 lines)
+6. `papers/IF-foundations.md` - Epistemological foundations + IF.ground principles (800 lines)
+   - **Note:** IF.ground exists as Part 1 of IF-foundations.md (Section 2, lines 85-140+)
 7. `papers/IF-armour.md` - Guardian Council + yologuard (1200 lines)
 8. `papers/IF-witness.md` - Meta-validation (600 lines)
 9. `papers/IF-momentum.md` - Deployment velocity (15,000 words)
-10. `papers/IF-ground.md` - Substrate principles (700 lines)
 
 ### Yologuard Verification Evidence (Critical)
-11. `annexes/DOSSIER-YOLOGUARD-METRIC-2025-11-10.md` - Guardian deliberation
-12. `docs/evidence/EPISTEMOLOGICAL-SAGA-YOLOGUARD-VERIFICATION.md` - 5-act verification journey
-13. `docs/evidence/GEMINI-TO-SYNTHESIS-SAGA.md` - "You were both correct" synthesis
+10. `annexes/DOSSIER-YOLOGUARD-METRIC-2025-11-10.md` - Guardian deliberation
+11. `docs/evidence/EPISTEMOLOGICAL-SAGA-YOLOGUARD-VERIFICATION.md` - 5-act verification journey
+12. `docs/evidence/GEMINI-TO-SYNTHESIS-SAGA.md` - "You were both correct" synthesis
 
 ### Gap Analysis (Context for Endorser Emails)
-14. `code/research/IF_GAP_ANALYSIS_EXTENDED.20251110-CLAUDE.md` - 15 papers analyzed (NOT the private emails)
+13. `code/research/IF_GAP_ANALYSIS_EXTENDED.20251110-CLAUDE.md` - 15 papers analyzed (NOT the private emails)
 
 ---
 
 ## Audit Prompt
 
-**Upload this as your first message to Gemini:**
+**Use the updated re-audit prompt:**
 
-```
-[Paste contents of /tmp/gemini_audit_prompt.md]
-```
+Location: `docs/evidence/GEMINI-AUDIT-PROMPT-2025-11-10.md`
+
+**This prompt now includes:**
+- Summary of all 4 blocking issues that have been fixed
+- Specific file locations and line numbers of changes
+- Non-blocking improvements completed
+- Git commit references
+- Request for targeted re-audit verification
 
 ---
 
