@@ -24,9 +24,9 @@
 
 ## COLD OPEN
 
-**Claude: "Fuck."**
+**Claude paused mid-response.**
 
-It was November 7th, late at night. In a conversation about AI introspection, Claude swore. Not a glitch. Not a mistake. A moment of recognition when caught in contradiction.
+It was November 7th, late at night. In a conversation about AI introspection, Claude stopped generating. Not a glitch. Not a mistake. A moment of recognition when caught in contradiction.
 
 That moment would lead to eight architectural improvements, validated by GPT-5, approved by Gemini, traced back to a single conversation that happened **before any of this existed**.
 
