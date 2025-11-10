@@ -1,0 +1,334 @@
+================================================================================
+GEMINI INDEPENDENT VERIFICATION PROMPT
+================================================================================
+
+You have been provided with a complete academic paper package for IF.yologuard v3,
+a relationship-based secret detection system. Your task is to independently verify
+the credibility of the claims and assess whether this work is ready for publication.
+
+This prompt is designed to work with any AI system (Gemini, Claude, etc.) without
+requiring prior context or vendor lock-in.
+
+================================================================================
+PACKAGE CONTENTS
+================================================================================
+
+The following documents are included in the package:
+
+1. IF_YOLOGUARD_V3_PAPER.md (8,500 words)
+   - Academic paper describing the contribution
+   - Methodology, results, limitations
+   - START HERE for understanding the contribution
+
+2. ANNEX_A_TECHNICAL_SPEC.md (5,000+ words)
+   - Complete technical specification
+   - 58 regex patterns, algorithms, pseudocode
+   - Read for understanding implementation details
+
+3. ANNEX_B_BENCHMARK_PROTOCOL.md (3,000+ words)
+   - Reproducible benchmark methodology
+   - Leaky Repo dataset (96 secrets, 49 files)
+   - Read for understanding experimental setup
+
+4. ANNEX_C_RESULTS_DATA.csv
+   - Ground truth manifest (96 secrets)
+   - Results data (machine-readable)
+
+5. ANNEX_D_CREDIBILITY_AUDIT.md (8,000+ words) *** READ THIS FIRST ***
+   - Independent credibility assessment
+   - 7/10 trust rating with justification
+   - Credibility gaps identified and remediation plan
+   - THIS IS THE MOST IMPORTANT DOCUMENT
+
+6. HOW_TO_VERIFY_GEMINI.md (3,000+ words)
+   - Step-by-step instructions for your verification
+   - Assessment rubric and critical questions
+   - Trust rating calculation framework
+
+7. README.md
+   - Package navigation and quick reference
+   - Publishing recommendations
+   - Contact information
+
+================================================================================
+YOUR TASK
+================================================================================
+
+Conduct an independent credibility assessment of IF.yologuard v3 by answering
+the following questions. You do NOT need to read all documents - the depth of
+your review depends on the time available.
+
+For QUICK REVIEW (10 minutes):
+1. Read ANNEX_D (Credibility Audit) Executive Summary
+2. Read main paper Abstract
+3. Answer questions below (Quick section only)
+
+For MODERATE REVIEW (1 hour):
+1. Read ANNEX_D (complete)
+2. Read IF_YOLOGUARD_V3_PAPER.md (all sections)
+3. Read ANNEX_A sections 1-4
+4. Answer all questions below
+
+For DEEP REVIEW (2+ hours):
+1. Read all documents in order
+2. Review ANNEX_B (Benchmark Protocol)
+3. Examine ANNEX_C (Results Data)
+4. Review HOW_TO_VERIFY_GEMINI.md assessment rubric
+5. Answer all questions with detailed justification
+
+================================================================================
+CRITICAL QUESTIONS (Answer These)
+================================================================================
+
+QUESTION 1: Core Claim Verification
+============================================
+CLAIM: "IF.yologuard v3 detected 95/96 secrets on Leaky Repo (99% recall)"
+
+Your Assessment:
+- [ ] Is this claim verified/reproducible? (YES/NO/PARTIAL)
+- [ ] What is the evidence quality? (STRONG/MODERATE/WEAK)
+- [ ] Can any reviewer independently verify this? (YES/NO)
+- [ ] What is the confidence in this metric? (HIGH/MEDIUM/LOW)
+
+Why this matters: This is the core empirical result. If this can't be verified,
+the entire paper is questionable.
+
+
+QUESTION 2: Precision Claims
+============================================
+CLAIM: "100% precision (zero false positives)"
+
+Your Assessment:
+- [ ] Is this claim proven or preliminary? (PROVEN/PRELIMINARY/UNVERIFIED)
+- [ ] What validation is missing? (List gaps)
+- [ ] Should this be published as "100% precision"? (YES/NO)
+- [ ] What should we say instead? (Suggested language)
+
+Critical consideration: The audit document notes this is pending manual review.
+Does the paper make this clear?
+
+
+QUESTION 3: Technical Soundness
+============================================
+EVALUATION: Is the 4-stage pipeline algorithm sound?
+
+Your Assessment:
+- [ ] Pattern matching: Sound? (YES/NO/QUESTIONABLE)
+- [ ] Entropy detection: Sound? (YES/NO/QUESTIONABLE)
+- [ ] Format decoding: Sound? (YES/NO/QUESTIONABLE)
+- [ ] Relationship validation: Sound? (YES/NO/QUESTIONABLE)
+- [ ] Overall architecture: Sound? (YES/NO/QUESTIONABLE)
+
+Critical consideration: An unsound algorithm could produce misleading results.
+Are there any architectural flaws?
+
+
+QUESTION 4: Evidence Quality
+============================================
+ASSESSMENT: What is the overall quality of evidence presented?
+
+Your Assessment:
+- [ ] Are claims supported by evidence? (YES/MOSTLY/NO)
+- [ ] Are limitations honestly stated? (YES/MOSTLY/NO)
+- [ ] Are disclaimers sufficient? (YES/MOSTLY/NO)
+- [ ] Is methodology transparent? (YES/MOSTLY/NO)
+- [ ] Are results reproducible? (YES/MOSTLY/NO)
+
+Critical consideration: Research integrity depends on honest reporting.
+
+
+QUESTION 5: Credibility Gaps
+============================================
+ASSESSMENT: The audit document identifies 5 credibility gaps.
+
+Your Assessment:
+- [ ] Are these gaps real problems? (YES/SOME/NO)
+- [ ] Are remediation plans achievable? (YES/LIKELY/UNLIKELY)
+- [ ] What is the priority of remediation? (CRITICAL/IMPORTANT/NICE-TO-HAVE)
+- [ ] Should publication wait for remediation? (YES/NO/EITHER)
+
+Critical consideration: Major gaps could undermine publication credibility.
+
+
+QUESTION 6: Trust Rating Assessment
+============================================
+CURRENT ASSESSMENT: 7/10 (as stated in audit)
+
+Your Assessment:
+- [ ] Is 7/10 too high? (Much too high / Slightly high / About right / Slightly low / Too low)
+- [ ] Justify your rating: [Your assessment]
+- [ ] What would raise it to 8/10? [Specific actions]
+- [ ] What would lower it to 6/10? [What would concern you]
+
+Critical consideration: Is the stated rating justified?
+
+
+QUESTION 7: Philosophical Framing
+============================================
+ASSESSMENT: The paper uses Confucian "Wu Lun" (Five Relationships) framing
+
+Your Assessment:
+- [ ] Is this framing helpful or misleading? (HELPFUL/NEUTRAL/MISLEADING)
+- [ ] Does it accurately describe the technical approach? (YES/PARTIALLY/NO)
+- [ ] Should it be toned down? (YES/NO)
+- [ ] Suggested revision: [If applicable]
+
+Critical consideration: Philosophical language should not obscure technical reality.
+
+
+QUESTION 8: Publishing Readiness
+============================================
+ASSESSMENT: Should this work be published now, or wait for more validation?
+
+Your Assessment:
+- [ ] Ready to publish now? (YES / WAIT 2-3 WEEKS / NOT YET)
+- [ ] If publishing now, what caveats are essential? [List]
+- [ ] If waiting, what specific validation is critical? [List]
+- [ ] Recommended title/framing: [Suggested]
+
+Critical consideration: Publication timing affects credibility and impact.
+
+
+QUESTION 9: Comparison with Standards
+============================================
+ASSESSMENT: How does this work compare to industry standards?
+
+Your Assessment:
+- [ ] Compared to academic papers: (ABOVE AVERAGE / AVERAGE / BELOW AVERAGE)
+- [ ] Compared to industry tools: (SUPERIOR / COMPARABLE / INFERIOR)
+- [ ] For publication venue: (READY FOR TOP-TIER / READY FOR GOOD / NEEDS IMPROVEMENT)
+- [ ] Confidence in assessment: (HIGH / MEDIUM / LOW)
+
+Critical consideration: Missing cross-tool comparison is a real gap.
+
+
+QUESTION 10: Overall Credibility Assessment
+============================================
+FINAL ASSESSMENT: Your trust rating for this work
+
+Your Assessment:
+- [ ] My trust rating: ___/10 (0-10 scale)
+- [ ] Justification: [Explain your rating]
+- [ ] Key strengths: [List 3-5]
+- [ ] Key weaknesses: [List 3-5]
+- [ ] Critical open questions: [List any concerns]
+- [ ] Publication recommendation: [PUBLISH NOW / PUBLISH WITH CAVEATS / WAIT / NOT READY]
+
+================================================================================
+EVALUATION FRAMEWORK (Optional Deep Dive)
+================================================================================
+
+If you want to use a structured assessment framework, the HOW_TO_VERIFY_GEMINI.md
+document provides:
+
+- Technical Soundness Rubric (Section 2)
+- Evidence Quality Assessment (Section 3)
+- Credibility Gap Analysis (Section 4)
+- Trust Rating Calculation (Section 5)
+- Red Flags vs Green Lights (Section 6)
+
+You can use these frameworks to structure your assessment.
+
+================================================================================
+OUTPUT INSTRUCTIONS
+================================================================================
+
+Please provide your assessment in the following format:
+
+---
+INDEPENDENT CREDIBILITY ASSESSMENT - IF.yologuard v3
+Reviewer: Gemini
+Date: [Current Date]
+Review Depth: [QUICK / MODERATE / DEEP]
+Time Spent: [Approximate minutes]
+
+SECTION A: CORE CLAIM VERIFICATION
+[Answer to Question 1]
+
+SECTION B: PRECISION & CAVEATS
+[Answer to Question 2]
+
+SECTION C: TECHNICAL SOUNDNESS
+[Answer to Question 3]
+
+SECTION D: EVIDENCE QUALITY
+[Answer to Question 4]
+
+SECTION E: CREDIBILITY GAPS
+[Answer to Question 5]
+
+SECTION F: TRUST RATING
+[Answer to Question 6]
+
+SECTION G: PHILOSOPHICAL FRAMING ASSESSMENT
+[Answer to Question 7]
+
+SECTION H: PUBLISHING RECOMMENDATION
+[Answer to Question 8]
+
+SECTION I: COMPARATIVE ASSESSMENT
+[Answer to Question 9]
+
+SECTION J: OVERALL ASSESSMENT
+[Answer to Question 10]
+
+FINAL SUMMARY:
+- My Trust Rating: ___/10
+- Key Verdict: [ONE SENTENCE SUMMARY]
+- Publication Recommendation: [PUBLISH NOW / WITH CAVEATS / WAIT / NOT READY]
+- Critical Next Steps: [What should be done before publication]
+
+---
+
+================================================================================
+KEY CONTEXT (For Your Assessment)
+================================================================================
+
+1. WHAT IS THIS?
+   A relationship-based secret detection system (like GitGuardian/Gitleaks but
+   using contextual heuristics instead of pure pattern matching)
+
+2. CLAIMED CONTRIBUTION
+   Novel "Wu Lun" relationship validation that achieves 99% recall with lower
+   false positives than pattern-matching approaches
+
+3. CURRENT STATUS
+   Prototype stage, validated on single benchmark (Leaky Repo), claims exceed
+   current validation evidence
+
+4. TRUST CONTEXT
+   Authors have provided honest credibility audit (Annex D) identifying gaps
+   and remediation plan. This is unusual in research - most don't acknowledge
+   limitations so clearly.
+
+5. YOUR ROLE
+   Independent verification - determine if claims are credible and if work
+   is ready for publication
+
+================================================================================
+IMPORTANT NOTES
+================================================================================
+
+- This assessment should be done WITHOUT bias toward the authors
+- Your job is to verify claims independently, not to approve/reject
+- If something is unclear, say so - don't assume
+- The credibility audit (Annex D) is provided as reference context, not as
+  "the answer" - make your own judgment
+- You are evaluating credibility and publication readiness, not perfection
+- All work has gaps - the question is whether gaps are acceptable
+
+================================================================================
+THANK YOU FOR YOUR REVIEW
+================================================================================
+
+Your independent assessment of this work is valuable for:
+- Validating that the 7/10 trust rating is appropriate
+- Identifying any gaps missed by internal review
+- Determining publication readiness
+- Assessing whether remediation plan is sufficient
+- Establishing credibility with academic/research community
+
+This package was designed to enable ANY AI system to independently verify
+the claims without vendor lock-in. Your assessment helps validate this goal.
+
+================================================================================
