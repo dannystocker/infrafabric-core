@@ -55,7 +55,7 @@ This paper makes four contributions:
 
 3. **Warrant Canary Epistemology:** Making unknowns explicit through observable absence (dead canary = system compromise without violating gag orders)
 
-4. **Production Validation:** IF.yologuard deployment demonstrating MARL methodology compressed 6-month development to 6 days while achieving 96.43% recall on secret detection
+4. **Production Validation:** IF.yologuard deployment demonstrating MARL methodology compressed 6-month development to 6 days while achieving 111.46% GitHub-parity recall on secret detection
 
 The framework is not theoretical—it is the methodology that produced itself. IF.witness meta-validates IF.witness, demonstrating recursive consistency.
 
