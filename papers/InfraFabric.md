@@ -20,6 +20,8 @@
 
 **All citations link to:** Complete Source Index (Annex K)
 
+**Component definitions:** See [COMPONENT-INDEX.md](../COMPONENT-INDEX.md) for IF.* component specifications and [agents.md](../agents.md) for IF.TTT protocol details.
+
 ---
 
 ## COLD OPEN
@@ -83,7 +85,7 @@ Everything that followed—the 14 days of code, the philosophy database, the 111
 - **Nov 3 (Day 8):** 100% consensus achieved (Dossier 07) [⁶](#cite-6)
 - **Nov 7 (Day 12):** Universe-first realization at 12:20:46 UTC [⁷](#cite-7)
 - **Nov 9 (Day 14):** Final documentation and validation completion
-- **Nov 10 (Post-launch):** Operational framework deployment - Session handover system (prevents context exhaustion), philosophy-grounded Haiku swarm testing, IF.TTT (Traceable/Transparent/Trustworthy) compliance, IFMessage validator with philosophy lint rules, guarded claims validation [⁴⁷](#cite-47)
+- **Nov 10 (Post-launch):** Operational framework deployment - Session handover system (prevents context exhaustion), philosophy-grounded Haiku swarm testing, IF.TTT compliance framework ([Traceable/Transparent/Trustworthy](../agents.md#ifttt-framework-traceable-transparent-trustworthy) - every claim links to verifiable sources, all operations logged, cryptographically signed), IFMessage validator with philosophy lint rules, guarded claims validation [⁴⁷](#cite-47)
 
 **Core Achievement:**
 IF.armour.yologuard secret detection improved from **31.2% recall** [⁸](#cite-8) (v1) through **~77% recall** [⁹](#cite-9) (v2 baseline estimate) to **111.46% GitHub-parity recall (107/96 detections, primary) / 103.12% usable-only recall (99/96 detections, secondary)** [¹⁰](#cite-10) (v3) via Confucian Wu Lun (五伦) relationship mapping. The >100% recall results from detecting AWS credential components separately (matching GitHub Secret Scanning API behavior) and conservative pattern overlap detection.

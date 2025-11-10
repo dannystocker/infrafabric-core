@@ -48,10 +48,13 @@
 **Location:** `papers/IF-foundations.md` Section 2 (lines 85-140+)
 **Content:** 8 substrate principles mapped to philosophical traditions (Empiricism, Verificationism, Fallibilism, Duhem-Quine, Coherentism, Pragmatism, Falsifiability, Stoic Prudence)
 
-**Non-Blocking Improvements Also Completed:**
-1. IF.TTT definition verified present in InfraFabric.md:86 "IF.TTT (Traceable/Transparent/Trustworthy)"
-2. Wu Lun Framework explanation expanded in README.md:85 with full five relationships
-3. MCP definition verified present in InfraFabric.md:234 "MCP (Model Context Protocol)"
+**Non-Blocking Improvements:**
+1. ✅ **IF.TTT definition** - Now properly defined with inline explanation and links to full documentation
+   - InfraFabric.md:86 - Inline brief definition with link to agents.md
+   - InfraFabric.md:23 - Added link to COMPONENT-INDEX.md definitions database
+   - Full definitions: `agents.md:15-36` and `COMPONENT-INDEX.md:182-192`
+2. ✅ Wu Lun Framework explanation expanded in README.md:85 with full five relationships
+3. ✅ MCP (Model Context Protocol) defined on first use in InfraFabric.md:234
 
 **Git Commits with Fixes:**
 - `896291b` - Fix GUARDED-CLAIMS.md + unprofessional tone
