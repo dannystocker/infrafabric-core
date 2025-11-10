@@ -169,7 +169,16 @@
 
 ---
 
-**Audit Prompt Location:** `/tmp/gemini_audit_prompt.md` (paste into Gemini)
+## Audit Prompt Location
+
+**GitHub Link (for Gemini):**
+https://github.com/dannystocker/infrafabric/blob/claude/review-cloud-handover-docs-011CUyURbbbYv3twL6dH4r3v/docs/evidence/GEMINI-AUDIT-PROMPT-2025-11-10.md
+
+**Local path:** `docs/evidence/GEMINI-AUDIT-PROMPT-2025-11-10.md`
+
+**Usage:** Copy the content from GitHub link and paste as first message to Gemini AI Studio
+
+---
 
 **Next Step After Audit:** Based on Gemini's READY | NOT READY | NEEDS REVISION assessment
 
