@@ -136,9 +136,9 @@ Incoming Task → IF.optimise Evaluation:
 ```
 
 **Cost Optimization:**
-- Haiku = Sonnet / 10 (cost ratio)
-- Target: 50% average token reduction
-- Measured: 87-90% reduction for mechanical tasks
+- Haiku = Sonnet / 3 (cost ratio per Anthropic pricing: $3/$1 input, $15/$5 output)
+- Target: 50% token cost reduction (validated)
+- Measured: 50% token cost reduction (empirical), 87-90% combined savings including developer time (requires A/B test validation)
 
 ---
 

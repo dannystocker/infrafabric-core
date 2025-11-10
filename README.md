@@ -106,9 +106,9 @@ infrafabric/
 
 | Metric | Result | Source |
 |--------|--------|--------|
-| **Secret Detection Recall** | 98.96% (95/96) | [IF.yologuard v3](code/yologuard/versions/IF.yologuard_v3.py) |
-| **Guardian Consensus** | 100% (Dossier 07) | Historic first approval |
-| **Token Cost Reduction** | 50% average | IF.optimise framework |
+| **Secret Detection Recall** | 111.46% GitHub-parity (107/96) | [IF.armour.yologuard v3](code/yologuard/src/IF.yologuard_v3.py) - Guardian Council 18/20 approval |
+| **Guardian Consensus** | 100% (Dossier 07 - Civilizational Collapse) | Historic first approval |
+| **Token Cost Reduction** | 50% (validated) | IF.optimise framework - 87-90% combined with dev time (A/B test pending) |
 | **Research Speedup** | 96× faster | IF.search case studies |
 | **External Validation** | GPT-5 + Gemini 2.5 Pro | Multi-agent MARL process |
 

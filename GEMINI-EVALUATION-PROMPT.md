@@ -4,7 +4,7 @@
 
 **Date:** 2025-11-10 (Updated from Nov 9 version)
 
-**Evaluation Scope:** Full project review including 6 core papers, operational frameworks, validation evidence, and latest work (swarm/TTT/blockchain)
+**Evaluation Scope:** Full project review including 5 core papers, operational frameworks, validation evidence, and latest work (swarm/TTT/blockchain)
 
 ---
 
@@ -30,7 +30,7 @@
 
 ## Documents to Review
 
-### Core Papers (6 documents)
+### Core Papers (5 documents)
 
 **Required Reading:**
 
@@ -60,10 +60,9 @@
    - Merkle trees, Ed25519 signatures, OpenTimestamps Bitcoin anchoring
    - 500+ citations with content-addressing
 
-6. **papers/IF-momentum.md** (1,847 words, 10 citations)
-   - 6-month deployment at icantwait.ca (142,350 files)
-   - Zero false positives in production
-   - Civilizational collapse pattern analysis (Dossier 07)
+**Note:** IF-momentum.md was originally planned as 6th paper but content exists in:
+   - Production deployment metrics: papers/IF-armour.md (142,350 files, 6 months)
+   - Civilizational collapse analysis: annexes/ANNEX-G-CIVILIZATIONAL-COLLAPSE.md (Dossier 07, 100% consensus)
 
 ### Latest Work - Operational Framework (Nov 10, 2025)
 
