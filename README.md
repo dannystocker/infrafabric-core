@@ -82,7 +82,7 @@ infrafabric/
 **Status:** ✅ Production | 🧪 111.46% GitHub-parity | 📊 Verified
 
 - **Evolution:** 31.2% → 77% → 111.46% GitHub-parity (v1 → v2 → v3)
-- **Wu Lun Framework:** Confucian Five Relationships (五伦) for context mapping
+- **Wu Lun Framework:** Confucian Five Relationships (五伦 - ruler-subject, father-son, husband-wife, elder-younger, friend-friend) mapped to agent coordination weights for contextual secret detection
 - **Zero False Positives:** 100% precision on production test corpus
 - **Verification:** Guardian Council 18/20 approval, forensic analysis validated
 - **GitHub:** [All 3 versions](code/yologuard/versions/) with reproducibility docs
