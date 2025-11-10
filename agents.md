@@ -66,6 +66,55 @@ All agent outputs must meet these three criteria:
 
 ---
 
+## Component Naming Conventions
+
+### Hierarchical Component Designations (Effective 2025-11-10)
+
+**Rule:** Sub-components use hierarchical dot notation to indicate parent relationship.
+
+**Format:** `IF.{parent}.{child}` for components that belong to a suite/system
+
+**Examples:**
+- ✅ **IF.armour.yologuard** (yologuard is part of IF.armour security suite)
+  - URI: `if://armour.yologuard/v3`
+  - Citation: `if://armour.yologuard/benchmark/leaky-repo`
+- ✅ **IF.witness.forge** (forge is part of IF.witness validation system)
+  - URI: `if://witness.forge/stage/3`
+- ✅ **IF.guard.council** (council is part of IF.guard governance)
+  - URI: `if://guard.council/vote/2025-11-10`
+
+### Historical References & Redirects
+
+**IF.yologuard → IF.armour.yologuard**
+- **Old designation:** IF.yologuard (used Oct 26 - Nov 10, 2025)
+- **New designation:** IF.armour.yologuard (effective Nov 10, 2025)
+- **Historical references:** Preserved as-is in git history, papers, and session logs
+- **Going forward:** All new references MUST use IF.armour.yologuard
+- **Rationale:** Clarifies yologuard is a tool within IF.armour security suite
+
+**When to use hierarchical naming:**
+1. Component is a tool/module within a larger system (IF.armour.yologuard)
+2. Component is a specialized instance of a protocol (IF.witness.forge)
+3. Disambiguation needed (IF.guard.council vs IF.council shorthand)
+
+**When to use flat naming:**
+1. Top-level substrate/protocol/component (IF.ground, IF.TTT, IF.guard)
+2. Standalone tool without parent system (IF.chase, IF.reflect)
+3. Historical compatibility (IF.sam as alias for IF.ceo)
+
+### Citation URI Mapping
+
+**Component Name → URI Authority:**
+```
+IF.armour.yologuard  →  if://armour.yologuard/...
+IF.witness.forge     →  if://witness.forge/...
+IF.guard.council     →  if://guard.council/...
+```
+
+**Pattern:** Drop `IF.` prefix, preserve dots in authority portion, add resource path.
+
+---
+
 ## Agent Coordination Model
 
 ### IF.optimise Status (Always Visible)
@@ -397,10 +446,16 @@ git log --grep="if://citation/" --oneline | wc -l
 
 ## Integration Points
 
-### IF.yologuard
+### IF.armour.yologuard
+**Designation:** IF.armour.yologuard (formerly IF.yologuard)
+**URI:** if://armour.yologuard/v3
+
 - Emit citation IDs alongside manifests (`--manifest`)
 - Provenance fields at `code/yologuard/src/IF.yologuard_v3.py:1210`
 - Link secret detections to Wu Lun principle citations
+- Citation pattern: `if://armour.yologuard/detection/{secret-id}`
+
+**Historical note:** References to "IF.yologuard" in existing documents (papers, git history, session logs Oct 26 - Nov 10, 2025) remain valid and are automatically understood as IF.armour.yologuard.
 
 ### IF.guard
 - Decisions include `citation_ids` array (optional)
@@ -554,7 +609,7 @@ ls .env 2>&1 | grep "No such file"       # Verify .env absent (gitignored)
 **Step 2: Read Session Handover**
 ```
 Read SESSION-HANDOVER-TO-CLOUD.md FIRST
-- Contains current mission (yologuard benchmark fix)
+- Contains current mission (IF.armour.yologuard benchmark fix)
 - Token budget ($1000 with Haiku/Sonnet strategy)
 - Three paths forward (verify → fix → document)
 - Security reminders
@@ -593,13 +648,13 @@ Always show current mode in responses:
 git status                               # Always check first
 
 # Commits MUST include citations
-git commit -m "Fix yologuard benchmark
+git commit -m "Fix IF.armour.yologuard benchmark
 
 - Created canonical benchmark script
 - Documented usable-only filtering
 - Explained 96 vs 175 corpus discrepancy
 
-Citation: if://fix/yologuard-benchmark-2025-11-10
+Citation: if://armour.yologuard/fix/benchmark-2025-11-10
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -640,11 +695,14 @@ git push origin master
 ```
 Spawn 3 Haiku agents in parallel (single message with multiple Task calls):
 
-Agent 1: Read papers/IF-armour.md yologuard section, report claimed metrics
-Agent 2: Read docs/GUARDED-CLAIMS.md Claim 1, report verification status
+Agent 1: Read papers/IF-armour.md IF.armour.yologuard section, report claimed metrics
+Agent 2: Read docs/GUARDED-CLAIMS.md Claim 1 (IF.armour.yologuard), report verification status
 Agent 3: Read code/yologuard/benchmarks/run_leaky_repo_test.py, report test corpus size
 
 Then (Sonnet): Analyze discrepancies between claims and actual test results
+
+Note: File paths contain legacy "yologuard" naming (code/yologuard/), but component
+designation is IF.armour.yologuard. Historical file paths remain unchanged.
 ```
 
 **Cost estimate:**
