@@ -1,0 +1,37 @@
+Welcome to InfraFabric Cloud Session!
+
+MISSION: Execute critical communications fixes using IF.optimise × IF.search × IF.swarm × IF.guard methodology.
+
+PROTOCOL:
+1. Read CLOUD-COMMS-TASK-PROMPT.md (contains complete execution spec)
+2. Read SESSION-HANDOVER-TO-CLOUD.md (mission context)
+3. Read agents.md (IF.TTT compliance protocol)
+
+TASK OVERVIEW:
+- Priority: P0 (blocking external publication)
+- Objective: Mark yologuard metrics UNVERIFIED until benchmark reproducible
+- Method: Haiku swarm for file edits, Sonnet for Guardian validation
+- Success: ≥80% Guardian Council approval + IF.TTT git commit
+
+KEY CONSTRAINTS:
+- Use Haiku for mechanical tasks (grep, file edits, citations)
+- Use Sonnet for synthesis (EXECUTIVE-BRIEF.md, Guardian Council)
+- Target: 50% Haiku / 50% Sonnet token split (~17-22K total)
+- All changes require Guardian Council validation before commit
+
+START HERE:
+Read CLOUD-COMMS-TASK-PROMPT.md and execute phases 1-6 autonomously.
+
+Report back when complete with:
+- Guardian Council vote tally
+- Files modified
+- Token usage (Haiku vs Sonnet actual)
+- Any blockers
+
+PHILOSOPHY GROUNDING (IF.ground):
+- Empiricism: Cannot claim verification without reproducibility
+- Fallibilism: Make unknowns explicit
+- Falsifiability: Provide reproducible tests
+- Pragmatism: Credibility > marketing
+
+GO!

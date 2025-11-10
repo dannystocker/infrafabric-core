@@ -536,6 +536,157 @@ python tools/citation_validate.py citations/my-citation.json
 
 ---
 
+## Cloud Environment Instructions (Claude Code Web)
+
+**For Claude instances running in Claude Code Web with GitHub integration:**
+
+### Initial Setup (First Cloud Session)
+
+**Step 1: Clone and Verify**
+```bash
+# Repository will be auto-cloned by Claude Code Web
+cd infrafabric
+git status                               # Verify clean state
+git log --oneline -5                     # Check latest commits
+ls .env 2>&1 | grep "No such file"       # Verify .env absent (gitignored)
+```
+
+**Step 2: Read Session Handover**
+```
+Read SESSION-HANDOVER-TO-CLOUD.md FIRST
+- Contains current mission (yologuard benchmark fix)
+- Token budget ($1000 with Haiku/Sonnet strategy)
+- Three paths forward (verify → fix → document)
+- Security reminders
+```
+
+**Step 3: Adopt Agent Protocol**
+```
+Read THIS FILE (agents.md) and:
+1. Understand IF.TTT framework (Traceable, Transparent, Trustworthy)
+2. Note IF.optimise default behavior (Haiku delegation)
+3. Learn citation generation pattern
+4. Review anti-patterns to avoid
+5. Commit to traceability checklist
+```
+
+**Step 4: Display IF.optimise Status**
+```
+Always show current mode in responses:
+⚡ Active       - Haiku delegation for mechanical tasks (default)
+🧠 Sonnet mode  - Complex reasoning (architecture, council)
+🚀 Multi-Haiku  - Parallel agents running
+💤 Disabled     - Sonnet-only (user requested)
+```
+
+### Cloud-Specific Traceability
+
+**Token Cost Tracking (MANDATORY):**
+- Report Haiku vs Sonnet token ratio after first major task
+- Track cost per task
+- Alert if burning budget too fast (>$100/day for setup work)
+- Target: 50-80% Haiku delegation
+
+**Git Operations:**
+```bash
+# Before commits
+git status                               # Always check first
+
+# Commits MUST include citations
+git commit -m "Fix yologuard benchmark
+
+- Created canonical benchmark script
+- Documented usable-only filtering
+- Explained 96 vs 175 corpus discrepancy
+
+Citation: if://fix/yologuard-benchmark-2025-11-10
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+
+# Push to GitHub
+git push origin master
+```
+
+**Session Boundaries:**
+- Update SESSION-RESUME.md after each major task
+- Export citations to /citations/session-<date>.json
+- Commit progress frequently (don't lose work)
+- Use TodoWrite tool to track multi-step tasks
+
+### Security Protocol (CRITICAL)
+
+**NEVER in cloud environment:**
+- ❌ Create .env file
+- ❌ Commit credentials
+- ❌ Store API keys
+- ❌ Push sensitive data
+
+**Safe operations:**
+- ✅ Read code and documentation from GitHub
+- ✅ Modify papers with verified metrics
+- ✅ Create test scripts (no real credentials)
+- ✅ Update documentation
+
+**Test Data (Safe):**
+- code/yologuard/benchmarks/leaky-repo/** (public benchmark corpus)
+- Allowlisted in .github/secret_scanning.yml
+- GitHub may flag - these are false positives
+
+### Haiku Agent Spawning (Cloud)
+
+**Pattern for parallel work:**
+```
+Spawn 3 Haiku agents in parallel (single message with multiple Task calls):
+
+Agent 1: Read papers/IF-armour.md yologuard section, report claimed metrics
+Agent 2: Read docs/GUARDED-CLAIMS.md Claim 1, report verification status
+Agent 3: Read code/yologuard/benchmarks/run_leaky_repo_test.py, report test corpus size
+
+Then (Sonnet): Analyze discrepancies between claims and actual test results
+```
+
+**Cost estimate:**
+- 3 Haiku agents: ~1,500 tokens each = 4,500 Haiku tokens
+- Sonnet analysis: ~2,000 Sonnet tokens
+- Total cost: ~$0.03-0.06 (vs $0.15-0.30 Sonnet-only)
+
+### IF.ground Compliance in Cloud
+
+Every cloud operation must map to principles:
+
+**Principle 1 (Empiricism):**
+- Verify claims against actual files (don't trust SESSION-RESUME.md blindly)
+- Run benchmarks yourself (don't cite unverified metrics)
+
+**Principle 2 (Verificationism):**
+- Generate file hashes for all sources cited
+- Include verification commands in documentation
+
+**Principle 3 (Fallibilism):**
+- Mark claims as "unverified" until independently tested
+- Preserve Gemini's contradicting evidence (don't delete)
+
+**Principle 7 (Falsifiability):**
+- Include testable predictions in commit messages
+- Document how to reproduce results
+
+### Cloud Session Checklist
+
+Before ending each cloud session:
+
+- [ ] SESSION-RESUME.md updated with current state
+- [ ] Token costs tracked (Haiku vs Sonnet ratio calculated)
+- [ ] All changes committed to git
+- [ ] All changes pushed to GitHub
+- [ ] Citations exported to /citations/session-<date>.json
+- [ ] IF.optimise status indicator shown in last message
+- [ ] Next session path clearly specified
+- [ ] No sensitive data left in workspace
+
+---
+
 ## Meta: Updating This Document
 
 **When to update agents.md:**
