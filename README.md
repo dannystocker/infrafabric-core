@@ -174,7 +174,7 @@ See [IF.armour.yologuard README](code/yologuard/README.md) for production-ready 
 | **Oct 26, 2025** | First code written | claude-code-bridge.zip created (Day 1) |
 | **Nov 1, 2025** | Philosophy demanded | "Where's the manifesto?" (Day 7) |
 | **Nov 3, 2025** | 100% consensus | Historic first approval (Dossier 07) |
-| **Nov 6, 2025** | Wu Lun breakthrough | 31.2% → 98.96% secret detection |
+| **Nov 6, 2025** | Wu Lun breakthrough | 31.2% → 111.46% GitHub-parity secret detection |
 | **Nov 7, 2025** | GPT-5 validation | External MARL execution successful |
 | **Nov 9, 2025** | Documentation complete | Final validation and production readiness |
 
