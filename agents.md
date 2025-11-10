@@ -387,6 +387,66 @@ Traceability:
 - Token costs logged in IF.optimise report
 ```
 
+### ❌ Bypassing Gitignore for Privacy-Sensitive Research
+
+**Bad:**
+```
+# Force-adding files that should be private
+git add -f code/research/IF_ENDORSER_EMAILS*.md
+git commit -m "Add endorser emails"
+git push
+
+Result: Draft correspondence with researcher names now public on GitHub
+```
+
+**Good:**
+```
+# Respect gitignore patterns for research outputs
+git status
+# Shows: code/research/IF_ENDORSER_EMAILS_BATCH1.md (ignored)
+
+# Files stay local-only, never committed
+ls code/research/IF_ENDORSER_EMAILS*.md  # ✅ Available locally for user
+git ls-files | grep ENDORSER_EMAILS       # ✅ Not tracked in git
+
+Rationale: Draft outreach contains:
+- Personal framing ("I was struggling with...")
+- Gap admissions (internal decision-making)
+- Researcher names associated with your strategy
+These are private until user chooses to send them.
+```
+
+**Why This Matters:**
+- Privacy: Publishing draft correspondence violates researcher privacy
+- Ethics: Names in your outreach strategy should not be public
+- Professional: Draft emails expose your thinking before you've refined it
+- Legal: May violate data protection if researchers didn't consent
+
+**Lesson Learned (2025-11-10):**
+> "When .gitignore patterns exist for research outputs, respect them.
+> They're there for privacy protection. Use `git add -f` only for
+> intentional override of build artifacts, never for people's names
+> or correspondence." - Session: claude/review-cloud-handover-docs
+
+**Recovery Pattern:**
+```bash
+# If privacy-sensitive files were accidentally committed:
+git rm --cached code/research/IF_ENDORSER_EMAILS*.md
+git commit -m "Remove private research files from tracking"
+
+# Scrub from history if already pushed:
+git filter-branch --force --index-filter \
+  'git rm --cached --ignore-unmatch code/research/IF_ENDORSER_EMAILS*.md' \
+  --prune-empty --tag-name-filter cat -- <commit-range>..HEAD
+
+git push -f origin <branch>
+
+# Clean up filter-branch artifacts:
+rm -rf .git/refs/original/
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+```
+
 ---
 
 ## Session Handoff Protocol
