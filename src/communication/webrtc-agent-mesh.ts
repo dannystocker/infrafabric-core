@@ -11,6 +11,7 @@
 import * as ed25519 from '@noble/ed25519';
 import { WebSocket } from 'ws';
 import { createHash } from 'crypto';
+import { SRTPKeyManager, SRTPKeyRotationEvent } from './srtp-key-manager';
 
 /**
  * IFMessage v2.1 Schema
@@ -42,6 +43,15 @@ export interface IFMessage {
 }
 
 /**
+ * TURN server credentials
+ */
+export interface TURNServerConfig {
+  urls: string;
+  username: string;
+  credential: string;
+}
+
+/**
  * WebRTC Peer Connection Configuration
  */
 export interface IFWebRTCConfig {
@@ -50,7 +60,17 @@ export interface IFWebRTCConfig {
   publicKey?: Uint8Array;
   signalingServerUrl?: string;
   stunServers?: string[];
-  witnessLogger?: (event: WitnessEvent) => Promise<void>;
+  turnServers?: TURNServerConfig[];
+  witnessLogger?: (event: WitnessEvent | SRTPKeyRotationEvent) => Promise<void>;
+  turnFallbackTimeout?: number; // ms to wait before falling back to TURN (default: 5000)
+
+  // Security configuration
+  productionMode?: boolean; // Enables strict security checks (default: false)
+  iceTransportPolicy?: 'all' | 'relay'; // 'relay' forces TURN usage for high-security mode
+  allowSelfSignedCerts?: boolean; // Allow self-signed certificates (default: true in dev, false in production)
+  enableCertValidation?: boolean; // Validate DTLS certificates (default: true in production)
+  enableSRTPKeyRotation?: boolean; // Enable SRTP key rotation (default: true)
+  srtpKeyRotationInterval?: number; // SRTP key rotation interval in ms (default: 24 hours)
 }
 
 /**
@@ -65,6 +85,22 @@ export interface WitnessEvent {
   trace_id: string;
   timestamp: string;
   metadata?: Record<string, unknown>;
+}
+
+/**
+ * Connection Quality Metrics
+ */
+export interface ConnectionQuality {
+  peerId: string;
+  state: RTCPeerConnectionState;
+  iceConnectionState: string; // RTCIceConnectionState (compatible with @types/webrtc)
+  iceGatheringState: string; // RTCIceGatheringState (compatible with @types/webrtc)
+  candidateType?: 'host' | 'srflx' | 'relay' | 'prflx'; // relay = TURN
+  bytesReceived: number;
+  bytesSent: number;
+  packetsLost: number;
+  roundTripTime?: number; // ms
+  lastUpdated: string;
 }
 
 /**
@@ -93,18 +129,40 @@ export class IFAgentWebRTC {
 
   // STUN/TURN servers
   private iceServers: RTCIceServer[];
+  private turnServers: TURNServerConfig[];
+  private turnFallbackTimeout: number;
+
+  // TURN fallback tracking: peer_id -> timeout handle
+  private turnFallbackTimers: Map<string, NodeJS.Timeout> = new Map();
+  private usingTurn: Map<string, boolean> = new Map();
+
+  // Connection quality monitoring: peer_id -> metrics
+  private connectionQuality: Map<string, ConnectionQuality> = new Map();
+  private qualityMonitorIntervals: Map<string, NodeJS.Timeout> = new Map();
 
   // Message handlers
   private messageHandlers: Set<(message: IFMessage) => void> = new Set();
 
   // IF.witness logger
-  private witnessLogger?: (event: WitnessEvent) => Promise<void>;
+  private witnessLogger?: (event: WitnessEvent | SRTPKeyRotationEvent) => Promise<void>;
 
   // Sequence number for outgoing messages
   private sequenceNum: number = 0;
 
   // Current trace ID
   private currentTraceId: string;
+
+  // Security configuration
+  private productionMode: boolean;
+  private iceTransportPolicy: 'all' | 'relay';
+  private allowSelfSignedCerts: boolean;
+  private enableCertValidation: boolean;
+
+  // SRTP key manager
+  private srtpKeyManager?: SRTPKeyManager;
+
+  // DTLS fingerprints: peer_id -> fingerprint hash
+  private dtlsFingerprints: Map<string, string> = new Map();
 
   constructor(config: IFWebRTCConfig) {
     this.agentId = config.agentId;
@@ -120,15 +178,38 @@ export class IFAgentWebRTC {
       this.publicKey = ed25519.getPublicKey(this.privateKey);
     }
 
-    // Configure ICE servers
+    // Configure ICE servers (STUN only - TURN added on fallback)
     const defaultStunServers = config.stunServers || ['stun:stun.l.google.com:19302'];
     this.iceServers = defaultStunServers.map(url => ({ urls: url }));
+
+    // Store TURN servers for fallback
+    this.turnServers = config.turnServers || [];
+    this.turnFallbackTimeout = config.turnFallbackTimeout || 5000;
 
     // IF.witness logger
     this.witnessLogger = config.witnessLogger;
 
     // Initialize trace ID
     this.currentTraceId = this.generateTraceId();
+
+    // Security configuration
+    this.productionMode = config.productionMode || false;
+    this.iceTransportPolicy = config.iceTransportPolicy || 'all';
+    this.allowSelfSignedCerts = config.allowSelfSignedCerts !== undefined
+      ? config.allowSelfSignedCerts
+      : !this.productionMode; // Default: allow in dev, reject in production
+    this.enableCertValidation = config.enableCertValidation !== undefined
+      ? config.enableCertValidation
+      : this.productionMode; // Default: enabled in production
+
+    // Initialize SRTP key manager if enabled
+    if (config.enableSRTPKeyRotation !== false) { // Default: true
+      this.srtpKeyManager = new SRTPKeyManager(
+        this.agentId,
+        this.witnessLogger,
+        config.srtpKeyRotationInterval
+      );
+    }
   }
 
   /**
@@ -183,6 +264,9 @@ export class IFAgentWebRTC {
     const offer = await pc.createOffer();
     await pc.setLocalDescription(offer);
 
+    // Start TURN fallback timer if TURN servers configured
+    this.startTurnFallbackTimer(peerId);
+
     // Log to IF.witness
     await this.logToWitness({
       event: 'webrtc_offer_created',
@@ -209,6 +293,11 @@ export class IFAgentWebRTC {
    */
   async handleOffer(peerId: string, offer: RTCSessionDescriptionInit): Promise<RTCSessionDescriptionInit> {
     const pc = this.createPeerConnection(peerId);
+
+    // Validate and extract DTLS fingerprint from SDP
+    if (this.enableCertValidation && offer.sdp) {
+      await this.validateAndStoreDTLSFingerprint(peerId, offer.sdp);
+    }
 
     await pc.setRemoteDescription(new RTCSessionDescription(offer));
 
@@ -243,6 +332,11 @@ export class IFAgentWebRTC {
     const pc = this.peerConnections.get(peerId);
     if (!pc) {
       throw new Error(`No peer connection for ${peerId}`);
+    }
+
+    // Validate and extract DTLS fingerprint from SDP
+    if (this.enableCertValidation && answer.sdp) {
+      await this.validateAndStoreDTLSFingerprint(peerId, answer.sdp);
     }
 
     await pc.setRemoteDescription(new RTCSessionDescription(answer));
@@ -392,8 +486,23 @@ export class IFAgentWebRTC {
       return this.peerConnections.get(peerId)!;
     }
 
+    // Determine ICE servers (STUN or STUN+TURN)
+    let iceServers = this.iceServers;
+    if (this.usingTurn.get(peerId)) {
+      // Add TURN servers to ICE servers
+      iceServers = [
+        ...this.iceServers,
+        ...this.turnServers.map(turn => ({
+          urls: turn.urls,
+          username: turn.username,
+          credential: turn.credential
+        }))
+      ];
+    }
+
     const pc = new RTCPeerConnection({
-      iceServers: this.iceServers
+      iceServers,
+      iceTransportPolicy: this.iceTransportPolicy // Enforce security policy
     });
 
     // ICE candidate handler
@@ -429,6 +538,17 @@ export class IFAgentWebRTC {
           state: pc.connectionState
         }
       });
+
+      // Clear TURN fallback timer on successful connection
+      if (pc.connectionState === 'connected') {
+        this.clearTurnFallbackTimer(peerId);
+        this.startConnectionMonitoring(peerId);
+      }
+
+      // Stop monitoring on disconnect or failure
+      if (pc.connectionState === 'disconnected' || pc.connectionState === 'failed' || pc.connectionState === 'closed') {
+        this.stopConnectionMonitoring(peerId);
+      }
     };
 
     // Data channel handler (for answering side)
@@ -657,5 +777,480 @@ export class IFAgentWebRTC {
    */
   getAgentId(): string {
     return this.agentId;
+  }
+
+  // ============ TURN Fallback Methods ============
+
+  /**
+   * Start TURN fallback timer for peer connection
+   */
+  private startTurnFallbackTimer(peerId: string): void {
+    if (this.turnServers.length === 0) {
+      return; // No TURN servers configured
+    }
+
+    // Clear existing timer if any
+    const existingTimer = this.turnFallbackTimers.get(peerId);
+    if (existingTimer) {
+      clearTimeout(existingTimer);
+    }
+
+    // Set new timer
+    const timer = setTimeout(async () => {
+      await this.attemptTurnFallback(peerId);
+    }, this.turnFallbackTimeout);
+
+    this.turnFallbackTimers.set(peerId, timer);
+  }
+
+  /**
+   * Attempt TURN fallback if P2P connection has not succeeded
+   */
+  private async attemptTurnFallback(peerId: string): Promise<void> {
+    const pc = this.peerConnections.get(peerId);
+    if (!pc) {
+      return; // Connection already closed
+    }
+
+    // Check if connection is already established
+    const iceConnectionState = (pc as any).iceConnectionState;
+    if (pc.connectionState === 'connected' || iceConnectionState === 'connected') {
+      await this.logToWitness({
+        event: 'turn_fallback_unnecessary',
+        agent_id: this.agentId,
+        peer_id: peerId,
+        trace_id: this.currentTraceId,
+        timestamp: new Date().toISOString(),
+        metadata: {
+          connectionState: pc.connectionState,
+          iceConnectionState
+        }
+      });
+      return;
+    }
+
+    // Log fallback decision to IF.witness
+    await this.logToWitness({
+      event: 'turn_fallback_initiated',
+      agent_id: this.agentId,
+      peer_id: peerId,
+      trace_id: this.currentTraceId,
+      timestamp: new Date().toISOString(),
+      metadata: {
+        reason: 'No P2P connection established within timeout',
+        timeout_ms: this.turnFallbackTimeout,
+        connectionState: pc.connectionState,
+        iceConnectionState: (pc as any).iceConnectionState || 'unknown'
+      }
+    });
+
+    // Close existing connection
+    pc.close();
+    this.peerConnections.delete(peerId);
+
+    // Create new connection with TURN servers
+    this.usingTurn.set(peerId, true);
+    const newPc = this.createPeerConnection(peerId);
+
+    // Re-create data channel
+    const dataChannel = newPc.createDataChannel('if-agent-messaging', {
+      ordered: true,
+      maxRetransmits: 3
+    });
+    this.setupDataChannel(peerId, dataChannel);
+
+    // Create new offer
+    const offer = await newPc.createOffer();
+    await newPc.setLocalDescription(offer);
+
+    // Send via signaling
+    this.signalingWs?.send(JSON.stringify({
+      type: 'offer',
+      from: this.agentId,
+      to: peerId,
+      offer: offer
+    }));
+
+    await this.logToWitness({
+      event: 'turn_fallback_offer_sent',
+      agent_id: this.agentId,
+      peer_id: peerId,
+      trace_id: this.currentTraceId,
+      timestamp: new Date().toISOString(),
+      metadata: {
+        sdp_hash: this.hashSDP(offer.sdp!)
+      }
+    });
+  }
+
+  /**
+   * Clear TURN fallback timer for peer
+   */
+  private clearTurnFallbackTimer(peerId: string): void {
+    const timer = this.turnFallbackTimers.get(peerId);
+    if (timer) {
+      clearTimeout(timer);
+      this.turnFallbackTimers.delete(peerId);
+    }
+  }
+
+  // ============ Connection Quality Monitoring ============
+
+  /**
+   * Start monitoring connection quality for peer
+   */
+  private startConnectionMonitoring(peerId: string): void {
+    // Monitor every 2 seconds
+    const interval = setInterval(async () => {
+      await this.updateConnectionQuality(peerId);
+    }, 2000);
+
+    this.qualityMonitorIntervals.set(peerId, interval);
+  }
+
+  /**
+   * Stop monitoring connection quality for peer
+   */
+  private stopConnectionMonitoring(peerId: string): void {
+    const interval = this.qualityMonitorIntervals.get(peerId);
+    if (interval) {
+      clearInterval(interval);
+      this.qualityMonitorIntervals.delete(peerId);
+    }
+  }
+
+  /**
+   * Update connection quality metrics for peer
+   */
+  private async updateConnectionQuality(peerId: string): Promise<void> {
+    const pc = this.peerConnections.get(peerId);
+    if (!pc) {
+      return;
+    }
+
+    try {
+      const stats = await pc.getStats();
+      let bytesReceived = 0;
+      let bytesSent = 0;
+      let packetsLost = 0;
+      let roundTripTime: number | undefined;
+      let candidateType: ConnectionQuality['candidateType'];
+
+      stats.forEach((stat: any) => {
+        if (stat.type === 'inbound-rtp') {
+          bytesReceived += stat.bytesReceived || 0;
+          packetsLost += stat.packetsLost || 0;
+        } else if (stat.type === 'outbound-rtp') {
+          bytesSent += stat.bytesSent || 0;
+        } else if (stat.type === 'candidate-pair' && stat.state === 'succeeded') {
+          roundTripTime = stat.currentRoundTripTime ? stat.currentRoundTripTime * 1000 : undefined;
+        } else if (stat.type === 'local-candidate' && stat.candidateType) {
+          candidateType = stat.candidateType as ConnectionQuality['candidateType'];
+        }
+      });
+
+      const quality: ConnectionQuality = {
+        peerId,
+        state: pc.connectionState,
+        iceConnectionState: (pc as any).iceConnectionState || 'unknown',
+        iceGatheringState: (pc as any).iceGatheringState || 'unknown',
+        candidateType,
+        bytesReceived,
+        bytesSent,
+        packetsLost,
+        roundTripTime,
+        lastUpdated: new Date().toISOString()
+      };
+
+      this.connectionQuality.set(peerId, quality);
+
+      // Log if using TURN (relay)
+      if (candidateType === 'relay' && !this.usingTurn.get(peerId)) {
+        this.usingTurn.set(peerId, true);
+        await this.logToWitness({
+          event: 'turn_connection_detected',
+          agent_id: this.agentId,
+          peer_id: peerId,
+          trace_id: this.currentTraceId,
+          timestamp: new Date().toISOString(),
+          metadata: {
+            candidateType
+          }
+        });
+      }
+    } catch (error) {
+      // Stats may fail in certain states, silently ignore
+    }
+  }
+
+  /**
+   * Get connection quality for peer
+   */
+  getConnectionQuality(peerId: string): ConnectionQuality | undefined {
+    return this.connectionQuality.get(peerId);
+  }
+
+  /**
+   * Get connection quality for all peers
+   */
+  getAllConnectionQuality(): Map<string, ConnectionQuality> {
+    return new Map(this.connectionQuality);
+  }
+
+  // ============ SIP Integration Hooks ============
+
+  /**
+   * Get WebRTC instance (for SIP integration)
+   * Allows external code to access the WebRTC instance
+   */
+  getWebRTCInstance(): IFAgentWebRTC {
+    return this;
+  }
+
+  /**
+   * Get peer connection for specific peer (for SIP integration)
+   */
+  getPeerConnection(peerId: string): RTCPeerConnection | undefined {
+    return this.peerConnections.get(peerId);
+  }
+
+  /**
+   * Get data channel for specific peer (for SIP integration)
+   */
+  getDataChannel(peerId: string): RTCDataChannel | undefined {
+    return this.dataChannels.get(peerId);
+  }
+
+  /**
+   * Check if peer connection is established and ready
+   */
+  isPeerReady(peerId: string): boolean {
+    const dataChannel = this.dataChannels.get(peerId);
+    return dataChannel?.readyState === 'open';
+  }
+
+  /**
+   * Get current trace ID (for SIP session correlation)
+   */
+  getCurrentTraceId(): string {
+    return this.currentTraceId;
+  }
+
+  /**
+   * Set trace ID (for SIP session correlation)
+   */
+  setTraceId(traceId: string): void {
+    this.currentTraceId = traceId;
+  }
+
+  // ============ Security Validation Methods ============
+
+  /**
+   * Validate and store DTLS fingerprint from SDP
+   */
+  private async validateAndStoreDTLSFingerprint(peerId: string, sdp: string): Promise<void> {
+    // Extract fingerprint from SDP
+    const fingerprint = this.extractDTLSFingerprint(sdp);
+
+    if (!fingerprint) {
+      await this.logToWitness({
+        event: 'webrtc_cert_validated',
+        agent_id: this.agentId,
+        peer_id: peerId,
+        trace_id: this.currentTraceId,
+        timestamp: new Date().toISOString(),
+        metadata: {
+          valid: false,
+          reason: 'No DTLS fingerprint found in SDP'
+        }
+      });
+
+      if (this.productionMode) {
+        throw new Error(`No DTLS fingerprint found in SDP for peer ${peerId}`);
+      }
+      return;
+    }
+
+    // Validate certificate properties
+    const validationResult = await this.validateCertificate(fingerprint, sdp);
+
+    // Log validation result to IF.witness
+    await this.logToWitness({
+      event: 'webrtc_cert_validated',
+      agent_id: this.agentId,
+      peer_id: peerId,
+      trace_id: this.currentTraceId,
+      timestamp: new Date().toISOString(),
+      metadata: {
+        valid: validationResult.valid,
+        reason: validationResult.reason,
+        fingerprint: fingerprint.hash,
+        algorithm: fingerprint.algorithm,
+        self_signed: validationResult.selfSigned
+      }
+    });
+
+    // Reject if validation failed in production
+    if (!validationResult.valid && this.productionMode) {
+      throw new Error(`Certificate validation failed for peer ${peerId}: ${validationResult.reason}`);
+    }
+
+    // Store fingerprint for later verification
+    this.dtlsFingerprints.set(peerId, fingerprint.hash);
+
+    // Generate SRTP keys if key manager is enabled
+    if (this.srtpKeyManager) {
+      const keyMaterial = await this.srtpKeyManager.generateKeyMaterial(peerId);
+
+      await this.logToWitness({
+        event: 'webrtc_session_established',
+        agent_id: this.agentId,
+        peer_id: peerId,
+        trace_id: this.currentTraceId,
+        timestamp: new Date().toISOString(),
+        metadata: {
+          dtls_fingerprint: fingerprint.hash,
+          srtp_key_id: keyMaterial.keyId,
+          security_level: this.productionMode ? 'production' : 'development',
+          ice_policy: this.iceTransportPolicy
+        }
+      });
+    }
+  }
+
+  /**
+   * Extract DTLS fingerprint from SDP
+   */
+  private extractDTLSFingerprint(sdp: string): { algorithm: string; hash: string } | null {
+    // Match fingerprint line: a=fingerprint:sha-256 XX:XX:XX:...
+    const fingerprintMatch = sdp.match(/a=fingerprint:(\S+)\s+([A-F0-9:]+)/i);
+
+    if (!fingerprintMatch) {
+      return null;
+    }
+
+    return {
+      algorithm: fingerprintMatch[1],
+      hash: fingerprintMatch[2]
+    };
+  }
+
+  /**
+   * Validate certificate properties
+   */
+  private async validateCertificate(
+    fingerprint: { algorithm: string; hash: string },
+    sdp: string
+  ): Promise<{ valid: boolean; reason?: string; selfSigned?: boolean }> {
+    // Check if certificate validation is enabled
+    if (!this.enableCertValidation) {
+      return { valid: true };
+    }
+
+    // Validate algorithm (should be SHA-256 or stronger)
+    const weakAlgorithms = ['sha-1', 'md5'];
+    if (weakAlgorithms.includes(fingerprint.algorithm.toLowerCase())) {
+      return {
+        valid: false,
+        reason: `Weak hash algorithm: ${fingerprint.algorithm}`
+      };
+    }
+
+    // Check for self-signed certificate indicators in SDP
+    // In WebRTC, certificates are typically self-signed, but we can check for validity
+    const isSelfSigned = this.isCertificateSelfSigned(sdp);
+
+    // In production mode, reject self-signed certs if not allowed
+    if (isSelfSigned && !this.allowSelfSignedCerts) {
+      return {
+        valid: false,
+        reason: 'Self-signed certificates not allowed in production mode',
+        selfSigned: true
+      };
+    }
+
+    // Validate fingerprint format
+    const fingerprintRegex = /^([A-F0-9]{2}:){31}[A-F0-9]{2}$/i;
+    if (fingerprint.algorithm.toLowerCase() === 'sha-256' && !fingerprintRegex.test(fingerprint.hash)) {
+      return {
+        valid: false,
+        reason: 'Invalid SHA-256 fingerprint format'
+      };
+    }
+
+    return {
+      valid: true,
+      selfSigned: isSelfSigned
+    };
+  }
+
+  /**
+   * Check if certificate is self-signed (heuristic)
+   */
+  private isCertificateSelfSigned(sdp: string): boolean {
+    // In WebRTC, certificates are typically self-signed
+    // We use a heuristic: check if there's no certificate chain in the SDP
+    // This is a simplified check - in production, you'd examine the actual certificate
+
+    // For now, assume all WebRTC certs are self-signed unless proven otherwise
+    // Real implementation would parse certificate from DTLS handshake
+    return true;
+  }
+
+  /**
+   * Get DTLS fingerprint for peer
+   */
+  getDTLSFingerprint(peerId: string): string | undefined {
+    return this.dtlsFingerprints.get(peerId);
+  }
+
+  /**
+   * Get SRTP key manager
+   */
+  getSRTPKeyManager(): SRTPKeyManager | undefined {
+    return this.srtpKeyManager;
+  }
+
+  /**
+   * Manually rotate SRTP keys for a peer
+   */
+  async rotateSRTPKeys(peerId: string): Promise<void> {
+    if (!this.srtpKeyManager) {
+      throw new Error('SRTP key manager not enabled');
+    }
+
+    await this.srtpKeyManager.rotateKey(peerId, 'manual');
+  }
+
+  /**
+   * Get security configuration
+   */
+  getSecurityConfig(): {
+    productionMode: boolean;
+    iceTransportPolicy: 'all' | 'relay';
+    allowSelfSignedCerts: boolean;
+    enableCertValidation: boolean;
+    srtpKeyRotationEnabled: boolean;
+  } {
+    return {
+      productionMode: this.productionMode,
+      iceTransportPolicy: this.iceTransportPolicy,
+      allowSelfSignedCerts: this.allowSelfSignedCerts,
+      enableCertValidation: this.enableCertValidation,
+      srtpKeyRotationEnabled: this.srtpKeyManager !== undefined
+    };
+  }
+
+  /**
+   * Cleanup all security resources
+   */
+  async cleanupSecurity(): Promise<void> {
+    // Cleanup SRTP key manager
+    if (this.srtpKeyManager) {
+      await this.srtpKeyManager.shutdown();
+    }
+
+    // Clear DTLS fingerprints
+    this.dtlsFingerprints.clear();
   }
 }
