@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>InfraFabric Philosophy Browser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+  input, select { padding: .5rem; margin-right: .5rem; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: .75rem; }
+  .muted { color: #555; font-size: .9rem; }
+</style>
+<h1>InfraFabric Philosophy Browser</h1>
+<p class="muted">Lightweight, client-only viewer for non-technical users. Type to filter; click a card to expand JSON.</p>
+<div>
+  <input id="q" placeholder="Search name, tradition, concept …" />
+  <button onclick="load()">Reload</button>
+</div>
+<div id="list"></div>
+<script>
+let data = {};
+async function load() {
+  const res = await fetch('../build/philosophy.json');
+  data = await res.json();
+  render('');
+}
+function render(filter) {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  const q = (filter || '').toLowerCase();
+  const entries = Object.entries(data);
+  entries.sort((a,b) => a[0].localeCompare(b[0]));
+  for (const [key, val] of entries) {
+    const hay = JSON.stringify(val).toLowerCase() + key.toLowerCase();
+    if (q && !hay.includes(q)) continue;
+    const card = document.createElement('div');
+    card.className = 'card';
+    const title = document.createElement('div');
+    title.innerHTML = `<strong>${val?.name || key}</strong> — <span class="muted">${val?.tradition || ''}</span>`;
+    const pre = document.createElement('pre');
+    pre.textContent = JSON.stringify(val, null, 2);
+    pre.style.display = 'none';
+    card.onclick = () => pre.style.display = pre.style.display === 'none' ? 'block' : 'none';
+    card.appendChild(title);
+    card.appendChild(pre);
+    list.appendChild(card);
+  }
+}
+document.getElementById('q').addEventListener('input', (e)=> render(e.target.value));
+load();
+</script>
+</html>

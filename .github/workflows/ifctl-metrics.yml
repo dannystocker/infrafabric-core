@@ -1,0 +1,15 @@
+name: ifctl-and-matrix-and-metrics
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Lint (ifctl.py) if present
+        run: |
+          if [ -f ifctl.py ]; then python ifctl.py lint || true; fi
+      - name: Metrics method check
+        run: python tools/recalc_metrics.py

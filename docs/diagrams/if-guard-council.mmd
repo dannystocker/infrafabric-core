@@ -1,0 +1,12 @@
+graph TD
+  subgraph Council[IF.guard Council (20 voices)]
+    Core[6 Core Guardians]
+    West[3 Western Philosophers]
+    East[3 Eastern Philosophers]
+    CEO[8 IF.ceo facets]
+  end
+  Core --> Decision[Decision]
+  West --> Decision
+  East --> Decision
+  CEO --> Decision
+  Decision -->|Quorum 15| Verdict[Proceed / Advise / Veto]

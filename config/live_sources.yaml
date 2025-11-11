@@ -1,0 +1,26 @@
+# LIVE data sources used by IF.search/IF.witness during dossiers.
+# Safe, keyless examples first; key-based adapters optional via env vars.
+sources:
+  wikipedia:
+    kind: rest
+    url: "https://en.wikipedia.org/api/rest_v1/page/summary/{title}"
+    method: GET
+    notes: "Keyless; use for quick company/topic grounding"
+  sec_company_facts:
+    kind: rest
+    url: "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+    method: GET
+    headers:
+      User-Agent: "InfraFabric-Research/1.0"
+    notes: "Keyless; rate-limited; company fundamentals"
+  yahoo_quote:
+    kind: rest
+    url: "https://query1.finance.yahoo.com/v7/finance/quote?symbols={symbol}"
+    method: GET
+    notes: "Keyless; unofficial; for indicative quotes only"
+  # Optional (requires API key)
+  youtube_search:
+    kind: rest
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q={q}&key=$YT_API_KEY"
+    method: GET
+    notes: "Requires YT_API_KEY; use for sourcing interviews"
