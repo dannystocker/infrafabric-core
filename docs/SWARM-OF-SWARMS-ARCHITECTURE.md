@@ -371,6 +371,119 @@ Savings: 64% ($27,912 saved)
 - Some phases require human review (Phase 10 autonomy)
 - **Fix:** Graduated autonomy with IF.guard voting
 
+### ✅ What We Fixed During Execution
+
+**CRITICAL: Gang Up on the Blocker Pattern**
+
+**Problem Discovered (Phase 4):**
+- Session 4 (SIP) was blocking Sessions 1-3
+- Initial instructions had Sessions 1-3 doing unrelated "idle tasks"
+- Session 4 working alone on 3 integration bridges (8 hours)
+- **Result:** Blocker stays blocked, other sessions waste capacity
+
+**Solution Implemented:**
+```yaml
+# BEFORE (Bad Coordination)
+session_4:
+  task: Fix all 3 bridges alone
+  time: 8 hours
+  help: none
+
+sessions_1_3:
+  task: Unrelated idle work
+  helping: nobody
+
+# AFTER (Gang Up on Blocker)
+session_1_ndi:
+  task: Fix NDI side of SIP-NDI bridge
+  helping: session_4
+  time: 4 hours
+
+session_2_webrtc:
+  task: Fix WebRTC side of SIP-WebRTC bridge
+  helping: session_4
+  time: 5 hours
+
+session_3_h323:
+  task: Fix H.323 side of SIP-H.323 bridge
+  helping: session_4
+  time: 6 hours
+
+session_4_sip:
+  task: Coordinate + integrate bridges from 1-3
+  time: 6 hours (down from 8!)
+  accepts_help: true
+```
+
+**Results:**
+- Time to unblock: 8 hours → 6 hours (25% faster)
+- Sessions 1-3: Productive instead of idle
+- Knowledge sharing: Each session handles their protocol expertise
+- Session 4: Coordinates instead of implementing everything
+- **Total parallel work: 15 hours of productive work in 6 hours wall-clock**
+
+**Philosophy: 君臣 (Ruler-Minister) Swarm Response**
+
+When a "ruler" (critical path session) is blocked:
+1. All "ministers" (dependent sessions) immediately help
+2. Ministers work on THEIR side of the blocker's problem
+3. Ruler coordinates + integrates minister contributions
+4. Everyone posts STATUS.md showing "HELPING SESSION X"
+5. Ruler reviews minister work, provides feedback
+6. **Result:** Blocker cleared faster, no wasted capacity
+
+**Revised Idle Task Protocol:**
+```python
+if blocked_on_session_X:
+    # OLD: Do unrelated idle work
+    # NEW: Help session X with YOUR expertise
+
+    my_expertise = identify_my_domain()  # NDI, WebRTC, H.323
+    blocker_needs = session_X.get_needs()
+
+    if my_expertise in blocker_needs:
+        help_with_my_side_of_integration()
+        post_status("HELPING SESSION X")
+        coordinate_with_session_X()
+    else:
+        # Only if you CAN'T help with expertise
+        do_unrelated_idle_work()
+```
+
+**Implementation in Instructions:**
+```markdown
+# Session 1 Phase 4 - REVISED
+
+**Status:** BLOCKED on Session 4
+**Action:** HELP SESSION 4 (not idle work!)
+
+## Task 1: NDI Side of SIP Bridge
+Work WITH Session 4 on their blocker
+- You know NDI best
+- They need SIP-NDI integration
+- Fix YOUR side, test with mocks
+- Post results to Session 4
+
+**GOAL:** Unblock Session 4 ASAP!
+```
+
+**Key Insight:**
+Idle tasks should be "help the blocker" not "work on something else". The swarm's job is to clear blockers, not maximize individual productivity.
+
+**Metrics:**
+- Blocker resolution: 25% faster
+- Wasted capacity: 0% (everyone productive)
+- Knowledge transfer: High (each handles their expertise)
+- Coordination overhead: Minimal (async STATUS.md posts)
+
+**Lesson for Future S² Deployments:**
+When defining Phase N instructions, check for blockers in dependency graph. If Session X blocks Sessions Y,Z then:
+- Session X instructions: "You're blocking Y,Z - accept their help"
+- Sessions Y,Z instructions: "Help Session X with YOUR expertise on THEIR blocker"
+- NOT: "Wait for Session X, do unrelated work"
+
+This is the difference between a **coordinated swarm** and **parallel individuals**.
+
 ---
 
 ## Replication Guide
