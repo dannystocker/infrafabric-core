@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "if://schema/ifmessage/v2.1",
+  "title": "IFMessage Schema v2.1 (Swarp v4* Hardening)",
+  "description": "Enhanced message schema with anti-replay, hazard tags, and scoping",
+  "type": "object",
+  "required": [
+    "performative",
+    "sender",
+    "receiver",
+    "conversation_id",
+    "content",
+    "timestamp",
+    "sequence_num",
+    "nonce",
+    "ttl",
+    "scope",
+    "signature"
+  ],
+  "properties": {
+    "performative": {
+      "type": "string",
+      "enum": [
+        "request",
+        "inform",
+        "agree",
+        "refuse",
+        "query-if",
+        "query-ref",
+        "contradict",
+        "escalate",
+        "share",
+        "hold"
+      ],
+      "description": "FIPA-ACL speech act"
+    },
+    "sender": {
+      "type": "string",
+      "pattern": "^if://agent/.*",
+      "description": "Agent ID using if:// URI scheme"
+    },
+    "receiver": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^if://agent/.*"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^if://agent/.*"
+          }
+        }
+      ],
+      "description": "Single agent or broadcast list"
+    },
+    "conversation_id": {
+      "type": "string",
+      "pattern": "^if://conversation/.*",
+      "description": "Unique conversation identifier"
+    },
+    "topic": {
+      "type": "string",
+      "pattern": "^if://topic/.*",
+      "description": "Message topic/channel"
+    },
+    "protocol": {
+      "type": "string",
+      "default": "fipa-request",
+      "description": "Interaction protocol (fipa-request, fipa-contract-net, etc.)"
+    },
+    "content": {
+      "type": "object",
+      "description": "Message payload (protocol-specific structure)"
+    },
+    "citation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(if://citation/|cit:).*"
+      },
+      "description": "Evidence citations backing claims in content"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp (UTC)"
+    },
+    "sequence_num": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Monotonic sequence number per sender (replay protection)"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{12}$",
+      "description": "Distributed tracing ID (48-bit hex)"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{24}$",
+      "description": "96-bit random nonce (anti-replay, birthday attack resistant)"
+    },
+    "ttl": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600,
+      "default": 300,
+      "description": "Time-to-live in seconds (message expires after TTL)"
+    },
+    "scope": {
+      "type": "object",
+      "required": ["mission_id", "workflow", "domain"],
+      "properties": {
+        "mission_id": {
+          "type": "string",
+          "description": "Mission/project identifier (prevents cross-mission conflicts)"
+        },
+        "workflow": {
+          "type": "string",
+          "description": "Workflow stage (legal-findings-pass-3, market-analysis, etc.)"
+        },
+        "domain": {
+          "type": "string",
+          "enum": ["legal", "finance", "markets", "macro", "technical", "governance"],
+          "description": "Domain/swarm specialization"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "default": "medium",
+          "description": "Message priority"
+        }
+      },
+      "description": "Scope metadata (prevents false conflicts across parallel workflows)"
+    },
+    "topic_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "SHA-256 hash of conversation_id (collision detection)"
+    },
+    "hazard": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["legal", "safety", "conflict", "ethical", "privacy"],
+          "description": "Hazard category"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "description": "Hazard severity"
+        },
+        "auto_escalate": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, forces ESCALATE regardless of confidence score"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Human-readable explanation of hazard"
+        },
+        "threshold_override": {
+          "type": "object",
+          "properties": {
+            "original_confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "description": "Records when hazard overrides confidence-based routing"
+        }
+      },
+      "description": "Hazard tags for policy-driven escalation (v4* critical fix)"
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "commit": {
+          "type": "string",
+          "description": "Git commit hash of sender's code"
+        },
+        "version": {
+          "type": "string",
+          "description": "Sender agent version"
+        },
+        "model": {
+          "type": "string",
+          "description": "LLM model used (claude-sonnet-4.5, gpt-5-pro, etc.)"
+        },
+        "cost_usd": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Message generation cost (IF.optimise)"
+        },
+        "tokens_used": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Token count (IF.optimise)"
+        }
+      },
+      "description": "Provenance metadata (IF.TTT traceability)"
+    },
+    "signature": {
+      "type": "object",
+      "required": ["algorithm", "public_key", "signature_bytes", "signed_fields"],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": ["ed25519"],
+          "description": "Signature algorithm"
+        },
+        "public_key": {
+          "type": "string",
+          "pattern": "^ed25519:[A-Za-z0-9+/=]+$",
+          "description": "Base64-encoded Ed25519 public key"
+        },
+        "signature_bytes": {
+          "type": "string",
+          "pattern": "^ed25519:[a-f0-9]+$",
+          "description": "Hex-encoded signature"
+        },
+        "signed_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of fields included in signature"
+        }
+      },
+      "description": "Ed25519 cryptographic signature (anti-forgery)"
+    }
+  },
+  "additionalProperties": false
+}
