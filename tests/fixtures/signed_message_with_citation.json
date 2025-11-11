@@ -1,0 +1,20 @@
+{
+  "id": "signed-001",
+  "timestamp": "2025-11-11T15:05:00.000Z",
+  "level": 2,
+  "source": "agent-legal",
+  "destination": "agent-finance",
+  "version": "2.1",
+  "payload": {
+    "claim": "Settlement confirmed by SEC filing",
+    "evidence_file": "data/sec-10k-2024.pdf"
+  },
+  "performative": "inform",
+  "citation_ids": ["if://citation/9f2b3a1e-4d8a-4c7d"],
+  "signature": {
+    "algorithm": "ed25519",
+    "public_key": "3a7d2f8c1b9e7d6a4f3e2c1b0a9d8e7f6c5b4a3d2e1f0a9b8c7d6e5f4a3b2c1d",
+    "signature_bytes": "m8QKz5X3jP2nQ4rK9sL7vT6uY5wZ8xA1bC3dE4fG6hH7iJ9kL0mN2oP4qR5sT7uV",
+    "signed_fields": ["id", "timestamp", "level", "source", "destination", "payload", "citation_ids"]
+  }
+}

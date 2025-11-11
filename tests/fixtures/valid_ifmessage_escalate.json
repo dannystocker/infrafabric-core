@@ -1,0 +1,16 @@
+{
+  "id": "escalate-001",
+  "timestamp": "2025-11-11T15:00:00.000Z",
+  "level": 2,
+  "source": "agent-finance",
+  "destination": "agent-legal",
+  "version": "2.1",
+  "payload": {
+    "performative": "request",
+    "request_type": "escalate",
+    "evidence_needed": true,
+    "expert_domain": "antitrust_law"
+  },
+  "performative": "request",
+  "conversation_id": "epic-escalation-001"
+}

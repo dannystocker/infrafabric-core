@@ -21,3 +21,9 @@ code/yologuard/benchmarks/leaky_repo_v3_fast_v2_results.txt
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Node.js
+node_modules/
+dist/
+*.log
+npm-debug.log*
