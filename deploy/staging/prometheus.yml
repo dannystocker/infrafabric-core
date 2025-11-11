@@ -1,0 +1,81 @@
+# Prometheus Configuration for IF.swarm WebRTC Monitoring
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'ifswarm-staging'
+    environment: 'staging'
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           - alertmanager:9093
+
+# Rule files (optional)
+# rule_files:
+#   - "alerts/*.yml"
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Signaling server metrics (if metrics endpoint added)
+  - job_name: 'signaling-server'
+    static_configs:
+      - targets: ['signaling:8443']
+    metrics_path: '/metrics'
+    scheme: http
+
+  # TURN server metrics (via textfile collector or custom exporter)
+  - job_name: 'turn-server'
+    static_configs:
+      - targets: ['turn:9100']  # Requires custom exporter
+    metrics_path: '/metrics'
+    scheme: http
+
+  # Redis metrics
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    metrics_path: '/metrics'
+
+  # Node exporter (for system metrics)
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+# Example alert rules (create alerts/ directory)
+# groups:
+#   - name: ifswarm_alerts
+#     rules:
+#       - alert: SignalingServerDown
+#         expr: up{job="signaling-server"} == 0
+#         for: 1m
+#         labels:
+#           severity: critical
+#         annotations:
+#           summary: "Signaling server is down"
+#           description: "Signaling server has been down for more than 1 minute"
+#
+#       - alert: TURNServerDown
+#         expr: up{job="turn-server"} == 0
+#         for: 1m
+#         labels:
+#           severity: critical
+#         annotations:
+#           summary: "TURN server is down"
+#           description: "TURN server has been down for more than 1 minute"
+#
+#       - alert: HighConnectionFailureRate
+#         expr: rate(webrtc_connection_failures[5m]) > 0.1
+#         for: 5m
+#         labels:
+#           severity: warning
+#         annotations:
+#           summary: "High WebRTC connection failure rate"
+#           description: "More than 10% of connections are failing"

@@ -14,6 +14,10 @@ import { IFAgentWebRTC, IFMessage, WitnessEvent } from '../src/communication/web
 import { WebRTCSignalingServer } from '../src/communication/webrtc-signaling-server';
 import { SRTPKeyRotationEvent } from '../src/communication/srtp-key-manager';
 import * as ed25519 from '@noble/ed25519';
+import { createHash } from 'crypto';
+
+// Setup SHA-512 for ed25519 (required for Node.js)
+ed25519.etc.sha512Sync = (...m) => createHash('sha512').update(Buffer.concat(m as any)).digest();
 
 /**
  * Mock IF.witness logger

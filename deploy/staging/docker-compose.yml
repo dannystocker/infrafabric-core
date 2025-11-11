@@ -1,0 +1,220 @@
+# Docker Compose Configuration for IF.swarm WebRTC Stack (Staging)
+#
+# Purpose:
+# - Complete WebRTC infrastructure deployment
+# - TURN server (Coturn) for relay fallback
+# - Signaling server (WebSocket) for SDP/ICE exchange
+# - Redis for signaling state management
+# - Optional monitoring (Prometheus + Grafana)
+#
+# Philosophy:
+# - IF.ground: Reproducible deployment
+# - IF.witness: All services log to centralized system
+# - IF.TTT: Transparent, traceable infrastructure
+
+version: '3.8'
+
+services:
+  # ============================================
+  # Redis - State Management for Signaling
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: ifswarm-redis-staging
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - ifswarm-network
+
+  # ============================================
+  # TURN Server - Coturn for NAT Traversal
+  # ============================================
+  turn:
+    image: coturn/coturn:latest
+    container_name: ifswarm-turn-staging
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./coturn.conf:/etc/coturn/turnserver.conf:ro
+      - turn-logs:/var/log/coturn
+      - ./certs:/etc/coturn/certs:ro
+    environment:
+      - EXTERNAL_IP=${EXTERNAL_IP:-auto-detect}
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "3478"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    # Note: network_mode: host is used for better NAT traversal
+    # Alternatively, expose specific ports:
+    # ports:
+    #   - "3478:3478/tcp"
+    #   - "3478:3478/udp"
+    #   - "5349:5349/tcp"
+    #   - "49152-65535:49152-65535/udp"
+
+  # ============================================
+  # Signaling Server - WebSocket for SDP/ICE
+  # ============================================
+  signaling:
+    image: node:18-alpine
+    container_name: ifswarm-signaling-staging
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ../../:/app
+      - /app/node_modules
+    ports:
+      - "8443:8443"
+    environment:
+      - NODE_ENV=staging
+      - PORT=8443
+      - HOST=0.0.0.0
+      - REDIS_URL=redis://redis:6379
+      - WITNESS_LOGGER_URL=${WITNESS_LOGGER_URL}
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        node dist/communication/webrtc-signaling-server.js
+      "
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8443"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - ifswarm-network
+
+  # ============================================
+  # Nginx - Load Balancer (Optional)
+  # ============================================
+  nginx:
+    image: nginx:alpine
+    container_name: ifswarm-nginx-staging
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-signaling.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+      - nginx-logs:/var/log/nginx
+    depends_on:
+      - signaling
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - ifswarm-network
+    profiles:
+      - loadbalancer
+
+  # ============================================
+  # Prometheus - Metrics Collection (Optional)
+  # ============================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ifswarm-prometheus-staging
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    networks:
+      - ifswarm-network
+    profiles:
+      - monitoring
+
+  # ============================================
+  # Grafana - Metrics Visualization (Optional)
+  # ============================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ifswarm-grafana-staging
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana-dashboards:/etc/grafana/provisioning/dashboards:ro
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_INSTALL_PLUGINS=redis-datasource
+    depends_on:
+      - prometheus
+    networks:
+      - ifswarm-network
+    profiles:
+      - monitoring
+
+  # ============================================
+  # IF.witness Logger (Optional Integration)
+  # ============================================
+  witness:
+    image: node:18-alpine
+    container_name: ifswarm-witness-staging
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ../../:/app
+      - witness-logs:/var/log/witness
+    environment:
+      - NODE_ENV=staging
+      - LOG_DIR=/var/log/witness
+    command: >
+      sh -c "
+        echo 'IF.witness placeholder - integrate with actual IF.witness service'
+        tail -f /dev/null
+      "
+    networks:
+      - ifswarm-network
+    profiles:
+      - witness
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  ifswarm-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  redis-data:
+    driver: local
+  turn-logs:
+    driver: local
+  nginx-logs:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  witness-logs:
+    driver: local
