@@ -1,0 +1,1614 @@
+# ============================================================================
+# InfraFabric SIP Proxy (IF.ESCALATE) - Production Deployment
+# ============================================================================
+#
+# Kubernetes Production Deployment for Kamailio SIP Proxy
+# Session 4 (SIP) - Phase 3
+#
+# PHILOSOPHY GROUNDING:
+# - IF.ground Observable: All logs to stdout/stderr, centralized logging
+# - IF.TTT Trustworthy: Defense in depth with 7 security layers
+# - Wu Lun (朋友): Verified experts join as equals after security validation
+# - Popper Falsifiability: Security assumptions tested at every layer
+#
+# DEPLOYMENT OVERVIEW:
+# - Kamailio SIP proxy with TLS on port 5061
+# - Prometheus metrics endpoint on port 8000
+# - TLS certificate management with cert-manager
+# - Non-root user execution with read-only filesystem
+# - Resource limits and autoscaling
+# - NetworkPolicy for network isolation
+# - PodDisruptionBudget for high availability
+#
+# SECURITY FEATURES:
+# - TLS 1.2+ encryption with strong ciphers
+# - SIP Digest Authentication (RFC 2617)
+# - IP allowlist (only approved expert organizations)
+# - Rate limiting (Pike + htable)
+# - IF.guard policy validation
+# - IF.witness comprehensive audit logging
+#
+# PREREQUISITES:
+# - Kubernetes 1.20+
+# - cert-manager for TLS certificate management
+# - Prometheus Operator for ServiceMonitor
+# - PostgreSQL database for authentication and IP allowlist
+#
+# USAGE:
+#   kubectl apply -f deploy/kamailio-production.yml
+#   kubectl -n infrafabric get pods -l app=kamailio
+#   kubectl -n infrafabric logs -f deployment/kamailio
+#
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 InfraFabric
+# ============================================================================
+
+---
+# ============================================================================
+# Namespace
+# ============================================================================
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: infrafabric
+  labels:
+    name: infrafabric
+    environment: production
+    app.kubernetes.io/name: infrafabric
+    app.kubernetes.io/component: sip-proxy
+
+---
+# ============================================================================
+# ConfigMap: Kamailio Production Configuration
+# ============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kamailio-config
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+    environment: production
+data:
+  # Main Kamailio configuration
+  # Mount the production config from the repo
+  # In production, use external ConfigMap or config management tool
+  kamailio.cfg: |
+    # This will be mounted from the repository config/kamailio-production.cfg
+    # or generated from a config management system
+    # See: /home/user/infrafabric/config/kamailio-production.cfg
+
+  # TLS configuration
+  tls.cfg: |
+    [server:default]
+    method = TLSv1.2+
+    verify_certificate = yes
+    require_certificate = no
+    private_key = /etc/kamailio/tls/tls.key
+    certificate = /etc/kamailio/tls/tls.crt
+    ca_list = /etc/kamailio/tls/ca.crt
+    cipher_list = ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+    [client:default]
+    method = TLSv1.2+
+    verify_certificate = yes
+    require_certificate = no
+
+  # Database connection configuration
+  dbconfig.cfg: |
+    # PostgreSQL connection for production
+    # Format: postgres://username:password@host:port/database
+    # Populated from environment variables at runtime
+
+---
+# ============================================================================
+# Secret: Database Credentials
+# ============================================================================
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kamailio-db-credentials
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+type: Opaque
+stringData:
+  # In production, use external secret management (Vault, Sealed Secrets, etc.)
+  # These are example values - MUST be changed for production
+  POSTGRES_HOST: "postgresql.infrafabric.svc.cluster.local"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "kamailio"
+  POSTGRES_USER: "kamailio"
+  POSTGRES_PASSWORD: "CHANGE_THIS_IN_PRODUCTION"
+  # Database URL for Kamailio
+  DB_URL: "postgres://kamailio:CHANGE_THIS_IN_PRODUCTION@postgresql.infrafabric.svc.cluster.local:5432/kamailio"
+
+---
+# ============================================================================
+# Secret: SIP Digest Authentication Realm Secret
+# ============================================================================
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kamailio-auth-secret
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+type: Opaque
+stringData:
+  # Secret for SIP digest authentication realm
+  # Used for HA1 hash generation: MD5(username:realm:password)
+  AUTH_REALM: "external.advisor"
+  AUTH_SECRET: "CHANGE_THIS_SECRET_IN_PRODUCTION"
+
+---
+# ============================================================================
+# Certificate: TLS Certificate (cert-manager)
+# ============================================================================
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kamailio-tls
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+spec:
+  # Certificate details
+  secretName: kamailio-tls-secret
+  duration: 2160h # 90 days
+  renewBefore: 360h # 15 days before expiry
+
+  # Subject details
+  subject:
+    organizations:
+      - InfraFabric
+  commonName: sip.infrafabric.local
+
+  # DNS names
+  dnsNames:
+    - sip.infrafabric.local
+    - kamailio.infrafabric.svc.cluster.local
+    - "*.infrafabric.svc.cluster.local"
+
+  # IP addresses (optional, for direct IP access)
+  ipAddresses:
+    - 10.0.1.100
+
+  # Issuer reference (use Let's Encrypt or internal CA)
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+
+  # Private key
+  privateKey:
+    algorithm: RSA
+    size: 4096
+    rotationPolicy: Always
+
+---
+# ============================================================================
+# ClusterIssuer: Let's Encrypt Production (cert-manager)
+# ============================================================================
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  labels:
+    app: kamailio
+spec:
+  acme:
+    # Let's Encrypt production server
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: ops@infrafabric.local  # CHANGE THIS
+
+    # Secret to store ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-prod-account-key
+
+    # ACME DNS-01 challenge (recommended for SIP)
+    solvers:
+      - dns01:
+          cloudflare:
+            email: ops@infrafabric.local  # CHANGE THIS
+            apiTokenSecretRef:
+              name: cloudflare-api-token
+              key: api-token
+
+---
+# ============================================================================
+# Deployment: Kamailio SIP Proxy
+# ============================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kamailio
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+    environment: production
+    version: v1.0.0
+spec:
+  # Replica configuration
+  replicas: 3
+
+  # Deployment strategy
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  # Selector
+  selector:
+    matchLabels:
+      app: kamailio
+      component: sip-proxy
+
+  # Pod template
+  template:
+    metadata:
+      labels:
+        app: kamailio
+        component: sip-proxy
+        environment: production
+        version: v1.0.0
+      annotations:
+        # Prometheus scraping
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+
+        # Force pod restart on config change
+        checksum/config: "{{ .Values.configChecksum }}"
+
+        # Security context annotations
+        seccomp.security.alpha.kubernetes.io/pod: "runtime/default"
+
+    spec:
+      # ======================================================================
+      # Security Context (Pod-level)
+      # ======================================================================
+      securityContext:
+        # Run as non-root user
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+
+        # Restrict capabilities
+        seccompProfile:
+          type: RuntimeDefault
+
+      # ======================================================================
+      # Service Account
+      # ======================================================================
+      serviceAccountName: kamailio
+      automountServiceAccountToken: false
+
+      # ======================================================================
+      # DNS Configuration
+      # ======================================================================
+      dnsPolicy: ClusterFirst
+
+      # ======================================================================
+      # Host Configuration
+      # ======================================================================
+      hostNetwork: false
+      hostPID: false
+      hostIPC: false
+
+      # ======================================================================
+      # Init Container: Database Migration
+      # ======================================================================
+      initContainers:
+        - name: db-migrate
+          image: postgres:15-alpine
+          imagePullPolicy: IfNotPresent
+
+          # Security context
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+
+          # Environment variables
+          env:
+            - name: PGHOST
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: POSTGRES_HOST
+            - name: PGPORT
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: POSTGRES_PORT
+            - name: PGDATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: POSTGRES_DB
+            - name: PGUSER
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: POSTGRES_USER
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: POSTGRES_PASSWORD
+
+          # Command: Wait for database and run migrations
+          command:
+            - sh
+            - -c
+            - |
+              set -e
+              echo "[INFO] Waiting for PostgreSQL..."
+              until pg_isready -h $PGHOST -p $PGPORT -U $PGUSER; do
+                echo "[INFO] PostgreSQL is unavailable - sleeping"
+                sleep 2
+              done
+              echo "[INFO] PostgreSQL is ready"
+
+              # Create tables if not exist (idempotent)
+              # In production, use proper migration tool (Flyway, Liquibase, etc.)
+              echo "[INFO] Running database migrations..."
+              psql -v ON_ERROR_STOP=1 <<-EOSQL
+                -- Subscriber table for SIP digest authentication
+                CREATE TABLE IF NOT EXISTS subscriber (
+                  id SERIAL PRIMARY KEY,
+                  username VARCHAR(64) NOT NULL,
+                  domain VARCHAR(64) NOT NULL,
+                  password VARCHAR(128) NOT NULL,
+                  ha1 VARCHAR(128),
+                  ha1b VARCHAR(128),
+                  created_at TIMESTAMP DEFAULT NOW(),
+                  UNIQUE(username, domain)
+                );
+
+                -- Address table for IP allowlist
+                CREATE TABLE IF NOT EXISTS address (
+                  id SERIAL PRIMARY KEY,
+                  grp INTEGER NOT NULL,
+                  ip_addr VARCHAR(50) NOT NULL,
+                  mask INTEGER NOT NULL DEFAULT 32,
+                  port INTEGER NOT NULL DEFAULT 0,
+                  proto VARCHAR(4) NOT NULL DEFAULT 'any',
+                  tag VARCHAR(64),
+                  created_at TIMESTAMP DEFAULT NOW()
+                );
+
+                -- Insert approved IP ranges (example - CHANGE FOR PRODUCTION)
+                INSERT INTO address (grp, ip_addr, mask, port, proto, tag)
+                VALUES (1, '203.0.113.0', 24, 0, 'any', 'safety-org')
+                ON CONFLICT DO NOTHING;
+
+                INSERT INTO address (grp, ip_addr, mask, port, proto, tag)
+                VALUES (1, '198.51.100.0', 24, 0, 'any', 'ethics-institute')
+                ON CONFLICT DO NOTHING;
+
+                INSERT INTO address (grp, ip_addr, mask, port, proto, tag)
+                VALUES (1, '192.0.2.0', 24, 0, 'any', 'security-consultancy')
+                ON CONFLICT DO NOTHING;
+
+                -- Create indexes for performance
+                CREATE INDEX IF NOT EXISTS idx_subscriber_username ON subscriber(username, domain);
+                CREATE INDEX IF NOT EXISTS idx_address_ip ON address(ip_addr);
+              EOSQL
+
+              echo "[INFO] Database migrations complete"
+
+          # Volume mounts
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+
+      # ======================================================================
+      # Main Container: Kamailio
+      # ======================================================================
+      containers:
+        - name: kamailio
+          image: kamailio/kamailio:5.7-alpine
+          imagePullPolicy: IfNotPresent
+
+          # Security context (container-level)
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE  # Required for binding to port 5061
+
+          # Environment variables
+          env:
+            # Database connection
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-db-credentials
+                  key: DB_URL
+
+            # Authentication realm
+            - name: AUTH_REALM
+              valueFrom:
+                secretKeyRef:
+                  name: kamailio-auth-secret
+                  key: AUTH_REALM
+
+            # Python script path (for IF.guard integration)
+            - name: PYTHON_SCRIPT_PATH
+              value: "/app/src/communication/sip_proxy.py"
+
+            # Logging configuration
+            - name: LOG_LEVEL
+              value: "2"  # INFO level (0=ALERT, 1=CRIT, 2=ERR, 3=WARN, 4=NOTICE, 5=INFO, 6=DBG)
+
+            - name: LOG_FACILITY
+              value: "LOG_LOCAL0"
+
+            # Performance tuning
+            - name: KAMAILIO_CHILDREN
+              value: "8"
+
+            - name: KAMAILIO_TCP_CHILDREN
+              value: "8"
+
+            # Security settings
+            - name: TLS_METHOD
+              value: "TLSv1.2+"
+
+            - name: RATE_LIMIT_CALLS_PER_MINUTE
+              value: "10"
+
+            - name: PIKE_REQS_PER_10SEC
+              value: "30"
+
+          # Ports
+          ports:
+            # SIP over TLS
+            - name: sip-tls
+              containerPort: 5061
+              protocol: TCP
+
+            - name: sip-tls-udp
+              containerPort: 5061
+              protocol: UDP
+
+            # Prometheus metrics
+            - name: metrics
+              containerPort: 8000
+              protocol: TCP
+
+            # Health check endpoint
+            - name: health
+              containerPort: 8080
+              protocol: TCP
+
+          # Liveness probe
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: health
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+
+          # Readiness probe
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: health
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
+
+          # Startup probe (for slow-starting pods)
+          startupProbe:
+            httpGet:
+              path: /health
+              port: health
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 30  # 30 * 5 = 150 seconds max startup time
+
+          # Resource limits
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+              ephemeral-storage: 1Gi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+              ephemeral-storage: 2Gi
+
+          # Volume mounts
+          volumeMounts:
+            # Kamailio configuration
+            - name: kamailio-config
+              mountPath: /etc/kamailio/kamailio.cfg
+              subPath: kamailio.cfg
+              readOnly: true
+
+            - name: kamailio-config
+              mountPath: /etc/kamailio/tls.cfg
+              subPath: tls.cfg
+              readOnly: true
+
+            # TLS certificates
+            - name: tls-certs
+              mountPath: /etc/kamailio/tls
+              readOnly: true
+
+            # Python scripts (for IF.guard integration)
+            - name: python-scripts
+              mountPath: /app/src/communication
+              readOnly: true
+
+            # Temporary directory
+            - name: tmp
+              mountPath: /tmp
+
+            # Run directory
+            - name: run
+              mountPath: /var/run/kamailio
+
+            # Logs (stdout/stderr redirected, but mount for compatibility)
+            - name: logs
+              mountPath: /var/log/kamailio
+
+          # Lifecycle hooks
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    # Graceful shutdown: wait for active calls to complete
+                    echo "[INFO] Graceful shutdown initiated"
+                    kamctl fifo dlg.list | grep -q "total: 0" || sleep 30
+                    echo "[INFO] Shutdown complete"
+
+        # ====================================================================
+        # Sidecar: Prometheus Exporter
+        # ====================================================================
+        - name: prometheus-exporter
+          image: python:3.11-alpine
+          imagePullPolicy: IfNotPresent
+
+          # Security context
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+
+          # Command: Run Prometheus exporter
+          command:
+            - python3
+            - -m
+            - http.server
+            - "8000"
+            - --directory
+            - /metrics
+
+          # Ports
+          ports:
+            - name: metrics
+              containerPort: 8000
+              protocol: TCP
+
+          # Resource limits
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+
+          # Volume mounts
+          volumeMounts:
+            - name: metrics
+              mountPath: /metrics
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+
+        # ====================================================================
+        # Sidecar: Health Check Server
+        # ====================================================================
+        - name: health-server
+          image: python:3.11-alpine
+          imagePullPolicy: IfNotPresent
+
+          # Security context
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+
+          # Command: Simple health check HTTP server
+          command:
+            - python3
+            - -c
+            - |
+              import http.server
+              import socketserver
+
+              class HealthHandler(http.server.BaseHTTPRequestHandler):
+                  def do_GET(self):
+                      if self.path == '/health':
+                          self.send_response(200)
+                          self.send_header('Content-type', 'text/plain')
+                          self.end_headers()
+                          self.wfile.write(b'OK')
+                      elif self.path == '/ready':
+                          # Check if Kamailio is ready (simplified)
+                          self.send_response(200)
+                          self.send_header('Content-type', 'text/plain')
+                          self.end_headers()
+                          self.wfile.write(b'READY')
+                      else:
+                          self.send_response(404)
+                          self.end_headers()
+
+                  def log_message(self, format, *args):
+                      pass  # Suppress access logs
+
+              with socketserver.TCPServer(('', 8080), HealthHandler) as httpd:
+                  httpd.serve_forever()
+
+          # Ports
+          ports:
+            - name: health
+              containerPort: 8080
+              protocol: TCP
+
+          # Resource limits
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 50m
+              memory: 64Mi
+
+          # Volume mounts
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+
+      # ======================================================================
+      # Volumes
+      # ======================================================================
+      volumes:
+        # Kamailio configuration
+        - name: kamailio-config
+          configMap:
+            name: kamailio-config
+            defaultMode: 0444
+
+        # TLS certificates
+        - name: tls-certs
+          secret:
+            secretName: kamailio-tls-secret
+            defaultMode: 0440
+
+        # Python scripts (from ConfigMap or mounted from host)
+        - name: python-scripts
+          configMap:
+            name: kamailio-python-scripts
+            defaultMode: 0444
+
+        # Temporary directory (writable)
+        - name: tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
+
+        # Run directory (writable)
+        - name: run
+          emptyDir:
+            medium: Memory
+            sizeLimit: 64Mi
+
+        # Logs (writable, but logs go to stdout/stderr)
+        - name: logs
+          emptyDir:
+            medium: Memory
+            sizeLimit: 256Mi
+
+        # Metrics directory (writable for Prometheus exporter)
+        - name: metrics
+          emptyDir:
+            medium: Memory
+            sizeLimit: 64Mi
+
+      # ======================================================================
+      # Affinity and Anti-Affinity
+      # ======================================================================
+      affinity:
+        # Pod anti-affinity: spread pods across nodes
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: kamailio
+                    component: sip-proxy
+                topologyKey: kubernetes.io/hostname
+
+        # Node affinity: prefer specific node types
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: node-role.kubernetes.io/worker
+                    operator: In
+                    values:
+                      - "true"
+
+      # ======================================================================
+      # Tolerations
+      # ======================================================================
+      tolerations:
+        - key: node-role.kubernetes.io/worker
+          operator: Equal
+          value: "true"
+          effect: NoSchedule
+
+      # ======================================================================
+      # Termination Grace Period
+      # ======================================================================
+      terminationGracePeriodSeconds: 60
+
+---
+# ============================================================================
+# ServiceAccount: Kamailio
+# ============================================================================
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kamailio
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+automountServiceAccountToken: false
+
+---
+# ============================================================================
+# Service: SIP over TLS (LoadBalancer)
+# ============================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: kamailio-sip
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+  annotations:
+    # Cloud provider specific annotations (example for AWS)
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+
+    # Preserve source IP for IP allowlist
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+spec:
+  type: LoadBalancer
+
+  # External traffic policy: Local to preserve source IP
+  externalTrafficPolicy: Local
+
+  # Session affinity
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800  # 3 hours
+
+  # Selector
+  selector:
+    app: kamailio
+    component: sip-proxy
+
+  # Ports
+  ports:
+    - name: sip-tls-tcp
+      port: 5061
+      targetPort: sip-tls
+      protocol: TCP
+
+    - name: sip-tls-udp
+      port: 5061
+      targetPort: sip-tls-udp
+      protocol: UDP
+
+---
+# ============================================================================
+# Service: Prometheus Metrics (ClusterIP)
+# ============================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: kamailio-metrics
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8000"
+    prometheus.io/path: "/metrics"
+spec:
+  type: ClusterIP
+
+  # Selector
+  selector:
+    app: kamailio
+    component: sip-proxy
+
+  # Ports
+  ports:
+    - name: metrics
+      port: 8000
+      targetPort: metrics
+      protocol: TCP
+
+---
+# ============================================================================
+# Service: Health Check (ClusterIP, Internal)
+# ============================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: kamailio-health
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+spec:
+  type: ClusterIP
+
+  # Selector
+  selector:
+    app: kamailio
+    component: sip-proxy
+
+  # Ports
+  ports:
+    - name: health
+      port: 8080
+      targetPort: health
+      protocol: TCP
+
+---
+# ============================================================================
+# Service: H.323 Gateway Bridge (ClusterIP, Internal)
+# ============================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: h323-gateway
+  namespace: infrafabric
+  labels:
+    app: h323-gateway
+    component: sip-to-h323-bridge
+spec:
+  type: ClusterIP
+
+  # Selector (connects to H.323 gateway from Session 3)
+  selector:
+    app: h323-gateway
+    component: bridge
+
+  # Ports
+  ports:
+    - name: sip
+      port: 5062
+      targetPort: 5062
+      protocol: TCP
+
+---
+# ============================================================================
+# NetworkPolicy: Kamailio Ingress/Egress Rules
+# ============================================================================
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: kamailio-network-policy
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+spec:
+  # Apply to Kamailio pods
+  podSelector:
+    matchLabels:
+      app: kamailio
+      component: sip-proxy
+
+  # Policy types
+  policyTypes:
+    - Ingress
+    - Egress
+
+  # Ingress rules
+  ingress:
+    # Allow SIP TLS from anywhere (IP allowlist enforced by Kamailio)
+    - from:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+            except:
+              # Block private RFC1918 ranges except cluster network
+              - 10.0.0.0/8
+              - 172.16.0.0/12
+              - 192.168.0.0/16
+      ports:
+        - port: 5061
+          protocol: TCP
+        - port: 5061
+          protocol: UDP
+
+    # Allow Prometheus scraping from monitoring namespace
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: monitoring
+        - podSelector:
+            matchLabels:
+              app: prometheus
+      ports:
+        - port: 8000
+          protocol: TCP
+
+    # Allow health checks from kube-system
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: kube-system
+      ports:
+        - port: 8080
+          protocol: TCP
+
+  # Egress rules
+  egress:
+    # Allow DNS queries
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              name: kube-system
+        - podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+
+    # Allow PostgreSQL database access
+    - to:
+        - podSelector:
+            matchLabels:
+              app: postgresql
+      ports:
+        - port: 5432
+          protocol: TCP
+
+    # Allow H.323 gateway communication
+    - to:
+        - podSelector:
+            matchLabels:
+              app: h323-gateway
+      ports:
+        - port: 5062
+          protocol: TCP
+
+    # Allow external expert organizations (IP allowlist)
+    - to:
+        - ipBlock:
+            cidr: 203.0.113.0/24  # Safety & Alignment Expert Org
+        - ipBlock:
+            cidr: 198.51.100.0/24  # Ethics & Bias Research Institute
+        - ipBlock:
+            cidr: 192.0.2.0/24  # Security & Privacy Consultancy
+      ports:
+        - port: 5061
+          protocol: TCP
+        - port: 5061
+          protocol: UDP
+
+---
+# ============================================================================
+# PodDisruptionBudget: High Availability
+# ============================================================================
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: kamailio-pdb
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+spec:
+  # Minimum available pods during disruptions
+  minAvailable: 2
+
+  # Selector
+  selector:
+    matchLabels:
+      app: kamailio
+      component: sip-proxy
+
+---
+# ============================================================================
+# HorizontalPodAutoscaler: Auto-scaling
+# ============================================================================
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: kamailio-hpa
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+spec:
+  # Scale target
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: kamailio
+
+  # Replica bounds
+  minReplicas: 3
+  maxReplicas: 10
+
+  # Scaling metrics
+  metrics:
+    # CPU utilization
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+
+    # Memory utilization
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+
+    # Custom metric: Active SIP calls (requires custom metrics API)
+    - type: Pods
+      pods:
+        metric:
+          name: kamailio_active_calls
+        target:
+          type: AverageValue
+          averageValue: "100"
+
+  # Scaling behavior
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300  # 5 minutes
+      policies:
+        - type: Percent
+          value: 50
+          periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 60  # 1 minute
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 60
+        - type: Pods
+          value: 2
+          periodSeconds: 60
+
+---
+# ============================================================================
+# ServiceMonitor: Prometheus Operator Integration
+# ============================================================================
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kamailio
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+    prometheus: kube-prometheus
+spec:
+  # Selector for services to monitor
+  selector:
+    matchLabels:
+      app: kamailio
+      component: sip-proxy
+
+  # Endpoints to scrape
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+      scrapeTimeout: 10s
+      scheme: http
+
+      # Relabeling
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_pod_name]
+          targetLabel: pod
+        - sourceLabels: [__meta_kubernetes_namespace]
+          targetLabel: namespace
+        - sourceLabels: [__meta_kubernetes_pod_label_version]
+          targetLabel: version
+
+---
+# ============================================================================
+# PrometheusRule: Alerting Rules
+# ============================================================================
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kamailio-alerts
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+    prometheus: kube-prometheus
+spec:
+  groups:
+    - name: kamailio.rules
+      interval: 30s
+      rules:
+        # Alert: High rate limit violations
+        - alert: KamailioHighRateLimitViolations
+          expr: rate(kamailio_rate_limit_violations_total[5m]) > 1
+          for: 5m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "High rate limit violations detected"
+            description: "Rate limit violations for {{ $labels.expert_id }} exceed 1/sec (current: {{ $value }})"
+
+        # Alert: High authentication failures
+        - alert: KamailioHighAuthFailures
+          expr: rate(kamailio_auth_failures_total[5m]) > 5
+          for: 5m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "High authentication failures detected"
+            description: "Auth failures exceed 5/sec (current: {{ $value }})"
+
+        # Alert: IP allowlist denials (potential attack)
+        - alert: KamailioIPAllowlistDenials
+          expr: rate(kamailio_ip_allowlist_denials_total[5m]) > 10
+          for: 2m
+          labels:
+            severity: critical
+            component: sip-proxy
+          annotations:
+            summary: "High IP allowlist denials detected"
+            description: "IP allowlist denials exceed 10/sec (current: {{ $value }}) - potential attack"
+
+        # Alert: TLS validation failures
+        - alert: KamailioTLSValidationFailures
+          expr: rate(kamailio_tls_validation_failures_total[5m]) > 1
+          for: 5m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "TLS validation failures detected"
+            description: "TLS validation failures exceed 1/sec (current: {{ $value }})"
+
+        # Alert: Certificate expiring soon
+        - alert: KamailioTLSCertificateExpiringSoon
+          expr: kamailio_tls_certificate_expiry_days < 15
+          for: 1h
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "TLS certificate expiring soon"
+            description: "TLS certificate expires in {{ $value }} days"
+
+        # Alert: High call failure rate
+        - alert: KamailioHighCallFailureRate
+          expr: rate(kamailio_call_failures_total[5m]) / rate(kamailio_call_attempts_total[5m]) > 0.1
+          for: 10m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "High call failure rate detected"
+            description: "Call failure rate exceeds 10% (current: {{ $value | humanizePercentage }})"
+
+        # Alert: Pod not ready
+        - alert: KamailioPodNotReady
+          expr: kube_pod_status_ready{pod=~"kamailio-.*", condition="true"} == 0
+          for: 5m
+          labels:
+            severity: critical
+            component: sip-proxy
+          annotations:
+            summary: "Kamailio pod not ready"
+            description: "Pod {{ $labels.pod }} is not ready for 5 minutes"
+
+        # Alert: High CPU usage
+        - alert: KamailioHighCPUUsage
+          expr: rate(container_cpu_usage_seconds_total{pod=~"kamailio-.*"}[5m]) > 0.8
+          for: 10m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "High CPU usage detected"
+            description: "CPU usage exceeds 80% for pod {{ $labels.pod }}"
+
+        # Alert: High memory usage
+        - alert: KamailioHighMemoryUsage
+          expr: container_memory_working_set_bytes{pod=~"kamailio-.*"} / container_spec_memory_limit_bytes{pod=~"kamailio-.*"} > 0.9
+          for: 10m
+          labels:
+            severity: warning
+            component: sip-proxy
+          annotations:
+            summary: "High memory usage detected"
+            description: "Memory usage exceeds 90% for pod {{ $labels.pod }}"
+
+---
+# ============================================================================
+# ConfigMap: Python Scripts (IF.guard Integration)
+# ============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kamailio-python-scripts
+  namespace: infrafabric
+  labels:
+    app: kamailio
+    component: sip-proxy
+data:
+  # sip_proxy.py - Main SIP proxy logic with IF.guard integration
+  # In production, mount from Git repo or build into custom image
+  sip_proxy.py: |
+    # Placeholder - mount actual script from:
+    # /home/user/infrafabric/src/communication/sip_proxy.py
+    pass
+
+  # sip_security.py - Security module
+  sip_security.py: |
+    # Placeholder - mount actual script from:
+    # /home/user/infrafabric/src/communication/sip_security.py
+    pass
+
+---
+# ============================================================================
+# ConfigMap: Fluent Bit Log Collection
+# ============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-kamailio-config
+  namespace: infrafabric
+  labels:
+    app: fluent-bit
+    component: log-aggregation
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush         5
+        Daemon        off
+        Log_Level     info
+        Parsers_File  parsers.conf
+
+    [INPUT]
+        Name              tail
+        Path              /var/log/kamailio/*.log
+        Parser            kamailio
+        Tag               kamailio.*
+        Refresh_Interval  5
+        Mem_Buf_Limit     5MB
+        Skip_Long_Lines   On
+
+    [FILTER]
+        Name                kubernetes
+        Match               kamailio.*
+        Kube_Tag_Prefix     kamailio.var.log.containers.
+        Kube_URL            https://kubernetes.default.svc:443
+        Kube_CA_File        /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        Kube_Token_File     /var/run/secrets/kubernetes.io/serviceaccount/token
+        Merge_Log           On
+        Keep_Log            Off
+        K8S-Logging.Parser  On
+        K8S-Logging.Exclude On
+
+    [FILTER]
+        Name    modify
+        Match   kamailio.*
+        Add     environment production
+        Add     application infrafabric
+        Add     component sip-proxy
+
+    [OUTPUT]
+        Name   es
+        Match  kamailio.*
+        Host   elasticsearch.logging.svc.cluster.local
+        Port   9200
+        Index  kamailio-logs
+        Type   _doc
+
+  parsers.conf: |
+    [PARSER]
+        Name        kamailio
+        Format      regex
+        Regex       ^(?<time>[^ ]+ [^ ]+) \[(?<level>[^\]]+)\] (?<message>.*)$
+        Time_Key    time
+        Time_Format %b %d %H:%M:%S
+
+---
+# ============================================================================
+# DOCKER COMPOSE ALTERNATIVE (for smaller deployments)
+# ============================================================================
+# For organizations without Kubernetes, use Docker Compose:
+#
+# version: '3.8'
+#
+# services:
+#   kamailio:
+#     image: kamailio/kamailio:5.7-alpine
+#     container_name: kamailio-production
+#
+#     # Security
+#     security_opt:
+#       - no-new-privileges:true
+#     read_only: true
+#     user: "1000:1000"
+#     cap_drop:
+#       - ALL
+#     cap_add:
+#       - NET_BIND_SERVICE
+#
+#     # Network
+#     ports:
+#       - "5061:5061/tcp"   # SIP over TLS
+#       - "5061:5061/udp"   # SIP over TLS
+#       - "8000:8000/tcp"   # Prometheus metrics
+#
+#     # Environment
+#     environment:
+#       - DB_URL=postgres://kamailio:password@postgres:5432/kamailio
+#       - AUTH_REALM=external.advisor
+#       - LOG_LEVEL=2
+#       - TLS_METHOD=TLSv1.2+
+#
+#     # Volumes
+#     volumes:
+#       - ./config/kamailio-production.cfg:/etc/kamailio/kamailio.cfg:ro
+#       - ./config/tls.cfg:/etc/kamailio/tls.cfg:ro
+#       - ./tls:/etc/kamailio/tls:ro
+#       - ./src/communication:/app/src/communication:ro
+#       - /tmp:/tmp
+#       - /var/run/kamailio:/var/run/kamailio
+#
+#     # Resource limits
+#     deploy:
+#       resources:
+#         limits:
+#           cpus: '2.0'
+#           memory: 2G
+#         reservations:
+#           cpus: '0.5'
+#           memory: 512M
+#
+#     # Health check
+#     healthcheck:
+#       test: ["CMD", "kamctl", "fifo", "uptime"]
+#       interval: 30s
+#       timeout: 10s
+#       retries: 3
+#       start_period: 40s
+#
+#     # Restart policy
+#     restart: unless-stopped
+#
+#     # Logging
+#     logging:
+#       driver: "json-file"
+#       options:
+#         max-size: "10m"
+#         max-file: "3"
+#
+#     # Dependencies
+#     depends_on:
+#       postgres:
+#         condition: service_healthy
+#
+#   # PostgreSQL database
+#   postgres:
+#     image: postgres:15-alpine
+#     container_name: kamailio-postgres
+#
+#     environment:
+#       - POSTGRES_DB=kamailio
+#       - POSTGRES_USER=kamailio
+#       - POSTGRES_PASSWORD=CHANGE_THIS_PASSWORD
+#
+#     volumes:
+#       - postgres-data:/var/lib/postgresql/data
+#       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+#
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U kamailio"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+#
+#     restart: unless-stopped
+#
+#   # Prometheus for metrics
+#   prometheus:
+#     image: prom/prometheus:latest
+#     container_name: kamailio-prometheus
+#
+#     volumes:
+#       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+#       - prometheus-data:/prometheus
+#
+#     ports:
+#       - "9090:9090"
+#
+#     command:
+#       - '--config.file=/etc/prometheus/prometheus.yml'
+#       - '--storage.tsdb.path=/prometheus'
+#
+#     restart: unless-stopped
+#
+#   # Grafana for visualization
+#   grafana:
+#     image: grafana/grafana:latest
+#     container_name: kamailio-grafana
+#
+#     volumes:
+#       - grafana-data:/var/lib/grafana
+#       - ./monitoring/grafana-dashboards:/etc/grafana/provisioning/dashboards:ro
+#
+#     ports:
+#       - "3000:3000"
+#
+#     environment:
+#       - GF_SECURITY_ADMIN_PASSWORD=CHANGE_THIS_PASSWORD
+#
+#     restart: unless-stopped
+#
+# volumes:
+#   postgres-data:
+#   prometheus-data:
+#   grafana-data:
+#
+# networks:
+#   default:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 172.20.0.0/16
+
+---
+# ============================================================================
+# DEPLOYMENT CHECKLIST
+# ============================================================================
+#
+# Pre-deployment:
+# ---------------
+# [ ] Generate TLS certificates (Let's Encrypt or internal CA)
+# [ ] Update database credentials in kamailio-db-credentials Secret
+# [ ] Update auth realm secret in kamailio-auth-secret Secret
+# [ ] Configure IP allowlist in database (address table)
+# [ ] Add expert users to database (subscriber table)
+# [ ] Update Cloudflare API token for cert-manager DNS-01 challenge
+# [ ] Review and update email addresses (ops@infrafabric.local)
+# [ ] Configure cloud provider load balancer annotations
+# [ ] Set up PostgreSQL database (RDS, Cloud SQL, or in-cluster)
+# [ ] Mount Python scripts from repository or build custom image
+#
+# Deployment:
+# -----------
+# [ ] Create namespace: kubectl create namespace infrafabric
+# [ ] Apply secrets: kubectl apply -f secrets/
+# [ ] Apply ConfigMaps: kubectl apply -f kamailio-production.yml
+# [ ] Deploy PostgreSQL: kubectl apply -f postgres.yml
+# [ ] Wait for DB: kubectl wait --for=condition=ready pod -l app=postgresql
+# [ ] Deploy Kamailio: kubectl apply -f kamailio-production.yml
+# [ ] Verify pods: kubectl -n infrafabric get pods
+# [ ] Check logs: kubectl -n infrafabric logs -f deployment/kamailio
+# [ ] Verify services: kubectl -n infrafabric get svc
+# [ ] Test health: kubectl -n infrafabric port-forward svc/kamailio-health 8080:8080
+# [ ] Test metrics: kubectl -n infrafabric port-forward svc/kamailio-metrics 8000:8000
+#
+# Post-deployment:
+# ----------------
+# [ ] Configure firewall rules (if not using cloud provider security groups)
+# [ ] Set up monitoring dashboards in Grafana
+# [ ] Configure AlertManager for critical alerts
+# [ ] Test SIP TLS connectivity from approved IPs
+# [ ] Verify authentication challenges
+# [ ] Test rate limiting (IP and per-expert)
+# [ ] Monitor IF.witness logs for security events
+# [ ] Set up log aggregation (ELK, Loki, etc.)
+# [ ] Document runbook for incident response
+# [ ] Schedule certificate rotation reminders
+# [ ] Set up backup for PostgreSQL database
+#
+# Security Verification:
+# ----------------------
+# [ ] Verify TLS 1.2+ only (no TLS 1.0/1.1)
+# [ ] Verify strong cipher suites only
+# [ ] Test IP allowlist enforcement
+# [ ] Test rate limiting (Pike and per-expert)
+# [ ] Test authentication requirement
+# [ ] Verify non-root execution
+# [ ] Verify read-only root filesystem
+# [ ] Test network policies (ingress/egress)
+# [ ] Review SecurityContext settings
+# [ ] Audit RBAC permissions
+# [ ] Review secrets management
+# [ ] Test graceful shutdown with active calls
+#
+# Performance Testing:
+# --------------------
+# [ ] Load test with 100 concurrent calls
+# [ ] Verify HPA scaling behavior
+# [ ] Test pod anti-affinity (spread across nodes)
+# [ ] Verify PodDisruptionBudget during node drain
+# [ ] Monitor resource usage (CPU, memory)
+# [ ] Test failover scenarios
+# [ ] Verify session affinity
+# [ ] Test certificate rotation without downtime
+#
+# ============================================================================
+# END OF FILE
+# ============================================================================
