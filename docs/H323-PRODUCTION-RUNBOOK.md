@@ -460,6 +460,239 @@ grep GATEKEEPER_FAILOVER logs/ha/failover_*.jsonl | jq .failover_duration_sec
 
 ---
 
+## Codec Troubleshooting
+
+### Codec Negotiation Failures
+
+#### Issue: "Codec negotiation failed (SIP-H.323)"
+
+**Symptoms**:
+- SIP calls fail to bridge to H.323
+- Error logs show "No common codec"
+- Audio drops or no audio
+
+**Diagnosis**:
+```bash
+# Check gateway logs for codec mismatches
+grep "codec_negotiation_failed" logs/gateway/gateway_*.jsonl | tail -n 10
+
+# Check SIP caller's codec preferences
+grep "SIP INVITE" logs/gateway/*.log | grep "m=audio"
+```
+
+**Common Codec Compatibility**:
+| SIP Codec | H.323 Codec | Transcoding Needed? | Bandwidth |
+|-----------|-------------|---------------------|-----------|
+| G.711     | G.711       | No                  | 64 kbps   |
+| G.711     | G.729       | Yes                 | 64→8 kbps |
+| G.729     | G.711       | Yes                 | 8→64 kbps |
+| Opus      | G.711       | Yes                 | Variable  |
+| VP8       | H.264       | Yes (video)         | Variable  |
+
+**Solution**:
+1. **Check Codec Whitelist** (`src/communication/h323_policy_enforce.py:192`):
+   ```python
+   ALLOWED_CODECS = ['G.711', 'G.729', 'VP8', 'Opus']
+   ```
+   - If SIP caller using non-whitelisted codec, add to whitelist
+   - Or configure SIP client to use whitelisted codec
+
+2. **Verify GStreamer Transcoding Pipeline**:
+   ```bash
+   # Test G.711 → G.729 transcoding
+   gst-launch-1.0 -v \
+     udpsrc port=20000 caps="application/x-rtp,media=audio,encoding-name=PCMU" ! \
+     rtppcmudepay ! mulawdec ! \
+     avenc_g729 ! rtpg729pay ! \
+     udpsink host=localhost port=20002
+
+   # Check for errors in output
+   ```
+
+3. **Check MCU Codec Support**:
+   ```bash
+   # For Jitsi MCU
+   grep "supported codecs" /var/log/jitsi/jvb.log
+
+   # For Kurento MCU
+   kurento-media-server --list-codecs
+   ```
+
+4. **Fallback to Safe Codec**:
+   - Configure SIP gateway to always use G.711 (universally supported)
+   - In `h323_sip_gateway.py`, set default codec to G.711:
+     ```python
+     DEFAULT_CODEC = "G.711"  # Fallback codec
+     ```
+
+#### Issue: "Audio quality degraded after transcoding"
+
+**Symptoms**:
+- Audio sounds compressed or "tinny"
+- Guardian complaints about poor audio quality
+- Packet loss >5% in transcoded calls
+
+**Diagnosis**:
+```bash
+# Check transcoding CPU usage
+ps aux | grep gst-launch | awk '{print $3}'  # Should be <50% per stream
+
+# Check transcoding latency
+grep "transcoding_latency_ms" logs/gateway/gateway_*.jsonl | jq .transcoding_latency_ms
+# Should be <20ms
+
+# Check packet loss
+grep "packet_loss" logs/gateway/gateway_*.jsonl | jq .packet_loss_percent
+```
+
+**Root Causes & Solutions**:
+
+1. **CPU Overload** (transcoding >5 concurrent streams):
+   ```bash
+   # Check number of active transcoding processes
+   ps aux | grep gst-launch | wc -l
+
+   # Solution: Limit concurrent transcoded calls
+   # In h323_sip_gateway.py, add max transcoding limit:
+   MAX_CONCURRENT_TRANSCODING = 5
+   ```
+
+2. **Codec Bitrate Mismatch**:
+   - G.711 (64 kbps) → G.729 (8 kbps) = significant quality loss
+   - **Solution**: Prefer G.711 for high-quality calls
+   - Use G.729 only for bandwidth-constrained scenarios
+
+3. **Jitter Buffer Underrun**:
+   ```bash
+   # Check jitter buffer statistics
+   grep "jitter_buffer" logs/gateway/*.log
+
+   # Solution: Increase jitter buffer size
+   # In h323_sip_gateway.py:
+   JITTER_BUFFER_SIZE_MS = 150  # Increase from 50ms to 150ms
+   ```
+
+4. **Network Packet Loss**:
+   ```bash
+   # Test network quality between SIP gateway and H.323 MCU
+   iperf3 -c <mcu-ip> -u -b 2M -t 30
+
+   # Solution: Enable FEC (Forward Error Correction)
+   # Or reduce number of concurrent calls
+   ```
+
+#### Issue: "Video codec mismatch (VP8 vs H.264)"
+
+**Symptoms**:
+- Video not displaying for some guardians
+- Error: "Unsupported video codec"
+- CPU usage high (>80%) during video calls
+
+**Diagnosis**:
+```bash
+# Check video codec negotiation
+grep "video_codec" logs/gateway/gateway_*.jsonl | jq .codec
+
+# Check MCU video codec support
+# For Jitsi
+curl http://localhost:8080/colibri/stats | jq .videochannels[].codec
+
+# For Kurento
+grep "VideoCodec" /var/log/kurento/*.log
+```
+
+**Solution**:
+
+1. **Prefer VP8 over H.264**:
+   - VP8 is royalty-free, better browser support
+   - H.264 requires licensing, but better hardware acceleration
+   - **Recommendation**: Use VP8 for Guardian Council (browser-based guardians)
+
+   In `src/communication/codec_selector.py` (Phase 5):
+   ```python
+   VIDEO_CODEC_PREFERENCE = ["VP8", "H.264", "VP9"]
+   ```
+
+2. **Disable Video for Audio-Only Calls**:
+   ```bash
+   # If audio quality > video quality, disable video
+   # In h323_sip_gateway.py:
+   AUDIO_ONLY_MODE = True  # Force audio-only for low-bandwidth
+   ```
+
+3. **Hardware Acceleration** (if available):
+   ```bash
+   # Check for GPU support
+   vainfo  # Intel GPU
+   nvidia-smi  # NVIDIA GPU
+
+   # Configure GStreamer to use hardware encoding
+   # In h323_sip_gateway.py:
+   USE_HARDWARE_ENCODING = True  # Use vaapih264enc or nvh264enc
+   ```
+
+#### Issue: "SIP caller rejected due to codec policy"
+
+**Symptoms**:
+- SIP call rejected with `CODEC_NOT_ALLOWED`
+- Error in logs: "PolicyViolationType.CODEC_NOT_ALLOWED"
+
+**Diagnosis**:
+```bash
+# Check policy enforcement logs
+grep "CODEC_NOT_ALLOWED" logs/gateway/sip_policy_*.jsonl | jq .
+```
+
+**Solution**:
+1. **Update Codec Whitelist** (`src/communication/h323_policy_enforce.py:192`):
+   ```python
+   # Add caller's codec to whitelist
+   ALLOWED_CODECS = ['G.711', 'G.729', 'VP8', 'Opus', 'AMR']  # Added AMR
+   ```
+
+2. **Notify SIP Caller**:
+   - Send SIP 488 Not Acceptable Here response
+   - Include supported codecs in SIP response headers:
+     ```
+     Accept: application/sdp
+     Supported-Codecs: G.711,G.729,VP8,Opus
+     ```
+
+3. **Configure SIP Client**:
+   - Ask caller to reconfigure SIP client to use G.711 or G.729
+   - Provide codec configuration instructions for common clients:
+     - Zoiper: Settings → Accounts → Advanced → Codecs
+     - Linphone: Preferences → Audio codecs
+     - Jitsi: Advanced → Audio → Audio codecs
+
+### Codec Performance Tuning
+
+#### Best Practices for Codec Selection
+
+**For Audio Calls**:
+- **Low Bandwidth** (<1 Mbps): Use G.729 (8 kbps)
+- **Standard Quality** (1-2 Mbps): Use G.711 (64 kbps)
+- **High Quality** (>2 Mbps): Use Opus (64-128 kbps, adaptive)
+
+**For Video Calls**:
+- **Browser-Based Guardians**: Use VP8 (better WebRTC support)
+- **Hardware-Accelerated Endpoints**: Use H.264 (better performance)
+- **Bandwidth-Constrained**: Use VP8 with low bitrate (500 kbps)
+
+**Transcoding Decision Matrix**:
+```
+SIP Codec → H.323 Codec:
+  G.711 → G.711: Pass-through (0ms latency, 0% CPU)
+  G.711 → G.729: Transcode (15ms latency, 30% CPU)
+  G.729 → G.711: Transcode (15ms latency, 25% CPU)
+  Opus  → G.711: Transcode (20ms latency, 40% CPU)
+  VP8   → H.264: Transcode (50ms latency, 70% CPU)
+```
+
+**Recommendation**: Minimize transcoding by standardizing on G.711 + VP8 for all participants.
+
+---
+
 ## Rollback Procedures
 
 ### Scenario: Phase 3 Deployment Fails
