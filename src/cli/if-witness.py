@@ -18,7 +18,7 @@ import json
 import csv
 from pathlib import Path
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List, Dict, Any
 
 import click
 
@@ -266,17 +266,116 @@ def cost(ctx, trace_id, component, start_date, end_date, format):
         db.close()
 
 
+def _parse_date_range(date_range_str: str) -> tuple[datetime, datetime]:
+    """
+    Parse date range string in format 'YYYY-MM-DD:YYYY-MM-DD' or 'YYYY-MM-DD'.
+
+    Args:
+        date_range_str: Date range string
+
+    Returns:
+        Tuple of (start_date, end_date)
+
+    Raises:
+        ValueError: If format is invalid
+    """
+    if not date_range_str:
+        return None, None
+
+    if ':' in date_range_str:
+        # Range format: start:end
+        parts = date_range_str.split(':')
+        if len(parts) != 2:
+            raise ValueError("Invalid date range format. Use 'YYYY-MM-DD:YYYY-MM-DD'")
+
+        start_date = datetime.fromisoformat(parts[0])
+        end_date = datetime.fromisoformat(parts[1])
+
+        # Ensure start is before end
+        if start_date > end_date:
+            start_date, end_date = end_date, start_date
+
+        # Set end_date to end of day
+        end_date = end_date.replace(hour=23, minute=59, second=59, microsecond=999999)
+    else:
+        # Single day format
+        single_date = datetime.fromisoformat(date_range_str)
+        start_date = single_date.replace(hour=0, minute=0, second=0, microsecond=0)
+        end_date = single_date.replace(hour=23, minute=59, second=59, microsecond=999999)
+
+    return start_date, end_date
+
+
+def _get_cost_summary(entries: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """
+    Calculate cost summary from entries.
+
+    Args:
+        entries: List of witness entries
+
+    Returns:
+        Dictionary with cost summary
+    """
+    total_cost = 0.0
+    total_tokens = 0
+    component_costs = {}
+
+    for entry in entries:
+        cost = entry.get('cost_usd') or 0.0
+        tokens_in = entry.get('tokens_in') or 0
+        tokens_out = entry.get('tokens_out') or 0
+        component = entry.get('component', 'unknown')
+
+        total_cost += cost
+        total_tokens += tokens_in + tokens_out
+
+        if component not in component_costs:
+            component_costs[component] = {
+                'component': component,
+                'operations': 0,
+                'total_tokens': 0,
+                'total_cost': 0.0
+            }
+
+        component_costs[component]['operations'] += 1
+        component_costs[component]['total_tokens'] += tokens_in + tokens_out
+        component_costs[component]['total_cost'] += cost
+
+    return {
+        'total_cost_usd': total_cost,
+        'total_tokens': total_tokens,
+        'by_component': list(component_costs.values())
+    }
+
+
 @cli.command()
-@click.option('--format', type=click.Choice(['json', 'csv']), default='json')
+@click.option('--format', type=click.Choice(['json', 'csv', 'pdf']), default='json')
 @click.option('--output', type=click.Path(), help='Output file path')
+@click.option('--date-range', help='Date range filter (YYYY-MM-DD:YYYY-MM-DD or YYYY-MM-DD)')
 @click.pass_context
-def export(ctx, format, output):
-    """Export audit trail"""
+def export(ctx, format, output, date_range):
+    """Export audit trail (JSON, CSV, or PDF compliance report)"""
     db: WitnessDatabase = ctx.obj['db']
 
     try:
+        # Parse date range if provided
+        start_date, end_date = None, None
+        if date_range:
+            try:
+                start_date, end_date = _parse_date_range(date_range)
+            except ValueError as e:
+                click.echo(f"❌ Invalid date range: {e}", err=True)
+                sys.exit(1)
+
+        # Export based on format
         if format == 'json':
-            data = db.export_json()
+            # Get all entries (apply date range filtering manually for JSON)
+            if start_date or end_date:
+                entries = db.get_entries_by_date_range(start_date, end_date)
+                data = [e.to_dict() for e in entries]
+            else:
+                data = db.export_json()
+
             output_str = json.dumps(data, indent=2)
 
             if output:
@@ -286,23 +385,69 @@ def export(ctx, format, output):
                 click.echo(output_str)
 
         elif format == 'csv':
-            data = db.export_csv_data()
+            data = db.export_csv_data(start_date, end_date)
 
             if not data:
                 click.echo("No data to export")
                 return
 
-            if output:
-                with open(output, 'w', newline='') as csvfile:
-                    writer = csv.DictWriter(csvfile, fieldnames=data[0].keys())
-                    writer.writeheader()
-                    writer.writerows(data)
-                click.echo(f"✓ Exported {len(data)} entries to {output}")
-            else:
-                # Print to stdout
-                writer = csv.DictWriter(sys.stdout, fieldnames=data[0].keys())
+            # Generate default filename if not provided
+            if not output:
+                today = datetime.utcnow().strftime('%Y-%m-%d')
+                output = f"witness_export_{today}.csv"
+
+            with open(output, 'w', newline='') as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=data[0].keys())
                 writer.writeheader()
                 writer.writerows(data)
+            click.echo(f"✓ Exported {len(data)} entries to {output}")
+
+        elif format == 'pdf':
+            # Check if reportlab is available
+            try:
+                from witness.pdf_export import ComplianceReportGenerator
+            except ImportError:
+                click.echo(
+                    "❌ PDF export requires reportlab. Install with: pip install reportlab>=4.0.0",
+                    err=True
+                )
+                sys.exit(1)
+
+            # Get entries
+            if start_date or end_date:
+                entries = db.get_entries_by_date_range(start_date, end_date)
+                entries_dicts = [e.to_dict() for e in entries]
+            else:
+                entries_dicts = db.export_json()
+
+            if not entries_dicts:
+                click.echo("No data to export")
+                return
+
+            # Get verification results
+            is_valid, error_msg, count = db.verify_all()
+            verification_results = (is_valid, error_msg, count)
+
+            # Get cost summary
+            cost_summary = _get_cost_summary(entries_dicts)
+
+            # Generate PDF
+            generator = ComplianceReportGenerator()
+
+            # Generate default filename if not provided
+            if not output:
+                today = datetime.utcnow().strftime('%Y-%m-%d')
+                output = f"witness_report_{today}.pdf"
+
+            pdf_path = generator.generate_pdf(
+                entries=entries_dicts,
+                output_path=output,
+                verification_results=verification_results,
+                cost_summary=cost_summary
+            )
+
+            click.echo(f"✓ Generated compliance report with {len(entries_dicts)} entries")
+            click.echo(f"✓ Saved to {pdf_path}")
 
     except Exception as e:
         click.echo(f"❌ Error exporting data: {e}", err=True)
