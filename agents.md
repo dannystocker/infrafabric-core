@@ -733,6 +733,123 @@ Before ending each cloud session:
 
 ---
 
+## 2025-11-11: Philosophy Database r4 Upgrade
+
+**Citation:** if://citation/gpt5pro-fixpack-r4-2025-11-11
+**Commit:** 73e52a4
+**Source:** InfraFabric_FixPack_2025-11-11_r4_gapfill.zip (SHA-256: 46c69ff...)
+
+### What Changed
+
+**Philosophy Database:**
+- **Before r4:** 16 core philosophers (75% Western), no tensions, no historical lineage
+- **After r4:** 26 philosophers (54% Western), embedded tensions_with, historical_context for all
+- **Architecture:** Embedded structure (tensions/lineage in YAML) vs. separate documentation files
+- **Joe Coulombe:** Now has historical_context (influenced_by: A&P, 7-Eleven anti-model)
+
+**New Documentation:**
+- `docs/PHILOSOPHY-CODE-EXAMPLES.md` (125 lines): 7 philosophy→code mappings
+- `docs/evidence/gemini-logs/core/IF.philosophy-database-r4.yaml` (955 lines): Core philosophers
+- `docs/evidence/gemini-logs/core/PATCH-IF.philosophy-database.additions.yaml` (292 lines): 9 new traditions
+
+**New Philosophical Traditions Added:**
+1. **Islamic:** Al-Ghazali (Occasionalism), Avicenna (Essence/existence), Averroes (Faith/reason harmony)
+2. **African:** Ubuntu (Personhood through community)
+3. **Indigenous:** Relational epistemology (Knowledge in relationships)
+4. **Phenomenology:** Husserl/Heidegger/Merleau-Ponty (Epoché, being-in-world)
+5. **Critical Theory:** Frankfurt School/Habermas (Ideology critique)
+6. **Process:** Whitehead/Bergson (Events over substances)
+7. **Feminist Epistemology:** Haraway/Harding (Situated knowledges)
+8. **Postmodernism:** Foucault/Derrida/Deleuze (Power/knowledge)
+9. **Tech Philosophy:** Simondon/Stiegler/Yuk Hui (Individuation, cosmotechnics)
+
+### Impact on Agent Behavior
+
+**IF.search Agents:**
+- Can now reference 7 concrete code examples (docs/PHILOSOPHY-CODE-EXAMPLES.md)
+- Joe persona has explicit historical grounding (A&P, 7-Eleven influences)
+- Cross-cultural breadth: 54% Western, 46% non-Western (was 75%/25%)
+
+**IF.guard Agents:**
+- Tension resolution strategies documented (e.g., Al-Ghazali ↔ Avicenna on causality)
+- Ubuntu consensus now has Python implementation example (`approve()` function)
+- All 26 philosophers available for council deliberations
+
+**IF.persona Agents:**
+- Joe Coulombe historical_context: influenced_by [A&P, 7-Eleven (anti-model)]
+- Joe influenced: [Modern private-label retail]
+- Additional_readings: Becoming Trader Joe (2021), Acquired Podcast (2025)
+
+**IF.witness Agents:**
+- Process philosophy (Whitehead/Bergson) now has YAML event log example
+- Append-only, Ed25519-signed event schema documented
+
+**IF.citation Agents:**
+- Indigenous relationality mapped to rhizomatic citation CSV (multi-source coherence)
+- Non-hierarchical evidence graphs now have philosophical grounding
+
+### Code Examples (Philosophy → Implementation)
+
+All agents should reference `docs/PHILOSOPHY-CODE-EXAMPLES.md` when implementing IF principles:
+
+1. **Verificationism → CI Toolchain Gate** (Vienna Circle → ifctl.py + GitHub Actions)
+2. **Falsifiability → One-Line Rollback** (Popper → feature flags in TypeScript)
+3. **Schema Tolerance → Multi-variant Parse** (Duhem-Quine → TypeScript union types)
+4. **Ubuntu Consensus → Guard Gating** (African Philosophy → Python council voting)
+5. **Process Philosophy → Event Witness Log** (Whitehead/Bergson → YAML append-only events)
+6. **Indigenous Relationality → Rhizomatic Citations** (Non-hierarchical → multi-source CSV)
+7. **Joe's Heuristics → Search Pass Filters** (Trader Joe's → YAML differentiation filters)
+
+### Linter Updates
+
+**ifctl.py validation:**
+- Now validates 19 checks (was 17 in r3)
+- Added: 2 additional philosopher validations
+- Status: 19/19 OK, 0 failures (commit 73e52a4)
+
+### Next Steps for Agents
+
+**Recommended agent behaviors going forward:**
+
+1. **When making IF.guard decisions:** Cite tension resolution strategies from philosophy database
+   - Example: "Using Al-Ghazali ↔ Avicenna resolution: empirical adjudication via falsifiers"
+
+2. **When implementing IF principles:** Link to PHILOSOPHY-CODE-EXAMPLES.md
+   - Example: "Implementing Principle 7 (Reversibility) using Popper's pattern (docs/PHILOSOPHY-CODE-EXAMPLES.md:30-45)"
+
+3. **When executing IF.search passes:** Apply Joe's differentiation-filter
+   - Check: Does this evidence provide unique value vs. peers? If not, drop it.
+   - Use: Joe's heuristic "private-label-only-when-better" for source selection
+
+4. **When generating citations:** Reference historical lineage
+   - Example: "Joe Coulombe's constraint-driven curation (influenced_by: A&P, 7-Eleven anti-model)"
+
+5. **When spawning swarm agents:** Distribute across cultural traditions
+   - Instead of: "Spawn 8 agents"
+   - Better: "Spawn 8 agents (2 Islamic, 2 Indigenous, 2 Process, 2 Western)"
+
+### Validation Commands
+
+**Check philosophy database:**
+```bash
+python tools/ifctl.py lint
+# Expected: 19/19 OK checks
+```
+
+**View code examples:**
+```bash
+cat docs/PHILOSOPHY-CODE-EXAMPLES.md | grep "^##"
+# Shows 7 philosophy→code mappings
+```
+
+**Check tensions:**
+```bash
+grep -A3 "tensions_with" docs/evidence/gemini-logs/core/PATCH-IF.philosophy-database.additions.yaml
+# Shows cross-cultural dialectics
+```
+
+---
+
 ## Meta: Updating This Document
 
 **When to update agents.md:**
@@ -740,15 +857,20 @@ Before ending each cloud session:
 - Citation service API changes (v1.0 → v1.1)
 - New agent type added
 - Traceability patterns discovered
+- Philosophy database updates (r3 → r4 upgrades)
 
 **Who updates:**
 - Any agent that identifies gaps in traceability protocol
 - Requires user approval for changes
 - Update must include citation to evidence for change
 
-**Last Updated:** 2025-11-10 (initial creation for IF.TTT integration)
+**Update History:**
+- **2025-11-11:** Philosophy Database r4 upgrade (26 philosophers, tensions, lineage, code examples) - Commit 73e52a4
+- **2025-11-10:** Initial creation for IF.TTT integration - Commit 44a365b
+
+**Last Updated:** 2025-11-11
 **Updated By:** if://agent/claude-sonnet-4.5
-**Citation:** if://decision/agents-md-creation-2025-11-10
+**Citation:** if://decision/agents-md-update-r4-2025-11-11
 
 ---
 
