@@ -1,0 +1,460 @@
+# NDI Witness Integration - Interface Contract
+# Workstream 1 of 4: Real-Time Communication Integration
+# Version: 1.0.0
+# Date: 2025-11-11
+# Status: Implemented
+
+version: "1.0.0"
+workstream: 1
+component: "IF.witness.ndi"
+philosophy:
+  wu_lun_relationship: "父子 (Parent-Child)"
+  if_ground_principle: "Observable Artifacts"
+  if_ttt_compliance: "Traceable, Transparent, Trustworthy"
+
+# ============================================================================
+# 1. NDI STREAM NAMING CONVENTION
+# ============================================================================
+naming:
+  pattern: "IF.witness.{component}.{id}"
+  description: "All IF.witness NDI streams follow this naming convention"
+
+  examples:
+    - stream_name: "IF.witness.yologuard.01"
+      component: "IF.yologuard"
+      id: "01"
+      description: "Primary IF.yologuard scanner stream"
+
+    - stream_name: "IF.witness.yologuard.02"
+      component: "IF.yologuard"
+      id: "02"
+      description: "Secondary IF.yologuard scanner stream (multi-instance)"
+
+    - stream_name: "IF.witness.armour.sentinel-01"
+      component: "IF.armour"
+      id: "sentinel-01"
+      description: "IF.armour sentinel detection stream"
+
+  discovery:
+    protocol: "mDNS (Bonjour)"
+    service_type: "_ndi._tcp"
+    port_range: "5960-5989"
+    notes: "NDI streams auto-discoverable on local network"
+
+# ============================================================================
+# 2. METADATA JSON SCHEMA
+# ============================================================================
+metadata_schema:
+  version: "1.0"
+  encoding: "UTF-8 JSON"
+  embedded_in: "NDI metadata packets"
+
+  required_fields:
+    frame_number:
+      type: "integer"
+      description: "Sequential frame number (starts at 1)"
+      example: 42
+
+    timestamp:
+      type: "string"
+      format: "ISO 8601 with timezone (UTC)"
+      description: "Frame creation timestamp"
+      example: "2025-11-11T14:32:17.234Z"
+
+    component:
+      type: "string"
+      description: "Component identifier (e.g., IF.yologuard)"
+      example: "IF.yologuard"
+
+    trace_id:
+      type: "string"
+      description: "IFMessage v2.1 trace correlation ID"
+      example: "a2f9c3b8d1e5"
+
+    chain_state:
+      type: "object"
+      description: "Witness hash chain state"
+      required_fields:
+        chain_id:
+          type: "string (UUID)"
+          description: "Unique identifier for this hash chain"
+          example: "550e8400-e29b-41d4-a716-446655440000"
+
+        frame_count:
+          type: "integer"
+          description: "Number of frames in chain (including this one)"
+          example: 42
+
+        prev_hash:
+          type: "string (64 hex chars)"
+          description: "SHA-256 hash of previous frame (or '0'*64 for genesis)"
+          example: "5a3d2f8c1b9e7d6a4f3e2c1b0a9d8e7f6c5b4a3d2e1f0a9b8c7d6e5f4a3b2c1d"
+
+    content_hash:
+      type: "string (64 hex chars)"
+      description: "SHA-256 hash of frame_data + metadata (excluding signature/public_key)"
+      example: "7b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c"
+
+    signature:
+      type: "string (128 hex chars)"
+      description: "Ed25519 signature of metadata (excluding signature/public_key fields)"
+      example: "m8QKz5X3jP2nR7tL1vK9wY4bD6fG3hJ8sA0xC5zE2qW7pM1oN4uI9yT6rV3kL0g..."
+
+    public_key:
+      type: "string (Base64)"
+      description: "Ed25519 public key for signature verification (32 bytes encoded)"
+      example: "AAAC3NzaC1lZDI1NTE5AAAAIOMqqaOE9VENlS0kJQwSJAsdlkfjlsdjflSDJFLKSDF"
+
+  optional_fields:
+    scan_metadata:
+      type: "object"
+      description: "Component-specific scan results (e.g., IF.yologuard detections)"
+      example:
+        file: "/code/api/secrets.py"
+        line: 127
+        pattern: "AWS_KEY_REDACTED"
+        severity: "ERROR"
+        relationship_score: 0.85
+
+  example_complete_metadata:
+    frame_number: 42
+    timestamp: "2025-11-11T14:32:17.234Z"
+    component: "IF.yologuard"
+    trace_id: "a2f9c3b8d1e5"
+
+    scan_metadata:
+      file: "/code/api/secrets.py"
+      line: 127
+      pattern: "AWS_KEY_REDACTED"
+      severity: "ERROR"
+      relationship_score: 0.85
+
+    chain_state:
+      chain_id: "550e8400-e29b-41d4-a716-446655440000"
+      frame_count: 42
+      prev_hash: "5a3d2f8c1b9e7d6a4f3e2c1b0a9d8e7f6c5b4a3d2e1f0a9b8c7d6e5f4a3b2c1d"
+
+    content_hash: "7b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c"
+    signature: "m8QKz5X3jP2nR7tL1vK9wY4bD6fG3hJ8sA0xC5zE2qW7pM1oN4uI9yT6rV3kL0g..."
+    public_key: "AAAC3NzaC1lZDI1NTE5AAAAIOMqqaOE9VENlS0kJQwSJAsdlkfjlsdjflSDJFLKSDF"
+
+# ============================================================================
+# 3. ED25519 PUBLIC KEY FORMAT
+# ============================================================================
+public_key_format:
+  algorithm: "Ed25519"
+  key_size: "256 bits (32 bytes)"
+  encoding: "Base64"
+  description: "Ed25519 public keys are encoded as Base64 strings"
+
+  generation:
+    library: "cryptography (Python)"
+    code_example: |
+      from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+      from cryptography.hazmat.primitives import serialization
+      import base64
+
+      # Generate keypair
+      private_key = Ed25519PrivateKey.generate()
+      public_key = private_key.public_key()
+
+      # Export public key as Base64
+      public_bytes = public_key.public_bytes(
+          encoding=serialization.Encoding.Raw,
+          format=serialization.PublicFormat.Raw
+      )
+      public_key_b64 = base64.b64encode(public_bytes).decode('ascii')
+
+  verification:
+    library: "cryptography (Python)"
+    code_example: |
+      from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
+      import base64
+      import json
+
+      # Reconstruct public key
+      public_key_bytes = base64.b64decode(public_key_b64)
+      public_key = Ed25519PublicKey.from_public_bytes(public_key_bytes)
+
+      # Verify signature
+      metadata_to_verify = {k: v for k, v in metadata.items()
+                            if k not in ('signature', 'public_key')}
+      canonical = json.dumps(metadata_to_verify, sort_keys=True)
+      signature_bytes = bytes.fromhex(metadata["signature"])
+
+      public_key.verify(signature_bytes, canonical.encode('utf-8'))
+      # Raises InvalidSignature if verification fails
+
+  trusted_keys:
+    description: "List of trusted Ed25519 public keys for IF.witness components"
+    keys:
+      - component: "IF.yologuard"
+        public_key: "AAAC3NzaC1lZDI1NTE5AAAAIOMqqaOE9VENlS0kJQwSJAsdlkfjlsdjflSDJFLKSDF"
+        fingerprint: "SHA-256:5a3d2f8c1b9e7d6a4f3e2c1b0a9d8e7f"
+        valid_from: "2025-11-11T00:00:00Z"
+        valid_until: "2026-11-11T00:00:00Z"
+        notes: "Primary IF.yologuard signing key"
+
+      # Add more component keys as deployed
+      # - component: "IF.armour"
+      #   public_key: "..."
+
+# ============================================================================
+# 4. HASH CHAIN SPECIFICATION
+# ============================================================================
+hash_chain:
+  algorithm: "SHA-256"
+  genesis_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+  description: "Witness hash chain links frames cryptographically"
+
+  computation:
+    description: "Hash computed over frame_data + metadata (excluding signature/public_key)"
+    pseudocode: |
+      # 1. Initialize SHA-256 hasher
+      hasher = SHA256()
+
+      # 2. Hash frame data (raw bytes)
+      hasher.update(frame_data)
+
+      # 3. Hash metadata (canonical JSON, sorted keys, exclude signature fields)
+      metadata_to_hash = {k: v for k, v in metadata.items()
+                          if k not in ('signature', 'public_key', 'content_hash')}
+      metadata_json = json.dumps(metadata_to_hash, sort_keys=True)
+      hasher.update(metadata_json.encode('utf-8'))
+
+      # 4. Get hex digest
+      content_hash = hasher.hexdigest()  # 64 hex characters
+
+  chain_structure:
+    genesis_frame:
+      frame_number: 1
+      prev_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+      content_hash: "<SHA-256 of frame 1>"
+      description: "First frame in chain, prev_hash is all zeros"
+
+    frame_n:
+      frame_number: "N"
+      prev_hash: "<content_hash of frame N-1>"
+      content_hash: "<SHA-256 of frame N>"
+      description: "Each frame links to previous via prev_hash"
+
+  verification:
+    steps:
+      - step: 1
+        action: "Verify signature on metadata"
+        success_criteria: "Ed25519.verify() does not raise InvalidSignature"
+
+      - step: 2
+        action: "Recompute content_hash from frame_data + metadata"
+        success_criteria: "Computed hash matches metadata['content_hash']"
+
+      - step: 3
+        action: "Verify chain continuity"
+        success_criteria: "metadata['chain_state']['prev_hash'] == previous_frame['content_hash']"
+
+      - step: 4
+        action: "Overall verdict"
+        success_criteria: "All three checks pass"
+
+  security_properties:
+    tamper_detection: "Any modification to frame_data or metadata breaks content_hash verification"
+    chain_break_detection: "Missing or reordered frames break prev_hash linkage"
+    non_repudiation: "Ed25519 signature proves who created the frame"
+    replay_protection: "Frame numbers and timestamps prevent replay attacks"
+
+# ============================================================================
+# 5. TEST FIXTURES (for Session 4 handoff)
+# ============================================================================
+test_fixtures:
+  description: "Sample data for testing NDI witness integration"
+
+  fixture_1_genesis_frame:
+    name: "Genesis Frame (Frame 1)"
+    frame_data_hex: "74657374206672616d652031"  # "test frame 1"
+    metadata:
+      frame_number: 1
+      timestamp: "2025-11-11T00:00:00.000Z"
+      component: "IF.yologuard.test"
+      trace_id: "test-trace-001"
+      scan_metadata:
+        file: "/test/secrets.py"
+        line: 42
+        pattern: "AWS_KEY_REDACTED"
+        severity: "ERROR"
+      chain_state:
+        chain_id: "test-chain-550e8400-e29b-41d4-a716-446655440000"
+        frame_count: 1
+        prev_hash: "0000000000000000000000000000000000000000000000000000000000000000"
+      content_hash: "computed_at_runtime"
+      signature: "computed_at_runtime"
+      public_key: "test_public_key_base64"
+
+  fixture_2_tampered_frame:
+    name: "Tampered Frame (should fail verification)"
+    description: "Frame with valid signature but tampered frame_data"
+    frame_data_hex: "74616d706572656420646174"  # "tampered dat" (modified)
+    metadata:
+      frame_number: 2
+      content_hash: "original_hash_not_matching_tampered_data"
+      signature: "valid_signature_for_original_data"
+      # Verification should fail because content_hash doesn't match tampered frame_data
+
+  fixture_3_chain_break:
+    name: "Chain Break (should fail verification)"
+    description: "Frame with prev_hash that doesn't match previous frame"
+    metadata:
+      frame_number: 3
+      chain_state:
+        prev_hash: "wrong_hash_breaks_chain"
+      # Verification should fail because prev_hash doesn't link to frame 2
+
+# ============================================================================
+# 6. IMPLEMENTATION CHECKLIST
+# ============================================================================
+implementation_checklist:
+  publisher:
+    - item: "Generate Ed25519 keypair (persist for identity)"
+      status: "complete"
+      file: "src/communication/ndi_witness_publisher.py"
+
+    - item: "Wrap IF.yologuard scanner output as NDI stream"
+      status: "complete"
+      file: "src/communication/ndi_witness_publisher.py"
+
+    - item: "Inject witness hash chain into NDI metadata"
+      status: "complete"
+      file: "src/communication/ndi_witness_publisher.py"
+
+    - item: "Sign each frame with Ed25519"
+      status: "complete"
+      file: "src/communication/ndi_witness_publisher.py"
+
+  viewer:
+    - item: "Subscribe to NDI streams"
+      status: "complete"
+      file: "src/communication/ndi_guardian_viewer.py"
+
+    - item: "Verify metadata signatures in real-time"
+      status: "complete"
+      file: "src/communication/ndi_guardian_viewer.py"
+
+    - item: "Display stream + overlay witness provenance"
+      status: "complete"
+      file: "src/communication/ndi_guardian_viewer.py"
+
+  tests:
+    - item: "Test witness hash chain continuity"
+      status: "complete"
+      file: "tests/test_ndi_witness.py"
+
+    - item: "Test Ed25519 signature verification"
+      status: "complete"
+      file: "tests/test_ndi_witness.py"
+
+    - item: "Test NDI metadata injection/extraction"
+      status: "complete"
+      file: "tests/test_ndi_witness.py"
+
+    - item: "Security test: tampered frame detection"
+      status: "complete"
+      file: "tests/test_ndi_witness.py"
+
+    - item: "Security test: forged signature detection"
+      status: "complete"
+      file: "tests/test_ndi_witness.py"
+
+  documentation:
+    - item: "NDI-WITNESS-INTEGRATION.md case study"
+      status: "complete"
+      file: "docs/NDI-WITNESS-INTEGRATION.md"
+
+    - item: "workstream-1-ndi-contract.yaml interface contract"
+      status: "complete"
+      file: "docs/INTERFACES/workstream-1-ndi-contract.yaml"
+
+# ============================================================================
+# 7. SESSION 4 HANDOFF NOTES
+# ============================================================================
+session_4_handoff:
+  workstream: "Session 4: SIP External Expert Calls"
+  dependency: "None (Session 1 is fully independent)"
+
+  optional_integration:
+    description: "SIP calls can optionally share NDI evidence streams"
+    use_case: "IF.guard expert calls can view live IF.yologuard NDI streams with verified provenance"
+
+    integration_steps:
+      - step: "Discover NDI streams via mDNS"
+        command: "NDIlib_find_get_current_sources()"
+        filter: "IF.witness.*"
+
+      - step: "Subscribe to desired stream"
+        command: "NDIlib_recv_create(stream_name)"
+
+      - step: "Verify each frame using WitnessVerifier"
+        code: "verifier.verify_frame(frame_data, metadata)"
+
+      - step: "Display in SIP call UI with provenance overlay"
+        ui_elements:
+          - "Green checkmark: Ed25519 signature valid"
+          - "Hash chain icon: Frame N linked to N-1"
+          - "Trace ID: Links to IFMessage audit log"
+
+  interface_stability:
+    version: "1.0.0"
+    breaking_changes: "None planned for Session 4 timeframe"
+    backward_compatibility: "All future versions will support v1.0.0 metadata schema"
+
+# ============================================================================
+# 8. PHILOSOPHY COMPLIANCE MATRIX
+# ============================================================================
+philosophy_compliance:
+  wu_lun_relationship:
+    principle: "父子 (Parent-Child)"
+    implementation: "Publisher creates stream (parent), viewers consume asynchronously (children)"
+    verification: "✓ Pass"
+
+  if_ground_principle_1:
+    principle: "Ground in Observable Artifacts"
+    implementation: "Every frame has verifiable SHA-256 hash"
+    verification: "✓ Pass"
+
+  if_witness_provenance:
+    principle: "Who, What, When, Why"
+    implementation: "Metadata includes component, scan_metadata, timestamp, trace_id"
+    verification: "✓ Pass"
+
+  if_ttt_traceable:
+    principle: "Traceable (hash chain)"
+    implementation: "prev_hash links each frame back to genesis"
+    verification: "✓ Pass"
+
+  if_ttt_transparent:
+    principle: "Transparent (visible metadata)"
+    implementation: "JSON metadata visible in NDI stream"
+    verification: "✓ Pass"
+
+  if_ttt_trustworthy:
+    principle: "Trustworthy (cryptographic proof)"
+    implementation: "Ed25519 signature verifiable by anyone with public key"
+    verification: "✓ Pass"
+
+# ============================================================================
+# 9. CONTACT & SUPPORT
+# ============================================================================
+contact:
+  project: "InfraFabric"
+  repository: "https://github.com/dannystocker/infrafabric"
+  documentation: "docs/NDI-WITNESS-INTEGRATION.md"
+  issues: "https://github.com/dannystocker/infrafabric/issues"
+  maintainer: "Danny Stocker"
+  email: "danny.stocker@gmail.com"
+
+license: "MIT"
+copyright: "Copyright (c) 2025 Danny Stocker"
+
+# ============================================================================
+# Document Hash (SHA-256): <to be computed after review>
+# Signed by: IF.witness Development Team
+# Date: 2025-11-11
+# ============================================================================
