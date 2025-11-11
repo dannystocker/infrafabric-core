@@ -1,0 +1,285 @@
+{
+  "traces": [
+    {
+      "trace_id": "ndi-trace-001",
+      "protocol": "NDI",
+      "description": "Network Device Interface - Video frame publishing from Studio A Camera",
+      "duration_seconds": 5.048,
+      "event_count": 5,
+      "components": ["IF.ndi"],
+      "total_cost_usd": 0.00058,
+      "total_tokens": 280,
+      "events": [
+        {
+          "order": 1,
+          "event": "ndi_source_registered",
+          "component": "IF.ndi",
+          "timestamp_offset_ms": 0,
+          "description": "NDI source (Studio A Camera) registers with the network"
+        },
+        {
+          "order": 2,
+          "event": "ndi_frame_captured",
+          "component": "IF.ndi",
+          "timestamp_offset_ms": 16,
+          "description": "Video frame (1920x1080) captured from source"
+        },
+        {
+          "order": 3,
+          "event": "ndi_frame_published",
+          "component": "IF.ndi",
+          "timestamp_offset_ms": 32,
+          "description": "Frame published to multiple receivers with network latency of 2.5ms"
+        },
+        {
+          "order": 4,
+          "event": "ndi_frame_delivered",
+          "component": "IF.ndi",
+          "timestamp_offset_ms": 48,
+          "description": "Frame successfully delivered to viewer with no packet loss"
+        },
+        {
+          "order": 5,
+          "event": "ndi_source_unregistered",
+          "component": "IF.ndi",
+          "timestamp_offset_ms": 5048,
+          "description": "NDI source unregisters after sending 300 frames"
+        }
+      ]
+    },
+    {
+      "trace_id": "webrtc-trace-001",
+      "protocol": "WebRTC",
+      "description": "Web Real-Time Communication - Peer-to-peer video connection between Alice and Bob",
+      "duration_seconds": 0.6,
+      "event_count": 7,
+      "components": ["IF.webrtc"],
+      "total_cost_usd": 0.00153,
+      "total_tokens": 580,
+      "events": [
+        {
+          "order": 1,
+          "event": "webrtc_peer_connection_created",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 0,
+          "description": "Peer connection created with max-bundle policy"
+        },
+        {
+          "order": 2,
+          "event": "webrtc_ice_candidate_gathered",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 50,
+          "description": "Host ICE candidate gathered (local IP address)"
+        },
+        {
+          "order": 3,
+          "event": "webrtc_ice_candidate_gathered",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 60,
+          "description": "Server reflexive (srflx) ICE candidate gathered (public IP address)"
+        },
+        {
+          "order": 4,
+          "event": "webrtc_offer_created",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 100,
+          "description": "SDP offer created with audio and video media sections"
+        },
+        {
+          "order": 5,
+          "event": "webrtc_answer_received",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 150,
+          "description": "SDP answer received from remote peer (Bob)"
+        },
+        {
+          "order": 6,
+          "event": "webrtc_connection_established",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 500,
+          "description": "Connection established with host-to-host candidate pair and 5ms RTT"
+        },
+        {
+          "order": 7,
+          "event": "webrtc_media_stream_started",
+          "component": "IF.webrtc",
+          "timestamp_offset_ms": 600,
+          "description": "Video media stream started with VP8 codec at 2500 kbps"
+        }
+      ]
+    },
+    {
+      "trace_id": "h323-trace-001",
+      "protocol": "H.323",
+      "description": "H.323 VoIP - Call between Conference Room 1 and endpoint 2",
+      "duration_seconds": 30.0,
+      "event_count": 7,
+      "components": ["IF.h323"],
+      "total_cost_usd": 0.00177,
+      "total_tokens": 605,
+      "events": [
+        {
+          "order": 1,
+          "event": "h323_endpoint_registered",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 0,
+          "description": "Endpoint registers with gatekeeper (Conference Room 1)"
+        },
+        {
+          "order": 2,
+          "event": "h323_call_initiated",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 100,
+          "description": "Call initiated to conference@example.com with 384 kbps bandwidth"
+        },
+        {
+          "order": 3,
+          "event": "h323_call_proceeding",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 200,
+          "description": "Call proceeding state reached, bandwidth confirmed"
+        },
+        {
+          "order": 4,
+          "event": "h323_alerting",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 500,
+          "description": "Remote endpoint alerting with ring indication"
+        },
+        {
+          "order": 5,
+          "event": "h323_connect",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 3000,
+          "description": "Call connected with audio and video media channels"
+        },
+        {
+          "order": 6,
+          "event": "h323_call_active",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 4000,
+          "description": "Call active with G.711 audio and H.264 video codecs"
+        },
+        {
+          "order": 7,
+          "event": "h323_disconnect_indication",
+          "component": "IF.h323",
+          "timestamp_offset_ms": 30000,
+          "description": "Normal call disconnection after 26 seconds of media"
+        }
+      ]
+    },
+    {
+      "trace_id": "sip-trace-001",
+      "protocol": "SIP",
+      "description": "Session Initiation Protocol - Dialog between alice@example.com and bob@example.com",
+      "duration_seconds": 45.1,
+      "event_count": 10,
+      "components": ["IF.sip"],
+      "total_cost_usd": 0.00186,
+      "total_tokens": 695,
+      "events": [
+        {
+          "order": 1,
+          "event": "sip_register_request",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 0,
+          "description": "Alice registers with SIP registrar (example.com) for 1 hour"
+        },
+        {
+          "order": 2,
+          "event": "sip_register_success",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 50,
+          "description": "Registration successful (200 OK)"
+        },
+        {
+          "order": 3,
+          "event": "sip_invite_request",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 5000,
+          "description": "INVITE request sent from Alice to Bob with SDP offer"
+        },
+        {
+          "order": 4,
+          "event": "sip_trying_response",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 5100,
+          "description": "Trying (100) provisional response from Bob's server"
+        },
+        {
+          "order": 5,
+          "event": "sip_ringing_response",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 5500,
+          "description": "Ringing (180) response indicating user alerting"
+        },
+        {
+          "order": 6,
+          "event": "sip_ok_response",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 8000,
+          "description": "OK (200) final response with SDP answer from Bob"
+        },
+        {
+          "order": 7,
+          "event": "sip_ack_request",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 8100,
+          "description": "ACK request confirming successful call establishment"
+        },
+        {
+          "order": 8,
+          "event": "sip_media_session_active",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 9000,
+          "description": "Media session active with PCMU audio codec, 45ms latency"
+        },
+        {
+          "order": 9,
+          "event": "sip_bye_request",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 45000,
+          "description": "BYE request from Alice to terminate call"
+        },
+        {
+          "order": 10,
+          "event": "sip_bye_response",
+          "component": "IF.sip",
+          "timestamp_offset_ms": 45100,
+          "description": "OK (200) response to BYE, call terminated after 36 seconds of media"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_traces": 4,
+    "protocols": ["NDI", "WebRTC", "H.323", "SIP"],
+    "total_events": 29,
+    "total_cost_usd": 0.00574,
+    "total_tokens": 2160,
+    "components": ["IF.ndi", "IF.webrtc", "IF.h323", "IF.sip"],
+    "sessions": {
+      "session_1": {
+        "protocol": "NDI",
+        "trace_id": "ndi-trace-001",
+        "description": "Network Device Interface - Video frame publishing"
+      },
+      "session_2": {
+        "protocol": "WebRTC",
+        "trace_id": "webrtc-trace-001",
+        "description": "Web Real-Time Communication - Peer-to-peer video"
+      },
+      "session_3": {
+        "protocol": "H.323",
+        "trace_id": "h323-trace-001",
+        "description": "H.323 VoIP - Multimedia communication"
+      },
+      "session_4": {
+        "protocol": "SIP",
+        "trace_id": "sip-trace-001",
+        "description": "Session Initiation Protocol - VoIP signaling"
+      }
+    }
+  }
+}
