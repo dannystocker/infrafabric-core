@@ -1,0 +1,17 @@
+mission: V4 Epic — Full‑Spectrum Intelligence Dossier
+created: '2025-11-11T07:18:39Z'
+joe_persona_uri: if://persona/joe
+protocols:
+  if.search:
+    passes: 8
+    require_citations: true
+    qdf_bias: true
+  if.guard:
+    quorum: 15
+    approval_threshold: 0.5
+    supermajority: 0.8
+    contrarian_veto: 0.95
+outputs:
+  dossier: docs/Dossier‑EpicGames‑V4.md
+  citations: citations/Dossier‑EpicGames‑V4.json
+  evidence_table: citations/Evidence‑Epic‑V4.csv

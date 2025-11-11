@@ -1,0 +1,36 @@
+type: object
+required:
+- personas
+properties:
+  personas:
+    type: object
+    additionalProperties:
+      type: object
+      required:
+      - id
+      - uri
+      - version
+      - archetype
+      properties:
+        id:
+          type: string
+        uri:
+          type: string
+        version:
+          type: string
+        aliases:
+          type: array
+          items:
+            type: string
+        archetype:
+          type: string
+        mission:
+          type: string
+        operating_laws:
+          type: object
+        integration:
+          type: object
+        evidence:
+          type: array
+          items:
+            type: object

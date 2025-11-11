@@ -1,0 +1,49 @@
+type: object
+required:
+- philosophers
+properties:
+  philosophers:
+    type: object
+    additionalProperties:
+      type: object
+      required:
+      - name
+      - tradition
+      - era
+      - key_concept
+      - if_components
+      - if_principles
+      - practical_application
+      properties:
+        name:
+          type: string
+        tradition:
+          type: string
+        era:
+          type: string
+        key_concept:
+          type: string
+        if_components:
+          type: array
+          items:
+            type: string
+        if_principles:
+          type: array
+          items:
+            type: string
+        practical_application:
+          type: string
+        paper_references:
+          type: array
+          items:
+            type: string
+        tensions_with:
+          type: array
+          items:
+            type: object
+        historical_context:
+          type: object
+        additional_readings:
+          type: array
+          items:
+            type: string

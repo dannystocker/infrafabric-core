@@ -2,7 +2,7 @@
 IF.yologuard v3.0 - FAST BENCHMARK RESULTS (v2 - FIXED)
 ==========================================================================================
 
-Scan Time: 0.0s
+Scan Time: 0.1s
 Files Scanned: 49
 Files Skipped: 2 (binary/oversized)
 

@@ -1,0 +1,41 @@
+if.guard.constitution:
+  council_size: 20
+  quorum: 15
+  approval_threshold: 0.5
+  supermajority_advice: 0.8
+  contrarian_veto_threshold: 0.95
+  cooling_off_period_days: 14
+  dissent_window_hours: 24
+  roles:
+  - technical
+  - ethical
+  - civic
+  - cultural
+  - contrarian
+  - meta
+  - philosopher_west_1
+  - philosopher_west_2
+  - philosopher_west_3
+  - philosopher_east_1
+  - philosopher_east_2
+  - philosopher_east_3
+  - ceo_1
+  - ceo_2
+  - ceo_3
+  - ceo_4
+  - ceo_5
+  - ceo_6
+  - ceo_7
+  - ceo_8
+  procedures:
+    proposal_lifecycle:
+    - draft
+    - debate
+    - vote
+    - cooling_off
+    - ratify
+    evidence_requirements:
+    - observable_artifacts
+    - toolchain_validation
+    - uncertainty_bands
+    meeting_frequency_days: 7

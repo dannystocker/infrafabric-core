@@ -1,0 +1,14 @@
+aliases:
+  IF.ceo_: IF.ceo
+  IF.citations: IF.citation
+  IF.optimise_engine: IF.optimise
+  IF.optimised: IF.optimise
+  IF.personality: IF.persona
+  IF.citate: IF.citation
+  IF.marl: IF.forge
+  IF.council: IF.guard
+deprecate:
+- IF.dets
+- IF.foo
+- IF.v7
+notes: Apply these aliases at load time; treat deprecated as read‑only legacy.

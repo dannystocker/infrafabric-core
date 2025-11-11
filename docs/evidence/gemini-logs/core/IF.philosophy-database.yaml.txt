@@ -864,3 +864,175 @@ source_papers:
   - "/mnt/c/users/setup/Downloads/infrafabric/papers/IF-foundations.md"
   - "/mnt/c/users/setup/Downloads/infrafabric/papers/IF-armour.md"
   - "/mnt/c/users/setup/Downloads/infrafabric/papers/IF-witness.md"
+philosophers:
+  joe:
+    name: Joe Coulombe
+    tradition: Modern Applied Pragmatism (Retail Epistemology)
+    era: 1960s–2010s
+    key_concept: Constraint-driven curation; private label only when differentiated;
+      supplier COD discipline; small/dense stores; on‑the‑ground experiments; foresight
+      memos.
+    if_components:
+    - IF.search
+    - IF.optimise
+    - IF.guard
+    - IF.persona
+    - IF.citation
+    - IF.quiet
+    - IF.garp
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 2: Validate with the Toolchain'
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 7: Reversible Decisions'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Use Joe’s heuristics to set search passes, gate claims
+      on artifacts, price in constraints first, and enforce council review for irreversible
+      choices.
+    paper_references:
+    - 'IF-all-core-papers.md: (principles table)'
+    - 'IF-all-components-data.md: (guardian council, search, optimise)'
+philosophers:
+  alghazali:
+    name: Abu Hamid al-Ghazali
+    tradition: Islamic Philosophy (Occasionalism)
+    era: 1058–1111 CE
+    key_concept: All causal power belongs to God; apparent causation is occasioned
+      by divine will.
+    if_components:
+    - IF.witness
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Model events as atomic with provenance; avoid hidden causal
+      edges; test causality with reversible toggles.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-witness'
+    - 'IF-all-core-papers.md: TODO-citation'
+  avicenna:
+    name: Ibn Sina (Avicenna)
+    tradition: Islamic Philosophy (Peripatetic)
+    era: 980–1037 CE
+    key_concept: Essence vs existence; Flying Man thought experiment.
+    if_components:
+    - IF.persona
+    - IF.search
+    if_principles:
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    - 'Principle 7: Reversible Decisions'
+    practical_application: Separate persona essence (schema) from runtime instances;
+      reversible activation switches.
+  averroes:
+    name: Ibn Rushd (Averroes)
+    tradition: Islamic Philosophy (Aristotelian Rationalism)
+    era: 1126–1198 CE
+    key_concept: Harmony of faith and reason; commentary method.
+    if_components:
+    - IF.guard
+    - IF.search
+    if_principles:
+    - 'Principle 2: Validate with the Toolchain'
+    - 'Principle 5: Gate Client-Only Features'
+    practical_application: Require toolchain-verified evidence before activation of
+      risky features.
+  ubuntu:
+    name: Ubuntu (Southern African Philosophy)
+    tradition: African Philosophy
+    era: Classical–Modern
+    key_concept: Personhood through community ('I am because we are').
+    if_components:
+    - IF.guard
+    - IF.swarm
+    if_principles:
+    - 'Principle 5: Gate Client-Only Features'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Weighted consensus with preserved dissent; communal validation
+      before high‑risk actions.
+  indigenous_relationality:
+    name: Indigenous Relational Epistemology
+    tradition: Indigenous Knowledge Systems
+    era: Time immemorial—present
+    key_concept: Knowledge arises in relationships across human/non‑human systems.
+    if_components:
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 4: Schema-Tolerant Parsing'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Non‑hierarchical citation graphs; schema tolerance across
+      communities.
+  phenomenology:
+    name: Husserl / Heidegger / Merleau‑Ponty
+    tradition: Phenomenology
+    era: 1900–1960
+    key_concept: Epoché; being‑in‑the‑world; embodiment.
+    if_components:
+    - IF.guard
+    - IF.persona
+    if_principles:
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    practical_application: 'Guard epoché: suspend judgment until evidence; encode
+      situated viewpoints in personas.'
+  critical_theory:
+    name: Frankfurt School / Habermas
+    tradition: Critical Theory
+    era: 1930–present
+    key_concept: Ideology critique; communicative rationality.
+    if_components:
+    - IF.guard
+    - IF.quiet
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Anti‑spectacle metrics; deliberation quality before activation.
+  process:
+    name: Whitehead / Bergson
+    tradition: Process Philosophy
+    era: 1890–1947
+    key_concept: Reality as process; events over substances.
+    if_components:
+    - IF.witness
+    - IF.swarm
+    if_principles:
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Event‑driven design; log ‘occasions’ and derive types.
+  feminist_epistemology:
+    name: Haraway / Harding
+    tradition: Feminist Epistemology
+    era: 1980–present
+    key_concept: Situated knowledges; standpoint theory.
+    if_components:
+    - IF.citation
+    - IF.persona
+    - IF.guard
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 4: Schema-Tolerant Parsing'
+    practical_application: Attach provenance; diversify panels; weight perspectives.
+  postmodernism:
+    name: Foucault / Derrida / Deleuze
+    tradition: Postmodernism / Post-structuralism
+    era: 1960–1990
+    key_concept: Power/knowledge; deconstruction; rhizome.
+    if_components:
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 4: Schema-Tolerant Parsing'
+    practical_application: Non‑hierarchical evidence graphs; contradiction detection.
+  tech_philosophy:
+    name: Simondon / Stiegler / Yuk Hui
+    tradition: Contemporary Philosophy of Technology
+    era: 1958–present
+    key_concept: Individuation; pharmacology; cosmotechnics.
+    if_components:
+    - IF.swarm
+    - IF.kernel
+    - IF.connect
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 7: Reversible Decisions'
+    practical_application: Agent individuation; reversible kernels; federated cosmotechnics.
