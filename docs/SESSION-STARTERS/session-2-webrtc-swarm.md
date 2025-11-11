@@ -192,5 +192,18 @@ Your contract documents how Session 4 can:
 
 ---
 
+## Phases 4-6 (Post-MVP Continuation)
+
+| Phase | Task | File | Model | IF BLOCKED |
+|-------|------|------|-------|-----------|
+| **4** | Mesh stability: connection pooling, heartbeat protocol | src/communication/webrtc-mesh-stability.ts | GPT-5 | Waiting on SIP (Session 4) → Help with H.323 load tests (Session 3) |
+| **4** | SIP-WebRTC bridge: IFMessage escalate → H.323 signaling | src/communication/sip-webrtc-bridge.ts | Claude 3.5 | Same as above → OR help Talent dashboard (Session 6) |
+| **5** | Bandwidth optimization: VP9 codec, adaptive bitrate control | src/communication/webrtc-codec-manager.ts | Claude 3.5 | Independent |
+| **5** | P2P routing efficiency: greedy mesh optimization, latency metrics | src/communication/webrtc-routing-optimizer.ts | GPT-5 | Independent |
+| **6** | Autonomous healing: auto-reconnect logic, backoff strategy | src/communication/webrtc-auto-heal.ts | Claude 3.5 | Independent |
+| — | **IDLE TASK:** Cross-session test fixtures (IFMessage + SDP + H.323 RAS mock) | tests/fixtures/cross-session-*.json | Any | Run while blocked on Session 4 SIP |
+
+---
+
 **Session Start:** [Copy-paste block above]
 **Session Complete:** Push to `claude/realtime-workstream-2-webrtc`

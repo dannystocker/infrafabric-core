@@ -1,0 +1,38 @@
+PHASES 4-6: ULTRA-CONDENSED CROSS-SESSION MATRIX (30 lines max)
+
+PHASE 4: Integration Hardening [Critical Blocker: Session 4]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1-NDI     | Fix hash chain, NDI metadata injection, SIP integration | BLOCKED by 4 | IDLE: Help 2 (WebRTC docs), 5 (CLI tests)
+2-WebRTC  | Mesh stability, connection pooling, SIP-WebRTC bridge | BLOCKED by 4 | IDLE: Build cross-session test fixtures
+3-H.323   | Fix SIP codec transcoding, IF.guard enforcement, tests | BLOCKED by 4 | IDLE: Improve H323-PRODUCTION-RUNBOOK.md
+4-SIP     | **CRITICAL:** SIP-H.323 bridge, SIP-WebRTC, NDI-SIP, regression tests | None | IDLE: None (unblock path)
+5-CLI     | Witness integration, cost tracking, dashboard, spawn helpers | SUPPORT 1,2,3,4 | IDLE: Pre-build Phase 5 fixtures
+6-Talent  | 24/7 polling loop, GitHub/arXiv/HF scan, auto-queue | SUPPORT 4 | IDLE: Build IF.swarm routing improvements
+
+PHASE 5: Optimization [Fully Parallel]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1-NDI     | Compress metadata, optimize hash verification (<50ms), benchmark Ed25519 | Independent | IDLE: Codec tradeoffs doc
+2-WebRTC  | VP9 codec + bitrate adaptation, greedy mesh routing, latency metrics | Independent | IDLE: Help 3 with H.323 perf
+3-H.323   | Reduce latency (<50ms/jitter <10ms), codec efficiency, baseline (8-12 Guardians) | Independent | IDLE: Help 5 with CLI optimization
+4-SIP     | Call setup <1s, concurrent 100+ calls (50 ESCALATE/sec), async logging | Independent | IDLE: None
+5-CLI     | Profiling (Sonnet), SQLite WAL, connection pooling, fast spawn | SUPPORT 1,2,3,4 | IDLE: Pre-load Phase 6 fixtures
+6-Talent  | Scout 2nd model, sandbox 25 tests, certify & deploy | Independent | IDLE: Dashboard improvements
+
+PHASE 6: Final Production + Autonomous Mode [Session 4 gates Session 6]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1-NDI     | 24/7 health checks, hash chain alerting, stream status dashboard | Independent | ✓ Uptime tracking
+2-WebRTC  | Autonomous healing (auto-reconnect, backoff strategy) | Independent | ✓ Seamless failover, zero loss
+3-H.323   | 12 Guardian MCU live test, production handoff, runbook | Independent | ✓ <200ms join/leave, <50ms latency, <5s failover
+4-SIP     | Real expert SIP call validation, production readiness sign-off | None | ✓ All SLA metrics met
+5-CLI     | Cost monitor agent, budget alerts (>80%), multi-session view, spawn | SUPPORT all | ✓ Real-time tracking, 10min reports
+6-Talent  | **FULL AUTONOMY:** Auto-approval workflow, deploy to IF.swarm (zero human touch) | WAIT for 4 | ✓ Scout→Test→Queue→Deploy autonomous
+
+CRITICAL PATH & IDLE TASK STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+P4 Blocker:    Session 4 (SIP) unblocks Sessions 1,2,3,6 after Phase 4 complete
+P5 Strategy:   All parallel; pair-test neighbors (1↔2, 3↔4) when own work done
+P6 Gate:       Session 4 must pass P6 before Session 6 goes autonomous
+Cost Monitor:  Session 5 (CLI) tracks all sessions; budget alerts if >80% spend
+
+Wall-clock estimate: ~8h parallel (P4) + ~6h (P5) + ~4h (P6) = 18 hours with full parallelism
+Total effort: 71 hours, $112 (distributed across 6 sessions)

@@ -1,0 +1,22 @@
+PHASES 4-6 CROSS-SESSION COORDINATION MATRIX (30 LINES)
+
+SESSION PHASES & DEPENDENCIES:
+1-NDI     P4: hash chain + metadata (BLOCKED→4) | P5: compress + optimize  | P6: health checks + alerts
+2-WebRTC  P4: mesh stability + SIP bridge (BLOCKED→4) | P5: VP9 + routing    | P6: autonomous healing
+3-H.323   P4: codec fix + IF.guard (BLOCKED→4) | P5: latency <50ms + perf | P6: 12-Guardian MCU test
+4-SIP     P4: BLOCKER for 1,2,3,6 (all bridges) | P5: <1s setup + 100 concurrent | P6: expert call + sign-off
+5-CLI     P4: witness + cost tracking + dashboard | P5: SQLite WAL + pooling | P6: cost monitor + alerts
+6-Talent  P4: 24/7 polling + queue (SUPPORT→4) | P5: 2nd model onboarding | P6: AUTONOMY (gate←4)
+
+IDLE TASK STRATEGY (when blocked):
+P4: 1,2,3 help each other tests; 6 builds routing improvements; 5 pre-builds fixtures
+P5: All parallel; pair-test neighbors (1↔2, 3↔4); help with optimization patterns
+P6: 1,2,3 finish independently; 6 waits on 4 for autonomy gate; 5 monitors budget
+
+CRITICAL PATH:
+Session 4 unblocks Phases 4→5 | Session 6 waits on Phase 4 for external expert routing
+Cost tracking (5) runs across all sessions | Production gates: P4 (bridges), P5 (latency), P6 (MCU+autonomy)
+
+EFFORT SUMMARY:
+P4: 30h total | P5: 25h total | P6: 16h total = 71h @ $112
+Wall-clock: ~8h (P4, parallel) + ~6h (P5, parallel) + ~4h (P6, parallel) = 18h with full parallelism
