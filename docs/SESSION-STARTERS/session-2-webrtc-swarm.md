@@ -205,5 +205,21 @@ Your contract documents how Session 4 can:
 
 ---
 
+## Phases 7-10: Scale, Global, Intelligence, Autonomy
+
+| Phase | Task | File | Model | Notes |
+|-------|------|------|-------|-------|
+| **7** | 1K mesh + batched ICE processing, connection pooling | src/communication/webrtc-scale.ts | GPT-5 | After Phase 6 → IDLE: Synthetic mesh data |
+| **7** | Mesh telemetry: agent count, latency percentiles, bandwidth | src/monitoring/webrtc-telemetry.ts | Claude 3.5 | Independent |
+| **8** | TURN manager: 5 regions (US-E/W, EU, APAC, SA) + auto-failover | src/communication/webrtc-turn-manager.ts | GPT-5 | Independent |
+| **8** | TURN fallback: detect unreachable peers, trigger region rotation | src/communication/webrtc-turn-fallback.ts | Claude 3.5 | Independent |
+| **9** | ML peer selector: latency prediction, historical data model training | src/routing/webrtc-ml-selector.ts | Claude 3.5 | Independent → IDLE: Collect 1K+ connection logs |
+| **9** | Path optimizer: multi-hop routing, minimize relay hops via Dijkstra | src/routing/webrtc-path-optimizer.ts | GPT-5 | Depends Phase 9 model |
+| **10** | Auto-topology: monitor mesh health, trigger rebalance on drift | src/communication/webrtc-auto-topology.ts | Claude 3.5 | Phases 8+9 → Support role: Dashboard |
+| **10** | Chaos: simulate peer failures, validate topology resilience | tests/chaos/webrtc-chaos-scenarios.ts | GPT-5 | Independent → Validate Phase 10 |
+| — | **IDLE:** Baselines (1K mesh latency SLA), test fixtures, docs | docs/PHASE-7-10-PERFORMANCE-SLAs.md, tests/fixtures/ | Any | Parallel all phases |
+
+---
+
 **Session Start:** [Copy-paste block above]
 **Session Complete:** Push to `claude/realtime-workstream-2-webrtc`
