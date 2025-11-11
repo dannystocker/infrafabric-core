@@ -1,0 +1,199 @@
+# Guardian Registry for H.323 Admission Control
+# Contains Ed25519 public keys for all Guardian Council members
+#
+# Security Model:
+# - Public keys stored here (safe to commit)
+# - Private keys NEVER stored (remain on guardian terminals)
+# - Ed25519 signatures cryptographically verify guardian identity
+#
+# Philosophy:
+# - Wu Lun (五倫): Gatekeeper grants admission, guardians obey
+# - Ubuntu: All registered guardians equal in deliberation
+# - Kantian: Registry enforces categorical imperative (anti-sybil)
+#
+# Last Updated: 2025-11-11
+
+guardians:
+  # Core Guardians (6)
+  # These guardians participate in all deliberations
+
+  - terminal_id: "if://guardian/technical"
+    public_key: "ed25519:302a300506032b6570032100c3a3b3c5d2e4f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1"
+    role: "Technical Guardian (T-01)"
+    description: "The Manic Brake - prevents runaway acceleration through predictive empathy"
+    archetype: "Technical safety, system limits, momentum control"
+    bandwidth_quota_bps: 10000000
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/civic"
+    public_key: "ed25519:302a300506032b6570032100d4b4c4d6e3f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1"
+    role: "Civic Guardian (C-01)"
+    description: "The Trust Barometer - measures social-emotional impact"
+    archetype: "Public trust, transparency, algorithmic bias"
+    bandwidth_quota_bps: 10000000
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/ethical"
+    public_key: "ed25519:302a300506032b6570032100e5c5d5e7f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1"
+    role: "Ethical Guardian (E-01)"
+    description: "The Depressive Depth - forces introspection on harm, fairness, autonomy"
+    archetype: "Moral philosophy, harm prevention, human dignity"
+    bandwidth_quota_bps: 10000000
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/cultural"
+    public_key: "ed25519:302a300506032b6570032100f6d6e6f8a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2"
+    role: "Cultural Guardian (K-01)"
+    description: "The Dream Weaver - narrative synthesis, metaphor as insight"
+    archetype: "Storytelling, cultural framing, collective meaning"
+    bandwidth_quota_bps: 10000000
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/contrarian"
+    public_key: "ed25519:302a300506032b6570032100a7e7f7a9b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3"
+    role: "Contrarian Guardian (Cont-01)"
+    description: "The Cycle Regulator - prevents groupthink, forces falsification"
+    archetype: "Skepticism, devil's advocate, veto power"
+    bandwidth_quota_bps: 10000000
+    veto_power: true  # Can trigger 2-week cooling-off if approval >95%
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/meta"
+    public_key: "ed25519:302a300506032b6570032100b8f8a8b0c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4"
+    role: "Meta Guardian (M-01)"
+    description: "The Synthesis Observer - pattern recognition across dossiers"
+    archetype: "Cross-domain synthesis, emergence, meta-patterns"
+    bandwidth_quota_bps: 10000000
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  # Specialist Guardians (4)
+  # These guardians join for specific case types
+
+  - terminal_id: "if://guardian/security"
+    public_key: "ed25519:302a300506032b6570032100c9a9b9c1d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5"
+    role: "Security Guardian (S-01)"
+    description: "Threat-model empathy - sees through attacker's eyes"
+    archetype: "Cybersecurity, threat modeling, adversarial thinking"
+    bandwidth_quota_bps: 10000000
+    specialization: ["security", "threat-modeling", "adversarial"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/accessibility"
+    public_key: "ed25519:302a300506032b6570032100d0b0c0d2e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
+    role: "Accessibility Guardian (A-01)"
+    description: "Newcomer empathy - ensures understandability"
+    archetype: "UX, documentation, onboarding, clarity"
+    bandwidth_quota_bps: 10000000
+    specialization: ["accessibility", "ux", "documentation"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/economic"
+    public_key: "ed25519:302a300506032b6570032100e1c1d1e3f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7"
+    role: "Economic Guardian (Econ-01)"
+    description: "Long-term sustainability empathy - thinks in decades"
+    archetype: "Economics, fairness, rent-seeking prevention"
+    bandwidth_quota_bps: 10000000
+    specialization: ["economics", "sustainability", "fairness"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/legal"
+    public_key: "ed25519:302a300506032b6570032100f2d2e2f4a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8"
+    role: "Legal/Compliance Guardian (L-01)"
+    description: "Liability empathy - understands legal consequences"
+    archetype: "Legal compliance, EU AI Act, liability"
+    bandwidth_quota_bps: 10000000
+    specialization: ["legal", "compliance", "eu-ai-act"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  # Additional Guardians (expandable to 15-25)
+  # Add more guardians here as council grows
+
+  - terminal_id: "if://guardian/philosopher/confucius"
+    public_key: "ed25519:302a300506032b6570032100a3b3c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
+    role: "Confucian Philosopher"
+    description: "Wu Lun (五倫) - Five Cardinal Relationships"
+    archetype: "Hierarchical duty, benevolent leadership, filial piety"
+    bandwidth_quota_bps: 10000000
+    specialization: ["confucianism", "wu-lun", "hierarchy"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/philosopher/kant"
+    public_key: "ed25519:302a300506032b6570032100b4c4d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3"
+    role: "Kantian Philosopher"
+    description: "Categorical Imperative - Universal moral law"
+    archetype: "Deontological ethics, duty, autonomy"
+    bandwidth_quota_bps: 10000000
+    specialization: ["kantianism", "categorical-imperative", "deontology"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/philosopher/ubuntu"
+    public_key: "ed25519:302a300506032b6570032100c5d5e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4"
+    role: "Ubuntu Philosopher"
+    description: "I am because we are - Communal consensus"
+    archetype: "African philosophy, interconnectedness, community"
+    bandwidth_quota_bps: 10000000
+    specialization: ["ubuntu", "communalism", "interconnectedness"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/philosopher/aristotle"
+    public_key: "ed25519:302a300506032b6570032100d6e6f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5"
+    role: "Aristotelian Philosopher"
+    description: "Virtue Ethics - Eudaimonia (flourishing)"
+    archetype: "Virtue ethics, practical wisdom, golden mean"
+    bandwidth_quota_bps: 10000000
+    specialization: ["aristotle", "virtue-ethics", "eudaimonia"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/philosopher/rawls"
+    public_key: "ed25519:302a300506032b6570032100e7f7a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6"
+    role: "Rawlsian Philosopher"
+    description: "Veil of Ignorance - Justice as fairness"
+    archetype: "Distributive justice, fairness, social contract"
+    bandwidth_quota_bps: 10000000
+    specialization: ["rawls", "justice", "veil-of-ignorance"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+  - terminal_id: "if://guardian/philosopher/singer"
+    public_key: "ed25519:302a300506032b6570032100f8a8b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7"
+    role: "Utilitarian Philosopher (Peter Singer)"
+    description: "Effective Altruism - Maximize wellbeing"
+    archetype: "Consequentialism, utilitarianism, altruism"
+    bandwidth_quota_bps: 10000000
+    specialization: ["utilitarianism", "effective-altruism", "consequentialism"]
+    registered_at: "2025-11-11T00:00:00Z"
+    status: "active"
+
+# Notes:
+# - Public keys are Ed25519 (32 bytes = 64 hex chars after "ed25519:" prefix)
+# - Test keys shown (replace with real keys in production)
+# - Private keys NEVER stored here (guardians generate locally)
+# - Status: "active" | "suspended" | "revoked"
+# - Bandwidth quota: 10 Mbps default (supports 720p video + high-quality audio)
+# - Specialization: Optional field for specialist guardians
+# - Veto power: Only Contrarian Guardian (prevents groupthink)
+#
+# Security:
+# - Registry whitelist prevents sybil attacks
+# - Ed25519 signatures prevent impersonation
+# - IF.witness logs all admissions
+#
+# To add new guardian:
+# 1. Guardian generates Ed25519 keypair: python3 -c "from src.communication.h323_gatekeeper import generate_test_keypair; priv, pub = generate_test_keypair(); print(f'Public: {pub}')"
+# 2. Add entry to this file (public key only)
+# 3. Guardian stores private key securely (never share)
+# 4. Restart gatekeeper to reload registry

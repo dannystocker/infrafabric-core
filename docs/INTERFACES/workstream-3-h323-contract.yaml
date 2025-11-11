@@ -1,0 +1,565 @@
+# Workstream 3: H.323 Guardian Council Interface Contract
+#
+# This contract defines the public API for Session 4 (SIP) integration.
+# Session 4 will use these endpoints to bridge SIP → H.323 gateway.
+#
+# Version: 1.0
+# Last Updated: 2025-11-11
+# Workstream: 3 of 4 (H.323 Guardian Council)
+# Depends On: None
+# Used By: Session 4 (SIP)
+
+---
+contract_version: "1.0"
+workstream: "3-h323-guardian-council"
+status: "ready"
+
+# ============================================================================
+# Gatekeeper Interface
+# ============================================================================
+
+h323_gatekeeper_interface:
+  description: "H.323 Gatekeeper with Ed25519 admission control"
+
+  endpoint:
+    uri: "if://service/guard/gatekeeper:1719"
+    protocol: "H.323 RAS (Registration, Admission, Status)"
+    transport: "UDP"
+    port: 1719
+
+  authentication:
+    method: "Ed25519 signature"
+    public_key_source: "config/guardian-registry.yaml"
+    signature_algorithm: "Ed25519 (RFC 8032)"
+    signature_encoding: "hex"
+
+  methods:
+    - name: "request_admission"
+      description: "Request admission to Guardian Council conference"
+      http_method: "POST"
+      http_path: "/api/admission/request"
+
+      request_schema:
+        type: "object"
+        required:
+          - terminal_id
+          - call_id
+          - call_type
+          - bandwidth_bps
+          - has_pii
+          - timestamp
+          - signature
+          - public_key
+
+        properties:
+          terminal_id:
+            type: "string"
+            format: "uri"
+            example: "if://guardian/technical"
+            description: "Guardian terminal identifier"
+
+          call_id:
+            type: "string"
+            example: "epic-2025-11-11-abc"
+            description: "Unique call identifier"
+
+          call_type:
+            type: "string"
+            enum: ["ROUTINE", "ESCALATE", "EMERGENCY"]
+            example: "ESCALATE"
+            description: "Call type (affects PII policy)"
+
+          bandwidth_bps:
+            type: "integer"
+            minimum: 128000
+            maximum: 10000000
+            example: 5000000
+            description: "Requested bandwidth (bits/sec, ≤10 Mbps)"
+
+          has_pii:
+            type: "boolean"
+            example: false
+            description: "Whether call contains PII (forbidden in ESCALATE)"
+
+          timestamp:
+            type: "string"
+            format: "date-time"
+            example: "2025-11-11T14:32:17.234Z"
+            description: "ISO 8601 timestamp"
+
+          signature:
+            type: "string"
+            format: "hex"
+            example: "a3f9c2b8d1e5..."
+            description: "Ed25519 signature (hex-encoded)"
+
+          public_key:
+            type: "string"
+            format: "hex"
+            example: "ed25519:302a300506..."
+            description: "Ed25519 public key (hex-encoded)"
+
+      response_schema:
+        type: "object"
+        required:
+          - call_id
+          - terminal_id
+          - confirmed
+
+        properties:
+          call_id:
+            type: "string"
+            example: "epic-2025-11-11-abc"
+
+          terminal_id:
+            type: "string"
+            format: "uri"
+            example: "if://guardian/technical"
+
+          confirmed:
+            type: "boolean"
+            example: true
+            description: "ACF (true) or ARJ (false)"
+
+          reject_reason:
+            type: "string"
+            enum:
+              - "INVALID_SIGNATURE"
+              - "NOT_REGISTERED"
+              - "PII_POLICY_VIOLATION"
+              - "BANDWIDTH_EXCEEDED"
+              - "CAPACITY_EXCEEDED"
+              - "GATEKEEPER_ERROR"
+            example: "PII_POLICY_VIOLATION"
+            description: "Reason for rejection (if confirmed=false)"
+
+          mcu_address:
+            type: "string"
+            format: "uri"
+            example: "if://service/guard/mcu:1720"
+            description: "MCU endpoint (if confirmed=true)"
+
+          allocated_bandwidth:
+            type: "integer"
+            example: 5000000
+            description: "Allocated bandwidth in bps (if confirmed=true)"
+
+          session_id:
+            type: "string"
+            format: "uuid"
+            example: "550e8400-e29b-41d4-a716-446655440000"
+            description: "Unique session identifier (if confirmed=true)"
+
+          timestamp:
+            type: "string"
+            format: "date-time"
+            example: "2025-11-11T14:32:18.123Z"
+
+      errors:
+        - code: 400
+          reason: "Invalid request (missing fields)"
+        - code: 401
+          reason: "Invalid signature (Gate 1 fail)"
+        - code: 403
+          reason: "Not registered (Gate 2 fail)"
+        - code: 422
+          reason: "Policy violation (Gate 3 or 4 fail)"
+        - code: 503
+          reason: "MCU capacity exceeded"
+
+    - name: "revoke_session"
+      description: "Revoke an active session (disconnect guardian)"
+      http_method: "DELETE"
+      http_path: "/api/admission/session/{session_id}"
+
+      parameters:
+        - name: "session_id"
+          in: "path"
+          type: "string"
+          format: "uuid"
+          required: true
+
+      response:
+        type: "object"
+        properties:
+          success:
+            type: "boolean"
+            example: true
+          message:
+            type: "string"
+            example: "Session revoked successfully"
+
+    - name: "get_active_sessions"
+      description: "List all active Guardian Council sessions"
+      http_method: "GET"
+      http_path: "/api/admission/sessions"
+
+      response:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            session_id:
+              type: "string"
+              format: "uuid"
+            call_id:
+              type: "string"
+            terminal_id:
+              type: "string"
+              format: "uri"
+            bandwidth_bps:
+              type: "integer"
+            admitted_at:
+              type: "string"
+              format: "date-time"
+
+# ============================================================================
+# MCU Interface
+# ============================================================================
+
+h323_mcu_interface:
+  description: "H.323 MCU for Guardian Council conferencing"
+
+  endpoint:
+    uri: "if://service/guard/mcu:1720"
+    protocol: "H.323 (H.245 control)"
+    transport: "TCP"
+    port: 1720
+
+  capabilities:
+    max_participants: 25
+    audio_mixing: "centralized"
+    video_layout: "continuous_presence_4x4"
+    supports_t120: true
+    supports_h239: true
+    max_bandwidth_mbps: 100
+
+  methods:
+    - name: "create_room"
+      description: "Create new Guardian Council conference room"
+      http_method: "POST"
+      http_path: "/api/mcu/rooms"
+
+      request_schema:
+        type: "object"
+        required:
+          - call_id
+        properties:
+          call_id:
+            type: "string"
+            example: "epic-2025-11-11-abc"
+          audio_mixing:
+            type: "string"
+            enum: ["centralized", "voice_activated", "continuous"]
+            default: "centralized"
+          video_layout:
+            type: "string"
+            enum: ["cp_4x4", "cp_5x5", "active_speaker", "side_by_side"]
+            default: "cp_4x4"
+
+      response_schema:
+        type: "object"
+        properties:
+          room_id:
+            type: "string"
+            format: "uri"
+            example: "if://conference/guard/epic-2025-11-11-abc"
+          call_id:
+            type: "string"
+          created_at:
+            type: "string"
+            format: "date-time"
+          audio_mixing:
+            type: "string"
+          video_layout:
+            type: "string"
+
+    - name: "add_participant"
+      description: "Add guardian to conference room"
+      http_method: "POST"
+      http_path: "/api/mcu/rooms/{room_id}/participants"
+
+      request_schema:
+        type: "object"
+        required:
+          - terminal_id
+          - session_id
+          - bandwidth_bps
+        properties:
+          terminal_id:
+            type: "string"
+            format: "uri"
+          session_id:
+            type: "string"
+            format: "uuid"
+          bandwidth_bps:
+            type: "integer"
+
+      response:
+        type: "object"
+        properties:
+          success:
+            type: "boolean"
+          participant_count:
+            type: "integer"
+
+    - name: "get_room_status"
+      description: "Get conference room status"
+      http_method: "GET"
+      http_path: "/api/mcu/rooms/{room_id}"
+
+      response:
+        type: "object"
+        properties:
+          room_id:
+            type: "string"
+            format: "uri"
+          call_id:
+            type: "string"
+          participant_count:
+            type: "integer"
+          max_participants:
+            type: "integer"
+          audio_mixing:
+            type: "string"
+          video_layout:
+            type: "string"
+          total_bandwidth_mbps:
+            type: "number"
+          is_active:
+            type: "boolean"
+          created_at:
+            type: "string"
+            format: "date-time"
+
+    - name: "display_evidence"
+      description: "Display citation/dossier on T.120 whiteboard"
+      http_method: "POST"
+      http_path: "/api/mcu/rooms/{room_id}/evidence"
+
+      request_schema:
+        type: "object"
+        required:
+          - evidence_type
+          - evidence_id
+        properties:
+          evidence_type:
+            type: "string"
+            enum: ["citation", "dossier", "vote_results"]
+          evidence_id:
+            type: "string"
+            example: "if://citation/9f2b3a1e"
+          title:
+            type: "string"
+          content:
+            type: "string"
+
+      response:
+        type: "object"
+        properties:
+          success:
+            type: "boolean"
+          displayed_at:
+            type: "string"
+            format: "date-time"
+
+# ============================================================================
+# Session 4 Integration Points
+# ============================================================================
+
+session_4_integration:
+  description: "How Session 4 (SIP) should integrate with H.323"
+
+  sip_to_h323_gateway:
+    description: "SIP → H.323 protocol translation"
+
+    workflow:
+      - step: 1
+        action: "IFMessage{hazard: ['legal']} triggers ESCALATE"
+        component: "IF.guard"
+
+      - step: 2
+        action: "IF.guard → Gatekeeper: Create call (call_type: ESCALATE)"
+        endpoint: "if://service/guard/gatekeeper:1719/request_admission"
+
+      - step: 3
+        action: "Gatekeeper verifies guardians (Ed25519 signatures)"
+        gates: ["signature", "registry", "PII", "bandwidth"]
+
+      - step: 4
+        action: "Guardians admitted → ACF responses"
+        response: "mcu_address: if://service/guard/mcu:1720"
+
+      - step: 5
+        action: "MCU creates conference room"
+        endpoint: "if://service/guard/mcu:1720/create_room"
+
+      - step: 6
+        action: "Session 4 (SIP) bridges external participants"
+        note: "SIP users → H.323 MCU (protocol translation)"
+
+      - step: 7
+        action: "MCU mixes audio, displays video (4x4 grid)"
+        features: ["centralized_audio", "continuous_presence_video", "t120_whiteboard"]
+
+      - step: 8
+        action: "Decision recorded → IF.witness audit trail"
+        audit: "All ARQ/ACF/ARJ logged with SHA-256 hashes"
+
+  trigger_mechanisms:
+    - name: "IFMessage ESCALATE"
+      description: "High-stakes decision requires Guardian Council"
+      message_format:
+        performative: "inform"
+        topic: "if://topic/mission/escalate"
+        content:
+          hazard: ["legal", "civilizational", "safety"]
+          severity: "high"
+          impact_population: 1000
+      action: "Gatekeeper sends ARQ to all registered guardians"
+
+    - name: "IF.guard Policy Violation"
+      description: "Policy breach requires immediate deliberation"
+      trigger: "IF.yologuard detects PII, IF.chase exceeds bystander limit"
+      action: "Emergency call (call_type: EMERGENCY)"
+
+  data_models:
+    admission_request: "src/communication/h323_gatekeeper.py:AdmissionRequest"
+    admission_response: "src/communication/h323_gatekeeper.py:AdmissionResponse"
+    conference_room: "src/communication/h323_mcu_config.py:ConferenceRoom"
+    participant_stream: "src/communication/h323_mcu_config.py:ParticipantStream"
+
+# ============================================================================
+# Testing & Validation
+# ============================================================================
+
+testing:
+  unit_tests:
+    location: "tests/test_h323_admission.py"
+    coverage:
+      - "Ed25519 signature verification (Gate 1)"
+      - "Guardian registry whitelist (Gate 2)"
+      - "PII policy enforcement (Gate 3)"
+      - "Bandwidth quota enforcement (Gate 4)"
+      - "IF.witness audit logging"
+      - "Concurrent admissions (15+ guardians)"
+
+  integration_tests:
+    - name: "15-guardian ESCALATE call"
+      description: "All 15 guardians join concurrently"
+      success_criteria:
+        - "All ARQs verified with Ed25519"
+        - "All guardians admitted (ACF)"
+        - "MCU mixes 15 audio streams"
+        - "4x4 video grid displayed"
+        - "IF.witness logs all RAS messages"
+
+    - name: "PII rejection"
+      description: "ESCALATE call with has_pii=true rejected"
+      success_criteria:
+        - "ARJ with reason: PII_POLICY_VIOLATION"
+        - "Logged to IF.witness"
+
+    - name: "Bandwidth quota enforcement"
+      description: "Guardian requests 15 Mbps (exceeds 10 Mbps quota)"
+      success_criteria:
+        - "ARJ with reason: BANDWIDTH_EXCEEDED"
+        - "Logged to IF.witness"
+
+# ============================================================================
+# Deployment Configuration
+# ============================================================================
+
+deployment:
+  dependencies:
+    python:
+      - "cryptography>=41.0.0"
+      - "pyyaml>=6.0"
+
+    system:
+      - "gnugk (GNU Gatekeeper) - optional"
+      - "jitsi-videobridge OR kurento-media-server"
+
+  configuration_files:
+    - path: "config/guardian-registry.yaml"
+      description: "Guardian Ed25519 public keys"
+
+    - path: "config/jitsi-videobridge.json"
+      description: "MCU configuration (generated)"
+
+    - path: "logs/h323_witness/"
+      description: "IF.witness audit logs (JSONL)"
+
+  startup_sequence:
+    - step: 1
+      command: "python3 src/communication/h323_gatekeeper.py"
+      description: "Start gatekeeper (port 1719)"
+
+    - step: 2
+      command: "python3 src/communication/h323_mcu_config.py"
+      description: "Start MCU (port 1720)"
+
+    - step: 3
+      command: "python3 tests/test_h323_admission.py"
+      description: "Validate admission control"
+
+# ============================================================================
+# Success Criteria (from Task Brief)
+# ============================================================================
+
+success_criteria:
+  - criterion: "Gatekeeper running, terminals can register"
+    status: "✅ Implemented"
+    validation: "h323_gatekeeper.py line 390"
+
+  - criterion: "15+ guardians can join MCU concurrently"
+    status: "✅ Implemented"
+    validation: "MCUConfigManager max_participants=25"
+
+  - criterion: "Ed25519 admission control rejects invalid signatures"
+    status: "✅ Implemented"
+    validation: "tests/test_h323_admission.py:TestKantianPolicyGates.test_gate1_invalid_signature_rejects"
+
+  - criterion: "PII policy rejects calls with has_pii=true"
+    status: "✅ Implemented"
+    validation: "tests/test_h323_admission.py:TestKantianPolicyGates.test_gate3_pii_in_escalate_rejects"
+
+  - criterion: "Bandwidth quota enforced (max 10 Mbps per terminal)"
+    status: "✅ Implemented"
+    validation: "tests/test_h323_admission.py:TestKantianPolicyGates.test_gate4_bandwidth_exceeded_rejects"
+
+  - criterion: "IF.witness logs all RAS messages (ARQ/ACF/ARJ)"
+    status: "✅ Implemented"
+    validation: "WitnessLogger with SHA-256 content hashing"
+
+  - criterion: "MCU mixes audio from all guardians"
+    status: "✅ Implemented"
+    validation: "MCUConfigManager audio_mixing=centralized"
+
+  - criterion: "Tests pass: admission, PII, bandwidth, Ed25519"
+    status: "✅ Implemented"
+    validation: "tests/test_h323_admission.py (18 tests)"
+
+# ============================================================================
+# Documentation References
+# ============================================================================
+
+documentation:
+  architecture: "docs/H323-GUARD-COUNCIL.md"
+  policy: "docs/H323-KANTIAN-POLICY.md"
+  source_code:
+    - "src/communication/h323_gatekeeper.py"
+    - "src/communication/h323_mcu_config.py"
+  tests: "tests/test_h323_admission.py"
+  configuration: "config/guardian-registry.yaml"
+
+# ============================================================================
+# Contact & Support
+# ============================================================================
+
+contact:
+  workstream_lead: "InfraFabric Project"
+  email: "danny.stocker@gmail.com"
+  session: "3 of 4 (H.323 Guardian Council)"
+  branch: "claude/h323-guardian-council-011CV2ntGfBNNQYpqiJxaS8B"
+  last_updated: "2025-11-11"
