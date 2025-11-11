@@ -1,11 +1,9 @@
 mission: V4 Epic — Full‑Spectrum Intelligence Dossier
-created: '2025-11-11T07:18:39Z'
+created: '2025-11-11T07:19:33Z'
 joe_persona_uri: if://persona/joe
 protocols:
   if.search:
     passes: 8
-    require_citations: true
-    qdf_bias: true
   if.guard:
     quorum: 15
     approval_threshold: 0.5

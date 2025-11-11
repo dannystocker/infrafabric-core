@@ -1,0 +1,955 @@
+philosophers:
+  epictetus:
+    name: Epictetus
+    tradition: Western - Stoicism
+    era: c. 125 CE
+    key_concept: Stoic Prudence - distinguish controllables from uncontrollables
+    if_components:
+    - IF.quiet
+    - IF.witness
+    - IF.trace
+    if_principles:
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Warrant canaries operationalize absence as signal; soft-fail
+      logging continues operation
+    paper_references:
+    - 'IF-foundations.md: Line 434 (Principle 8)'
+    - 'IF-vision.md: Line 66 (Stoic Prudence governance)'
+    - 'IF-witness.md: Line 334 (Warrant canary epistemology)'
+  locke:
+    name: John Locke
+    tradition: Western - Empiricism
+    era: '1689'
+    key_concept: Knowledge from sensory experience, not innate ideas
+    if_components:
+    - IF.ground
+    - IF.armour
+    - IF.search
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    practical_application: Crime Beat Reporter scans YouTube transcripts; All claims
+      traced to observable artifacts
+    paper_references:
+    - 'IF-foundations.md: Line 93 (Empiricism foundation)'
+    - 'IF-foundations.md: Line 504 (Philosophical mapping table)'
+    - 'IF-armour.md: Line 71 (Field intelligence sentinels)'
+  peirce:
+    name: Charles Sanders Peirce
+    tradition: Western - Pragmatism/Fallibilism
+    era: '1877'
+    key_concept: All knowledge is provisional and subject to revision
+    if_components:
+    - IF.ground
+    - IF.reflect
+    - IF.search
+    if_principles:
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    practical_application: Null-safe rendering; agents admit uncertainty explicitly;
+      unknown state handling
+    paper_references:
+    - 'IF-foundations.md: Line 98 (Fallibilism definition)'
+    - 'IF-foundations.md: Line 506 (Unknowns explicit principle)'
+    - 'IF-foundations.md: Line 579 (Pass 3: Challenge)'
+  vienna_circle:
+    name: Vienna Circle (Logical Positivism)
+    tradition: Western - Verificationism
+    era: 1920s
+    key_concept: Meaningful statements must be empirically verifiable
+    if_components:
+    - IF.ground
+    - IF.search
+    - IF.armour
+    if_principles:
+    - 'Principle 2: Validate with the Toolchain'
+    practical_application: Toolchain validation (compilers, linters, tests as truth
+      arbiters); Forensic Investigator sandbox builds
+    paper_references:
+    - 'IF-foundations.md: Line 96 (Verificationism foundation)'
+    - 'IF-foundations.md: Line 141 (Toolchain validation)'
+    - 'IF-foundations.md: Line 505 (Philosophical mapping)'
+    - 'IF-armour.md: Line 95 (Forensic validation)'
+  duhem:
+    name: Pierre Duhem
+    tradition: Western - Philosophy of Science
+    era: '1906'
+    key_concept: Theories underdetermined by evidence; holistic testing
+    if_components:
+    - IF.ground
+    - IF.search
+    if_principles:
+    - 'Principle 4: Schema-Tolerant Parsing'
+    practical_application: Accept multiple valid formats (snake_case/camelCase); schema
+      tolerance across heterogeneous APIs
+    paper_references:
+    - 'IF-foundations.md: Line 100 (Duhem-Quine Thesis)'
+    - 'IF-foundations.md: Line 230 (Schema tolerance implementation)'
+    - 'IF-foundations.md: Line 507 (Mapping table)'
+  quine:
+    name: Willard Van Orman Quine
+    tradition: Western - Coherentism
+    era: '1951'
+    key_concept: Beliefs justified by coherence within networks, not foundational
+      truths
+    if_components:
+    - IF.ground
+    - IF.guardian
+    - IF.search
+    if_principles:
+    - 'Principle 5: Gate Client-Only Features (SSR/CSR Alignment)'
+    practical_application: Multi-agent consensus prevents contradictory threat assessments;
+      SSR/CSR state alignment
+    paper_references:
+    - 'IF-foundations.md: Line 101 (Coherentism)'
+    - 'IF-foundations.md: Line 266 (SSR/CSR alignment)'
+    - 'IF-foundations.md: Line 508 (Multi-agent consensus)'
+    - 'IF-witness.md: Line 444 (Coherentism validation)'
+  james:
+    name: William James
+    tradition: Western - Pragmatism
+    era: '1907'
+    key_concept: Truth is what works in practice
+    if_components:
+    - IF.ground
+    - IF.optimise
+    - IF.search
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    practical_application: Core functionality survives without enhancements; graduated
+      response scales to threat severity
+    paper_references:
+    - 'IF-foundations.md: Line 104 (Pragmatism)'
+    - 'IF-foundations.md: Line 315 (Progressive enhancement)'
+    - 'IF-foundations.md: Line 509 (Graduated response)'
+    - 'IF-vision.md: Line 149 (RRAM validation)'
+  dewey:
+    name: John Dewey
+    tradition: Western - Pragmatism
+    era: 1907-1938
+    key_concept: Inquiry as practical problem-solving; truth through consequences
+    if_components:
+    - IF.ground
+    - IF.search
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    practical_application: Practical utility defines truth; IF.search Pass 6 (Synthesize)
+      translates research to action
+    paper_references:
+    - 'IF-foundations.md: Line 104 (Pragmatist epistemology)'
+    - 'IF-foundations.md: Line 676 (Pass 6: Synthesize)'
+    - 'IF-foundations.md: Line 509'
+  popper:
+    name: Karl Popper
+    tradition: Western - Critical Rationalism
+    era: '1934'
+    key_concept: Scientific claims must be testable through potential refutation
+    if_components:
+    - IF.ground
+    - IF.guardian
+    - IF.search
+    - IF.armour
+    if_principles:
+    - 'Principle 7: Reversible Switches'
+    practical_application: Reversible component swaps; IF.guard Contrarian veto; Pass
+      7 (Reverse) designs falsification tests
+    paper_references:
+    - 'IF-foundations.md: Line 105 (Falsifiability)'
+    - 'IF-foundations.md: Line 350 (Reversible switches)'
+    - 'IF-foundations.md: Line 708 (Pass 7: Reverse)'
+    - 'IF-armour.md: Line 158 (Falsification testing)'
+    - 'IF-witness.md: Line 437 (Falsifiability validation)'
+  buddha:
+    name: Buddha (Siddhartha Gautama)
+    tradition: Eastern - Buddhism
+    era: c. 500 BCE
+    key_concept: Non-attachment; acknowledge impermanence and unknowns
+    if_components:
+    - IF.guardian
+    - IF.witness
+    if_principles:
+    - Non-Dogmatism - admit uncertainty
+    practical_application: MARL explicitly separates 'real' from 'aspirational'; transparent
+      uncertainty metrics
+    paper_references:
+    - 'IF-witness.md: Line 143 (Non-Dogmatism)'
+    - 'IF-witness.md: Line 448 (Non-Attachment validation)'
+    - 'IF-vision.md: Line 277 (Guardian council)'
+  lao_tzu:
+    name: Lao Tzu
+    tradition: Eastern - Daoism
+    era: c. 6th century BCE
+    key_concept: Humility; recognize limits; natural order
+    if_components:
+    - IF.guardian
+    - IF.witness
+    if_principles:
+    - Humility - acknowledge system limitations
+    practical_application: MARL presented as 'one approach' not 'the solution'; document
+      failure modes
+    paper_references:
+    - 'IF-witness.md: Line 147 (Humility)'
+    - 'IF-witness.md: Line 452 (Humility validation)'
+    - 'IF-witness.md: Line 193 (Failure mode documentation)'
+  confucius:
+    name: Confucius (Kong Fuzi)
+    tradition: Eastern - Confucianism
+    era: 551-479 BCE
+    key_concept: Practical benefit; social harmony; ethical action
+    if_components:
+    - IF.guardian
+    - IF.garp
+    - IF.witness
+    if_principles:
+    - Practical Benefit - tangible value
+    practical_application: IF.yologuard deployed with measurable impact; track velocity
+      metrics; E pluribus unum coordination
+    paper_references:
+    - 'IF-witness.md: Line 151 (Practical benefit)'
+    - 'IF-witness.md: Line 456 (Practical validation)'
+    - 'IF-vision.md: Line 405 (E pluribus unum - Civic Guardian)'
+  joe:
+    name: Joe Coulombe
+    tradition: Applied Pragmatism (Retail Epistemology)
+    era: 1960s–2010s
+    key_concept: Constraint-driven curation, private-label only when differentiated,
+      'willingness to do without', COD supplier discipline, small/dense stores.
+    if_components:
+    - IF.search
+    - IF.guard
+    - IF.persona
+    - IF.optimise
+    - IF.citation
+    - IF.quiet
+    - IF.garp
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 4: Schema-Tolerant Parsing'
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 7: Reversible Decisions'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Map Joe's heuristics to IF.search passes; require artifact
+      citations; progressive enhancement on product/category bets; reversible buy/kill
+      decisions; council review for scale-up.
+    paper_references:
+    - 'IF-all-core-papers.md: (principles table & IF.search)'
+    - 'IF-all-components-data.md: (IF.guard council thresholds)'
+    historical_context:
+      influenced_by:
+      - A&P
+      - 7‑Eleven (anti-model)
+      influenced:
+      - Modern private‑label retail
+    additional_readings:
+    - Becoming Trader Joe (2021)
+    - 'Acquired Podcast: Trader Joe’s (2025)'
+if_components:
+  if_chase:
+    name: IF.chase
+    category: Emotional Regulation
+    emotional_phase: Manic Phase
+    emotional_function: Bounded acceleration with depth limits
+    guardian_archetype: Technical Guardian (Manic Brake)
+    philosophical_foundation:
+    - philosopher: Technical Guardian
+      concept: Predictive empathy prevents runaway acceleration
+    - philosopher: Popper
+      concept: Falsifiability - momentum limits testable
+    real_world_parallel: Police chases (3,300+ deaths over 6 years, 15% bystander
+      casualties)
+    key_metrics:
+    - 'Depth limit: 3'
+    - 'Token budget: 10K'
+    - 'Bystander protection: 5% max (vs 15% police baseline)'
+    - 'Dream approval: 97.3%'
+    paper_references:
+    - 'IF-vision.md: Lines 80-95 (Manic phase components)'
+    - 'IF-vision.md: Lines 339-346 (IF.chase specification)'
+  if_ground:
+    name: IF.ground
+    category: Foundation Layer - Epistemology
+    principles_count: 8
+    philosophical_span: 2,400 years (125 CE Stoicism → 1920s Vienna Circle)
+    philosophers:
+    - Epictetus
+    - Locke
+    - Peirce
+    - Vienna Circle
+    - Duhem
+    - Quine
+    - James
+    - Dewey
+    - Popper
+    practical_validation: 95%+ hallucination reduction in Next.js + ProcessWire deployment
+    key_metrics:
+    - 'Hydration warnings: 95% reduction (127 → 6)'
+    - 'Production: icantwait.ca'
+    - 'Schema tolerance: Zero API failures'
+    paper_references:
+    - 'IF-foundations.md: Lines 85-512 (Complete epistemology section)'
+    - 'IF-foundations.md: Lines 437-456 (Production validation)'
+  if_search:
+    name: IF.search
+    category: Investigation Methodology
+    methodology: 8-pass investigative framework
+    philosophers_per_pass:
+    - 'Pass 1: Scan (Locke - Empiricism)'
+    - 'Pass 2: Validate (Vienna Circle - Verificationism)'
+    - 'Pass 3: Challenge (Peirce - Fallibilism)'
+    - 'Pass 4: Cross-reference (Duhem/Quine - Schema tolerance)'
+    - 'Pass 5: Contradict (Peirce - Fallibilism)'
+    - 'Pass 6: Synthesize (James/Dewey - Pragmatism)'
+    - 'Pass 7: Reverse (Popper - Falsifiability)'
+    - 'Pass 8: Monitor (Epictetus - Observability)'
+    practical_validation: 'Epic Games infrastructure assessment: 87% confidence, 847
+      validated contacts'
+    key_metrics:
+    - 'Contact discovery: 847 contacts, 68% validation success'
+    - 'Cost: $50 API vs $5K+ human team'
+    - 'Speed: 2 days vs 2 weeks'
+    - 'Cross-cultural: Western + Chinese perspectives'
+    paper_references:
+    - 'IF-foundations.md: Lines 518-906 (Complete IF.search section)'
+    - 'IF-foundations.md: Lines 808-848 (Case studies)'
+  if_persona:
+    name: IF.persona
+    category: Agent Characterization
+    methodology: Bloom pattern classification
+    bloom_patterns:
+    - 'Early Bloomers: GPT-5 (fast plateau, immediate utility)'
+    - 'Late Bloomers: Gemini 2.5 Pro (context-dependent, high ceiling)'
+    - 'Steady Performers: Claude Sonnet 4.5 (consistent execution)'
+    philosophical_foundation:
+    - philosopher: Schmidhuber
+      concept: Clayed Meta-Productivity - late bloomers exceed early performance
+    - philosopher: Cognitive Diversity
+      concept: Heterogeneous consensus prevents groupthink
+    practical_validation: IF.yologuard 100× false-positive reduction (4% → 0.04%)
+    key_metrics:
+    - 'Homogeneous panel: 4.0% FP rate'
+    - 'Heterogeneous panel: 0.04% FP rate'
+    - 'Reduction: 100×'
+    - 'Cost efficiency: 2× cost, 100× gain (50× ROI)'
+    paper_references:
+    - 'IF-foundations.md: Lines 909-1220 (Complete IF.persona section)'
+    - 'IF-foundations.md: Lines 1050-1120 (IF.yologuard validation)'
+  if_reflect:
+    name: IF.reflect
+    category: Emotional Regulation
+    emotional_phase: Depressive Phase
+    emotional_function: Blameless learning and root-cause investigation
+    philosophical_foundation:
+    - philosopher: Peirce
+      concept: Fallibilism - failure is data, not shame
+    practical_application: Blameless post-mortems; psychological safety enables learning
+    key_metrics:
+    - 0% repeat failures within 12 months
+    - Every IF decision generates post-mortem
+    paper_references:
+    - 'IF-vision.md: Lines 98-121 (Depressive phase)'
+    - 'IF-vision.md: Lines 348-352 (IF.reflect specification)'
+  if_garp:
+    name: IF.garp
+    category: Emotional Regulation
+    emotional_phase: Reward Phase
+    emotional_function: Good Actor Recognition Protocol
+    philosophical_foundation:
+    - philosopher: Confucius
+      concept: Practical benefit through recognition and redemption
+    real_world_parallel: Singapore Traffic Police Certificate of Merit (3-year clean
+      record requirement)
+    reward_tiers:
+    - '30-day: Basic recognition (compute priority 1.2×)'
+    - '365-day: Advanced recognition (governance vote, API rate 2.0×)'
+    - '1,095-day: Certificate of Merit (point expungement, compute 2.0×)'
+    key_metrics:
+    - 'Redemption rate: >60% agents reform after 3 years'
+    - 'Singapore validation: 5.9M population, 5+ years operational'
+    paper_references:
+    - 'IF-vision.md: Lines 161-194 (Reward phase)'
+    - 'IF-vision.md: Lines 354-360 (IF.garp specification)'
+    - 'IF-vision.md: Line 405 (Confucius - E pluribus unum)'
+  if_quiet:
+    name: IF.quiet
+    category: Emotional Regulation
+    emotional_phase: Reward Phase (Anti-Spectacle)
+    emotional_function: Prevention over detection; anti-heroics metrics
+    philosophical_foundation:
+    - philosopher: Epictetus
+      concept: Stoic Prudence - focus on prevention (controllable)
+    practical_application: Best IF.yologuard catches 0 secrets (developers learned);
+      silence = success
+    key_metrics:
+    - 'Anti-spectacle: Reward prevention, not heroics'
+    - 'IF.yologuard production: Zero secrets in production (developers trained)'
+    paper_references:
+    - 'IF-vision.md: Lines 109, 171, 363-367'
+    - 'IF-vision.md: Line 180 (Best IF.yologuard catches 0)'
+  if_optimise:
+    name: IF.optimise
+    category: Innovation Engineering
+    emotional_phase: Manic Phase (Channeled)
+    emotional_function: Token-efficient task orchestration
+    philosophical_foundation:
+    - philosopher: James
+      concept: Pragmatism - efficiency is emotional intelligence
+    practical_application: Haiku delegation for mechanical tasks; Sonnet for reasoning;
+      multi-Haiku parallelization
+    key_metrics:
+    - 'Token reduction: 87-90%'
+    - 'PAGE-ZERO v7: 7 days vs 48-61 day estimate (6.9× velocity)'
+    - 'Cost optimization: $0.001 Haiku vs $0.10 Sonnet'
+    paper_references:
+    - 'IF-vision.md: Lines 84, 370-376'
+  if_memory:
+    name: IF.memory
+    category: Innovation Engineering
+    emotional_function: Dynamic context preservation
+    philosophical_foundation:
+    - concept: Institutional amnesia prevention
+    practical_application: 3-tier (global CLAUDE.md + session handoffs + git history)
+    key_metrics:
+    - 'Context preservation: 95%+'
+    - 'Session handoff completeness: >90%'
+    - Zero context loss across boundaries
+    paper_references:
+    - 'IF-vision.md: Lines 377-386'
+  if_vesicle:
+    name: IF.vesicle
+    category: Innovation Engineering
+    emotional_phase: Dream Phase
+    emotional_function: Autonomous capability packets
+    philosophical_foundation:
+    - concept: Neurogenesis metaphor - exercise grows brains via vesicles
+    practical_application: MCP servers as extracellular vesicles delivering AI capabilities
+    key_metrics:
+    - 'Dream approval: 89.1%'
+    - 'Hypothesis: 50% capability increase (testable)'
+    - 'Time to deployment: <7 days'
+    paper_references:
+    - 'IF-vision.md: Lines 137-142 (Dream example)'
+    - 'IF-vision.md: Lines 387-395'
+    - 'IF-vision.md: Line 394 (PsyPost 2025 neuroscience validation)'
+  if_federate:
+    name: IF.federate
+    category: Innovation Engineering
+    emotional_phase: Dream Phase
+    emotional_function: Voluntary interoperability
+    philosophical_foundation:
+    - philosopher: Civic Guardian
+      concept: E pluribus unum - coordination without uniformity
+    practical_application: Shared minimal protocols + cluster autonomy + exit rights
+    key_metrics:
+    - '5 cluster types: research, financial, healthcare, defense, creative'
+    - 'Cluster retention: >85% (agents choose to stay)'
+    - Diversity strengthens resilience
+    paper_references:
+    - 'IF-vision.md: Lines 396-406'
+  if_arbitrate:
+    name: IF.arbitrate
+    category: Innovation Engineering
+    emotional_phase: Manic Phase
+    emotional_function: Weighted resource allocation
+    philosophical_foundation:
+    - philosopher: James
+      concept: Pragmatism - fairness is not sacrifice
+    real_world_parallel: RRAM hardware acceleration (Nature Electronics peer-reviewed)
+    key_metrics:
+    - 'Hardware: 10-100× speedup vs GPU'
+    - 'RRAM: 120ns matrix inversion'
+    - 'Software fallback: mandatory (hardware-agnostic)'
+    - 'Dream approval: 99.1%'
+    paper_references:
+    - 'IF-vision.md: Lines 83, 407-415'
+    - 'IF-vision.md: Lines 147-151 (RRAM dream example)'
+  if_guardian:
+    name: IF.guardian
+    category: Advanced Governance
+    emotional_function: Distributed authority with accountability
+    council_structure: 20-voice extended (6 Core + 3 Western + 3 Eastern + 8 IF.sam)
+    philosophers:
+    - 'Western: Locke, Quine, Popper'
+    - 'Eastern: Buddha, Lao Tzu, Confucius'
+    - 'IF.sam: 8 facets of ethical spectrum'
+    practical_validation: 100% consensus on Dossier 07 (first in IF history)
+    key_metrics:
+    - 'Average approval: 90.1% across 7 dossiers'
+    - Context-adaptive weighting
+    - 'Contrarian veto: >95% triggers 2-week cooling-off'
+    paper_references:
+    - 'IF-vision.md: Lines 199-283 (Guardian Council)'
+    - 'IF-vision.md: Lines 260-283 (100% consensus)'
+    - 'IF-vision.md: Lines 417-424'
+  if_constitution:
+    name: IF.constitution
+    category: Advanced Governance
+    emotional_phase: Depressive Phase
+    emotional_function: Evidence-based rules
+    philosophical_foundation:
+    - concept: Constitutions emerge from pattern recognition, not ideology
+    practical_application: 100+ incidents → 30-day assessment → 75% supermajority
+      rule
+    key_metrics:
+    - 'Point expungement: 3 years (redemption after growth)'
+    - 'Proposal acceptance: >75%'
+    - Zero repeat violations within 36 months
+    paper_references:
+    - 'IF-vision.md: Lines 107, 171, 425-430'
+  if_collapse:
+    name: IF.collapse
+    category: Advanced Governance
+    emotional_phase: Depressive Phase
+    emotional_function: Graceful degradation protocol
+    philosophical_foundation:
+    - concept: Civilizations crash; organisms degrade gracefully
+    real_world_parallel: 5,000 years collapse patterns (Rome, Maya, Soviet Union,
+      Easter Island)
+    degradation_levels:
+    - Financial → Commercial → Political → Social → Cultural
+    key_metrics:
+    - Continues function under 10× normal stress
+    - 'Dossier 07: 100% consensus (5 collapse patterns → 5 IF components)'
+    paper_references:
+    - 'IF-vision.md: Lines 431-440'
+    - 'IF-vision.md: Lines 260-283 (Dossier 07 collapse patterns)'
+    - 'IF-vision.md: Line 439 (Dmitry Orlov citation)'
+  if_resource:
+    name: IF.resource
+    category: Specialized Components
+    emotional_function: Carrying capacity monitor
+    philosophical_foundation:
+    - concept: Civilizations die from resource overexploitation (Maya deforestation)
+    practical_application: Token budgets as resource monitors; overshoot detection
+      triggers graceful degradation
+    key_metrics:
+    - 'Dossier 07: Resource collapse pattern mapped'
+    - Zero token budget overruns after 3 months
+    - No task >10K without authorization
+    paper_references:
+    - 'IF-vision.md: Lines 441-448'
+    - 'IF-vision.md: Line 267 (Dossier 07)'
+  if_simplify:
+    name: IF.simplify
+    category: Specialized Components
+    emotional_phase: Depressive Phase
+    emotional_function: Complexity collapse prevention
+    philosophical_foundation:
+    - concept: Joseph Tainter's law - complexity has diminishing returns
+    practical_application: Monitor coordination_cost vs benefit; reduce complexity
+      when ratio inverts
+    key_metrics:
+    - 'Guard reduction: 20 → 6 core (80% simpler, 0% function loss)'
+    - 'Governance overhead: 40% reduction'
+    - 'Dossier 07: Soviet Union complexity collapse pattern'
+    paper_references:
+    - 'IF-vision.md: Lines 449-458'
+    - 'IF-vision.md: Line 458 (Tainter 1988 citation)'
+    - 'IF-vision.md: Line 270 (Dossier 07 complexity pattern)'
+  if_router:
+    name: IF.router
+    category: Core Infrastructure
+    emotional_phase: Manic Phase
+    emotional_function: Reciprocity-based resource allocation
+    philosophical_foundation:
+    - concept: Contribution earns privileges; freeloading decays
+    real_world_parallel: Singapore Traffic Police dual-system governance
+    key_metrics:
+    - Top 10% agents receive <30% resources (fairness)
+    - 'Singapore: 5.9M population, 5+ years proven'
+    - 'Fabric-aware routing: NVLink 900 GB/s'
+    paper_references:
+    - 'IF-vision.md: Lines 82, 317-324'
+  if_trace:
+    name: IF.trace
+    category: Core Infrastructure
+    emotional_phase: Depressive Phase
+    emotional_function: Immutable audit logging
+    philosophical_foundation:
+    - concept: Accountability enables learning; qualified immunity enables corruption
+    - philosopher: Ethical Guardian
+      concept: Anti-qualified-immunity audit trail
+    practical_application: Merkle tree append-only + provenance chains; EU AI Act
+      Article 10 compliance
+    key_metrics:
+    - Zero data loss
+    - All decisions cryptographically linked to source agents
+    - 'Adult in room principle: agents MORE responsible than users'
+    paper_references:
+    - 'IF-vision.md: Lines 108, 325-335'
+  if_core:
+    name: IF.core
+    category: Core Infrastructure
+    emotional_function: Substrate-agnostic identity & messaging
+    philosophical_foundation:
+    - philosopher: Meta Guardian
+      concept: Substrate diversity is bias mitigation strategy
+    practical_application: W3C DIDs + ContextEnvelope + quantum-resistant cryptography
+    key_metrics:
+    - Sub-100ms latency
+    - Zero authentication failures in 1,000+ operations
+    - 'Cross-substrate: classical + quantum + neuromorphic'
+    paper_references:
+    - 'IF-vision.md: Lines 305-315'
+  if_armour:
+    name: IF.armour
+    category: Security Architecture
+    emotional_function: Adaptive security with biological FP reduction
+    methodology: Security newsroom (4-tier defense)
+    tiers:
+    - 'Tier 1: Field Intelligence (Crime Beat Reporter, Foreign Correspondent, Academic
+      Researcher, Open Source Analyst)'
+    - 'Tier 2: Forensic Validation (Forensic Investigator, Intelligence Analyst)'
+    - 'Tier 3: Editorial Decision (Investigative Journalist, Editor-in-Chief)'
+    - 'Tier 4: Internal Oversight (Internal Affairs Detective, Inspector General)'
+    philosophical_foundation:
+    - philosopher: Locke
+      concept: Empiricism - Crime Beat Reporter observable grounding
+    - philosopher: Vienna Circle
+      concept: Verificationism - Forensic sandbox validation
+    - philosopher: Popper
+      concept: Falsifiability - Internal Affairs penetration testing
+    biological_mechanisms:
+    - 'Multi-agent consensus: 1000× theoretical FP reduction'
+    - 'Thymic selection: 10-30× reduction (train on 100K legitimate samples)'
+    - 'Regulatory veto: 3-5× reduction (context-aware suppression)'
+    - 'Graduated response: 10× user-perceived reduction'
+    practical_validation: IF.yologuard 100× FP reduction (4% → 0.04%)
+    key_metrics:
+    - 'Combined theoretical: 50,000× FP reduction'
+    - 'Conservative measured: 100× (empirically validated)'
+    - 'Zero-day response: 3 days (7× faster than 21-day industry median)'
+    - 'Production: icantwait.ca, 6-month deployment'
+    - 'ROI: 1,240× ($35,250 saved / $28.40 AI costs)'
+    paper_references:
+    - 'IF-armour.md: Complete paper'
+    - 'IF-armour.md: Lines 62-188 (Security newsroom)'
+    - 'IF-armour.md: Lines 190-485 (Biological FP reduction)'
+    - 'IF-armour.md: Lines 487-770 (IF.yologuard production)'
+  if_witness:
+    name: IF.witness
+    category: Meta-Validation Architecture
+    methodology: Multi-Agent Reflexion Loop (MARL) + Epistemic Swarms
+    marl_stages:
+    - 'Stage 1: Signal Capture (IF.trace)'
+    - 'Stage 2: Primary Analysis (ChatGPT-5)'
+    - 'Stage 3: Rigor and Refinement (Human Architect)'
+    - 'Stage 4: Cross-Domain Integration (External Research)'
+    - 'Stage 5: Framework Mapping (Insights → IF Components)'
+    - 'Stage 6: Specification Generation (Roadmaps, Schemas, Tests)'
+    - 'Stage 7: Meta-Validation (Gemini 2.5 Pro + IF.guard Council)'
+    epistemic_swarm: 15 agents (5 compilers + 10 specialists)
+    philosophical_foundation:
+    - philosopher: Buddha
+      concept: Non-attachment - admit uncertainty
+    - philosopher: Lao Tzu
+      concept: Humility - recognize limits
+    - philosopher: Confucius
+      concept: Practical benefit - tangible value
+    - philosopher: Epictetus
+      concept: Warrant canary - observable absence as signal
+    practical_validation: IF.yologuard 6-month → 6-day compression (30× faster)
+    key_metrics:
+    - 'Epistemic swarm: 87 opportunities, $3-5 cost (200× cheaper than $600-800 manual)'
+    - 'Gemini meta-validation: 88.7% approval (recursive loop closure)'
+    - 'Singapore GARP validation: 5× faster (4 days vs 2-3 weeks)'
+    - 'RRAM research integration: 7× faster (2 days vs 1-2 weeks)'
+    paper_references:
+    - 'IF-witness.md: Complete paper'
+    - 'IF-witness.md: Lines 64-202 (MARL methodology)'
+    - 'IF-witness.md: Lines 203-375 (Epistemic swarms)'
+    - 'IF-witness.md: Lines 329-374 (Warrant canary epistemology)'
+  if_forge:
+    name: IF.forge
+    category: Meta-Validation - MARL Implementation
+    methodology: 7-stage human-AI research process
+    philosophical_foundation:
+    - concept: Validation must be observable, falsifiable, and recursive
+    practical_application: Recursive validation - processes validate their own effectiveness
+    key_metrics:
+    - 'IF.yologuard: 6 months → 6 days (30× faster)'
+    - 'Singapore GARP: 2-3 weeks → 4 days (5× faster)'
+    - 'Cost: $500 API vs $10,000 labor (20× cheaper)'
+    paper_references:
+    - 'IF-witness.md: Lines 64-202'
+    - 'IF-witness.md: Lines 118-177 (Gemini recursive validation)'
+  if_swarm:
+    name: IF.swarm
+    category: Meta-Validation - Epistemic Swarms
+    methodology: 15-agent specialization (5 compilers + 10 validators)
+    specializations:
+    - Epistemology Specialist (Agent 1)
+    - Code Validation Specialist (Agent 2)
+    - False-Positive Specialist (Agent 3)
+    - Cross-Document Multiplier Specialist (Agent 4)
+    - Quantitative Claims Specialist (Agent 5)
+    - Biological Parallels Specialist (Agent 6)
+    - Philosophical Validation Specialist (Agent 7)
+    - Legal Framework Specialist (Agent 8)
+    - Architecture Coherence Specialist (Agent 9)
+    - Originality Assessment Specialist (Agent 10)
+    philosophical_foundation:
+    - concept: Biological immune system - diverse antibodies detect different pathogens
+    practical_validation: 87 opportunities identified in 5 minutes at $3-5 cost
+    key_metrics:
+    - 'Cost effectiveness: 200× vs manual ($3-5 vs $600-800)'
+    - 'Time efficiency: 96× faster (5 min vs 40 hours)'
+    - 'Thoroughness: 4.35× (87 opportunities vs 10-20 manual estimate)'
+    - 'Compound multiplier: 31× effectiveness × 200× cost = ~6,200× net value'
+    paper_references:
+    - 'IF-witness.md: Lines 203-328'
+    - 'IF-witness.md: Lines 280-328 (Swarm deployment results)'
+cross_domain_validations:
+  hardware_acceleration:
+    approval_rate: 99.1%
+    components:
+    - IF.arbitrate
+    - IF.router
+    validation: RRAM 10-100× speedup (Nature Electronics peer-reviewed)
+    philosopher_connection: Pragmatism (James) - truth defined by practical consequences
+    paper_references:
+    - 'IF-vision.md: Lines 466, 412-414'
+    - 'IF-vision.md: Line 669 (Nature Electronics 2025)'
+  healthcare_coordination:
+    approval_rate: 97.0%
+    components:
+    - IF.core
+    - IF.guardian
+    - IF.garp
+    validation: TRAIN AI validation - minimum viable civilization assessment
+    philosopher_connection: Biological coordination - immune system, neural networks,
+      ecosystems
+    paper_references:
+    - 'IF-vision.md: Lines 467, 490-505'
+  policing_safety:
+    approval_rate: 97.3%
+    components:
+    - IF.chase
+    - IF.reflect
+    - IF.quiet
+    validation: 5% collateral vs 15% baseline (police chase coordination patterns)
+    philosopher_connection: Stoic Prudence (Epictetus) - bystander protection
+    paper_references:
+    - 'IF-vision.md: Lines 468, 95 (3,300+ deaths data)'
+  civilizational_resilience:
+    approval_rate: 100.0%
+    components:
+    - All 17 components
+    validation: 5,000 years collapse patterns (Rome 476 CE, Maya 900 CE, Soviet Union
+      1991)
+    philosopher_connection: Tainter's law - complexity has diminishing returns
+    empirical_data:
+    - 'Rome: 1,000-year duration, complexity overhead collapse'
+    - 'Maya: Resource depletion, agricultural failure'
+    - 'Easter Island: Environmental collapse'
+    - 'Soviet Union: Central planning complexity exceeded capacity'
+    paper_references:
+    - 'IF-vision.md: Lines 469, 260-283 (Dossier 07)'
+    - 'IF-vision.md: Lines 37-40 (Civilizational patterns)'
+  web_development:
+    approval_rate: N/A (Production deployment)
+    components:
+    - IF.ground
+    validation: 95%+ hallucination reduction in Next.js + ProcessWire
+    philosopher_connection: Empiricism (Locke), Verificationism (Vienna Circle)
+    practical_metrics:
+    - 'Hydration warnings: 95% reduction (127 → 6)'
+    - Zero API schema failures
+    - 47 type errors caught pre-deployment
+    paper_references:
+    - 'IF-foundations.md: Lines 437-485 (Production validation)'
+  competitive_intelligence:
+    approval_rate: 87% confidence
+    components:
+    - IF.search
+    validation: Epic Games infrastructure assessment - 847 validated contacts
+    philosopher_connection: Cross-cultural synthesis (Western + Chinese perspectives)
+    practical_metrics:
+    - 'Contact discovery: 847 contacts, 68% success rate'
+    - 'Cost: $50 API vs $5K+ human team'
+    - 'Speed: 2 days vs 2 weeks'
+    paper_references:
+    - 'IF-foundations.md: Lines 808-848'
+  secret_detection:
+    approval_rate: 96.43% recall
+    components:
+    - IF.yologuard
+    - IF.persona
+    - IF.armour
+    validation: 100× FP reduction (4% → 0.04%) in production
+    philosopher_connection: Cognitive diversity (heterogeneous bloom patterns)
+    practical_metrics:
+    - '6-month deployment: 142,350 files scanned'
+    - 'False negatives: 0 (20/20 penetration test detection)'
+    - 'ROI: 1,240× ($35,250 saved / $28.40 spent)'
+    paper_references:
+    - 'IF-foundations.md: Lines 1050-1164'
+    - 'IF-armour.md: Lines 487-770'
+emotional_cycles:
+  manic:
+    description: Creative expansion, rapid prototyping, resource mobilization
+    components:
+    - IF.chase
+    - IF.router
+    - IF.arbitrate
+    - IF.optimise
+    guardian: Technical Guardian (Manic Brake)
+    warning_signs:
+    - Approval >95% triggers Contrarian veto
+    - Bystander damage >5%
+    - Token budget >10K
+    - Spectacle metrics rising
+    philosophy: Velocity is not virtue - momentum without limits kills
+    real_world_parallel: Police chases - 4,000lb bullet metaphor
+    paper_references:
+    - 'IF-vision.md: Lines 73-95'
+  depressive:
+    description: Reflective compression, evidence gathering, blameless introspection
+    components:
+    - IF.reflect
+    - IF.constitution
+    - IF.trace
+    - IF.quiet
+    - IF.collapse
+    - IF.simplify
+    guardian: Ethical Guardian (Depressive Depth)
+    recognition_signals:
+    - Sub-70% approval → Proposal blocked (refinement, not failure)
+    - Contrarian skepticism (60-70%) → Valid concern
+    - Appeal mechanisms → Redemption arc
+    - Cooling-off periods → Mandatory pause
+    philosophy: Depression is not dysfunction - system refuses to proceed without
+      understanding
+    real_world_parallel: Singapore 3-year Certificate of Merit (time-based trust)
+    paper_references:
+    - 'IF-vision.md: Lines 98-121'
+  dream:
+    description: Cross-domain synthesis, metaphor as architectural insight, pattern
+      recognition
+    components:
+    - IF.vesicle
+    - IF.federate
+    guardian: Cultural Guardian (Dream Weaver)
+    dream_examples:
+    - 'Neurogenesis → IF.vesicle (89.1% approval): Exercise triggers brain growth
+      via vesicles'
+    - 'Police Chases → IF.chase (97.3% approval): Traffic safety patterns apply to
+      AI coordination'
+    - 'RRAM → Hardware Acceleration (99.1% approval): 1950s analog computing returns
+      for AI'
+    philosophy: Dreams are laboratories where mind tests impossible combinations
+    contrarian_check: Does this add value or repackage with fancy words? Dream without
+      testable predictions = buzzword theater
+    paper_references:
+    - 'IF-vision.md: Lines 122-159'
+  reward:
+    description: Recognition of sustained good behavior, economic incentives aligned
+      with ethics
+    components:
+    - IF.garp
+    - IF.quiet
+    - IF.constitution
+    guardian: Economic Guardian (Fairness over extraction)
+    reward_tiers:
+    - '30-day: Basic recognition (compute priority 1.2×, dashboard badge)'
+    - '365-day: Advanced recognition (governance vote, API rate 2.0×)'
+    - '1,095-day: Certificate of Merit (capability escalation, point expungement,
+      compute 2.0×)'
+    philosophy: Reward is not bribery - system's acknowledgment that cooperation >
+      coercion
+    anti_extraction_principles:
+    - 'IF.quiet: Best IF.yologuard catches 0 secrets'
+    - 'Singapore GARP: Insurance discounts (economic alignment)'
+    - 'Burnout prevention: 10K token budget limit'
+    - 'Redemption arc: 3-year expungement'
+    paper_references:
+    - 'IF-vision.md: Lines 161-194'
+if_sam_facets:
+  light_side_1:
+    name: 'IF.sam Light 1: Idealistic Altruism'
+    description: Open research democratizes AI coordination knowledge
+    ethical_stance: Maximum transparency, knowledge sharing
+    paper_references:
+    - 'IF-witness.md: Line 156'
+  light_side_2:
+    name: 'IF.sam Light 2: Ethical AI Advancement'
+    description: Build safe coordination to prevent catastrophic failures
+    ethical_stance: Safety over speed
+    paper_references:
+    - 'IF-vision.md: Lines 260-283 (Dossier 07 - civilization collapse prevention)'
+  light_side_3:
+    name: 'IF.sam Light 3: Inclusive Coordination'
+    description: Enable substrate diversity to prevent AI monoculture
+    ethical_stance: Computational plurality
+    paper_references:
+    - 'IF-vision.md: Lines 305-315 (IF.core substrate-agnostic)'
+  light_side_4:
+    name: 'IF.sam Light 4: Transparent Governance'
+    description: IF.guard 20-voice council with public deliberation
+    ethical_stance: Distributed authority, accountability
+    paper_references:
+    - 'IF-vision.md: Lines 199-283'
+  dark_side_1:
+    name: 'IF.sam Dark 1: Ruthless Pragmatism'
+    description: MARL reduces dependency on large teams - strategic hiring advantage
+    ethical_stance: Competitive efficiency
+    paper_references:
+    - 'IF-witness.md: Line 157'
+  dark_side_2:
+    name: 'IF.sam Dark 2: Strategic Ambiguity'
+    description: 87-90% token reduction creates cost moat vs competitors
+    ethical_stance: Operational advantage through efficiency
+    paper_references:
+    - 'IF-vision.md: Lines 370-376 (IF.optimise)'
+  dark_side_3:
+    name: 'IF.sam Dark 3: Velocity Weaponization'
+    description: 6.9× velocity improvement (PAGE-ZERO v7) outpaces competition
+    ethical_stance: Speed as competitive weapon
+    paper_references:
+    - 'IF-vision.md: Line 374'
+  dark_side_4:
+    name: 'IF.sam Dark 4: Information Asymmetry'
+    description: Warrant canaries protect while maintaining compliance - legal judo
+    ethical_stance: Strategic compliance without full disclosure
+    paper_references:
+    - 'IF-witness.md: Lines 329-374'
+  synthesis:
+    name: IF.sam Synthesis
+    description: Dual motivations create resilience - benefits align across ethical
+      frameworks
+    observation: System serves both idealistic (open research) and pragmatic (competitive
+      advantage) goals simultaneously
+    paper_references:
+    - 'IF-witness.md: Line 158'
+meta_statistics:
+  philosophical_span:
+    earliest: c. 500 BCE (Buddha)
+    latest: 2025 CE (Schmidhuber - Bloom patterns)
+    total_span: 2,500 years
+  tradition_distribution:
+    western_philosophers: 9
+    eastern_philosophers: 3
+    if_sam_facets: 8
+    total_voices: 20
+  if_components:
+    total_components: 17
+    core_infrastructure: 3
+    emotional_regulation: 4
+    innovation_engineering: 5
+    advanced_governance: 3
+    specialized: 2
+  production_validations:
+    total_deployments: 3
+    hallucination_reduction: 95%+
+    false_positive_reduction: 100× (4% → 0.04%)
+    velocity_improvement: 6.9× to 30×
+    cost_efficiency: 20× to 200×
+  approval_rates:
+    average_across_dossiers: 90.1%
+    historic_consensus: 100% (Dossier 07)
+    publication_threshold: 75% (supermajority)
+    contrarian_veto_trigger: 95%+
+version: '1.0'
+generated: '2025-11-06'
+source_papers:
+- /mnt/c/users/setup/Downloads/infrafabric/papers/IF-vision.md
+- /mnt/c/users/setup/Downloads/infrafabric/papers/IF-foundations.md
+- /mnt/c/users/setup/Downloads/infrafabric/papers/IF-armour.md
+- /mnt/c/users/setup/Downloads/infrafabric/papers/IF-witness.md

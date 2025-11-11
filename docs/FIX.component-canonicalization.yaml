@@ -11,4 +11,4 @@ deprecate:
 - IF.dets
 - IF.foo
 - IF.v7
-notes: Apply these aliases at load time; treat deprecated as read‑only legacy.
+notes: Apply aliases at loader; treat deprecated as read-only legacy.

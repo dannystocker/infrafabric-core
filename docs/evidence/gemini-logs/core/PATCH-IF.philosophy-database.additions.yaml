@@ -1,0 +1,292 @@
+philosophers:
+  alghazali:
+    name: Abu Hamid al-Ghazali
+    tradition: Islamic Philosophy (Occasionalism)
+    era: 1058–1111 CE
+    key_concept: All causal power belongs to God; apparent causation is occasioned
+      by divine will.
+    if_components:
+    - IF.witness
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Treat events as atomic and independently logged; avoid
+      hidden causal links—use explicit event evidence and provenance.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-witness'
+    - 'IF-all-core-papers.md: TODO-citation'
+    tensions_with:
+    - philosopher: Avicenna
+      tension: Necessary causation vs occasionalism
+      if_resolution: Empirical adjudication via falsifiers; reversible switches
+    historical_context:
+      influenced_by:
+      - Ash'ari
+      influenced:
+      - Later Islamic theologians
+    additional_readings:
+    - Tahāfut al‑Falāsifa (Incoherence of the Philosophers)
+  avicenna:
+    name: Ibn Sina (Avicenna)
+    tradition: Islamic Philosophy (Peripatetic)
+    era: 980–1037 CE
+    key_concept: Essence/existence distinction; Flying Man thought experiment.
+    if_components:
+    - IF.persona
+    - IF.search
+    if_principles:
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    - 'Principle 7: Reversible Decisions'
+    practical_application: Model persona essence (schema) separate from runtime instances;
+      reversible activation.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-persona'
+    tensions_with:
+    - philosopher: al-Ghazali
+      tension: Causality
+      if_resolution: Council debate with evidence tables
+    historical_context:
+      influenced_by:
+      - Aristotle
+      influenced:
+      - Averroes
+      - Scholastics
+    additional_readings:
+    - al‑Shifā’ (The Healing)
+  averroes:
+    name: Ibn Rushd (Averroes)
+    tradition: Islamic Philosophy (Aristotelian Rationalism)
+    era: 1126–1198 CE
+    key_concept: Harmonization of faith and reason via commentary.
+    if_components:
+    - IF.guard
+    - IF.search
+    if_principles:
+    - 'Principle 2: Validate with the Toolchain'
+    - 'Principle 5: Gate Client‑Only Features'
+    practical_application: Deliberation rules align rhetorical claims to toolchain‑verified
+      evidence.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-guard'
+    tensions_with:
+    - philosopher: al-Ghazali
+      tension: Reason vs theology
+      if_resolution: Evidence table + reversible governance
+    historical_context:
+      influenced_by:
+      - Aristotle
+      - Avicenna
+      influenced:
+      - Aquinas
+    additional_readings:
+    - Tahāfut al‑Tahāfut (Incoherence of the Incoherence)
+  ubuntu:
+    name: Ubuntu (Southern African Philosophy)
+    tradition: African Philosophy
+    era: Classical–Modern
+    key_concept: 'Personhood through community: ‘I am because we are’.'
+    if_components:
+    - IF.guard
+    - IF.swarm
+    if_principles:
+    - 'Principle 5: Gate Client‑Only Features'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Weighted consensus with preserved dissent; communal validation
+      before high‑risk actions.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-guard'
+    tensions_with:
+    - philosopher: Western Individualism
+      tension: Collective vs autonomy
+      if_resolution: Agent autonomy + council consensus
+    historical_context:
+      influenced_by: []
+      influenced:
+      - Restorative justice
+    additional_readings:
+    - Ramose, African Philosophy through Ubuntu (1999)
+  indigenous_relationality:
+    name: Indigenous Relational Epistemology
+    tradition: Indigenous Knowledge Systems
+    era: Time immemorial—present
+    key_concept: Knowledge arises in relationships across human/non‑human/natural
+      systems.
+    if_components:
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 4: Schema‑Tolerant Parsing'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Non‑hierarchical citation webs and schema tolerance across
+      communities and data formats.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-citation'
+    tensions_with:
+    - philosopher: Foundationalism
+      tension: Relational vs universal foundations
+      if_resolution: Coherentism + evidence graphs
+    historical_context:
+      influenced_by: []
+      influenced:
+      - Environmental co‑management
+    additional_readings:
+    - Wilson, Research is Ceremony (2008)
+  phenomenology:
+    name: Husserl / Heidegger / Merleau‑Ponty
+    tradition: Phenomenology
+    era: 1900–1960
+    key_concept: Epoché; being‑in‑the‑world; embodiment.
+    if_components:
+    - IF.guard
+    - IF.persona
+    if_principles:
+    - 'Principle 3: Make Unknowns Explicit and Safe'
+    practical_application: Guard epoché (suspend judgment) until evidence; encode
+      situated viewpoints in personas.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-guard'
+    tensions_with:
+    - philosopher: Vienna Circle
+      tension: Experience vs verificationism
+      if_resolution: 'Dual track: qualitative logs + toolchain validation'
+    historical_context:
+      influenced_by:
+      - Brentano
+      influenced:
+      - Embodied AI
+    additional_readings:
+    - Being and Time; Phenomenology of Perception
+  critical_theory:
+    name: Frankfurt School / Habermas
+    tradition: Critical Theory
+    era: 1930–present
+    key_concept: Ideology critique; communicative rationality.
+    if_components:
+    - IF.guard
+    - IF.quiet
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Anti‑spectacle metrics; ensure deliberation quality before
+      activation.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-vision/quiet'
+    tensions_with:
+    - philosopher: Techno‑optimism
+      tension: Critique vs naive progress
+      if_resolution: Evidence‑first + graduated response
+    historical_context:
+      influenced_by:
+      - Marx
+      - Weber
+      influenced:
+      - STS
+    additional_readings:
+    - Theory of Communicative Action
+  process:
+    name: Whitehead / Bergson
+    tradition: Process Philosophy
+    era: 1890–1947
+    key_concept: Reality as process; events over substances.
+    if_components:
+    - IF.witness
+    - IF.swarm
+    if_principles:
+    - 'Principle 8: Observability Without Fragility'
+    practical_application: Event‑driven design; log ‘occasions’ and derive types.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-witness'
+    tensions_with:
+    - philosopher: Aristotle
+      tension: Becoming vs being
+      if_resolution: Types atop event logs
+    historical_context:
+      influenced_by:
+      - James
+      influenced:
+      - Systems theory
+    additional_readings:
+    - Process and Reality
+  feminist_epistemology:
+    name: Haraway / Harding
+    tradition: Feminist Epistemology
+    era: 1980–present
+    key_concept: Situated knowledges; standpoint theory.
+    if_components:
+    - IF.citation
+    - IF.persona
+    - IF.guard
+    if_principles:
+    - 'Principle 1: Ground in Observable Artifacts'
+    - 'Principle 4: Schema‑Tolerant Parsing'
+    practical_application: Attach provenance; diversify panels; weight perspectives
+      in deliberation.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-citation/persona'
+    tensions_with:
+    - philosopher: Objectivism
+      tension: View from nowhere vs situated views
+      if_resolution: Perspective metadata + artifacts
+    historical_context:
+      influenced_by:
+      - Pragmatism
+      - STS
+      influenced:
+      - AI ethics
+    additional_readings:
+    - Situated Knowledges (1988)
+  postmodernism:
+    name: Foucault / Derrida / Deleuze
+    tradition: Postmodernism / Post‑structuralism
+    era: 1960–1990
+    key_concept: Power/knowledge; deconstruction; rhizome.
+    if_components:
+    - IF.citation
+    - IF.search
+    if_principles:
+    - 'Principle 4: Schema‑Tolerant Parsing'
+    practical_application: Non‑hierarchical evidence graphs; contradiction detection.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-citation'
+    tensions_with:
+    - philosopher: Popper
+      tension: Refutation vs deconstruction
+      if_resolution: Keep falsifiers; tag deconstructions as hypotheses
+    historical_context:
+      influenced_by:
+      - Nietzsche
+      influenced:
+      - Media theory
+    additional_readings:
+    - A Thousand Plateaus
+  tech_philosophy:
+    name: Simondon / Stiegler / Yuk Hui
+    tradition: Contemporary Philosophy of Technology
+    era: 1958–present
+    key_concept: Individuation; pharmacology; cosmotechnics.
+    if_components:
+    - IF.swarm
+    - IF.kernel
+    - IF.connect
+    if_principles:
+    - 'Principle 6: Progressive Enhancement'
+    - 'Principle 7: Reversible Decisions'
+    practical_application: Agent individuation; reversible kernels; federated cosmotechnics
+      for interop.
+    paper_references:
+    - 'IF-all-core-papers.md: TODO-connect/swarm'
+    tensions_with:
+    - philosopher: Determinism
+      tension: Co‑evolution vs fixed progress
+      if_resolution: Reversible switches + incremental rollout
+    historical_context:
+      influenced_by:
+      - Bergson
+      - Heidegger
+      influenced:
+      - HCI
+      - STS
+    additional_readings:
+    - On the Mode of Existence of Technical Objects
