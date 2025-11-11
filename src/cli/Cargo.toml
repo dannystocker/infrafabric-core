@@ -1,0 +1,28 @@
+[package]
+name = "if-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "if"
+path = "src/main.rs"
+
+[dependencies]
+# Workspace dependencies
+serde.workspace = true
+serde_json.workspace = true
+clap.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+
+# Local dependencies
+infrafabric-chassis = { path = "../chassis" }
+
+# Additional CLI dependencies
+colored = "2.1"  # Colored terminal output
+dialoguer = "0.11"  # Interactive prompts
+tabled = "0.15"  # Table formatting

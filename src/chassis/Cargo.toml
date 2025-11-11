@@ -1,0 +1,27 @@
+[package]
+name = "infrafabric-chassis"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+name = "infrafabric_chassis"
+path = "src/lib.rs"
+
+[dependencies]
+# Workspace dependencies
+serde.workspace = true
+serde_json.workspace = true
+ed25519-dalek.workspace = true
+sha2.workspace = true
+rand.workspace = true
+hex.workspace = true
+tokio.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+
+# Additional chassis-specific dependencies
+wasmtime = "16.0"  # WASM runtime for logic payloads
