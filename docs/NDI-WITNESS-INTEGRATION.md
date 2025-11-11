@@ -424,7 +424,61 @@ else:
 
 ---
 
-## 7. Deployment Considerations
+## 7. SIP Integration - Expert Call Evidence Sharing
+
+### Use Case: External Expert Calls with Live Evidence
+
+When IF.guard conducts external expert calls via SIP (Session Initiation Protocol), experts can view live NDI evidence streams with verified provenance.
+
+**Workflow:**
+1. Expert joins SIP call (Session 4 handles SIP protocol)
+2. IF.guard shares NDI stream URL: `ndi://IF.witness.yologuard.01`
+3. Expert's viewer subscribes to NDI stream
+4. Real-time verification: signatures + hash chains validated
+5. Expert sees scan results with cryptographic proof
+
+**Architecture:**
+```
+SIP Call (Session 4)  →  NDI Bridge  →  NDI Stream (Session 1)
+    ↓                       ↓                ↓
+External Expert      Request Evidence    Live Verified Stream
+```
+
+**NDISIPBridge Class:**
+- Manages NDI stream URLs for SIP sessions
+- Verifies participant access permissions
+- Maintains IF.witness provenance across protocols
+- Philosophy: Wu Lun 兄弟 (Siblings) - SIP and NDI as peer channels
+
+**Example Integration:**
+```python
+from communication.ndi_sip_bridge import NDISIPBridge
+
+# In SIP call handler
+bridge = NDISIPBridge()
+ndi_url = bridge.attach_ndi_to_sip_call(
+    sip_session_id="call-abc-123",
+    ndi_stream_name="IF.witness.yologuard.01"
+)
+
+# Share URL with external expert
+send_to_expert(ndi_url)  # Expert can now view verified stream
+```
+
+**Security:**
+- Access control: Only authorized SIP participants
+- Provenance maintained: Ed25519 signatures continue
+- Audit trail: SIP call ID linked to NDI trace_id
+
+**Benefits:**
+- Experts see live evidence (not screenshots)
+- Cryptographic verification in real-time
+- IF.guard governance backed by provable evidence
+- Cross-protocol IF.TTT compliance
+
+---
+
+## 8. Deployment Considerations
 
 ### NDI SDK Setup
 
@@ -487,7 +541,7 @@ NDI uses **mDNS (Bonjour)** for stream discovery:
 
 ---
 
-## 8. Philosophy Check (Self-Test)
+## 9. Philosophy Check (Self-Test)
 
 Before marking this workstream complete, verify:
 
@@ -513,7 +567,7 @@ Before marking this workstream complete, verify:
 
 ---
 
-## 9. Future Enhancements
+## 10. Future Enhancements
 
 1. **Multi-Signer Support:** Allow multiple IF.yologuard instances to co-sign frames (2-of-3 threshold signatures).
 
@@ -527,7 +581,7 @@ Before marking this workstream complete, verify:
 
 ---
 
-## 10. References
+## 11. References
 
 - **IF.witness Paper:** `papers/IF-witness.md` (meta-validation framework)
 - **SWARM-COMMUNICATION-SECURITY.md:** Ed25519 signature architecture
