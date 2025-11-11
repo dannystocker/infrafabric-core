@@ -1,0 +1,12 @@
+# IF.witness CLI Requirements
+# Python 3.10+
+
+# CLI framework
+click>=8.1.0
+
+# Cryptography (Ed25519 signatures)
+cryptography>=41.0.0
+
+# Testing (optional, for development)
+pytest>=7.4.0
+pytest-cov>=4.1.0
