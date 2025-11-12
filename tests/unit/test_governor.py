@@ -925,3 +925,148 @@ def test_budget_allows_overdraft_within_policy(governor, webrtc_swarm):
     # Circuit should be open (budget <= 0)
     stats = governor.get_swarm_stats("swarm-webrtc")
     assert stats.circuit_open is True
+
+
+# ==================== Gang Up on Blocker Tests (P0.2.5) ====================
+
+
+def test_request_help_for_blocker_finds_helpers(governor, webrtc_swarm, sip_swarm):
+    """Test that request_help_for_blocker finds qualified helpers."""
+    # WebRTC swarm has INTEGRATION_WEBRTC
+    # SIP swarm has INTEGRATION_SIP
+    governor.register_swarm(webrtc_swarm)
+    governor.register_swarm(sip_swarm)
+
+    # CLI swarm is blocked and needs WebRTC help
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-cli",
+        required_capabilities=[Capability.INTEGRATION_WEBRTC]
+    )
+
+    # WebRTC swarm should be found as helper
+    assert "swarm-webrtc" in helpers
+
+
+def test_request_help_for_blocker_excludes_blocked_swarm(governor, webrtc_swarm, sip_swarm):
+    """Test that blocked swarm is excluded from helpers."""
+    governor.register_swarm(webrtc_swarm)
+    governor.register_swarm(sip_swarm)
+
+    # WebRTC swarm is blocked and needs WebRTC help
+    # Should not include itself
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-webrtc",
+        required_capabilities=[Capability.INTEGRATION_WEBRTC]
+    )
+
+    assert "swarm-webrtc" not in helpers
+
+
+def test_request_help_for_blocker_respects_max_helpers(governor, webrtc_swarm, sip_swarm, cli_swarm):
+    """Test that max_helpers limit is respected."""
+    # Make all swarms have CLI capability
+    webrtc_swarm.capabilities = [Capability.CLI_DESIGN]
+    sip_swarm.capabilities = [Capability.CLI_DESIGN]
+    cli_swarm.capabilities = [Capability.CLI_DESIGN]
+
+    governor.register_swarm(webrtc_swarm)
+    governor.register_swarm(sip_swarm)
+    governor.register_swarm(cli_swarm)
+
+    # Request help with max 1 helper
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-other",
+        required_capabilities=[Capability.CLI_DESIGN],
+        max_helpers=1
+    )
+
+    # Should only return 1 helper
+    assert len(helpers) == 1
+
+
+def test_request_help_for_blocker_no_qualified_swarms(governor, webrtc_swarm):
+    """Test that empty list returned when no qualified swarms."""
+    governor.register_swarm(webrtc_swarm)
+
+    # Request help for capability that no swarm has
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-cli",
+        required_capabilities=[Capability.INTEGRATION_SIP]  # WebRTC swarm doesn't have this
+    )
+
+    assert helpers == []
+
+
+def test_request_help_for_blocker_uses_policy_limit(governor, webrtc_swarm, sip_swarm, cli_swarm, default_policy):
+    """Test that policy max_swarms_per_task is used when max_helpers not specified."""
+    # Default policy allows 3 swarms per task
+    # So max_helpers should be 3 - 1 = 2 (minus blocked swarm)
+
+    # Make all swarms have CLI capability
+    webrtc_swarm.capabilities = [Capability.CLI_DESIGN]
+    sip_swarm.capabilities = [Capability.CLI_DESIGN]
+    cli_swarm.capabilities = [Capability.CLI_DESIGN]
+
+    governor.register_swarm(webrtc_swarm)
+    governor.register_swarm(sip_swarm)
+    governor.register_swarm(cli_swarm)
+
+    # Don't specify max_helpers, should use policy limit
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-blocked",
+        required_capabilities=[Capability.CLI_DESIGN]
+        # max_helpers not specified
+    )
+
+    # Should return at most 2 helpers (policy max 3 - 1 for blocked)
+    assert len(helpers) <= 2
+
+
+def test_request_help_for_blocker_empty_capabilities_raises(governor):
+    """Test that empty required_capabilities raises ValueError."""
+    with pytest.raises(ValueError, match="required_capabilities cannot be empty"):
+        governor.request_help_for_blocker(
+            blocked_swarm_id="swarm-blocked",
+            required_capabilities=[]
+        )
+
+
+def test_request_help_for_blocker_ranked_by_score(governor):
+    """Test that helpers are ranked by combined score."""
+    # Create 3 swarms with same capability but different costs
+    swarm1 = SwarmProfile(
+        swarm_id="swarm-expensive",
+        capabilities=[Capability.CLI_DESIGN],
+        cost_per_hour=20.0,  # Expensive
+        reputation_score=0.90,
+        current_budget_remaining=100.0
+    )
+
+    swarm2 = SwarmProfile(
+        swarm_id="swarm-cheap",
+        capabilities=[Capability.CLI_DESIGN],
+        cost_per_hour=2.0,  # Cheap
+        reputation_score=0.90,
+        current_budget_remaining=100.0
+    )
+
+    swarm3 = SwarmProfile(
+        swarm_id="swarm-medium",
+        capabilities=[Capability.CLI_DESIGN],
+        cost_per_hour=10.0,  # Medium
+        reputation_score=0.90,
+        current_budget_remaining=100.0
+    )
+
+    governor.register_swarm(swarm1)
+    governor.register_swarm(swarm2)
+    governor.register_swarm(swarm3)
+
+    helpers = governor.request_help_for_blocker(
+        blocked_swarm_id="swarm-blocked",
+        required_capabilities=[Capability.CLI_DESIGN],
+        max_helpers=2
+    )
+
+    # Cheap swarm should be first (highest combined score)
+    assert helpers[0] == "swarm-cheap"

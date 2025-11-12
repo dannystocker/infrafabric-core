@@ -566,3 +566,58 @@ class IFGovernor:
 
         profile = self.swarm_registry[swarm_id]
         return profile.current_budget_remaining <= 0
+
+    # ==================== Gang Up on Blocker (P0.2.5) ====================
+
+    def request_help_for_blocker(
+        self,
+        blocked_swarm_id: str,
+        required_capabilities: List[Capability],
+        max_helpers: Optional[int] = None
+    ) -> List[str]:
+        """
+        Request help from other swarms for a blocker (Gang Up on Blocker pattern).
+
+        This method finds qualified swarms that can help resolve a blocker
+        by matching required capabilities. It respects policy constraints
+        (max swarms per task, budget limits) and excludes the blocked swarm.
+
+        Args:
+            blocked_swarm_id: ID of swarm that is blocked
+            required_capabilities: Capabilities needed to resolve blocker
+            max_helpers: Maximum number of helper swarms (defaults to policy limit)
+
+        Returns:
+            List of swarm IDs that can help (may be empty if no qualified swarms)
+
+        Example:
+            # Swarm is blocked on WebRTC integration
+            helpers = governor.request_help_for_blocker(
+                blocked_swarm_id="swarm-cli",
+                required_capabilities=[Capability.INTEGRATION_WEBRTC],
+                max_helpers=2
+            )
+            # Returns: ["swarm-webrtc", "swarm-sip"]
+        """
+        if not required_capabilities:
+            raise ValueError("required_capabilities cannot be empty")
+
+        if max_helpers is None:
+            # Use policy limit minus 1 (for the blocked swarm itself)
+            max_helpers = self.policy.max_swarms_per_task - 1
+
+        # Find all qualified swarms
+        qualified = self.find_all_qualified_swarms(
+            required_capabilities=required_capabilities,
+            max_cost=self.policy.max_cost_per_task,
+            limit=max_helpers + 1  # Get extra in case blocked swarm is in list
+        )
+
+        # Filter out the blocked swarm and apply limit
+        helpers = [
+            match.swarm_id
+            for match in qualified
+            if match.swarm_id != blocked_swarm_id
+        ][:max_helpers]
+
+        return helpers
