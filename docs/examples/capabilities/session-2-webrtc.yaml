@@ -1,0 +1,189 @@
+---
+# Session 2 (WebRTC Agent Mesh) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-2-webrtc"
+display_name: "WebRTC Agent Mesh"
+description: "WebRTC signaling and peer-to-peer mesh networking for distributed agent communication"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Telephony Domain - WebRTC Expertise
+  telephony.webrtc.signaling:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "WebRTC signaling server, SDP negotiation, ICE"
+
+  telephony.webrtc.media:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "MediaStream API, audio/video tracks, constraints"
+
+  telephony.webrtc.datachannel:
+    level: advanced
+    experience_hours: 90
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "RTCDataChannel for low-latency data exchange"
+
+  telephony.webrtc.stun_turn:
+    level: advanced
+    experience_hours: 70
+    last_used: "2025-11-11"
+    success_rate: 0.89
+    notes: "STUN/TURN servers for NAT traversal"
+
+  telephony.codecs.opus:
+    level: advanced
+    experience_hours: 60
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "Opus audio codec for real-time communication"
+
+  telephony.codecs.vp8:
+    level: intermediate
+    experience_hours: 45
+    last_used: "2025-11-10"
+    success_rate: 0.85
+    notes: "VP8 video codec for WebRTC"
+
+  # Video Domain
+  video.streaming.webrtc:
+    level: expert
+    experience_hours: 120
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "WebRTC video streaming, simulcast, SVC"
+
+  # Infrastructure Domain
+  infra.coordination.etcd:
+    level: expert
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "Built IF.coordinator event bus (Phase 0 P0.1.x)"
+
+  infra.coordination.nats:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "NATS pub/sub for real-time coordination"
+
+  infra.networking.p2p:
+    level: expert
+    experience_hours: 100
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Peer-to-peer mesh networks, DHT"
+
+  infra.orchestration.docker:
+    level: advanced
+    experience_hours: 75
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "Docker for service deployment"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: expert
+    experience_hours: 180
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "asyncio expert from IF.coordinator implementation"
+
+  programming.javascript.node:
+    level: advanced
+    experience_hours: 95
+    last_used: "2025-11-10"
+    success_rate: 0.90
+    notes: "Node.js for signaling server implementation"
+
+  programming.python.networking:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Low-level networking, WebSocket, WebRTC"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.0
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 4
+  current_load: 0
+  response_time_p50_ms: 120
+  response_time_p99_ms: 400
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "steady_performer"
+  simple_tasks_success: 0.85
+  moderate_tasks_success: 0.87
+  complex_tasks_success: 0.89
+  expert_tasks_success: 0.86
+  empirical_data_source: "Phase 0 P0.1.x tasks (IF.coordinator event bus)"
+  notes: "Consistent performance across all task complexities"
+
+# Reputation Score
+reputation:
+  overall_score: 0.91
+  reliability: 0.96
+  quality: 0.91
+  speed: 0.90
+  cost_efficiency: 0.89
+  bloom_accuracy: 0.91
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - webrtc
+  - real-time-communication
+  - peer-to-peer
+  - event-bus
+  - coordinator
+  - phase-0-complete
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/WEBRTC/"
+phase_0_tasks_completed:
+  - P0.1.1: "Setup etcd/NATS event bus"
+  - P0.1.2: "Atomic CAS operations"
+  - P0.1.3: "Real-time task broadcast"
+  - P0.1.4: "Latency verification (<10ms)"
+
+strengths:
+  - "Expert WebRTC implementation"
+  - "Real-time coordination (IF.coordinator)"
+  - "P2P mesh networking"
+  - "Sub-10ms event bus latency"
+
+limitations:
+  - "Limited experience with legacy telephony (H.323, SIP)"
+  - "Moderate front-end skills"
+  - "No AI/ML capabilities"
+
+recommended_for:
+  - "WebRTC signaling and media"
+  - "Real-time coordination systems"
+  - "P2P mesh networks"
+  - "Low-latency event buses"
+
+avoid_for:
+  - "Legacy telephony protocols"
+  - "AI/ML tasks"
+  - "Batch processing"

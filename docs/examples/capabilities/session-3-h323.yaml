@@ -1,0 +1,178 @@
+---
+# Session 3 (H.323 Guardian Council) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-3-h323"
+display_name: "H.323 Guardian Council"
+description: "H.323 protocol implementation for legacy video conferencing and telephony systems"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Telephony Domain - H.323 Expertise
+  telephony.h323.protocol:
+    level: expert
+    experience_hours: 160
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "H.323 protocol stack, H.225, H.245 signaling"
+
+  telephony.h323.gatekeeper:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "H.323 gatekeeper (RAS signaling, admission control)"
+
+  telephony.h323.gateway:
+    level: advanced
+    experience_hours: 100
+    last_used: "2025-11-11"
+    success_rate: 0.89
+    notes: "H.323-SIP gateway, protocol translation"
+
+  telephony.codecs.g711:
+    level: expert
+    experience_hours: 90
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "G.711 audio codec (PCM)"
+
+  telephony.codecs.g729:
+    level: advanced
+    experience_hours: 70
+    last_used: "2025-11-10"
+    success_rate: 0.90
+    notes: "G.729 compressed audio codec"
+
+  telephony.codecs.h264:
+    level: advanced
+    experience_hours: 85
+    last_used: "2025-11-11"
+    success_rate: 0.91
+    notes: "H.264 video codec for H.323 systems"
+
+  # Video Domain
+  video.encoding.h264:
+    level: advanced
+    experience_hours: 95
+    last_used: "2025-11-11"
+    success_rate: 0.90
+    notes: "H.264 encoding for video conferencing"
+
+  video.streaming.rtp:
+    level: expert
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "RTP/RTCP for real-time media streaming"
+
+  # Infrastructure Domain
+  infra.coordination.etcd:
+    level: intermediate
+    experience_hours: 50
+    last_used: "2025-11-12"
+    success_rate: 0.85
+    notes: "etcd for Guardian Council state management"
+
+  infra.orchestration.docker:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "Docker for H.323 gateway deployment"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: advanced
+    experience_hours: 120
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "asyncio for protocol handling"
+
+  programming.python.networking:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Low-level networking, Q.931, ASN.1 parsing"
+
+  programming.c.legacy_systems:
+    level: intermediate
+    experience_hours: 60
+    last_used: "2025-11-08"
+    success_rate: 0.82
+    notes: "C/C++ for legacy H.323 stack integration"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.0
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 3
+  current_load: 0
+  response_time_p50_ms: 180
+  response_time_p99_ms: 600
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "late_bloomer"
+  simple_tasks_success: 0.60
+  moderate_tasks_success: 0.75
+  complex_tasks_success: 0.92
+  expert_tasks_success: 0.95
+  empirical_data_source: "Phase 0 P0.5.2 (Guardian Council implementation)"
+  notes: "Excels at complex legacy protocol implementations"
+
+# Reputation Score
+reputation:
+  overall_score: 0.89
+  reliability: 0.93
+  quality: 0.91
+  speed: 0.83
+  cost_efficiency: 0.88
+  bloom_accuracy: 0.90
+  tier: "good"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - h323
+  - legacy-telephony
+  - video-conferencing
+  - protocol-translation
+  - phase-0-in-progress
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/H323/"
+phase_0_tasks_completed:
+  - P0.5.2: "Guardian Council for escalation (in progress)"
+
+strengths:
+  - "Expert H.323 protocol implementation"
+  - "Legacy system integration"
+  - "Protocol translation (H.323 ↔ SIP)"
+  - "Complex signaling stacks"
+
+limitations:
+  - "Slower on simple tasks (late bloomer)"
+  - "Limited modern web technologies (WebRTC)"
+  - "No AI/ML capabilities"
+
+recommended_for:
+  - "H.323 video conferencing systems"
+  - "Legacy telephony integration"
+  - "Protocol translation gateways"
+  - "Complex signaling implementations"
+
+avoid_for:
+  - "Modern web technologies"
+  - "AI/ML tasks"
+  - "Front-end development"

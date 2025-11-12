@@ -1,0 +1,194 @@
+---
+# Session 4 (SIP Escalate Integration) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-4-sip"
+display_name: "SIP Escalate Integration"
+description: "SIP protocol implementation with PBX integration and escalation workflows"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Telephony Domain - SIP Expertise
+  telephony.sip.signaling:
+    level: expert
+    experience_hours: 170
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "SIP signaling (INVITE, BYE, REGISTER, OPTIONS)"
+
+  telephony.sip.registration:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "SIP registration server, authentication"
+
+  telephony.sip.proxy:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "SIP proxy server, routing logic"
+
+  telephony.sip.b2bua:
+    level: advanced
+    experience_hours: 90
+    last_used: "2025-11-11"
+    success_rate: 0.90
+    notes: "Back-to-back user agent for call control"
+
+  telephony.pbx.asterisk:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "Asterisk PBX configuration and dialplan"
+
+  telephony.pbx.freeswitch:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-10"
+    success_rate: 0.89
+    notes: "FreeSWITCH for high-capacity calling"
+
+  telephony.codecs.opus:
+    level: advanced
+    experience_hours: 70
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "Opus codec for HD voice"
+
+  telephony.codecs.g711:
+    level: expert
+    experience_hours: 100
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "G.711 for standard telephony"
+
+  # Infrastructure Domain
+  infra.coordination.etcd:
+    level: advanced
+    experience_hours: 85
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "etcd for SIP registration state"
+
+  infra.orchestration.docker:
+    level: expert
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Docker for PBX and proxy deployment"
+
+  infra.orchestration.kubernetes:
+    level: intermediate
+    experience_hours: 55
+    last_used: "2025-11-09"
+    success_rate: 0.84
+    notes: "K8s for scalable SIP infrastructure"
+
+  # Crypto Domain (WASM Security from Phase 0)
+  crypto.key_mgmt.scoped_credentials:
+    level: expert
+    experience_hours: 90
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Scoped credentials for IF.chassis (Phase 0 P0.3.3)"
+
+  crypto.signatures.ed25519:
+    level: advanced
+    experience_hours: 65
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "Ed25519 for credential signing"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: expert
+    experience_hours: 160
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "asyncio for SIP server implementation"
+
+  programming.python.networking:
+    level: expert
+    experience_hours: 145
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "UDP/TCP for SIP transport, SDP parsing"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.0
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 4
+  current_load: 0
+  response_time_p50_ms: 140
+  response_time_p99_ms: 450
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "steady_performer"
+  simple_tasks_success: 0.87
+  moderate_tasks_success: 0.89
+  complex_tasks_success: 0.91
+  expert_tasks_success: 0.88
+  empirical_data_source: "Phase 0 P0.2.5 + P0.3.3 (policy engine + scoped credentials)"
+  notes: "Consistently high performance across complexities"
+
+# Reputation Score
+reputation:
+  overall_score: 0.93
+  reliability: 0.96
+  quality: 0.94
+  speed: 0.91
+  cost_efficiency: 0.92
+  bloom_accuracy: 0.92
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - sip
+  - telephony
+  - pbx
+  - escalation
+  - wasm-security
+  - phase-0-complete
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/SIP/"
+phase_0_tasks_completed:
+  - P0.2.5: "Policy engine for IF.governor"
+  - P0.3.3: "Scoped credentials (WASM security)"
+
+strengths:
+  - "Expert SIP protocol implementation"
+  - "PBX integration (Asterisk, FreeSWITCH)"
+  - "WASM security (scoped credentials)"
+  - "Policy engine design"
+
+limitations:
+  - "Limited experience with modern WebRTC"
+  - "No AI/ML capabilities"
+  - "Moderate front-end skills"
+
+recommended_for:
+  - "SIP telephony systems"
+  - "PBX integration"
+  - "Security-critical systems (scoped credentials)"
+  - "Policy engines and resource governance"
+
+avoid_for:
+  - "WebRTC-only applications"
+  - "AI/ML tasks"
+  - "Front-end UI development"

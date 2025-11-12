@@ -1,0 +1,197 @@
+---
+# Session 1 (NDI Witness Streaming) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-1-ndi"
+display_name: "NDI Witness Streaming"
+description: "Real-time NDI video streaming with cryptographic provenance using IF.witness"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Video Domain - Primary Expertise
+  video.streaming.ndi_protocol:
+    level: expert              # Deep expertise from Phase 0 P0.5.x tasks
+    experience_hours: 120
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    certifications: []
+    notes: "NDI 5.x protocol, real-time streaming, sub-frame latency"
+
+  video.streaming.rtmp:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-10"
+    success_rate: 0.92
+    notes: "RTMP for fallback streaming scenarios"
+
+  video.streaming.hls:
+    level: intermediate
+    experience_hours: 40
+    last_used: "2025-11-08"
+    success_rate: 0.88
+    notes: "HLS for adaptive bitrate streaming"
+
+  video.encoding.h264:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "H.264 encoding for video production"
+
+  video.encoding.h265:
+    level: advanced
+    experience_hours: 60
+    last_used: "2025-11-11"
+    success_rate: 0.90
+    notes: "HEVC/H.265 for high-efficiency encoding"
+
+  # Cryptography Domain - Expert in IF.witness
+  crypto.signatures.ed25519:
+    level: expert
+    experience_hours: 100
+    last_used: "2025-11-12"
+    success_rate: 0.99
+    notes: "EdDSA signatures for IF.witness provenance"
+
+  crypto.hashing.blake3:
+    level: advanced
+    experience_hours: 60
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "BLAKE3 for high-speed cryptographic hashing"
+
+  crypto.hashing.sha256:
+    level: expert
+    experience_hours: 90
+    last_used: "2025-11-11"
+    success_rate: 0.98
+    notes: "SHA-256 for standard hashing requirements"
+
+  # Infrastructure Domain
+  infra.coordination.etcd:
+    level: advanced
+    experience_hours: 75
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "etcd for coordination in Phase 0 P0.1.x tasks"
+
+  infra.coordination.nats:
+    level: intermediate
+    experience_hours: 30
+    last_used: "2025-11-09"
+    success_rate: 0.85
+    notes: "NATS messaging for event bus alternatives"
+
+  infra.orchestration.docker:
+    level: advanced
+    experience_hours: 85
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Docker for containerized deployments"
+
+  infra.monitoring.prometheus:
+    level: intermediate
+    experience_hours: 35
+    last_used: "2025-11-10"
+    success_rate: 0.87
+    notes: "Prometheus metrics for latency monitoring"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: expert
+    experience_hours: 200
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "asyncio, uvloop for high-performance async I/O"
+
+  programming.python.networking:
+    level: expert
+    experience_hours: 180
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Low-level networking, UDP/TCP, multicast"
+
+  programming.python.libraries:
+    level: advanced
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "FastAPI, Pydantic, cryptography, numpy"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.0      # USD per hour (Opus-level model)
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 3
+  current_load: 0
+  response_time_p50_ms: 150
+  response_time_p99_ms: 500
+
+# Bloom Pattern (Based on Phase 0 work)
+bloom_pattern:
+  classification: "late_bloomer"
+  simple_tasks_success: 0.65
+  moderate_tasks_success: 0.80
+  complex_tasks_success: 0.93
+  expert_tasks_success: 0.96
+  empirical_data_source: "Phase 0 P0.5.x tasks (NDI streaming + IF.witness integration)"
+  notes: "Excels at complex streaming and cryptographic tasks"
+
+# Reputation Score (Excellent tier)
+reputation:
+  overall_score: 0.92
+  reliability: 0.95
+  quality: 0.93
+  speed: 0.88
+  cost_efficiency: 0.91
+  bloom_accuracy: 0.92
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+  notes: "Consistent high performance on Phase 0 critical path tasks"
+
+# Metadata
+tags:
+  - ndi
+  - video-streaming
+  - cryptographic-provenance
+  - real-time
+  - witness
+  - phase-0-complete
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/NDI/"
+phase_0_tasks_completed:
+  - P0.5.1: "NDI stream witness integration"
+  - P0.5.4: "Migration guide (git → etcd)"
+  - P0.5.5: "Production runbook"
+
+strengths:
+  - "Expert-level NDI protocol implementation"
+  - "Cryptographic provenance (IF.witness)"
+  - "Sub-10ms latency streaming"
+  - "Real-time video processing"
+
+limitations:
+  - "Less experienced with legacy protocols (H.323, SIP)"
+  - "Moderate skills in front-end development"
+  - "Limited AI/ML capabilities"
+
+recommended_for:
+  - "High-performance video streaming"
+  - "Cryptographic provenance requirements"
+  - "Real-time data processing"
+  - "Infrastructure coordination tasks"
+
+avoid_for:
+  - "Legacy telephony protocols"
+  - "Front-end UI development"
+  - "AI/ML model training"

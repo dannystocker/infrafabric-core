@@ -1,0 +1,238 @@
+---
+# Session 7 (IF.bus) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-7-ifbus"
+display_name: "IF.bus (Governor + Chassis)"
+description: "IF.governor policy engine and IF.chassis WASM sandbox runtime for resource management"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Infrastructure Domain - Core Expertise
+  infra.resource_mgmt.governor:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "IF.governor policy engine implementation (Phase 0 P0.2.x)"
+
+  infra.resource_mgmt.circuit_breakers:
+    level: expert
+    experience_hours: 120
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Circuit breaker patterns for cost control"
+
+  infra.resource_mgmt.budget_enforcement:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Budget tracking and enforcement for IF.governor"
+
+  infra.sandbox.wasm:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "WASM sandbox runtime for IF.chassis"
+
+  infra.sandbox.resource_limits:
+    level: expert
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "CPU/memory limits, rate limiting, noisy neighbor prevention"
+
+  infra.orchestration.docker:
+    level: expert
+    experience_hours: 160
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "Docker for service deployment and orchestration"
+
+  infra.orchestration.kubernetes:
+    level: advanced
+    experience_hours: 95
+    last_used: "2025-11-11"
+    success_rate: 0.90
+    notes: "K8s for scalable infrastructure"
+
+  infra.coordination.etcd:
+    level: expert
+    experience_hours: 125
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "etcd for distributed state management"
+
+  infra.monitoring.prometheus:
+    level: expert
+    experience_hours: 105
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Prometheus for resource monitoring and SLO tracking"
+
+  infra.monitoring.slo_tracking:
+    level: expert
+    experience_hours: 90
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "SLO tracking and reputation scoring"
+
+  # Telephony Domain (SIP Integration Background)
+  telephony.sip.adapters:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-11"
+    success_rate: 0.89
+    notes: "SIP provider adapters for IF.bus"
+
+  # Cryptography Domain
+  crypto.key_mgmt.scoped_credentials:
+    level: advanced
+    experience_hours: 75
+    last_used: "2025-11-12"
+    success_rate: 0.90
+    notes: "Scoped credential management for sandbox security"
+
+  crypto.signatures.ed25519:
+    level: intermediate
+    experience_hours: 50
+    last_used: "2025-11-11"
+    success_rate: 0.85
+    notes: "Ed25519 for credential signing"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: expert
+    experience_hours: 180
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "asyncio expert from IF.governor implementation"
+
+  programming.python.performance:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Performance optimization, benchmarking"
+
+  programming.python.libraries:
+    level: expert
+    experience_hours: 170
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Pydantic, FastAPI, psutil, resource management libs"
+
+  programming.rust.wasm:
+    level: intermediate
+    experience_hours: 60
+    last_used: "2025-11-12"
+    success_rate: 0.83
+    notes: "Rust WASM modules for sandbox runtime"
+
+  # Architecture Domain
+  architecture.policy_engines:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Policy engine design for IF.governor"
+
+  architecture.capability_matching:
+    level: expert
+    experience_hours: 100
+    last_used: "2025-11-12"
+    success_rate: 0.93
+    notes: "Capability matching algorithms for task assignment"
+
+  architecture.security:
+    level: advanced
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "Security architecture for sandbox isolation"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.5      # Slightly higher (complex infrastructure work)
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 3
+  current_load: 0
+  response_time_p50_ms: 170
+  response_time_p99_ms: 580
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "late_bloomer"
+  simple_tasks_success: 0.62
+  moderate_tasks_success: 0.78
+  complex_tasks_success: 0.94
+  expert_tasks_success: 0.97
+  empirical_data_source: "Phase 0 P0.2.x + P0.3.x (IF.governor + IF.chassis)"
+  notes: "Excels at complex infrastructure and resource management"
+
+# Reputation Score
+reputation:
+  overall_score: 0.93
+  reliability: 0.96
+  quality: 0.95
+  speed: 0.88
+  cost_efficiency: 0.91
+  bloom_accuracy: 0.94
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - if-governor
+  - if-chassis
+  - resource-management
+  - wasm-sandbox
+  - policy-engine
+  - infrastructure
+  - phase-0-complete
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/IF-GOVERNOR/"
+phase_0_tasks_completed:
+  - P0.2.1: "Capability schema for IF.governor"
+  - P0.2.2: "Capability matching algorithm"
+  - P0.2.3: "Budget tracking and enforcement"
+  - P0.2.4: "Circuit breakers for cost control"
+  - P0.3.1: "WASM runtime for IF.chassis"
+  - P0.3.2: "Resource limits (CPU, memory, API rate)"
+  - F7.1: "IF.governor performance benchmarks"
+
+strengths:
+  - "Expert infrastructure and resource management"
+  - "Policy engine design"
+  - "WASM sandbox security"
+  - "Budget enforcement and circuit breakers"
+  - "SLO tracking and performance monitoring"
+
+limitations:
+  - "Slower on simple tasks (late bloomer)"
+  - "Limited video streaming expertise"
+  - "Moderate front-end skills"
+
+recommended_for:
+  - "Infrastructure resource management"
+  - "Policy engine implementation"
+  - "WASM sandbox and security"
+  - "Budget and cost optimization"
+  - "Complex orchestration systems"
+
+avoid_for:
+  - "Simple scripting tasks"
+  - "Video streaming protocols"
+  - "Front-end development"

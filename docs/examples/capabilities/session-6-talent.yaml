@@ -1,0 +1,243 @@
+---
+# Session 6 (Talent - Standby) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-6-talent"
+display_name: "Talent Management & Integration Architecture"
+description: "Talent scoring algorithms, bloom pattern analysis, and production software adapter patterns"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Video Domain - Production Software Expertise
+  video.production.vmix:
+    level: expert
+    experience_hours: 120
+    last_used: "2025-11-11"
+    success_rate: 0.95
+    notes: "vMix adapter with bloom pattern analysis (652 LOC + docs)"
+
+  video.production.obs:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-11"
+    success_rate: 0.96
+    notes: "OBS adapter with platform comparison (861 LOC + docs)"
+
+  video.streaming.ndi_protocol:
+    level: advanced
+    experience_hours: 85
+    last_used: "2025-11-11"
+    success_rate: 0.91
+    notes: "NDI integration via vMix and OBS adapters"
+
+  video.encoding.h264:
+    level: intermediate
+    experience_hours: 50
+    last_used: "2025-11-10"
+    success_rate: 0.85
+    notes: "H.264 encoding configuration"
+
+  # Smart Home Domain
+  smart_home.automation.home_assistant:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-11"
+    success_rate: 0.97
+    notes: "Home Assistant adapter with safety classification (801 LOC + docs)"
+
+  smart_home.protocols.mqtt:
+    level: advanced
+    experience_hours: 75
+    last_used: "2025-11-11"
+    success_rate: 0.90
+    notes: "MQTT for Home Assistant integration"
+
+  smart_home.protocols.zigbee:
+    level: intermediate
+    experience_hours: 40
+    last_used: "2025-11-10"
+    success_rate: 0.83
+    notes: "Zigbee device integration"
+
+  # Talent Management Domain (Custom)
+  talent.scoring.assignment:
+    level: expert
+    experience_hours: 25
+    last_used: "2025-11-12"
+    success_rate: 1.0
+    notes: "F6.3: Multi-factor assignment scoring algorithm design"
+
+  talent.scoring.reputation:
+    level: expert
+    experience_hours: 30
+    last_used: "2025-11-12"
+    success_rate: 1.0
+    notes: "F6.11: 5-dimensional reputation scoring system design"
+
+  talent.registry.capability:
+    level: expert
+    experience_hours: 40
+    last_used: "2025-11-12"
+    success_rate: 1.0
+    notes: "F6.12: Capability registry schema design"
+
+  talent.analysis.bloom_patterns:
+    level: expert
+    experience_hours: 60
+    last_used: "2025-11-11"
+    success_rate: 0.98
+    notes: "Bloom pattern classification and empirical analysis"
+
+  # Architecture Domain
+  architecture.adapter_patterns:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-11"
+    success_rate: 0.96
+    notes: "Adapter pattern design across vMix, OBS, HA"
+
+  architecture.system_design:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "System architecture, capability registry, scoring algorithms"
+
+  architecture.integration_patterns:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-11"
+    success_rate: 0.94
+    notes: "Integration patterns for 116+ provider ecosystem"
+
+  # Programming Domain
+  programming.python.async_programming:
+    level: advanced
+    experience_hours: 110
+    last_used: "2025-11-11"
+    success_rate: 0.91
+    notes: "asyncio for adapter implementations"
+
+  programming.python.libraries:
+    level: expert
+    experience_hours: 160
+    last_used: "2025-11-11"
+    success_rate: 0.95
+    notes: "Pydantic, FastAPI, websockets, aiohttp"
+
+  programming.python.api_design:
+    level: expert
+    experience_hours: 135
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "API design for capability registry and scoring systems"
+
+  # Documentation Domain
+  documentation.technical_writing:
+    level: expert
+    experience_hours: 180
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "Extensive documentation across all adapters and algorithms"
+
+  documentation.design_docs:
+    level: expert
+    experience_hours: 95
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "Design documents for F6.3, F6.11, F6.12"
+
+  # Philosophy/Methodology Domain
+  methodology.if_ground:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-11"
+    success_rate: 0.92
+    notes: "IF.ground philosophy integration (Wu Lun, IF.TTT)"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 5.0
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 3
+  current_load: 0
+  response_time_p50_ms: 160
+  response_time_p99_ms: 550
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "steady_performer"
+  simple_tasks_success: 0.83
+  moderate_tasks_success: 0.86
+  complex_tasks_success: 0.88
+  expert_tasks_success: 0.85
+  empirical_data_source: "Master integration sprint: vMix + OBS + HA (4,868 lines total)"
+  notes: "Consistent across all complexity levels with slight peak at complex tasks"
+
+# Reputation Score
+reputation:
+  overall_score: 0.91
+  reliability: 0.95
+  quality: 0.95
+  speed: 0.86
+  cost_efficiency: 0.90
+  bloom_accuracy: 0.90
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - talent-management
+  - adapter-patterns
+  - bloom-analysis
+  - integration-architecture
+  - production-software
+  - smart-home
+  - phase-0-standby
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/"
+phase_0_tasks_completed:
+  - F6.3: "Talent Assignment Scoring Algorithm (25 min)"
+  - F6.11: "Talent Reputation Scoring System (30 min)"
+  - F6.12: "Capability Registry Schema (40 min)"
+  - "Cross-session support: SESSION-SETUP-HELPER.sh + quick reference"
+
+pre_phase_0_work:
+  - "vMix adapter + bloom analysis (652 LOC + docs)"
+  - "OBS adapter + bloom analysis + comparison (861 LOC + docs)"
+  - "Home Assistant adapter + safety classification (801 LOC + docs)"
+  - "Total: 2,314 LOC code + 2,554 lines documentation = 4,868 lines"
+
+strengths:
+  - "Expert adapter pattern design"
+  - "Talent scoring algorithm design"
+  - "Bloom pattern analysis"
+  - "System architecture and integration design"
+  - "Comprehensive technical documentation"
+
+limitations:
+  - "Limited low-level networking expertise"
+  - "No AI/ML capabilities"
+  - "Moderate cryptography experience"
+
+recommended_for:
+  - "Production software integration (vMix, OBS, HA, etc.)"
+  - "Talent management system design"
+  - "Capability registry and scoring algorithms"
+  - "Adapter pattern implementation"
+  - "System architecture and design documents"
+
+avoid_for:
+  - "Low-level protocol implementation (SIP, H.323)"
+  - "AI/ML tasks"
+  - "High-performance cryptography"

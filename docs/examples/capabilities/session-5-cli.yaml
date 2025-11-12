@@ -1,0 +1,183 @@
+---
+# Session 5 (CLI Witness Optimize) - Capability Profile Example
+# Based on: CAPABILITY-REGISTRY-SCHEMA.md (F6.12)
+
+# Profile Metadata
+profile_version: "1.0"
+swarm_id: "session-5-cli"
+display_name: "CLI Witness Optimize"
+description: "Unified CLI development and IF.witness performance optimization"
+created_at: "2025-11-12T10:00:00Z"
+updated_at: "2025-11-12T17:45:00Z"
+
+# Capability Declarations
+capabilities:
+  # Programming Domain - CLI Expertise
+  programming.python.cli:
+    level: expert
+    experience_hours: 180
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "Click, argparse, rich for CLI development"
+
+  programming.python.async_programming:
+    level: expert
+    experience_hours: 170
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "asyncio for IF.coordinator CLI integration"
+
+  programming.python.libraries:
+    level: expert
+    experience_hours: 200
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "Pydantic, FastAPI, cryptography, typer"
+
+  programming.python.performance:
+    level: expert
+    experience_hours: 150
+    last_used: "2025-11-12"
+    success_rate: 0.94
+    notes: "Performance optimization, profiling, benchmarking"
+
+  # Cryptography Domain - IF.witness Optimization
+  crypto.signatures.ed25519:
+    level: expert
+    experience_hours: 130
+    last_used: "2025-11-12"
+    success_rate: 0.98
+    notes: "Ed25519 signature optimization for IF.witness"
+
+  crypto.hashing.blake3:
+    level: expert
+    experience_hours: 110
+    last_used: "2025-11-12"
+    success_rate: 0.97
+    notes: "BLAKE3 performance tuning"
+
+  crypto.performance.optimization:
+    level: expert
+    experience_hours: 140
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Cryptographic performance optimization"
+
+  # Infrastructure Domain
+  infra.coordination.etcd:
+    level: advanced
+    experience_hours: 90
+    last_used: "2025-11-12"
+    success_rate: 0.92
+    notes: "etcd CLI integration for IF.coordinator"
+
+  infra.monitoring.prometheus:
+    level: advanced
+    experience_hours: 80
+    last_used: "2025-11-12"
+    success_rate: 0.91
+    notes: "Prometheus metrics for CLI performance"
+
+  infra.monitoring.logging:
+    level: expert
+    experience_hours: 120
+    last_used: "2025-11-12"
+    success_rate: 0.95
+    notes: "Structured logging, log aggregation"
+
+  infra.orchestration.docker:
+    level: advanced
+    experience_hours: 85
+    last_used: "2025-11-12"
+    success_rate: 0.90
+    notes: "Docker for CLI distribution"
+
+  # Documentation Domain
+  documentation.technical_writing:
+    level: expert
+    experience_hours: 160
+    last_used: "2025-11-12"
+    success_rate: 0.96
+    notes: "Technical documentation, runbooks, migration guides"
+
+  documentation.api_reference:
+    level: advanced
+    experience_hours: 95
+    last_used: "2025-11-11"
+    success_rate: 0.92
+    notes: "API documentation, OpenAPI specs"
+
+# Cost Profile
+cost_profile:
+  base_rate_per_hour: 4.0      # Slightly lower (CLI work less complex than streaming)
+  variable_cost: true
+  currency: "USD"
+  billing_increment: "minute"
+
+# Availability Profile
+availability:
+  status: "available"
+  max_concurrent_tasks: 5      # Can handle more parallel CLI tasks
+  current_load: 0
+  response_time_p50_ms: 100
+  response_time_p99_ms: 350
+
+# Bloom Pattern
+bloom_pattern:
+  classification: "early_bloomer"
+  simple_tasks_success: 0.95
+  moderate_tasks_success: 0.90
+  complex_tasks_success: 0.80
+  expert_tasks_success: 0.65
+  empirical_data_source: "Phase 0 CLI + witness optimization tasks"
+  notes: "Excels at straightforward CLI and tooling tasks"
+
+# Reputation Score
+reputation:
+  overall_score: 0.90
+  reliability: 0.94
+  quality: 0.93
+  speed: 0.92
+  cost_efficiency: 0.88
+  bloom_accuracy: 0.89
+  tier: "excellent"
+  last_updated: "2025-11-12T17:45:00Z"
+
+# Metadata
+tags:
+  - cli
+  - witness
+  - performance-optimization
+  - tooling
+  - documentation
+  - phase-0-complete
+
+documentation_url: "https://github.com/dannystocker/infrafabric/blob/main/docs/CLI/"
+phase_0_tasks_completed:
+  - "Unified CLI entry point (if command)"
+  - "IF.witness performance optimization"
+  - "CLI integration with IF.coordinator/governor/chassis"
+  - F5.20: "Documentation improvements"
+  - F5.21: "CLI witness helper for Session 1"
+
+strengths:
+  - "Expert CLI development"
+  - "Cryptographic performance optimization"
+  - "Technical documentation"
+  - "Early bloomer (fast on simple tasks)"
+
+limitations:
+  - "Less effective on highly complex algorithmic tasks"
+  - "Limited video/telephony protocol experience"
+  - "No AI/ML capabilities"
+
+recommended_for:
+  - "CLI tool development"
+  - "Performance optimization"
+  - "Technical documentation"
+  - "Developer tooling"
+
+avoid_for:
+  - "Complex algorithm design"
+  - "Video streaming protocols"
+  - "AI/ML tasks"
