@@ -24,13 +24,13 @@ _Environment: Non-production sandbox (no production credentials or customer data
 
 ## What You Need to Know First
 
-**InfraFabric** is a philosophy-based architecture designed to scale from a small script all the way up to quantum computing. It's not "yet another orchestration layer"—it's a unified approach to infrastructure that works whether you're automating a single API call or coordinating planetary-scale systems across 190+ providers (cloud, payments, AI, communication). *(Providers listed are representative examples during development, not endorsements.)*
+**InfraFabric** is a philosophy-based architecture designed to scale from a small script all the way up to quantum computing. We integrate with existing orchestration layers (Kubernetes, Terraform, Ansible, CloudFormation)—we don't seek to replace them. InfraFabric provides a **unified coordination layer** that lets you orchestrate the orchestrators, using the same mental model whether you're automating a single API call or coordinating planetary-scale systems across 190+ providers. *(Providers listed are representative examples during development, not endorsements.)*
 
-**The philosophy:** Infrastructure coordination should follow the same principles whether you're writing a 10-line bash script or orchestrating a million-dollar cloud deployment. Start simple, scale progressively, maintain the same mental model throughout.
+**The philosophy:** Infrastructure coordination should follow the same principles whether you're writing a 10-line bash script or orchestrating a million-dollar cloud deployment. Start simple, scale progressively, maintain the same mental model throughout. Use the tools you already have—InfraFabric coordinates them.
 
-**The problem:** Traditional infrastructure tools force you to choose: simple scripts that don't scale, or complex orchestration that requires a PhD to configure. You can't start with `curl` and end up at Kubernetes without rewriting everything.
+**The problem:** You already have Kubernetes for containers, Terraform for infrastructure, Ansible for configuration, custom scripts for APIs, and AI agents for intelligence. But coordinating *all of these together* requires writing glue code, managing state across systems, and reinventing coordination patterns. There's no common language.
 
-**InfraFabric's answer:** One architecture, infinite scale. Write a simple script today. Scale to quantum tomorrow. Same patterns, same philosophy, same tooling—just more of it.
+**InfraFabric's answer:** One philosophy, infinite scale. Keep your existing tools. InfraFabric coordinates them with a unified approach: same patterns for bash scripts and quantum deployments, same traceability for API calls and multi-cloud orchestration, same governance for $5 tasks and $50,000 deployments. Can it replace your existing tools? Yes, if you want. Must it? No—it works better when it orchestrates what you already have.
 
 **S² (Swarm of Swarms):** Our experiment in having multiple AI sessions work in parallel, building the coordination infrastructure they themselves will use. It's recursive, it's meta, and it's working.
 
