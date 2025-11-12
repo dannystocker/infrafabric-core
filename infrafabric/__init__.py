@@ -31,7 +31,10 @@ Core Modules:
 - infrafabric.discovery: Contact discovery using multiple agent strategies (coming soon)
 
 Phase 0 Modules (Swarm of Swarms):
+- infrafabric.coordinator: Atomic task coordination and real-time broadcast
+- infrafabric.event_bus: Event bus for S² real-time coordination
 - infrafabric.governor: Capability-aware resource and budget management
+- infrafabric.chassis: WASM sandbox runtime with resource limits
 - infrafabric.witness: Cryptographic provenance and audit logging
 - infrafabric.optimise: Cost tracking and optimization
 - infrafabric.schemas: Data schemas for swarms and capabilities
@@ -52,6 +55,8 @@ from .coordination import WeightedCoordinator, Agent, AgentProfile
 from .manifests import ManifestGenerator, create_manifest
 
 # Phase 0 exports
+from .coordinator import IFCoordinator
+from .event_bus import EventBus, get_event_bus
 from .governor import IFGovernor
 from .schemas.capability import Capability, SwarmProfile, ResourcePolicy
 
@@ -65,6 +70,9 @@ __all__ = [
     'ManifestGenerator',
     'create_manifest',
     # Phase 0
+    'IFCoordinator',
+    'EventBus',
+    'get_event_bus',
     'IFGovernor',
     'Capability',
     'SwarmProfile',
