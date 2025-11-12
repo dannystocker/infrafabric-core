@@ -15,6 +15,14 @@ On 2025-11-09, a Claude session attempted to understand InfraFabric by reading d
 - Consumed 50,000+ tokens just for intake
 - **Result:** Ran out of context before completing any actual work
 
+### Current Context: Phase 0 Work
+You're joining during **Phase 0** - building production-ready coordination:
+- **IF.coordinator**: Real-time task coordination (etcd/NATS, <10ms latency)
+- **IF.governor**: Resource management with capability matching
+- **IF.chassis**: WASM sandbox runtime for secure agent execution
+
+Your session has specific tasks on the Phase 0 task board. Focus on those first.
+
 ### The Root Cause
 InfraFabric has extensive documentation across multiple layers:
 - **6 Research Papers** (316 KB, 6,078 lines) - Theoretical foundation
@@ -33,15 +41,18 @@ Reading this directly violates **IF.optimise** principles (using expensive Sonne
 
 ### STEP 1: Read SESSION-RESUME.md ONLY
 **Target:** <2,000 tokens
-**Location:** `/home/setup/infrafabric/SESSION-RESUME.md`
+**Location:** `/home/user/infrafabric/SESSION-RESUME.md`
 
 Contains:
 - Current mission state (what we're working on RIGHT NOW)
+- Phase 0 progress: IF.coordinator, IF.governor, IF.chassis status
 - Active branches, uncommitted changes, blockers
 - Decisions pending user input
 - Last updated timestamp
 
 **Action:** Read this file. Nothing else yet.
+
+**Note:** If SESSION-RESUME.md doesn't exist yet, start with INSTRUCTIONS-SESSION-{N}.md for your assigned session.
 
 ### STEP 2: IF Needed - Read COMPONENT-INDEX.md Sections
 **Target:** <5,000 tokens (selective reading)
@@ -166,11 +177,19 @@ User Request → IF.optimise Evaluation:
 ## Quick Reference Card
 
 **First 5 Minutes In New Session:**
-1. ✅ Read SESSION-RESUME.md (current state)
+1. ✅ Read SESSION-RESUME.md (current state) or INSTRUCTIONS-SESSION-{N}.md
 2. ✅ Check git status (uncommitted changes?)
-3. ✅ Scan COMPONENT-INDEX.md relevant sections ONLY
-4. ⚠️ Do NOT read /papers/ directly
-5. ⚡ Activate IF.optimise (delegate mechanical work to Haiku)
+3. ✅ Check Phase 0 task board: `docs/PHASE-0-TASK-BOARD.md`
+4. ✅ Scan COMPONENT-INDEX.md relevant sections ONLY (if needed)
+5. ⚠️ Do NOT read /papers/ directly
+6. ⚡ Activate IF.optimise (delegate mechanical work to Haiku)
+
+**Quick Glossary (Phase 0 Terms):**
+- **etcd**: Distributed key-value store for coordination (like Redis but with strong consistency)
+- **NATS**: Lightweight message bus for real-time events
+- **CAS (Compare-And-Swap)**: Atomic operation preventing race conditions (updates only if value unchanged)
+- **WASM**: WebAssembly - secure, isolated sandbox for running code
+- **S² (Swarm of Swarms)**: Multiple agent swarms (50-100+ agents) working together
 
 **If User Asks "What is InfraFabric?":**
 - Check COMPONENT-INDEX.md first

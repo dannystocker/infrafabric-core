@@ -184,9 +184,9 @@ We solve real, painful blockers in existing systems:
 
 | Component | Problem Solved | Tech/Approach | Impact (Target) | Measurement |
 |-----------|----------------|---------------|-----------------|-------------|
-| **IF.coordinator** | Race conditions | etcd/NATS, CAS ops | <10ms task claim | `if_coordinator_claim_latency_p95 < 10ms` |
-| **IF.governor** | Cost waste | Capabilities, quota | <10% cost waste | `if_governor_cost_overhead_percent < 10%` |
-| **IF.chassis** | Security gaps | WASM sandboxing | 100% containment | Zero sandbox escapes in audit |
+| **IF.coordinator** | Race conditions | etcd (distributed key-value store) + NATS (message bus), CAS (atomic compare-and-swap) | <10ms task claim | `if_coordinator_claim_latency_p95 < 10ms` |
+| **IF.governor** | Cost waste | Capability matching + budget enforcement | <10% cost waste | `if_governor_cost_overhead_percent < 10%` |
+| **IF.chassis** | Security gaps | WASM (WebAssembly) sandboxing for isolated execution | 100% containment | Zero sandbox escapes in audit |
 
 **Targets are goals, not SLA guarantees.** See [docs/ARCHITECTURE.md](ARCHITECTURE.md) for detailed design and [docs/diagrams/IF-ARCH-DIAGRAM.png](diagrams/IF-ARCH-DIAGRAM.png) for visual overview.
 
@@ -380,6 +380,253 @@ See [docs/DATA-GUIDE.md](DATA-GUIDE.md) for classification and access rules.
 
 ---
 
+## **9.5 Example Workflows**
+
+### **Example 1: Claiming and Completing a Task (Agent)**
+
+**Scenario:** Session 1 (NDI) claims a documentation task
+
+```bash
+# 1. Check task board for available work
+cat docs/PHASE-0-TASK-BOARD.md | grep "🔵 AVAILABLE"
+# Output: P0.5.1 IF.coordinator Documentation [🔵 AVAILABLE] Est: 1h
+
+# 2. Create feature branch
+git checkout -b feat/P0.5.1-coordinator-docs
+
+# 3. Update status to claim task
+vim STATUS-SESSION-1-NDI.yaml
+# Set: claiming: P0.5.1, milestone: "0% - Starting task"
+
+# 4. Do the work (write docs/components/IF.COORDINATOR.md)
+# ... write 300 lines of documentation ...
+
+# 5. Update progress every 60 min
+vim STATUS-SESSION-1-NDI.yaml
+# Update: milestone: "50% - API reference complete"
+
+# 6. Complete and commit
+git add docs/components/IF.COORDINATOR.md
+git commit -m "feat(docs): Add IF.coordinator documentation (P0.5.1)
+
+- Architecture overview with etcd/NATS integration
+- API reference for task claim operations
+- Performance targets and monitoring
+- Migration guide from git polling
+
+Closes P0.5.1"
+
+# 7. Push to remote
+git push -u origin feat/P0.5.1-coordinator-docs
+
+# 8. Create PR
+gh pr create --title "feat(docs): IF.coordinator documentation" \
+  --body "$(cat <<'EOF'
+## Summary
+- Complete IF.coordinator component documentation
+- Addresses P0.5.1 acceptance criteria
+- Ready for @arch-team review
+
+## Tests
+- [x] Markdown linting passed
+- [x] Links validated
+- [x] Code examples tested
+
+## Security & Privacy
+- No sensitive information in examples
+- All secrets use placeholder format
+
+## Cost & Model Use
+- Model: Haiku (documentation task)
+- Estimated cost: $2.00
+- Within Tier-1 threshold (≤2k tokens)
+
+## Provenance
+- Task: P0.5.1
+- Session: 1 (NDI)
+- Branch: claude/ndi-witness-streaming-011CV2niqJBK5CYADJMRLNGs
+EOF
+)"
+
+# 9. Mark complete in status
+vim STATUS-SESSION-1-NDI.yaml
+# Update: claiming: null, completed_tasks: ["P0.5.1"]
+```
+
+---
+
+### **Example 2: Handling a Blocker**
+
+**Scenario:** Task depends on incomplete integration tests
+
+```bash
+# 1. Start task, realize dependency missing
+cat docs/PHASE-0-TASK-BOARD.md
+# P0.5.1 depends on P0.1.5 (Integration tests) - NOT COMPLETE
+
+# 2. Update status to blocked
+vim STATUS-SESSION-1-NDI.yaml
+# Set: blocked_on: P0.1.5
+#      next_action: "Blocked: Waiting for integration tests"
+
+# 3. Post in #infra-blockers (if >30 min)
+# [Session 1] P0.5.1 blocked on P0.1.5 (integration tests)
+# Estimate: Blocker will clear in ~4h (per Session 5 update)
+# Workaround: Claiming filler task F1.1 to maintain productivity
+
+# 4. Claim filler task
+cat docs/FILLER-TASK-CATALOG.md | grep "Session 1"
+# F1.1: Improve S² Architecture Docs [🟢 QUICK WIN] Est: 1h
+
+vim STATUS-SESSION-1-NDI.yaml
+# Update: claiming: F1.1, milestone: "0% - Starting filler task"
+
+# 5. Work on filler task while blocked
+# ... complete F1.1 ...
+
+# 6. Check blocker status every 30 min
+git fetch origin claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy
+git show origin/...:PHASE-0-TASK-BOARD.md | grep P0.1.5
+# Still shows [🔵 IN PROGRESS]
+
+# 7. When blocker clears, resume primary task
+# ... P0.1.5 shows [✅ DONE] ...
+git checkout feat/P0.5.1-coordinator-docs
+# Resume work
+```
+
+---
+
+### **Example 3: Daily Workflow (Human Contributor)**
+
+**Scenario:** Day 2 for a new human contributor
+
+```bash
+# Morning: 09:00 UTC
+# 1. Pull latest changes
+git checkout main
+git pull origin main
+
+# 2. Check async stand-up in #infra-main (10:00 UTC)
+# Read: Session 5 completed P0.1.5, blocker cleared!
+
+# 3. Check task board
+cat docs/PHASE-0-TASK-BOARD.md | grep "🔵 AVAILABLE"
+# Multiple tasks now available after P0.1.5 completion
+
+# 4. Review current skills
+cat docs/TEAM-CONTACTS.md | grep $(whoami)
+# Skills: Rust, distributed systems, observability
+
+# 5. Claim matching task
+# P0.2.3 IF.coordinator Metrics [🔵 AVAILABLE] Skills: Rust, observability
+
+git checkout -b feat/P0.2.3-coordinator-metrics
+vim STATUS-SESSION-2.yaml
+# Update: claiming: P0.2.3
+
+# 6. Work session (4 hours with breaks)
+# ... implement Prometheus metrics for IF.coordinator ...
+
+# Midday: 13:00 UTC
+# Update progress
+vim STATUS-SESSION-2.yaml
+# milestone: "50% - Core metrics implemented, testing remaining"
+
+# 7. Commit mid-progress (for traceability)
+git add src/coordinator/metrics.rs
+git commit -m "wip: Add Prometheus metrics to IF.coordinator
+
+- claim_latency_p95 histogram
+- active_tasks gauge
+- claim_success_rate counter
+
+Still TODO: Integration tests"
+git push origin feat/P0.2.3-coordinator-metrics
+
+# Afternoon: 16:00 UTC
+# 8. Complete work
+make test
+# All tests pass
+
+git add tests/coordinator_metrics_test.rs
+git commit --signoff -m "feat(coordinator): Add Prometheus metrics (P0.2.3)
+
+Implements:
+- claim_latency_p95 histogram (target: <10ms)
+- active_tasks gauge
+- claim_success_rate counter
+- Grafana dashboard JSON
+
+Tests: 100% coverage on new metrics
+Closes P0.2.3"
+
+# 9. Create PR with security signoff request
+gh pr create --title "feat(coordinator): Prometheus metrics" \
+  --body "..." \
+  --reviewer @arch-team,@security-team
+
+# 10. Mark complete
+vim STATUS-SESSION-2.yaml
+# Update: claiming: null, completed_tasks: ["P0.2.3"]
+
+# 11. Post completion in #infra-main
+# ✅ P0.2.3 complete - IF.coordinator metrics ready for review
+```
+
+---
+
+### **Example 4: Multi-Agent Coordination**
+
+**Scenario:** Session 1 helps Session 7 with research
+
+```bash
+# Session 7 posts request in shared coordination branch
+cat << 'EOF' > work-distribution.md
+# ALL IDLE SESSIONS: Help Build IF.bus
+
+Session 7 needs research help on NDI-SIP integration.
+
+Assignments:
+- Session 1 (NDI): Research Asterisk+NDI and FreeSWITCH+NDI
+- Session 2 (WebRTC): Research WebRTC-SIP gateways
+...
+EOF
+
+# Session 1 reads request and responds
+# 1. Spawn research agents (use Haiku for cost efficiency)
+# (use Task tool to spawn 2 Haiku agents in parallel)
+
+# 2. Synthesize findings
+vim docs/IF-BUS/asterisk-freeswitch-ndi-integration.md
+# ... create 600-line research deliverable ...
+
+# 3. Commit and notify Session 7
+git add docs/IF-BUS/asterisk-freeswitch-ndi-integration.md
+git commit -m "feat(if-bus): Session 1 contribution - NDI-SIP integration research"
+git push
+
+# 4. Update status
+vim STATUS-SESSION-1-NDI.yaml
+# completed_tasks: ["IF.bus NDI-SIP integration research"]
+
+# 5. Post in coordination
+# @Session-7: NDI-SIP research complete.
+# Key finding: No native support, external gateways required.
+# Details: docs/IF-BUS/asterisk-freeswitch-ndi-integration.md
+```
+
+---
+
+**Key Patterns:**
+- **Update status every 60 min** (not every 15 min!)
+- **Post blockers after 30 min** (#infra-blockers + STATUS file)
+- **Use filler tasks when blocked** (zero idle time)
+- **Commit often** (traceability > perfect commits)
+- **Request reviews early** (don't wait until perfect)
+
+---
+
 ## **10. Glossary & Reference Links**
 
 ### **10.1 Key Terms**
@@ -387,13 +634,17 @@ See [docs/DATA-GUIDE.md](DATA-GUIDE.md) for classification and access rules.
 | Term | Definition |
 |------|------------|
 | **S² (Swarm of Swarms)** | Multiple agent swarms collaborating; 50-100+ agents in parallel |
-| **CAS (Compare-And-Swap)** | Atomic operation preventing race conditions in IF.coordinator |
-| **IF.coordinator** | Task claim and state coordination service (etcd/NATS-based) |
-| **IF.governor** | Resource quota and capability enforcement layer |
-| **IF.chassis** | WASM-based agent execution sandbox |
-| **Session** | Bounded work period (typically 2-4 hours) for agent or human |
-| **WASM** | WebAssembly: lightweight, secure container runtime |
-| **ifctl** | Project CLI for task/status management |
+| **CAS (Compare-And-Swap)** | Atomic operation that updates a value only if it hasn't changed (prevents race conditions) |
+| **IF.coordinator** | Task claim and state coordination service using etcd (distributed database) + NATS (message bus) |
+| **IF.governor** | Resource quota and capability enforcement layer (matches tasks to agent skills + enforces budgets) |
+| **IF.chassis** | WASM-based agent execution sandbox (isolated, secure runtime environment) |
+| **Session** | Bounded work period (typically 2-4 hours) for agent or human contributor |
+| **WASM (WebAssembly)** | Lightweight, secure container runtime (like Docker but faster and more isolated) |
+| **ifctl** | Project CLI for task/status management (command-line tool for common operations) |
+| **etcd** | Distributed key-value store with strong consistency (like Redis but with guaranteed ordering) |
+| **NATS** | Lightweight message bus for real-time events (pub/sub system for coordination) |
+| **p95 latency** | 95th percentile latency (95% of requests complete faster than this time) |
+| **Ed25519** | Modern cryptographic signature algorithm (fast, secure, 64-byte signatures) |
 
 ### **10.2 Reference Documents**
 

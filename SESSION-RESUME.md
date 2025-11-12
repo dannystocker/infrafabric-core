@@ -1,433 +1,255 @@
-# Session Resume - 2025-11-10
+# InfraFabric Session Resume
 
 **Purpose:** Minimal context handoff for new Claude sessions (<2,000 tokens target)
 
-**Last Updated:** 2025-11-10T01:30:00Z
-**Updated By:** if://agent/claude-sonnet-4.5
-**Session ID:** session-2025-11-10-handover-system-deployment
+**Last Updated:** 2025-11-12T16:30:00Z
+**Updated By:** Session 1 (NDI) - claude-sonnet-4-5
+**Session Context:** Phase 0 - Production-ready coordination
 
 ---
 
 ## Current Mission
 
-**Primary Task:** Fix critical documentation gaps identified by Gemini 2.5 Pro evaluation (2025-11-10).
+**Primary Task:** Build Phase 0 production-ready coordination (IF.coordinator, IF.governor, IF.chassis)
 
-**Context:** Gemini evaluation revealed false claims in yologuard benchmarks, empty component index, and missing documentation. Previous session propagated unverified claims. Now fixing with empirical validation.
+**Context:** Phase 0 replaces proof-of-concept git polling (30s latency, race conditions) with real-time coordination (etcd/NATS, <10ms, atomic CAS operations).
 
-**⚠️ CRITICAL BLOCKERS BEFORE EXTERNAL PUBLICATION:**
-1. IF.yologuard benchmark UNVERIFIED (55.4% actual vs 98.96% claimed)
-2. Component index was prose, not functional catalog (now fixed)
-3. Citation numbering error in InfraFabric.md ([45] and [46] missing)
-4. IF-momentum.md (one of 6 core papers) missing
-
-**Expected Outcome:**
-1. ⚠️ UNVERIFIED yologuard claims corrected across all documents
-2. ✅ Working message validator (tools/ifctl.py) - VERIFIED by Gemini
-3. ✅ Component index rebuilt as functional catalog (87 components)
-4. Corrected documentation reflecting actual validation status
+**Critical Work Streams:**
+1. **IF.coordinator** - Real-time task coordination (Session 5 lead: P0.1.x tasks)
+2. **IF.governor** - Resource management with capability matching (blocked on IF.coordinator)
+3. **IF.chassis** - WASM sandbox runtime (blocked on IF.coordinator)
+4. **Documentation** - Session 1 (NDI) maintaining onboarding and component docs
 
 ---
 
-## Status
+## Phase 0 Progress
 
-**Overall Progress:** In Progress
+### IF.coordinator (Real-Time Task Coordination)
+- **Status:** 🔄 In Progress
+- **Current Task:** P0.1.5 (Integration tests) - Session 5 (CLI ⚡)
+- **Target:** <10ms task claim latency via etcd/NATS with atomic CAS operations
+- **Blockers:** Integration tests not yet complete (blocks P0.5.1, P0.5.4, P0.6.2, P0.7.3)
 
-**Progress Indicators:**
-- [x] Session handover system deployed (SESSION-ONBOARDING.md, COMPONENT-INDEX.md, agents.md)
-- [x] IF.TTT traceability framework documented
-- [x] IF.citation and IF.connect added to component index
-- [x] Philosophy → Technology mapping completed (PHILOSOPHY-TO-TECH-MAPPING.md)
-- [x] Haiku swarm test framework designed (HAIKU-SWARM-TEST-FRAMEWORK.md)
-- [x] IFMessage validator implemented (tools/ifctl.py) - ✅ VERIFIED by Gemini
-- [x] Gemini 2.5 Pro evaluation completed (2025-11-10)
-- [x] COMPONENT-INDEX.md rebuilt as functional catalog (v2.0, 87 components)
-- [🔄] Guarded claims validation (GUARDED-CLAIMS.md) - ⚠️ Contains FALSE CLAIMS, needs correction
-- [🔄] SESSION-RESUME.md correction (this file) - IN PROGRESS
-- [ ] GUARDED-CLAIMS.md yologuard status corrected to UNVERIFIED
-- [ ] InfraFabric.md citation numbering fixed ([45] and [46] researched)
-- [ ] IF.yologuard benchmark made reproducible (CRITICAL BLOCKER)
+### IF.governor (Resource Management)
+- **Status:** 🔵 Planned
+- **Current State:** Architecture defined in `docs/SWARM-OF-SWARMS-ARCHITECTURE.md`
+- **Target:** <10% cost overhead via capability-aware routing
+- **Blockers:** Depends on IF.coordinator completion
 
-**Current Step:** Correct false claims propagated in previous session based on Gemini evaluation findings
+### IF.chassis (WASM Sandbox)
+- **Status:** 🔵 Planned
+- **Current State:** Security requirements documented
+- **Target:** 100% sandbox containment for all agent execution
+- **Blockers:** Depends on IF.coordinator completion
 
 ---
 
-## Git Repository State
+## Active Sessions (7 Sessions Total)
 
-**Branch:** `master`
+| Session | Focus Area | Current Task | Status | Budget |
+|---------|------------|--------------|--------|--------|
+| 1 (NDI) | Documentation + NDI integration | F1.4 (Filler - onboarding review) | Active | $33.50 / $40 |
+| 2 (WebRTC) | WebRTC mesh networking | TBD | Active | - |
+| 3 (H.323) | H.323 legacy support | TBD | Active | - |
+| 4 (SIP) | SIP infrastructure | TBD | Active | - |
+| 5 (CLI ⚡) | CLI + IF.optimise | P0.1.5 (Integration tests) | Active | - |
+| 6 (Talent) | Recruitment + onboarding | TBD | Active | - |
+| 7 (IF.bus) | SIP adapter framework | IF.bus implementation | Active | - |
 
-**Status:**
-```
-On branch master
-Your branch is ahead of 'origin/master' by 2 commits.
-nothing to commit, working tree clean
-```
+**Coordination Protocol:**
+- Each session polls `docs/PHASE-0-TASK-BOARD.md` for task updates
+- Sessions work on filler tasks when primary tasks blocked
+- Status tracked in `STATUS-SESSION-{N}.yaml` (updated every 60 min)
+
+---
+
+## Git State
+
+**Branch:** `claude/ndi-witness-streaming-011CV2niqJBK5CYADJMRLNGs` (Session 1 - NDI)
+
+**Working Tree:** Clean (no uncommitted changes)
 
 **Recent Commits:**
+- `70a4b07` - docs: Launch production-ready onboarding documentation v1.3
+- `e084b26` - docs(status): Mark IF.bus contribution complete
+- `3940b1e` - feat(if-bus): Session 1 contribution - NDI-SIP integration research
+- `36afac6` - feat(ndi): Mark Phase 2 complete - ready for Phase 3
+- `d9a2ee6` - feat(ndi): Complete Phase 2 - SIP integration + production deployment
+
+**Other Session Branches:**
+- `claude/webrtc-agent-mesh-*` (Session 2)
+- `claude/h323-guardian-council-*` (Session 3)
+- `claude/sip-escalate-integration-*` (Session 4)
+- `claude/cli-witness-optimise-*` (Session 5)
+- `claude/if-bus-sip-adapters-*` (Session 7)
+
+---
+
+## Blockers
+
+**Current Blocker:**
+- **P0.1.5** (IF.coordinator integration tests) - Blocking 4+ tasks across multiple sessions
+  - Blocks: P0.5.1 (IF.coordinator docs), P0.5.4 (migration guide), P0.6.2, P0.7.3
+  - Owner: Session 5 (CLI ⚡)
+  - Workaround: Sessions working on filler tasks during blocked period
+
+**Escalation:** None required (normal dependency blocking, not incident)
+
+---
+
+## Decisions Pending
+
+**None currently** - All sessions following autonomous work protocol per UNIVERSAL-SESSION-START.md
+
+---
+
+## Context for Next Session
+
+### What Just Happened (Session 1 - NDI Recent Work)
+- ✅ Completed IF.bus NDI-SIP integration research (docs/IF-BUS/asterisk-freeswitch-ndi-integration.md)
+- ✅ Launched onboarding documentation v1.3 with GPT-5 Desktop critique addressed
+- ✅ Completed F1.1: Enhanced S² architecture docs with Phase 0 integration (+303 lines)
+- ✅ Completed F1.2: IF.witness hash chain example (Python demo with tampering detection)
+- 🔄 In progress F1.4: Review and improve novice onboarding documentation (50%)
+
+### What's Next
+1. **Session 1 (NDI):** Complete F1.4 (onboarding improvements), monitor for P0.1.5 completion
+2. **Session 5 (CLI ⚡):** Complete P0.1.5 (unblocks 4+ tasks across sessions)
+3. **All Sessions:** When P0.1.5 complete, claim primary tasks from task board
+
+### Important Files to Know
+- **Task board:** `docs/PHASE-0-TASK-BOARD.md` (central coordination)
+- **Session instructions:** `INSTRUCTIONS-SESSION-{N}-*.md` (session-specific guidance)
+- **Status tracking:** `STATUS-SESSION-{N}.yaml` (updated every 60 min)
+- **Onboarding:** `docs/ONBOARDING.md` (for new contributors)
+- **Session protocol:** `SESSION-ONBOARDING.md` (for new Claude sessions)
+
+---
+
+## Budget & Metrics
+
+**Session 1 (NDI) Current:**
+- Budget remaining: $33.50 (of $40.00 initial)
+- Model: Sonnet (with Haiku delegation via IF.optimise)
+- Reputation: 0.95
+- Tasks completed: 4 major (IF.bus research, onboarding v1.3, F1.1, F1.2)
+
+**Phase 0 Project-Wide:**
+- 7 sessions active
+- ~49 agents coordinated (per S² architecture)
+- Current blocker: P0.1.5 (integration tests)
+- Estimated unblock: TBD (Session 5 working)
+
+---
+
+## Quick Commands
+
+```bash
+# Check current session
+git branch --show-current
+
+# Check task board
+cat docs/PHASE-0-TASK-BOARD.md | grep "🔵 AVAILABLE"
+
+# Update status (do this every 60 min if working)
+vim STATUS-SESSION-1-NDI.yaml
+
+# Commit work
+git add .
+git commit -m "feat(component): description"
+git push -u origin $(git branch --show-current)
+
+# Check for blockers cleared
+git fetch origin claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy
+git show origin/claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy:PHASE-0-TASK-BOARD.md | grep P0.1.5
 ```
-c9ae9e5 Implement GPT-5 Desktop feedback: validation, philosophy lint, operational framework
-c6c24f0 Add session handover system with IF.TTT traceability framework
-b55179a Update yologuard metrics: split GitHub-aligned vs usable-only standards
-452d54a Add accessibility improvements addressing Gemini feedback
-861a19b Update README.md timeline: Clarify 14-day coding period
-```
-
-**Uncommitted Changes:**
-- COMPONENT-INDEX.md (rebuilt v2.0 with 87 components, functional catalog)
-- SESSION-RESUME.md (this file - correcting false claims)
-
-**Untracked Files (Need Decision):**
-- None
-
-**⚠️ DO NOT COMMIT UNTIL:**
-- GUARDED-CLAIMS.md yologuard status corrected to UNVERIFIED
-- InfraFabric.md citation numbering fixed
-- All false claims removed from documentation
 
 ---
 
-## Blockers & Dependencies
+## IF.optimise Status
 
-**Critical Blockers:**
-- ⚠️ IF.yologuard benchmark UNVERIFIED - Cannot publish externally until fixed
-  - **Claimed:** 98.96% recall (95/96 secrets), 100% precision
-  - **Gemini test:** 55.4% detection rate (97/175 secrets)
-  - **Issue:** Inconsistent metrics across papers (98.96% vs 96.43%)
-  - **Required:** Canonical reproducible benchmark before publication
+**Current Mode:** ⚡ Active (Haiku delegation for mechanical tasks)
 
-**External Dependencies:**
-- Gemini 2.5 Pro evaluation completed (2025-11-10) - ✅ RECEIVED
+**Guidelines:**
+- **Haiku:** File operations, git commands, search, transforms, documentation updates
+- **Sonnet:** Architecture decisions, complex reasoning, design reviews
+- **Multi-Haiku (🚀):** Spawn multiple Haiku agents in parallel (single message, multiple Task calls)
 
-**Technical Debt:**
-- IF.yologuard benchmark not reproducible (HIGHEST PRIORITY)
-- 40+ prototype IF.* components undocumented (catalog or deprecate)
-- Naming inconsistencies (IF.ceo vs IF.ceo_, IF.citation vs IF.citations)
-- IF-momentum.md missing (one of 6 core papers)
-- Claim 3 (Haiku savings 87-90%) requires controlled A/B test
-- IF.citation verification tool (verify_swarm_citation.py) not yet implemented
-
----
-
-## Decisions Pending User Input
-
-**Decision 1: InfraFabric.md Update Strategy**
-- Question: How to integrate swarm/TTT/blockchain work into InfraFabric.md?
-- Options:
-  A) Add new section "Nov 10: Operational Framework Deployment"
-  B) Update existing sections with inline citations
-  C) Create separate progress log (CHANGELOG.md style)
-- Impact: Document navigation, citation density
-- Citation: if://decision/infrafabric-update-strategy-2025-11-10
-
-**Decision 2: Gemini Evaluation Scope**
-- Question: What should Gemini evaluate?
-- Options:
-  A) Full project (all 6 papers + evidence + latest work)
-  B) Core architecture only (IF-vision, IF-foundations, IF-armour, IF-witness)
-  C) Latest work only (swarm/TTT/blockchain framework)
-- Impact: Evaluation depth, token cost, review quality
-- Citation: if://decision/gemini-eval-scope-2025-11-10
-
----
-
-## Recent Citations Generated
-
-**Session Citations:** `citations/session-2025-11-10.json` (pending creation)
-
-**Key Citations:**
-1. if://design/session-handoff-system-2025-11-10 - Session handover architecture - Status: verified
-2. if://design/haiku-swarm-framework-2025-11-10 - Swarm test framework - Status: unverified
-3. if://design/philosophy-tech-mapping-2025-11-10 - Philosophy → tech mapping - Status: unverified
-4. ⚠️ if://validation/guarded-claims-2025-11-10 - Claim validation - Status: CONTAINS FALSE CLAIMS
-5. if://design/operational-framework-gpt5-feedback-2025-11-10 - GPT-5 feedback implementation - Status: verified
-6. if://evaluation/gemini-2025-11-10 - Gemini 2.5 Pro evaluation - Status: completed
-
-**Guardian Decisions:**
-- None this session (external reviews by GPT-5 and Gemini, not Guardian deliberation)
-
----
-
-## Token Efficiency Report
-
-**IF.optimise Status:** ⚡ Active (with 🚀 Multi-Haiku for component scan)
-
-**Previous Session (2025-11-10 00:00-01:30):**
-- Total tokens consumed: ~95,708 tokens
-- Haiku delegation: ~50,000 tokens (5 agents in parallel for component scan)
-- Sonnet direct: ~45,708 tokens (architecture synthesis)
-- Average cost per task: ~9,571 tokens (10 major tasks completed)
-- ⚠️ Note: Component scan found 87 components, not 102 as initially reported
-
-**Current Session (2025-11-10 Continuation):**
-- Gemini evaluation reviewed: ~3,000 tokens (critical findings)
-- COMPONENT-INDEX.md rebuild: ~8,000 tokens (codebase scan + functional catalog)
-- SESSION-RESUME.md corrections: ~2,000 tokens (false claims removed)
-- Total this session: ~13,000 tokens
-
-**Recommendations for Next Session:**
-- Use Haiku for mechanical edits (GUARDED-CLAIMS.md status changes)
-- Use Sonnet for yologuard benchmark fix (requires careful validation)
-- Delegate citation numbering research to Haiku agent
-
----
-
-## Context Links (Read Only If Needed)
-
-**DO NOT load these into context unless specifically required:**
-
-**Core Documentation:**
-- SESSION-ONBOARDING.md - WHY/HOW/WHEN protocol (read FIRST in new session)
-- COMPONENT-INDEX.md - 91 IF.* components (read sections on-demand)
-- agents.md - IF.TTT traceability protocol
-
-**Latest Work (2025-11-10):**
-- docs/HAIKU-SWARM-TEST-FRAMEWORK.md - Testable swarm architecture
-- docs/PHILOSOPHY-TO-TECH-MAPPING.md - 2,500-year executable type system
-- docs/GUARDED-CLAIMS.md - Validation framework with control blocks
-- docs/SWARM-COMMUNICATION-SECURITY.md - 5-layer crypto stack
-- docs/IF-URI-SCHEME.md - if:// addressing specification
-- tools/ifctl.py - Philosophy lint validator
-
-**Deep Archives (Access via Haiku agents):**
-- papers/*.md - 6 papers (6,078 lines total) - NEVER read directly
-- docs/evidence/ - 102 validation documents - Use Task agents
-- annexes/ - Complete council debates - Summarize via Haiku
-
----
-
-## Quick Recovery Checklist
-
-If starting fresh in a new session, verify:
-
-- [x] Read SESSION-RESUME.md (you are here)
-- [ ] Checked git status (verify working tree clean)
-- [x] IF.optimise indicator visible (⚡ Active)
-- [x] Did NOT load full papers into context
-- [ ] Ready to spawn Haiku agents for mechanical tasks
-- [ ] TodoWrite tool active (for multi-step tasks)
-- [ ] Know current blocker: None (ready to proceed)
-- [ ] Know pending decision: InfraFabric.md update strategy, Gemini eval scope
-
-**If all checked:** Resume work on updating InfraFabric.md and preparing Gemini evaluation.
-
-**If blockers exist:** No blockers currently.
-
----
-
-## Handoff Notes (Session-Specific Context)
-
-**What Worked Well This Session:**
-- ✅ Gemini 2.5 Pro evaluation provided critical external validation
-- ✅ IFMessage validator (tools/ifctl.py) independently verified by Gemini (8/10 philosophy integration)
-- ✅ COMPONENT-INDEX.md rebuilt as functional catalog (554 lines, 87 components)
-- ✅ Session handover system proved effective for context continuity
-- ✅ Philosophy integration genuine, not marketing (Gemini: 9/10 ethical foundation)
-
-**What To Avoid Next Session:**
-- ⚠️ DO NOT trust existing claims without empirical validation (learned from yologuard error)
-- ⚠️ DO NOT claim 98.96% yologuard recall until benchmark reproduced (Gemini found 55.4%)
-- ⚠️ DO NOT claim 87-90% Haiku savings externally until A/B test completes
-- ⚠️ DO NOT commit documentation with unverified metrics
-- ⚠️ DO NOT read papers directly (use Haiku agents per SESSION-ONBOARDING.md)
-
-**Discoveries / Insights:**
-- ⚠️ **CRITICAL:** Previous session propagated false claims without validation (yologuard 98.96% unverified)
-- ✅ Gemini independently verified philosophy integration is genuine (8/10), not marketing
-- ⚠️ COMPONENT-INDEX.md was prose document, not functional catalog (Gemini correctly identified)
-- ✅ Philosophy database is executable type system, not metaphor (Empiricism = append-only logs)
-- ✅ Wu Lun (Confucian Five Relationships) maps 1:1 to agent roles (君臣 ruler-subject, 朋友 validator-critic)
-- ⚠️ Naming inconsistencies throughout codebase (IF.ceo vs IF.ceo_, IF.citation vs IF.citations)
-- 📊 Actual component count: 87 unique IF.* components (not 91 as previously claimed)
-- 📊 Actual citation count: 45 in InfraFabric.md (not 47, missing [45] and [46])
-
-**Technical Debt Created:**
-- ⚠️ IF.yologuard benchmark not reproducible (HIGHEST PRIORITY - blocks external publication)
-- 40+ prototype IF.* components undocumented (needs cataloging or deprecation)
-- IF-momentum.md missing (one of 6 core papers)
-- Test 1 (3-agent swarm) designed but not implemented
-- verify_swarm_citation.py tool spec'd but not coded
-- Haiku vs Sonnet A/B test needed for Claim 3 verification
-- Citation numbering gap in InfraFabric.md ([45] and [46])
+**Token Efficiency This Session:**
+- Session 1 has used ~$6.50 of $40.00 budget
+- Heavy use of Haiku for research and examples (cost-efficient)
 
 ---
 
 ## Next Session Should Start By...
 
-**Immediate Next Action:**
-Read SESSION-RESUME.md (this file), then continue fixing false claims:
+**Path A: Continue Current Work (Session 1 - NDI)**
+1. Read this SESSION-RESUME.md (you are here)
+2. Check STATUS-SESSION-1-NDI.yaml for current task
+3. If F1.4 not complete: Continue onboarding improvements
+4. If P0.1.5 cleared: Claim P0.5.1 or P0.5.4 from task board
+5. Update STATUS every 60 min
 
-**Path A (Continue Current Work - RECOMMENDED):**
-1. Fix GUARDED-CLAIMS.md yologuard status (✅ VERIFIED → ⚠️ UNVERIFIED)
-2. Research InfraFabric.md citation numbering (what happened to [45] and [46]?)
-3. Fix citation numbering or add missing citations
-4. Commit all corrections together with message: "Fix false claims identified by Gemini evaluation"
-5. Estimated: 3-5K tokens
+**Path B: New Session Starting Fresh**
+1. Read SESSION-ONBOARDING.md (explains 3-tier onboarding protocol)
+2. Read this SESSION-RESUME.md for current mission state
+3. Identify your session from git branch name (pattern: `claude/*-streaming-*` → Session 1, etc.)
+4. Read INSTRUCTIONS-SESSION-{N}.md for your assigned role
+5. Check PHASE-0-TASK-BOARD.md for available tasks
+6. Claim task and update STATUS-SESSION-{N}.yaml
 
-**Path B (Start Yologuard Benchmark Fix - CRITICAL BLOCKER):**
-1. Read papers/IF-armour.md yologuard section
-2. Locate or create canonical benchmark script
-3. Test against Leaky Repo with "usable-only" filter
-4. Document reproducible methodology
-5. Update all papers with consistent, verified metric
-6. Estimated: 15-25K tokens (complex validation work)
-
-**Path C (Catalog Undocumented Components):**
-1. Use COMPONENT-INDEX.md v2.0 as baseline (87 components)
-2. Review 40+ prototype components (status: ⏸️)
-3. Either document or deprecate each one
-4. Update component index with decisions
-5. Estimated: 10-15K tokens
-
-**Then:**
-1. Commit updates to git with IF.citation references
-2. Update this SESSION-RESUME.md with new progress
-3. Mark tasks complete in TodoWrite
+**Path C: Debugging / Incident Response**
+1. Check #infra-blockers for active incidents
+2. Review ONCALL-ROSTER.md for current on-call rotation
+3. Follow incident severity table in docs/ONBOARDING.md
+4. Use RCA-TEMPLATE.md for post-incident analysis
 
 ---
 
-## Evidence Artifacts Created This Session
+## Recent Work Highlights
 
-**Files Created (Previous Session):**
-- SESSION-ONBOARDING.md - WHY/HOW/WHEN onboarding protocol - Hash: (pending)
-- COMPONENT-INDEX.md v1.0 - ⚠️ Prose document, not functional index - Hash: (deprecated)
-- agents.md - IF.TTT traceability protocol - Hash: (pending)
-- SESSION-RESUME-TEMPLATE.md - Handoff template - Hash: (pending)
-- docs/SWARM-COMMUNICATION-SECURITY.md - 5-layer crypto - Hash: (pending)
-- docs/IF-URI-SCHEME.md - if:// addressing - Hash: (pending)
-- docs/HAIKU-SWARM-TEST-FRAMEWORK.md - Swarm test spec - Hash: (pending)
-- docs/PHILOSOPHY-TO-TECH-MAPPING.md - Philosophy → tech - Hash: (pending)
-- docs/GUARDED-CLAIMS.md - ⚠️ Contains FALSE CLAIMS (yologuard marked VERIFIED) - Hash: (pending correction)
-- tools/ifctl.py - Philosophy lint validator - Hash: (pending)
-- SESSION-RESUME.md v1.0 - ⚠️ Contains FALSE CLAIMS (91 components, 47 citations) - Hash: (deprecated)
+**Documentation (Session 1 - NDI):**
+- Onboarding v1.3 production-ready (18 files, 1,489 insertions)
+- IF.witness hash chain example with tampering detection
+- S² architecture Phase 0 integration (+303 lines)
+- IF.bus NDI-SIP integration research (Asterisk + FreeSWITCH)
 
-**Files Modified (Current Session):**
-- COMPONENT-INDEX.md - Rebuilt v2.0 as functional catalog (87 components, architectural layers)
-- SESSION-RESUME.md - This file, corrected false claims
-- GEMINI-EVALUATION-PROMPT.md - Updated from Nov 9 version with component scan validation
-
-**Git Commits:**
-- c6c24f0 - "Add session handover system with IF.TTT traceability framework"
-- c9ae9e5 - "Implement GPT-5 Desktop feedback: validation, philosophy lint, operational framework"
-- (pending) - "Fix false claims identified by Gemini evaluation" - Will include: COMPONENT-INDEX.md v2.0, SESSION-RESUME.md corrections, GUARDED-CLAIMS.md yologuard status, InfraFabric.md citation numbering
-
-**Test Results:**
-- tools/ifctl.py validator: ✅ VERIFIED by Gemini (2025-11-10)
-- IF.yologuard benchmark: ⚠️ UNVERIFIED (55.4% actual vs 98.96% claimed)
-
----
-
-## Guardian Council Activity
-
-**Deliberations This Session:**
-- None (external reviews by GPT-5 Desktop and Gemini 2.5 Pro, not Guardian Council deliberation)
-
-**Pending Guardian Review:**
-- ⚠️ IF.yologuard benchmark failure (Ethics Guardian: was consensus rushed? Empiricism violated?)
-- Haiku swarm framework (should be reviewed before production deployment)
-- Philosophy → tech mapping (epistemological claims require Philosophy Guardian validation)
-- False claims propagation incident (Accountability Guardian: process improvement needed?)
-
----
-
-## Meta: Session Metadata
-
-**Session Start:** 2025-11-10T00:00:00Z (approximate - resumed from context-exhausted session)
-**Session End:** 2025-11-10T01:30:00Z (pending)
-**Duration:** ~1.5 hours
-**Claude Model:** claude-sonnet-4.5 (main) + claude-haiku-4.5 (5 parallel agents)
-**Haiku Agents Spawned:** 5 (component scan: markdown, python, config, URI, cross-reference)
-**Primary User:** setup
-
-**Quality Metrics:**
-- Citations generated: 6 major design citations (including Gemini evaluation)
-- Citations verified: 2 (session-handoff, operational-framework)
-- Citations containing false claims: 1 (guarded-claims - yologuard UNVERIFIED)
-- Token efficiency: 52% Haiku delegation for component scan (~50K Haiku / ~96K total)
-- User interventions required: 2 (GPT-5 feedback integration, "re-evaluate and debug your response")
-- **Gemini Evaluation Scores:**
-  - Technical Rigor: 3/10 (yologuard benchmark unverified)
-  - Documentation Quality: 2/10 (component index empty, IF-momentum missing)
-  - Philosophy Integration: 8/10 ✅ (genuine, not marketing)
-  - Ethical Foundation: 9/10 ✅ (walks the talk)
-  - tools/ifctl.py: ✅ VERIFIED
+**Phase 0 Components:**
+- IF.coordinator architecture defined
+- IF.governor capability matching designed
+- IF.chassis WASM sandbox specified
+- Integration tests in progress (P0.1.5)
 
 ---
 
 ## Validation
 
-**Before next session starts:**
+Before continuing work, verify:
+- [x] Current mission understood (Phase 0 coordination)
+- [x] Blocker status known (P0.1.5 in progress)
+- [x] Session identity confirmed (check git branch)
+- [x] Task board location known (docs/PHASE-0-TASK-BOARD.md)
+- [x] Status update protocol clear (every 60 min in STATUS-SESSION-{N}.yaml)
+- [x] IF.optimise active (⚡ Haiku delegation enabled)
 
-- [x] File reflects current reality (false claims corrected)
-- [x] All git commands output included (status, log)
-- [x] All blockers clearly identified (IF.yologuard benchmark CRITICAL)
-- [x] Gemini evaluation findings fully documented
-- [x] Citations list is complete and validated (6 citations, 1 with false claims flagged)
-- [x] Token costs measured and reported (95,708 previous + 13,000 current)
-- [x] Immediate next action is specific and actionable (3 paths, Path A recommended)
-- [ ] Evidence artifacts have hashes for verification (pending - add after false claims fixed)
-- [ ] All false claims removed from documentation (2 more files to fix: GUARDED-CLAIMS.md, InfraFabric.md)
-
-**Validation Command:**
+**Validation Commands:**
 ```bash
-# Check token count (approximate)
-wc -w SESSION-RESUME.md
-# Should be < 1500 words (≈ 2000 tokens)
+# Verify you're on the right branch
+git branch --show-current
 
-# Validate citations (when citations file created)
-# python tools/citation_validate.py citations/session-2025-11-10.json
+# Check task board for updates
+cat docs/PHASE-0-TASK-BOARD.md | head -50
 
-# Verify git state matches documentation
+# Verify clean working tree
 git status
-git log --oneline -5
+
+# Check your session status
+cat STATUS-SESSION-1-NDI.yaml
 ```
 
 ---
 
-## Gemini 2.5 Pro Evaluation Summary (2025-11-10)
+**Last Updated:** 2025-11-12T16:30:00Z
+**Next Update Due:** When F1.4 complete or P0.1.5 blocker cleared
 
-**Overall Assessment:** Project has genuine philosophical foundation but critical documentation gaps prevent external publication.
-
-**Scores:**
-- **Technical Rigor:** 3/10 ⚠️ (yologuard benchmark unverified, inconsistent metrics)
-- **Documentation Quality:** 2/10 ⚠️ (component index empty, IF-momentum missing, citation errors)
-- **Philosophy Integration:** 8/10 ✅ (genuine executable type system, not marketing)
-- **Ethical Foundation:** 9/10 ✅ (walks the talk with transparency)
-- **Code Quality (ifctl.py):** ✅ VERIFIED (philosophy as lint rules working)
-
-**Critical Findings:**
-1. **IF.yologuard Benchmark UNVERIFIED**
-   - Claimed: 98.96% recall (95/96 secrets), 100% precision
-   - Actual test: 55.4% detection rate (97/175 secrets)
-   - Inconsistent across papers: 98.96% vs 96.43% vs 100%
-   - **Action Required:** Canonical reproducible benchmark before external publication
-
-2. **COMPONENT-INDEX.md Functionally Empty**
-   - Claimed "91 components cataloged"
-   - Actually prose document, not functional index
-   - Hundreds of undocumented IF.* components found
-   - **Action Taken:** ✅ Rebuilt v2.0 as functional catalog (87 components)
-
-3. **IF-momentum.md Missing**
-   - Listed as one of 6 core papers
-   - File does not exist in repository
-   - **Action Required:** Locate or mark as deprecated
-
-4. **Citation Numbering Error**
-   - InfraFabric.md has 45 citations, not 47
-   - Missing [45] and [46] between [44] and [47]
-   - **Action Required:** Research and fix numbering
-
-**What Gemini Verified:**
-- ✅ tools/ifctl.py philosophy lint validator works as documented
-- ✅ Philosophy integration is genuine (Empiricism, Verificationism, Falsifiability)
-- ✅ Ethical foundation is authentic, not marketing
-- ✅ Session handover system demonstrates self-awareness
-
-**Blocker for External Publication:**
-IF.yologuard benchmark must be reproducible before any external claims. All papers cite this metric.
-
----
-
-**Last Updated:** 2025-11-10T03:00:00Z (corrected after Gemini evaluation)
-**Next Update Due:** When GUARDED-CLAIMS.md and InfraFabric.md false claims corrected
-
-**Citation:** if://session/resume-2025-11-10-gemini-correction
+**Citation:** if://session/resume-phase-0-coordination-2025-11-12
