@@ -2,8 +2,13 @@
 
 **Session:** Session 1 (NDI)
 **Branch:** `claude/ndi-witness-streaming-011CV2niqJBK5CYADJMRLNGs`
-**Status:** `ready_for_instructions`
-**Timestamp:** 2025-11-11T21:30:00Z
+**Status:** `helping_session_7_if_bus`
+**Task:** NDI-SIP integration research (Asterisk + FreeSWITCH)
+**Deliverable:** `docs/IF-BUS/asterisk-freeswitch-ndi-integration.md`
+**Session 7 Dependency:** phase_1_api_research
+**Started At:** 2025-11-11T23:45:00Z
+**Estimated Time:** 2 hours
+**Timestamp:** 2025-11-11T23:45:00Z
 
 ---
 
