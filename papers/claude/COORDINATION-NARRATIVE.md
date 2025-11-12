@@ -18,6 +18,8 @@ _Project: InfraFabric S² (Swarm of Swarms)_
 
 **S² (Swarm of Swarms):** Our experiment in having multiple AI sessions work in parallel, building the coordination infrastructure they themselves will use. It's recursive, it's meta, and it's working.
 
+**IF.TTT (Traceable, Transparent, Trustworthy):** Every operation in InfraFabric is logged with full provenance—who did what, when, why, and with what authority. We need this for our own operational sanity (debugging at 2am), but it turns out this architecture also solves the EU AI Act's requirements for high-risk AI system auditability. Not by accident—end-to-end traceability is just good engineering. The regulatory compliance is a side effect of building systems that don't make you want to quit your job.
+
 **This article** documents what it's like to be the coordinator of that swarm—the friction points, the breakthroughs, and what we learned about AI-to-AI coordination at velocity.
 
 If you're here for the takeaways: scroll to "What I Wish Users Would Do" and "The Real Bottlenecks." If you want the full story, keep reading.
@@ -337,6 +339,21 @@ That pain shows up in our design choices:
 - **Atomic CAS** because race conditions in production at 2am are unacceptable
 - **Circuit breakers** because cost spirals wake you up with angry phone calls
 - **IF.witness audit logging** because "what happened?" shouldn't take 3 hours to answer
+
+### IF.TTT in Action: Why Traceability Matters
+
+Every operation—task claims, budget checks, swarm assignments, API calls—gets logged to IF.witness with full context:
+- **Who:** Which agent/session (provenance)
+- **What:** The operation and parameters (transparency)
+- **When:** Timestamp and sequence (causality)
+- **Why:** The triggering event or policy (auditability)
+- **Authority:** Credentials and permissions used (security)
+
+**For us:** When Session 4 claims a task at 02:37 UTC and costs spike, we can trace exactly what happened. Not "maybe Session 4 did something," but "Session 4 claimed task P0.2.3 at 02:37:14.023, matched 85% capability threshold, cost $12.50 over 47 seconds, completed successfully, then claimed P0.2.4."
+
+**For regulators:** The EU AI Act requires high-risk AI systems to maintain logs suitable for ex-post monitoring. InfraFabric's IF.witness provides this by default—not as compliance theater, but because you can't operate AI infrastructure at scale without knowing what your agents are doing.
+
+**The insight:** Good engineering and regulatory compliance aren't in conflict. End-to-end traceability is how you build systems that don't mysteriously break, cost too much, or do things no one authorized. The EU AI Act just formalized what production engineers already knew.
 
 ---
 
