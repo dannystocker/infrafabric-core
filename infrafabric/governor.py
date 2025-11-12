@@ -317,9 +317,7 @@ class IFGovernor:
                 f"🚨 Budget exhausted for '{swarm_id}': "
                 f"${profile.current_budget_remaining:.2f}"
             )
-            # Circuit breaker will be implemented in P0.2.4
-            # For now, just mark budget as 0
-            profile.current_budget_remaining = max(0, profile.current_budget_remaining)
+            self._trip_circuit_breaker(swarm_id, reason='budget_exhausted')
 
     def get_budget_report(self) -> Dict[str, Dict[str, float]]:
         """
@@ -426,6 +424,279 @@ class IFGovernor:
             f"qualified={candidates_qualified}, "
             f"required_caps={[c.value for c in required_capabilities]}"
         )
+
+    def record_failure(self, swarm_id: str):
+        """
+        Record task failure for circuit breaker tracking
+
+        Tracks consecutive failures. After reaching the threshold
+        (default: 3 failures), trips the circuit breaker.
+
+        Args:
+            swarm_id: Swarm that failed a task
+
+        Raises:
+            ValueError: If swarm_id is not registered
+
+        Example:
+            >>> governor.record_failure("test-swarm")
+            >>> governor.record_failure("test-swarm")
+            >>> governor.record_failure("test-swarm")
+            # Circuit breaker trips after 3rd failure
+        """
+        if swarm_id not in self.swarm_registry:
+            raise ValueError(f"Unknown swarm: {swarm_id}")
+
+        # Increment failure count
+        if swarm_id not in self.failure_counts:
+            self.failure_counts[swarm_id] = 0
+
+        self.failure_counts[swarm_id] += 1
+
+        logger.warning(
+            f"Failure recorded for '{swarm_id}': "
+            f"{self.failure_counts[swarm_id]} consecutive failures"
+        )
+
+        # Check if threshold exceeded
+        if self.failure_counts[swarm_id] >= self.policy.circuit_breaker_failure_threshold:
+            logger.error(
+                f"🚨 Failure threshold exceeded for '{swarm_id}': "
+                f"{self.failure_counts[swarm_id]} >= {self.policy.circuit_breaker_failure_threshold}"
+            )
+            self._trip_circuit_breaker(swarm_id, reason='repeated_failures')
+
+    def _trip_circuit_breaker(self, swarm_id: str, reason: str):
+        """
+        Halt swarm to prevent cost spirals or repeated failures
+
+        This is a SAFETY mechanism that requires human approval to reset.
+        When tripped, the swarm:
+        1. Has budget set to $0 (cannot be assigned new tasks)
+        2. Is marked as unavailable in IF.coordinator
+        3. Triggers HIGH severity incident log
+        4. Escalates to human for manual intervention
+
+        Args:
+            swarm_id: Swarm to halt
+            reason: Reason for tripping ('budget_exhausted' or 'repeated_failures')
+
+        Example:
+            >>> governor._trip_circuit_breaker("test-swarm", "budget_exhausted")
+            # Swarm halted, human escalation triggered
+        """
+        if swarm_id not in self.swarm_registry:
+            logger.error(f"Cannot trip circuit breaker for unknown swarm: {swarm_id}")
+            return
+
+        profile = self.swarm_registry[swarm_id]
+
+        # Mark swarm as unavailable (set budget to 0)
+        profile.current_budget_remaining = 0.0
+
+        logger.error(
+            f"🚨 CIRCUIT BREAKER TRIPPED: '{swarm_id}' "
+            f"(reason: {reason})"
+        )
+
+        # Notify IF.coordinator to stop sending tasks (stub)
+        self._notify_coordinator_circuit_breaker(swarm_id, 'circuit_breaker_tripped')
+
+        # Log incident with HIGH severity to IF.witness (stub)
+        self._log_circuit_breaker_trip(swarm_id, reason)
+
+        # Escalate to human (CRITICAL)
+        self._escalate_to_human(swarm_id, {
+            'type': 'circuit_breaker',
+            'reason': reason,
+            'failure_count': self.failure_counts.get(swarm_id, 0),
+            'budget_remaining': profile.current_budget_remaining,
+            'action_required': 'manual_reset'
+        })
+
+    def reset_circuit_breaker(self, swarm_id: str, new_budget: float):
+        """
+        Manually reset circuit breaker (requires human approval)
+
+        This method should only be called after:
+        1. Investigating the root cause of the circuit breaker trip
+        2. Confirming the swarm is safe to resume
+        3. Allocating appropriate new budget
+
+        Args:
+            swarm_id: Swarm to reset
+            new_budget: New budget allocation (must be > 0)
+
+        Raises:
+            ValueError: If swarm_id is not registered or new_budget <= 0
+
+        Example:
+            >>> # After investigation and approval
+            >>> governor.reset_circuit_breaker("test-swarm", 50.0)
+            # Swarm reactivated with $50 budget
+        """
+        if swarm_id not in self.swarm_registry:
+            raise ValueError(f"Unknown swarm: {swarm_id}")
+
+        if new_budget <= 0:
+            raise ValueError("New budget must be positive")
+
+        profile = self.swarm_registry[swarm_id]
+        old_budget = profile.current_budget_remaining
+
+        # Restore budget
+        profile.current_budget_remaining = new_budget
+
+        # Clear failure count
+        if swarm_id in self.failure_counts:
+            old_failure_count = self.failure_counts[swarm_id]
+            self.failure_counts[swarm_id] = 0
+        else:
+            old_failure_count = 0
+
+        logger.info(
+            f"✅ Circuit breaker RESET for '{swarm_id}': "
+            f"budget ${old_budget} → ${new_budget}, "
+            f"failures {old_failure_count} → 0"
+        )
+
+        # Notify IF.coordinator to resume sending tasks (stub)
+        self._notify_coordinator_circuit_breaker(swarm_id, 'active')
+
+        # Log reset to IF.witness (stub)
+        self._log_circuit_breaker_reset(
+            swarm_id=swarm_id,
+            old_budget=old_budget,
+            new_budget=new_budget,
+            old_failure_count=old_failure_count
+        )
+
+    def _notify_coordinator_circuit_breaker(self, swarm_id: str, status: str):
+        """
+        Notify IF.coordinator of circuit breaker state change
+
+        Stub for IF.coordinator integration. Will send event bus message
+        to coordinator to update swarm availability status.
+
+        Args:
+            swarm_id: Swarm whose status changed
+            status: New status ('circuit_breaker_tripped' or 'active')
+        """
+        # Stub for IF.coordinator integration
+        # In production, would use:
+        # asyncio.create_task(
+        #     self.coordinator.event_bus.put(
+        #         f'/swarms/{swarm_id}/status',
+        #         status
+        #     )
+        # )
+        logger.debug(
+            f"IF.coordinator: event_bus.put('/swarms/{swarm_id}/status', '{status}')"
+        )
+
+    def _log_circuit_breaker_trip(self, swarm_id: str, reason: str):
+        """
+        Log circuit breaker trip to IF.witness with HIGH severity
+
+        Stub for IF.witness integration (P0.4.3).
+
+        Args:
+            swarm_id: Swarm that was halted
+            reason: Reason for circuit breaker trip
+        """
+        # Stub for IF.witness integration
+        logger.debug(
+            f"IF.witness: circuit_breaker_tripped("
+            f"swarm_id={swarm_id}, "
+            f"reason={reason}, "
+            f"severity=HIGH, "
+            f"timestamp={time.time()})"
+        )
+
+    def _log_circuit_breaker_reset(
+        self,
+        swarm_id: str,
+        old_budget: float,
+        new_budget: float,
+        old_failure_count: int
+    ):
+        """
+        Log circuit breaker reset to IF.witness
+
+        Stub for IF.witness integration (P0.4.3).
+
+        Args:
+            swarm_id: Swarm that was reset
+            old_budget: Budget before reset
+            new_budget: Budget after reset
+            old_failure_count: Failure count before reset
+        """
+        # Stub for IF.witness integration
+        logger.debug(
+            f"IF.witness: circuit_breaker_reset("
+            f"swarm_id={swarm_id}, "
+            f"old_budget=${old_budget:.2f}, "
+            f"new_budget=${new_budget:.2f}, "
+            f"old_failures={old_failure_count}, "
+            f"approved_by='human_operator')"
+        )
+
+    def _escalate_to_human(self, swarm_id: str, issue: Dict):
+        """
+        ESCALATE pattern: Notify human for intervention
+
+        This implements the S² principle: "Escalate, don't guess"
+
+        Creates a formatted notification with:
+        - Issue details
+        - Investigation checklist
+        - Reset command examples
+        - Philosophical context (Ubuntu)
+
+        Args:
+            swarm_id: Swarm requiring intervention
+            issue: Dictionary with issue details
+        """
+        failure_count = issue.get('failure_count', 0)
+        budget = issue.get('budget_remaining', 0.0)
+
+        notification = f"""
+🚨 S² System Escalation Required
+
+**Component**: IF.governor
+**Swarm**: {swarm_id}
+**Issue Type**: {issue.get('type', 'unknown')}
+**Reason**: {issue.get('reason', 'unknown')}
+**Failure Count**: {failure_count}
+**Budget Remaining**: ${budget:.2f}
+
+**Action Required**: Manual review and intervention
+
+**To reset circuit breaker**:
+```python
+from infrafabric.governor import IFGovernor
+governor.reset_circuit_breaker('{swarm_id}', new_budget=50.0)
+```
+
+**Or via CLI**:
+```bash
+if governor reset-circuit-breaker {swarm_id} --budget 50.0
+```
+
+**Investigation checklist**:
+- [ ] Review IF.witness logs for root cause
+- [ ] Check swarm reputation score
+- [ ] Verify task assignments were appropriate
+- [ ] Confirm budget allocation is sufficient
+- [ ] Assess if swarm needs capability retraining
+- [ ] Check for external service failures
+
+**Philosophy**: Ubuntu ("I am because we are") - System health depends on collective well-being
+"""
+
+        # In production, this would send to notification system
+        # For now, log to console
+        logger.critical(notification)
 
     def __repr__(self) -> str:
         """String representation of IF.governor state"""
