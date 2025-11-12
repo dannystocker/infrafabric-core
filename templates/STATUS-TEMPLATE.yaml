@@ -1,0 +1,162 @@
+# STATUS REPORTING TEMPLATE
+# Use this template to report session status for coordination and monitoring
+# File location: sessions/session-X/STATUS.yaml
+
+session: session-X
+branch: claude/branch-name-*
+timestamp: ISO8601
+status: waiting/claiming/working/blocked/completed
+
+current_task:
+  id: P0.X.X
+  description: "Task description"
+  started_at: ISO8601
+  milestone: "0%/25%/50%/75%/100%"
+  next_milestone_eta: ISO8601
+  blockers: []
+
+progress:
+  tasks_completed: X
+  tasks_in_progress: X
+  tasks_remaining: X
+  phase_completion_percent: XX%
+
+availability:
+  can_help: true/false
+  expertise_available: ["area1", "area2"]
+  current_load: low/medium/high
+
+metrics:
+  uptime_hours: X.X
+  tasks_per_hour: X.X
+  cost_efficiency: XX%
+
+health:
+  last_heartbeat: ISO8601
+  status: healthy/warning/error
+  warnings: []
+  errors: []
+
+---
+# STATUS UPDATE FREQUENCY GUIDE
+
+## Update Frequency Requirements
+
+### Critical Updates (Immediate)
+- Status change: waiting -> claiming -> working
+- Status change: working -> blocked
+- Status change: working -> completed
+- Error conditions detected
+- Blocker encountered
+
+### Regular Updates (Every 30 minutes)
+- Milestone progress changes (0% -> 25% -> 50% -> 75% -> 100%)
+- Task completion
+- Heartbeat refresh
+- Metrics updates
+
+### Periodic Updates (Every 2 hours)
+- Progress summary refresh
+- Availability status review
+- Expertise available update
+- Load assessment
+
+## Coordination Branch Polling Strategy
+
+### Polling Intervals
+- **Active Sessions**: Poll every 5 minutes
+  - Check for status changes
+  - Monitor heartbeat freshness
+  - Detect stale sessions (no update >15 minutes)
+
+- **Blocked Sessions**: Poll every 2 minutes
+  - Check if blockers resolved
+  - Coordinate unblocking actions
+  - Escalate if blocked >30 minutes
+
+- **Completed Sessions**: Poll once at end
+  - Verify completion status
+  - Archive session data
+  - Update project metrics
+
+### Health Monitoring
+- **Healthy**: Heartbeat <10 minutes old
+- **Warning**: Heartbeat 10-15 minutes old, trigger alert
+- **Error**: Heartbeat >15 minutes old, session presumed frozen
+
+### Automated Actions
+1. **Stale Detection**: If heartbeat >15 minutes, mark session as potentially frozen
+2. **Blocker Escalation**: If blocked >30 minutes, notify coordination
+3. **Completion Verification**: If status=completed, verify all tasks done
+4. **Load Balancing**: Redistribute work from high-load to low-load sessions
+
+## Status Field Definitions
+
+### status Values
+- **waiting**: Session initialized, waiting for task assignment
+- **claiming**: Session claiming a task from queue
+- **working**: Actively working on assigned task
+- **blocked**: Encountered blocker, cannot proceed
+- **completed**: All assigned tasks completed
+
+### current_load Values
+- **low**: <50% capacity, can take additional work
+- **medium**: 50-80% capacity, limited availability
+- **high**: >80% capacity, fully engaged
+
+### health.status Values
+- **healthy**: All systems operational
+- **warning**: Minor issues detected, still functional
+- **error**: Critical issues, session may be frozen
+
+## Example STATUS Update Sequence
+
+```yaml
+# T+0: Session starts
+session: session-1
+status: waiting
+timestamp: 2025-11-12T10:00:00Z
+health:
+  last_heartbeat: 2025-11-12T10:00:00Z
+  status: healthy
+
+# T+2min: Claims task
+status: claiming
+current_task:
+  id: P0.1.1
+  description: "Implement feature X"
+  started_at: 2025-11-12T10:02:00Z
+  milestone: "0%"
+
+# T+5min: Working
+status: working
+current_task:
+  milestone: "25%"
+  next_milestone_eta: 2025-11-12T10:35:00Z
+
+# T+30min: Progress update
+current_task:
+  milestone: "50%"
+health:
+  last_heartbeat: 2025-11-12T10:30:00Z
+
+# T+60min: Completed
+status: completed
+progress:
+  tasks_completed: 1
+  phase_completion_percent: 100%
+```
+
+## Integration with Coordination Branch
+
+The coordination branch monitors all session STATUS files:
+1. Scans `sessions/*/STATUS.yaml` every 5 minutes
+2. Aggregates status across all sessions
+3. Identifies blocked or frozen sessions
+4. Rebalances work across healthy sessions
+5. Updates project-level metrics dashboard
+
+## File Naming Convention
+- Primary: `sessions/session-X/STATUS.yaml`
+- Backup: `sessions/session-X/STATUS.backup.yaml` (previous state)
+- History: `sessions/session-X/status-history/STATUS-{timestamp}.yaml`

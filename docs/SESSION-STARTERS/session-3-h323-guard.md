@@ -149,6 +149,107 @@ BEGIN!
 
 ---
 
+## Phase 0: Coordination Protocol (Complete This First!)
+
+**BEFORE implementing, complete Phase 0 coordination:**
+
+### 1. Branch Polling
+```bash
+# Check current branch status
+git status
+git branch -a
+
+# Poll for other workstream branches (Session 4 depends on YOU!)
+git fetch --all
+git branch -r | grep "claude/realtime-workstream-"
+
+# Expected branches (eventually):
+# - claude/realtime-workstream-1-ndi
+# - claude/realtime-workstream-2-webrtc
+# - claude/realtime-workstream-3-h323 (YOU)
+# - claude/realtime-workstream-4-sip (WAITING ON YOU!)
+```
+
+### 2. STATUS Reporting Requirements
+Create STATUS file on your branch:
+```bash
+# Create STATUS.md on your branch
+cat > STATUS.md <<EOF
+# Workstream 3: H.323 Guardian Council
+**Agent:** Gemini 2.5 Pro (or Claude Sonnet 4.5)
+**Branch:** claude/realtime-workstream-3-h323
+**Status:** PHASE_0_COORDINATION
+
+## Phase 0 Checklist
+- [ ] Branch created from base
+- [ ] Context files read
+- [ ] Dependencies checked (NONE for Session 3)
+- [ ] Session 4 notified (they depend on us!)
+- [ ] Ready to begin implementation
+
+## Current Phase: 0 (Coordination)
+**Started:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+**Blockers:** None
+**Next:** Phase 1 (Implementation)
+**Downstream Dependency:** Session 4 (SIP) is waiting for our interface contract
+
+## Milestones
+- [ ] Phase 0: Coordination complete
+- [ ] Phase 1: h323_gatekeeper.py implemented
+- [ ] Phase 2: h323_mcu_config.py implemented
+- [ ] Phase 3: Kantian policy gates implemented
+- [ ] Phase 4: Tests passing (admission, PII, bandwidth)
+- [ ] Phase 5: Documentation complete
+- [ ] HANDOFF: Interface contract created (CRITICAL for Session 4!)
+EOF
+
+git add STATUS.md
+git commit -m "Phase 0: Initialize workstream status tracking"
+```
+
+### 3. Filler Task Strategy
+**Workstream 3 has NO dependencies** - proceed directly to implementation after Phase 0!
+
+However, if you encounter blockers during implementation:
+- Research H.323 protocol specifications (ITU-T H.323)
+- Design additional Kantian policy gates
+- Create guardian registry test fixtures
+- Document MCU architecture options (Jitsi vs Kurento)
+- **CRITICAL:** Draft interface contract early for Session 4
+
+### 4. Milestone Reporting
+Update STATUS.md after each milestone:
+```bash
+# After completing each phase, update STATUS.md
+sed -i 's/Status:** PHASE_0/Status:** PHASE_1_IMPLEMENTATION/' STATUS.md
+sed -i 's/- \[ \] Phase 0/- [x] Phase 0/' STATUS.md
+
+git add STATUS.md
+git commit -m "Milestone: Phase 0 complete, beginning Phase 1"
+```
+
+**IMPORTANT:** Notify Session 4 when interface contract is ready:
+```bash
+# After creating docs/INTERFACES/workstream-3-h323-contract.yaml
+echo "SESSION 4 UNBLOCKED: H.323 interface contract available" >> STATUS.md
+git add STATUS.md docs/INTERFACES/workstream-3-h323-contract.yaml
+git commit -m "HANDOFF: Interface contract ready for Session 4"
+```
+
+### 5. Phase 0 Completion Checklist
+Before moving to implementation:
+- ✅ Branch created: `claude/realtime-workstream-3-h323`
+- ✅ STATUS.md created and committed
+- ✅ All 4 context files read
+- ✅ Dependencies verified (NONE - fully independent)
+- ✅ Downstream dependency acknowledged (Session 4 waiting)
+- ✅ Development plan confirmed
+- ✅ Ready to implement
+
+**Phase 0 Complete? Proceed to "H.323 Infrastructure Setup" below and begin implementation!**
+
+---
+
 ## H.323 Infrastructure Setup
 
 ```bash

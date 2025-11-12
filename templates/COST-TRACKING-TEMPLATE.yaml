@@ -1,0 +1,26 @@
+session: session-X
+phase: phase-0
+date: YYYY-MM-DD
+budget_allocated: $XXX
+budget_spent: $XXX
+budget_remaining: $XXX
+
+tasks:
+  - id: P0.X.X
+    description: "Task description"
+    model: sonnet/haiku
+    tokens_in: XXXXX
+    tokens_out: XXXXX
+    cost_usd: XX.XX
+    timestamp: ISO8601
+    milestone: "25%/50%/75%/100%"
+
+total_tokens_in: XXXXX
+total_tokens_out: XXXXX
+total_cost: $XXX.XX
+
+efficiency_metrics:
+  haiku_tasks: X
+  sonnet_tasks: X
+  avg_cost_per_task: $XX.XX
+  cost_waste_percent: X%

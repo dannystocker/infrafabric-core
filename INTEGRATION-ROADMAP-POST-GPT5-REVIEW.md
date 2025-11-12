@@ -48,6 +48,11 @@ Must be completed **BEFORE** vMix/OBS/HA integrations and **BEFORE** all subsequ
 **Blocking:** ALL provider integrations (vMix, OBS, HA, cloud, SIP, payment, chat, AI)
 **Rationale:** Current S² architecture has race conditions, cost spirals, and security vulnerabilities
 
+**Task Count:** 45 tasks across 3 core components + CLI + integration
+**Timeline:** 29 hours wall-clock (S² parallelization from 103h sequential)
+**Cost:** $470-620
+**Session Assignment:** All 7 sessions (5-CLI lead, 6-Talent, 7-IFBus primary, 1-4 support)
+
 ### Components to Build (3 Critical Fixes)
 
 #### 1. IF.coordinator - Real-Time Coordination Service
@@ -214,12 +219,25 @@ slos:
 
 ### Phase 0 Timeline & Cost
 
-**Sequential execution:** 24-30 hours
-**Parallel execution (S² with 3-4 sessions):** **6-8 hours wall-clock**
-**Total cost:** $360-450
+**Sequential execution:** 103 hours
+**Parallel execution (S² with 7 sessions):** **29 hours wall-clock**
+**Total cost:** $470-620
+**Velocity multiplier:** 3.6x faster with full parallelization
+
+**Task breakdown:**
+- IF.coordinator: 10 tasks (2-3h wall-clock)
+- IF.governor: 11 tasks (2-3h wall-clock)
+- IF.chassis: 13 tasks (3-4h wall-clock)
+- CLI Foundation: 7 tasks (1-2h wall-clock)
+- Integration & Validation: 4 tasks (1-2h wall-clock)
 
 **Risk avoided:** $2,000-5,000 (race conditions, cost spirals, security breaches)
-**ROI:** 4x-14x return
+**ROI:** 4x-11x return
+
+**Branch Coordination:**
+- Master coordination branch: `claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy`
+- Session work branches: Each session has own branch, polls from coordination branch
+- Polling interval: 30 seconds (reduces wait time vs 60s)
 
 ### Phase 0 Success Criteria
 
@@ -252,8 +270,17 @@ slos:
 - **Home Assistant:** Physical infrastructure control
 
 **Status:** In progress (all 7 sessions working)
-**Timeline:** 5-6 hours wall-clock
-**Cost:** $135-210
+**Task Count:** 33 tasks across 3 production software integrations
+**Timeline:** 15 hours wall-clock (S² parallelization from 55h sequential)
+**Cost:** $215-310
+**Session Assignment:** 1-NDI, 2-WebRTC, 7-IFBus (primary), 4-SIP, 5-CLI, 6-Talent (support)
+**Velocity multiplier:** 3.7x faster
+
+**Task breakdown:**
+- vMix integration: 10 tasks (5h parallel)
+- OBS Studio integration: 11 tasks (5h parallel)
+- Home Assistant integration: 11 tasks (5h parallel)
+- All tasks overlap due to S² parallelization
 
 ---
 
@@ -348,9 +375,18 @@ Integrate 20 major cloud/hosting providers with IF.bus for infrastructure provis
 - Cost optimization across clouds
 - Failover between providers
 
-**Timeline:** 8-10 hours wall-clock
-**Cost:** $200-300
-**Deliverables:** 7 cloud provider adapters (Tier 1 only)
+**Task Count:** 115 tasks across 20 cloud providers
+**Timeline:** 47 hours wall-clock (S² parallelization from 179h sequential)
+**Cost:** $705-1,025
+**Session Assignment:** 1-NDI, 2-WebRTC, 3-H323 (primary), 4-SIP, 5-CLI, 6-Talent, 7-IFBus (support)
+**Velocity multiplier:** 3.8x faster
+**Deliverables:** 20 cloud provider adapters
+
+**Tier breakdown:**
+- Tier 1 (7 providers): AWS, GCP, Azure, OCI, DigitalOcean, Linode, Vultr
+- Tier 2 (3 providers): OVHcloud, Scaleway, Kamatera
+- Tier 3 (3 providers): Hostinger, IONOS, HostEurope (simplified)
+- Tier 4 (7 providers): Limited/no API (low priority)
 
 ---
 
@@ -487,9 +523,19 @@ Integrate 30+ SIP providers for programmable voice/SMS with IF.bus.
 - Least-cost routing
 - Load balancing across providers
 
-**Total Timeline:** 24-30 hours wall-clock (phased)
-**Total Cost:** $370-530
-**Total Deliverables:** 30+ SIP provider adapters
+**Task Count:** 82 tasks across 35+ SIP providers
+**Total Timeline:** 41 hours wall-clock (S² parallelization from 156h sequential)
+**Total Cost:** $630-915
+**Session Assignment:** 4-SIP, 7-IFBus (primary), 2-WebRTC, 5-CLI, 6-Talent (support)
+**Velocity multiplier:** 3.8x faster
+**Total Deliverables:** 35+ SIP provider adapters
+
+**Tier breakdown:**
+- Tier 1 (5 providers): Twilio, Bandwidth, Vonage, Telnyx, Plivo - 11h parallel
+- Tier 2 (12 providers): US/Americas providers - 9h parallel
+- Tier 3 (4 providers): Enterprise/Global - included in overall timing
+- Tier 4 (5 providers): Programmable media - included in overall timing
+- Tier 5 (9+ providers): UK providers - included in overall timing
 
 ---
 
@@ -615,9 +661,17 @@ Integrate 40+ payment providers (global + UK mobile) for payment processing with
 - Cost optimization (lowest fees)
 - IF.optimise integration (track all payment costs)
 
-**Total Timeline:** 32-40 hours wall-clock (phased)
-**Total Cost:** $490-710
+**Task Count:** 88 tasks across 40+ payment providers
+**Total Timeline:** 34 hours wall-clock (S² parallelization from 127h sequential)
+**Total Cost:** $515-745
+**Session Assignment:** 5-CLI, 7-IFBus (primary), 6-Talent (support)
+**Velocity multiplier:** 3.7x faster
 **Total Deliverables:** 40+ payment provider adapters
+
+**Tier breakdown:**
+- Tier 1 (20 providers): Global payment APIs
+- Tier 2 (16+ providers): UK mobile payment companies
+- Phased execution across 4 sub-phases (A, B, C, D)
 
 ---
 
@@ -920,9 +974,18 @@ if bus orchestrate --profile "asia-production"
   └─> Zalo: Notify Vietnam team
 ```
 
-**Total Timeline:** 30-38 hours wall-clock (phased)
-**Total Cost:** $450-680
+**Task Count:** 52 tasks across 16+ chat/messaging platforms
+**Total Timeline:** 23 hours wall-clock (S² parallelization from 84h sequential)
+**Total Cost:** $340-500
+**Session Assignment:** 2-WebRTC, 7-IFBus (primary), 5-CLI, 6-Talent (support)
+**Velocity multiplier:** 3.7x faster
 **Total Deliverables:** 16+ chat platform adapters
+
+**Tier breakdown:**
+- Tier 1 (8 providers): Global messaging (WhatsApp, Telegram, Slack, Teams, Discord, Messenger, Google Chat, Signal)
+- Tier 2 (3 providers): Enterprise communication (Rocket.Chat, Viber, Snapchat)
+- Tier 3 (5 providers): Asia-specific (WeChat, LINE, KakaoTalk, Zalo, QQ)
+- Phased execution across 4 sub-phases (A, B, C, D)
 
 ---
 
@@ -1333,48 +1396,113 @@ if swarm spawn --profile "self-improvement"
   └─> InfraFabric improved by itself
 ```
 
-**Total Timeline:** 52-65 hours wall-clock (phased)
-**Total Cost:** $790-1,160
-**Total Deliverables:** 20 AI/gateway/vector adapters + IF.swarm production module
+**Task Count:** 97 tasks across 20+ AI/LLM providers + IF.swarm module
+**Total Timeline:** 41 hours wall-clock (S² parallelization from 149h sequential)
+**Total Cost:** $610-890
+**Session Assignment:** 6-Talent, 7-IFBus (primary), All sessions (support)
+**Velocity multiplier:** 3.6x faster
+**Total Deliverables:** 20+ AI/gateway/vector adapters + IF.swarm production module
+
+**Tier breakdown:**
+- Tier 1 (8 providers): Foundation models (OpenAI, Anthropic, Google, AWS Bedrock, Azure OpenAI, Cohere, IBM watsonx)
+- Tier 2 (5 providers): AI Gateways (Kong, Litellm, Helicone, BricksLLM, LangChain)
+- Tier 3 (4 providers): Specialized AI (Hugging Face, Replicate, Together AI, Mistral)
+- Tier 4 (3 providers): Vector databases (Pinecone, Weaviate, Qdrant)
+- IF.swarm module: Production-ready SwarmOrchestrator implementation
+- Phased execution across 5 sub-phases (A, B, C, D, E)
 
 ---
 
 ## Master Roadmap Summary
 
 ### Completed/In Progress
-- ✅ **Phase 0:** InfraFabric Foundation (IF.witness, IF.optimise, IF.ground)
-- ✅ **Phase 1:** Real-time Communication (NDI, WebRTC, H.323, SIP) - Phases 1-3 complete
-- 🔄 **Phase 1.5:** Production Infrastructure (vMix, OBS, Home Assistant) - **IN PROGRESS**
+- ✅ **Foundation:** InfraFabric core (IF.witness, IF.optimise, IF.ground)
+- ✅ **Protocols:** Real-time Communication (NDI, WebRTC, H.323, SIP) - Phases 1-3 complete
+- 🔄 **Phase 1:** Production Infrastructure (vMix, OBS, Home Assistant) - **IN PROGRESS**
 
 ### Awaiting GPT-5 Pro Review
 - ⏸️ **GPT-5 Pro Checkpoint:** Review, improve, fix critical issues
 
-### Post-GPT-5 Pro Review (Sequential Phases)
-- ⏸️ **Phase 2:** Cloud Providers (20 providers, 8-10 hours, $200-300)
-- ⏸️ **Phase 3:** SIP Providers (30+ providers, 24-30 hours phased, $370-530)
-- ⏸️ **Phase 4:** Payment Providers (40+ providers, 32-40 hours phased, $490-710)
-- ⏸️ **Phase 5:** Chat/Messaging Platforms (16+ providers, 30-38 hours phased, $450-680)
-- ⏸️ **Phase 6:** AI/LLM Providers + IF.swarm Module (20+ providers, 52-65 hours phased, $790-1,160)
+### Post-GPT-5 Pro Review (Phased Execution)
 
-### Total Post-Review Work
-- **Timeline:** 146-183 hours wall-clock (phased over 4-6 weeks)
-- **Cost:** $2,300-3,380
-- **Deliverables:** 126+ integration modules + IF.swarm production module
+**Phase 0: S² Core Components** (CRITICAL - Must Complete First)
+- **Tasks:** 45 tasks across 3 core components + CLI + integration
+- **Timeline:** 29 hours wall-clock (103h sequential)
+- **Cost:** $470-620
+- **Sessions:** All 7 (5-CLI lead, 6-Talent, 7-IFBus primary, 1-4 support)
+- **Milestone:** ✓ IF.coordinator operational | ✓ IF.governor enforcing budgets | ✓ IF.chassis sandboxing
+
+**Phase 1: Production Software** (Week 4-8)
+- **Tasks:** 33 tasks across 3 integrations
+- **Timeline:** 15 hours wall-clock (55h sequential)
+- **Cost:** $215-310
+- **Sessions:** 1-NDI, 2-WebRTC, 7-IFBus (primary), 4-SIP, 5-CLI, 6-Talent (support)
+- **Milestone:** ✓ vMix + OBS + Home Assistant fully integrated
+
+**Phase 2: Cloud Providers** (Week 9-12)
+- **Tasks:** 115 tasks across 20 providers
+- **Timeline:** 47 hours wall-clock (179h sequential)
+- **Cost:** $705-1,025
+- **Sessions:** 1-NDI, 2-WebRTC, 3-H323 (primary), 4-SIP, 5-CLI, 6-Talent, 7-IFBus (support)
+- **Milestone:** ✓ Multi-cloud orchestration operational
+
+**Phase 3: SIP Providers** (Week 13-16)
+- **Tasks:** 82 tasks across 35+ providers
+- **Timeline:** 41 hours wall-clock (156h sequential)
+- **Cost:** $630-915
+- **Sessions:** 4-SIP, 7-IFBus (primary), 2-WebRTC, 5-CLI, 6-Talent (support)
+- **Milestone:** ✓ Global voice/SMS network operational
+
+**Phase 4: Payment Providers** (Week 17-20)
+- **Tasks:** 88 tasks across 40+ providers
+- **Timeline:** 34 hours wall-clock (127h sequential)
+- **Cost:** $515-745
+- **Sessions:** 5-CLI, 7-IFBus (primary), 6-Talent (support)
+- **Milestone:** ✓ Global payment processing integrated
+
+**Phase 5: Chat/Messaging Platforms** (Week 21-24)
+- **Tasks:** 52 tasks across 16+ platforms
+- **Timeline:** 23 hours wall-clock (84h sequential)
+- **Cost:** $340-500
+- **Sessions:** 2-WebRTC, 7-IFBus (primary), 5-CLI, 6-Talent (support)
+- **Milestone:** ✓ Unified messaging across all platforms
+
+**Phase 6: AI/LLM + IF.swarm** (Week 25-28)
+- **Tasks:** 97 tasks across 20+ providers + IF.swarm module
+- **Timeline:** 41 hours wall-clock (149h sequential)
+- **Cost:** $610-890
+- **Sessions:** 6-Talent, 7-IFBus (primary), All sessions (support)
+- **Milestone:** ✓ AI swarm orchestration production-ready | ✓ Self-improving InfraFabric
+
+### Complete Integration Summary
+- **Total Tasks:** 511 tasks across 132+ providers/components
+- **Total Timeline:** 230 hours wall-clock (853h sequential)
+- **Total Cost:** $3,485-5,005
+- **Velocity Multiplier:** 3.7x faster with S² parallelization
+- **Timeline:** 29 days at 8h/day (vs 106 days sequential)
 
 ---
 
 ## Integration Count Summary
 
-| Category | Count | Status |
-|----------|-------|--------|
-| **Production Software** | 3 (vMix, OBS, HA) | ✅ In Progress |
-| **Cloud Providers (Tier 1)** | 7 | ⏸️ Post-review |
-| **SIP Providers** | 30+ | ⏸️ Post-review |
-| **Payment Providers** | 40+ | ⏸️ Post-review |
-| **Chat/Messaging Platforms** | 16+ | ⏸️ Post-review |
-| **AI/LLM Providers & Gateways** | 20+ | ⏸️ Post-review |
-| **IF.swarm Module** | 1 (production-ready) | ⏸️ Post-review |
-| **TOTAL INTEGRATIONS** | **116+** | - |
+| Phase | Category | Count | Tasks | Timeline | Cost | Status |
+|-------|----------|-------|-------|----------|------|--------|
+| **Phase 0** | S² Core Components + CLI | 3+1 | 45 | 29h | $470-620 | ⏸️ Blocked |
+| **Phase 1** | Production Software | 3 | 33 | 15h | $215-310 | 🔄 In Progress |
+| **Phase 2** | Cloud Providers | 20 | 115 | 47h | $705-1,025 | ⏸️ Post-review |
+| **Phase 3** | SIP Providers | 35+ | 82 | 41h | $630-915 | ⏸️ Post-review |
+| **Phase 4** | Payment Providers | 40+ | 88 | 34h | $515-745 | ⏸️ Post-review |
+| **Phase 5** | Chat/Messaging Platforms | 16+ | 52 | 23h | $340-500 | ⏸️ Post-review |
+| **Phase 6** | AI/LLM + IF.swarm | 20+1 | 97 | 41h | $610-890 | ⏸️ Post-review |
+| **TOTAL** | **All Integrations** | **132+** | **511** | **230h** | **$3,485-5,005** | - |
+
+### Cost per Provider
+**Average:** $26-38 per provider
+**Range:**
+- Simple providers (hosting, small SIP): $15-25
+- Medium providers (cloud, payments): $25-40
+- Complex providers (AWS, Azure, OpenAI): $80-120
+- Core components (Phase 0): $120-180 each
 
 ---
 
@@ -1424,9 +1552,19 @@ Every platform, provider, and service joins InfraFabric as a "friend":
 ## Next Steps
 
 ### Immediate (Now)
-1. ✅ Complete vMix + OBS + HA sprint (5-6 hours remaining)
+1. ✅ Complete vMix + OBS + HA sprint (remaining tasks)
 2. ✅ Commit all work to git
 3. ✅ Signal sprint complete
+
+### Critical: Phase 0 (Week 0-3)
+**MUST COMPLETE BEFORE ANY OTHER PROVIDER WORK**
+1. ⏸️ **Phase 0 Start:** Initialize 7 sessions with coordination branch
+2. ⏸️ **Build IF.coordinator:** Real-time coordination (29h → 2-3h wall-clock)
+3. ⏸️ **Build IF.governor:** Capability-aware resource manager (29h → 2-3h wall-clock)
+4. ⏸️ **Build IF.chassis:** WASM sandbox runtime (29h → 3-4h wall-clock)
+5. ⏸️ **Build CLI:** Unified `if` command entry point (29h → 1-2h wall-clock)
+6. ⏸️ **Validate:** Integration tests, security review, performance tests
+7. ⏸️ **Phase 0 Complete:** All success criteria met, ready for Phase 1
 
 ### GPT-5 Pro Review (Next)
 1. ⏸️ Download repository ZIP
@@ -1435,17 +1573,31 @@ Every platform, provider, and service joins InfraFabric as a "friend":
 4. ⏸️ Apply improvements and fix critical issues
 5. ⏸️ Deploy v1.1 with safeguards
 
-### Post-Review (Sequential)
-1. ⏸️ **Phase 2:** Cloud Providers (1-2 days)
-2. ⏸️ **Phase 3:** SIP Providers (3-4 days, phased)
-3. ⏸️ **Phase 4:** Payment Providers (4-5 days, phased)
-4. ⏸️ **Phase 5:** Chat/Messaging Platforms (4-5 days, phased)
+### Post-Review Provider Integration (Week 4-28)
+1. ⏸️ **Phase 1:** Production Software (15h wall-clock, Week 4-8)
+2. ⏸️ **Phase 2:** Cloud Providers (47h wall-clock, Week 9-12)
+3. ⏸️ **Phase 3:** SIP Providers (41h wall-clock, Week 13-16)
+4. ⏸️ **Phase 4:** Payment Providers (34h wall-clock, Week 17-20)
+5. ⏸️ **Phase 5:** Chat/Messaging (23h wall-clock, Week 21-24)
+6. ⏸️ **Phase 6:** AI/LLM + IF.swarm (41h wall-clock, Week 25-28)
 
-### Final Integration (3-4 weeks from now)
-1. ⏸️ Unified CLI across all 96+ integrations
-2. ⏸️ IF.bus orchestration profiles
-3. ⏸️ Complete documentation
-4. ⏸️ Production deployment
+### Final Integration (Week 28+)
+1. ⏸️ Unified CLI across all 132+ integrations
+2. ⏸️ IF.bus orchestration profiles (complete production stack)
+3. ⏸️ Complete documentation (all providers)
+4. ⏸️ Production deployment and validation
+5. ⏸️ IF.swarm self-improvement cycles
+
+### Milestone Markers
+
+**✓ Milestone 1:** Phase 0 complete - S² architecture production-ready
+**✓ Milestone 2:** Phase 1 complete - Production infrastructure orchestrated
+**✓ Milestone 3:** Phase 2 complete - Multi-cloud provisioning operational
+**✓ Milestone 4:** Phase 3 complete - Global voice network integrated
+**✓ Milestone 5:** Phase 4 complete - Payment processing unified
+**✓ Milestone 6:** Phase 5 complete - Messaging platforms orchestrated
+**✓ Milestone 7:** Phase 6 complete - AI swarm orchestration production-ready
+**✓ Milestone 8:** All phases complete - InfraFabric v2.0 deployed
 
 ---
 
@@ -1461,4 +1613,57 @@ Every platform, provider, and service joins InfraFabric as a "friend":
 
 ---
 
-**🚀 Focus now: Complete current sprint, then GPT-5 Pro review before proceeding with 96+ additional integrations!**
+---
+
+## Session Assignment Matrix
+
+| Phase | Primary Sessions | Support Sessions | Parallelism | Key Responsibility |
+|-------|------------------|------------------|-------------|-------------------|
+| **Phase 0** | 5-CLI, 6-Talent, 7-IFBus | 1-NDI, 2-WebRTC, 3-H323, 4-SIP | 7 concurrent | Core component implementation |
+| **Phase 1** | 1-NDI, 2-WebRTC, 7-IFBus | 4-SIP, 5-CLI, 6-Talent | 6 concurrent | Production software integration |
+| **Phase 2** | 1-NDI, 2-WebRTC, 3-H323 | 4-SIP, 5-CLI, 6-Talent, 7-IFBus | 7 concurrent | Cloud provider adapters |
+| **Phase 3** | 4-SIP, 7-IFBus | 2-WebRTC, 5-CLI, 6-Talent | 5 concurrent | SIP provider integration |
+| **Phase 4** | 5-CLI, 7-IFBus | 6-Talent | 3 concurrent | Payment provider adapters |
+| **Phase 5** | 2-WebRTC, 7-IFBus | 5-CLI, 6-Talent | 4 concurrent | Chat platform integration |
+| **Phase 6** | 6-Talent, 7-IFBus | All sessions | 7 concurrent | AI providers + IF.swarm |
+
+---
+
+## Branch Coordination Strategy
+
+### Master Coordination Branch
+**Branch:** `claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy` (current branch)
+**Purpose:** Central coordination hub for all phases
+**Contains:**
+- Task boards for all phases (PHASE-0-TASK-BOARD.md, etc.)
+- Session instructions (INSTRUCTIONS-SESSION-{N}.md)
+- Status reports (STATUS-SESSION-{N}.yaml)
+- Architecture docs and roadmaps
+
+### Session Work Branches
+Each session works on dedicated branches, polls coordination branch for tasks:
+
+| Session | Work Branch Pattern | Polls From | Coordination Protocol |
+|---------|-------------------|------------|---------------------|
+| 1-NDI | `claude/ndi-*` | Coordination branch | Every 30 seconds |
+| 2-WebRTC | `claude/webrtc-*` | Coordination branch | Every 30 seconds |
+| 3-H.323 | `claude/h323-*` | Coordination branch | Every 30 seconds |
+| 4-SIP | `claude/sip-*` | Coordination branch | Every 30 seconds |
+| 5-CLI | `claude/cli-*` | Coordination branch | Every 30 seconds |
+| 6-Talent | `claude/talent-*` | Coordination branch | Every 30 seconds |
+| 7-IF.bus | `claude/if-bus-*` | Coordination branch | Every 30 seconds |
+
+### Polling Protocol
+**Key improvement:** 30-second polling (not 60s) reduces wait time by 50%
+
+1. Fetch latest from coordination branch
+2. Check task board for available tasks
+3. Claim task by updating STATUS.yaml on own branch
+4. Execute task
+5. Mark complete and commit to own branch
+6. If blocked, pick filler task (documentation, testing, refactoring)
+7. Loop every 30 seconds
+
+---
+
+**🚀 Focus now: Complete current sprint, then GPT-5 Pro review, then Phase 0 CRITICAL before proceeding with 132+ provider integrations!**

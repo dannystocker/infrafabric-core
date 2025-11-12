@@ -190,6 +190,111 @@ BEGIN!
 
 ---
 
+## Phase 0: Coordination Protocol (Complete This First!)
+
+**BEFORE implementing, complete Phase 0 coordination:**
+
+### 1. Branch Polling
+```bash
+# Check current branch status
+git status
+git branch -a
+
+# Poll for other workstream branches (for awareness - no dependencies)
+git fetch --all
+git branch -r | grep "claude/realtime-workstream-\|claude/cli-witness"
+
+# Expected branches (eventually):
+# - claude/cli-witness-optimise (YOU)
+# - claude/realtime-workstream-1-ndi (will use your CLI)
+# - claude/realtime-workstream-2-webrtc (will use your CLI)
+# - claude/realtime-workstream-3-h323 (will use your CLI)
+# - claude/realtime-workstream-4-sip (will use your CLI)
+```
+
+### 2. STATUS Reporting Requirements
+Create STATUS file on your branch:
+```bash
+# Create STATUS.md on your branch
+cat > STATUS.md <<EOF
+# Session Parallel: IF.witness CLI + IF.optimise
+**Agent:** Claude Sonnet 4.5 OR GPT-5
+**Branch:** claude/cli-witness-optimise
+**Status:** PHASE_0_COORDINATION
+
+## Phase 0 Checklist
+- [ ] Branch created from base
+- [ ] Context files read
+- [ ] Dependencies checked (NONE - fully independent)
+- [ ] SQLite schema designed
+- [ ] Ready to begin implementation
+
+## Current Phase: 0 (Coordination)
+**Started:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+**Blockers:** None
+**Next:** Phase 1 (CLI Implementation)
+**Note:** This CLI will be used by ALL other workstreams (1-4)
+
+## Milestones
+- [ ] Phase 0: Coordination complete
+- [ ] Phase 1: if-witness.py CLI commands implemented
+- [ ] Phase 2: if-optimise.py cost tracking implemented
+- [ ] Phase 3: SQLite database schema created
+- [ ] Phase 4: Tests passing (logging, verification, tracing, costing)
+- [ ] Phase 5: Documentation complete
+- [ ] HANDOFF: CLI ready for integration by Sessions 1-4
+EOF
+
+git add STATUS.md
+git commit -m "Phase 0: Initialize CLI witness status tracking"
+```
+
+### 3. Filler Task Strategy
+**Parallel CLI session has NO dependencies** - proceed directly to implementation after Phase 0!
+
+This session is FULLY INDEPENDENT and can run in parallel with Sessions 1-4.
+
+However, if you encounter blockers during implementation:
+- Research Click/Typer CLI framework best practices
+- Design additional cost attribution reports
+- Create export format specifications (JSON/CSV/HTML)
+- Document hash chain verification algorithms
+- Write performance benchmarks for SQLite queries
+
+### 4. Milestone Reporting
+Update STATUS.md after each milestone:
+```bash
+# After completing each phase, update STATUS.md
+sed -i 's/Status:** PHASE_0/Status:** PHASE_1_CLI_IMPLEMENTATION/' STATUS.md
+sed -i 's/- \[ \] Phase 0/- [x] Phase 0/' STATUS.md
+
+git add STATUS.md
+git commit -m "Milestone: Phase 0 complete, beginning CLI implementation"
+```
+
+**IMPORTANT:** Notify other sessions when CLI is ready:
+```bash
+# After CLI is functional
+echo "ALL SESSIONS UNBLOCKED: IF.witness CLI ready for integration" >> STATUS.md
+git add STATUS.md
+git commit -m "HANDOFF: CLI available for Sessions 1-4"
+```
+
+### 5. Phase 0 Completion Checklist
+Before moving to implementation:
+- ✅ Branch created: `claude/cli-witness-optimise`
+- ✅ STATUS.md created and committed
+- ✅ All 3 context files read
+- ✅ Dependencies verified (NONE - fully independent)
+- ✅ SQLite schema designed
+- ✅ CLI command structure planned
+- ✅ Development plan confirmed
+- ✅ Ready to implement
+
+**Phase 0 Complete? Proceed to "SQLite Schema" below and begin implementation!**
+
+---
+
 ## SQLite Schema
 
 ```sql

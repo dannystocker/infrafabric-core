@@ -98,6 +98,94 @@ BEGIN!
 
 ---
 
+## Phase 0: Coordination Protocol (Complete This First!)
+
+**BEFORE implementing, complete Phase 0 coordination:**
+
+### 1. Branch Polling
+```bash
+# Check current branch status
+git status
+git branch -a
+
+# Poll for other workstream branches (for awareness only - no dependencies)
+git fetch --all
+git branch -r | grep "claude/realtime-workstream-"
+
+# Expected branches (eventually):
+# - claude/realtime-workstream-1-ndi (YOU)
+# - claude/realtime-workstream-2-webrtc
+# - claude/realtime-workstream-3-h323
+# - claude/realtime-workstream-4-sip
+```
+
+### 2. STATUS Reporting Requirements
+Create STATUS file on your branch:
+```bash
+# Create STATUS.md on your branch
+cat > STATUS.md <<EOF
+# Workstream 1: NDI Evidence Streaming
+**Agent:** Claude Sonnet 4.5
+**Branch:** claude/realtime-workstream-1-ndi
+**Status:** PHASE_0_COORDINATION
+
+## Phase 0 Checklist
+- [ ] Branch created from base
+- [ ] Context files read
+- [ ] Dependencies checked (NONE for Session 1)
+- [ ] Ready to begin implementation
+
+## Current Phase: 0 (Coordination)
+**Started:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+**Blockers:** None
+**Next:** Phase 1 (Implementation)
+
+## Milestones
+- [ ] Phase 0: Coordination complete
+- [ ] Phase 1: ndi_witness_publisher.py implemented
+- [ ] Phase 2: ndi_guardian_viewer.py implemented
+- [ ] Phase 3: Tests passing
+- [ ] Phase 4: Documentation complete
+- [ ] HANDOFF: Interface contract created
+EOF
+
+git add STATUS.md
+git commit -m "Phase 0: Initialize workstream status tracking"
+```
+
+### 3. Filler Task Strategy
+**Workstream 1 has NO dependencies** - proceed directly to implementation after Phase 0!
+
+However, if you encounter blockers during implementation:
+- Research NDI SDK documentation
+- Create test fixtures for Session 4 integration
+- Write additional unit tests
+- Document edge cases in NDI-WITNESS-INTEGRATION.md
+
+### 4. Milestone Reporting
+Update STATUS.md after each milestone:
+```bash
+# After completing each phase, update STATUS.md
+sed -i 's/Status:** PHASE_0/Status:** PHASE_1_IMPLEMENTATION/' STATUS.md
+sed -i 's/- \[ \] Phase 0/- [x] Phase 0/' STATUS.md
+
+git add STATUS.md
+git commit -m "Milestone: Phase 0 complete, beginning Phase 1"
+```
+
+### 5. Phase 0 Completion Checklist
+Before moving to implementation:
+- ✅ Branch created: `claude/realtime-workstream-1-ndi`
+- ✅ STATUS.md created and committed
+- ✅ All 4 context files read
+- ✅ Dependencies verified (NONE - fully independent)
+- ✅ Development plan confirmed
+- ✅ Ready to implement
+
+**Phase 0 Complete? Proceed to "Additional Resources" below and begin implementation!**
+
+---
+
 ## Additional Resources for This Session
 
 ### NDI SDK Installation

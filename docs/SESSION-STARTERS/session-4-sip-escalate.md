@@ -173,6 +173,153 @@ BEGIN! (after Sessions 2 & 3 complete)
 
 ---
 
+## Phase 0: Coordination Protocol (Complete This First!)
+
+**CRITICAL: Session 4 has DEPENDENCIES on Sessions 2 & 3!**
+
+### 1. Branch Polling (Check Dependencies!)
+```bash
+# Check current branch status
+git status
+git branch -a
+
+# Poll for dependency branches (REQUIRED before starting)
+git fetch --all
+
+# Check Session 2 (WebRTC) - REQUIRED
+if git branch -r | grep -q "claude/realtime-workstream-2-webrtc"; then
+  echo "✓ Session 2 (WebRTC) branch exists"
+  git log origin/claude/realtime-workstream-2-webrtc --oneline -5
+else
+  echo "✗ Session 2 (WebRTC) NOT READY - WAIT!"
+fi
+
+# Check Session 3 (H.323) - REQUIRED
+if git branch -r | grep -q "claude/realtime-workstream-3-h323"; then
+  echo "✓ Session 3 (H.323) branch exists"
+  git log origin/claude/realtime-workstream-3-h323 --oneline -5
+else
+  echo "✗ Session 3 (H.323) NOT READY - WAIT!"
+fi
+
+# Check for interface contracts (CRITICAL)
+git show origin/claude/realtime-workstream-2-webrtc:docs/INTERFACES/workstream-2-webrtc-contract.yaml
+git show origin/claude/realtime-workstream-3-h323:docs/INTERFACES/workstream-3-h323-contract.yaml
+```
+
+### 2. STATUS Reporting Requirements
+Create STATUS file on your branch:
+```bash
+# Create STATUS.md on your branch
+cat > STATUS.md <<EOF
+# Workstream 4: SIP External Expert Calls
+**Agent:** Claude Sonnet 4.5
+**Branch:** claude/realtime-workstream-4-sip
+**Status:** PHASE_0_COORDINATION
+
+## Phase 0 Checklist
+- [ ] Branch created from base
+- [ ] Context files read
+- [ ] Session 2 (WebRTC) interface contract reviewed
+- [ ] Session 3 (H.323) interface contract reviewed
+- [ ] Dependencies VERIFIED (both branches exist)
+- [ ] Ready to begin integration
+
+## Current Phase: 0 (Coordination)
+**Started:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+**Blockers:** Waiting for Session 2 & 3 completion
+**Next:** Phase 1 (Integration)
+
+## Dependencies
+- **Session 2 (WebRTC):** ${WEBRTC_STATUS}
+- **Session 3 (H.323):** ${H323_STATUS}
+
+## Milestones
+- [ ] Phase 0: Coordination complete
+- [ ] Phase 1: sip_proxy.py implemented
+- [ ] Phase 2: sip_h323_gateway.py implemented (Session 3 integration)
+- [ ] Phase 3: WebRTC evidence sharing (Session 2 integration)
+- [ ] Phase 4: Integration tests passing
+- [ ] Phase 5: Documentation complete
+- [ ] HANDOFF: Interface contract created
+EOF
+
+git add STATUS.md
+git commit -m "Phase 0: Initialize workstream status tracking"
+```
+
+### 3. Filler Task Strategy (If Blocked on Dependencies)
+**If Sessions 2 or 3 are NOT ready, work on filler tasks:**
+
+```bash
+# Update STATUS.md to indicate blocked state
+sed -i 's/Status:** PHASE_0/Status:** PHASE_0_BLOCKED/' STATUS.md
+echo "## Filler Tasks (while blocked):" >> STATUS.md
+git add STATUS.md
+git commit -m "Phase 0: Blocked on dependencies, starting filler tasks"
+```
+
+**Filler tasks to work on while waiting:**
+1. Research Kamailio configuration best practices
+2. Create mock interface contracts if real ones not ready
+3. Write integration test stubs
+4. Document SIP-H.323 bridging architecture
+5. Create test fixtures (SIP INVITE, IFMessage ESCALATE)
+6. Draft SIP-ESCALATE-INTEGRATION.md outline
+7. Set up Kamailio installation scripts
+
+**Poll dependencies every 30 minutes:**
+```bash
+# Create polling script
+cat > check_dependencies.sh <<'EOF'
+#!/bin/bash
+git fetch --all
+echo "Polling dependencies..."
+git branch -r | grep "workstream-2\|workstream-3"
+if [ -f "$(git show origin/claude/realtime-workstream-2-webrtc:docs/INTERFACES/workstream-2-webrtc-contract.yaml 2>/dev/null)" ]; then
+  echo "✓ WebRTC contract available"
+else
+  echo "✗ WebRTC waiting..."
+fi
+if [ -f "$(git show origin/claude/realtime-workstream-3-h323:docs/INTERFACES/workstream-3-h323-contract.yaml 2>/dev/null)" ]; then
+  echo "✓ H.323 contract available"
+else
+  echo "✗ H.323 waiting..."
+fi
+EOF
+chmod +x check_dependencies.sh
+```
+
+### 4. Milestone Reporting
+Update STATUS.md after each milestone:
+```bash
+# When dependencies become available
+sed -i 's/Status:** PHASE_0_BLOCKED/Status:** PHASE_0_DEPENDENCIES_READY/' STATUS.md
+git add STATUS.md
+git commit -m "Phase 0: Dependencies ready, proceeding to implementation"
+
+# After Phase 0 complete
+sed -i 's/Status:** PHASE_0/Status:** PHASE_1_INTEGRATION/' STATUS.md
+sed -i 's/- \[ \] Phase 0/- [x] Phase 0/' STATUS.md
+git add STATUS.md
+git commit -m "Milestone: Phase 0 complete, beginning integration"
+```
+
+### 5. Phase 0 Completion Checklist
+Before moving to implementation:
+- ✅ Branch created: `claude/realtime-workstream-4-sip`
+- ✅ STATUS.md created and committed
+- ✅ All 5 context files read
+- ✅ **Session 2 interface contract reviewed** (workstream-2-webrtc-contract.yaml)
+- ✅ **Session 3 interface contract reviewed** (workstream-3-h323-contract.yaml)
+- ✅ Dependencies verified (both branches exist and complete)
+- ✅ Integration plan confirmed
+- ✅ Ready to implement
+
+**Phase 0 Complete? Proceed to "Dependency Checklist" below and begin integration!**
+
+---
+
 ## Dependency Checklist (Before You Start)
 
 - ⏳ **Session 2 (WebRTC):** Check if branch `claude/realtime-workstream-2-webrtc` exists
