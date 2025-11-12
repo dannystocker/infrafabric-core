@@ -97,6 +97,7 @@ class IFGovernor:
         self.policy = policy or ResourcePolicy()
         self.swarm_registry: Dict[str, SwarmProfile] = {}
         self.assignment_history: List[Dict[str, any]] = []
+        self.circuit_breaker_tripped: Dict[str, Dict[str, any]] = {}  # P0.2.4
 
     def register_swarm(self, profile: SwarmProfile) -> None:
         """Register swarm with capabilities
@@ -216,6 +217,10 @@ class IFGovernor:
             # Filter by budget
             if profile.current_budget_remaining <= 0:
                 continue  # Budget exhausted
+
+            # Filter by circuit breaker (P0.2.4)
+            if swarm_id in self.circuit_breaker_tripped:
+                continue  # Circuit breaker tripped
 
             # Combined score: (capability × reputation) / cost
             # Higher is better
@@ -433,8 +438,8 @@ class IFGovernor:
                 },
                 severity='WARNING'
             )
-            # TODO: P0.2.4 - Call circuit breaker when implemented
-            # self._trip_circuit_breaker(swarm_id, reason='budget_exhausted')
+            # P0.2.4 - Trip circuit breaker on budget exhaustion
+            self._trip_circuit_breaker(swarm_id, reason='budget_exhausted')
 
     def get_budget_report(self) -> Dict[str, float]:
         """Get budget status for all swarms
@@ -474,6 +479,179 @@ class IFGovernor:
         # For now, we can't calculate total spend without initial values
         # This will be improved when IF.optimise is integrated
         return 0.0  # Placeholder until IF.optimise integration
+
+    def _trip_circuit_breaker(self, swarm_id: str, reason: str) -> None:
+        """Trip circuit breaker to halt swarm (P0.2.4)
+
+        Halts swarm to prevent cost spirals or repeated failures.
+        Circuit breaker can only be reset manually via reset_circuit_breaker().
+
+        Args:
+            swarm_id: Swarm identifier
+            reason: Reason for tripping (e.g., "budget_exhausted", "repeated_failures")
+
+        Example:
+            >>> governor = IFGovernor()
+            >>> governor.register_swarm(SwarmProfile(
+            ...     "test-swarm", [Capability.INTEGRATION_SIP],
+            ...     2.0, 0.95, 1.0, "sonnet"
+            ... ))
+            >>> governor._trip_circuit_breaker("test-swarm", "budget_exhausted")
+            >>> assert "test-swarm" in governor.circuit_breaker_tripped
+        """
+        import time
+
+        if swarm_id not in self.swarm_registry:
+            raise ValueError(f"Unknown swarm: {swarm_id}")
+
+        # Mark swarm as circuit breaker tripped
+        self.circuit_breaker_tripped[swarm_id] = {
+            'reason': reason,
+            'tripped_at': time.time(),
+            'swarm_id': swarm_id
+        }
+
+        # Ensure budget is zero (redundant for budget exhaustion, but handles other reasons)
+        profile = self.swarm_registry[swarm_id]
+        if profile.current_budget_remaining > 0:
+            profile.current_budget_remaining = 0
+
+        # Log incident with HIGH severity
+        self._log_operation(
+            operation='circuit_breaker_tripped',
+            params={
+                'swarm_id': swarm_id,
+                'reason': reason,
+                'timestamp': self.circuit_breaker_tripped[swarm_id]['tripped_at']
+            },
+            severity='HIGH'
+        )
+
+        # Escalate to human
+        self._escalate_to_human(swarm_id, {
+            'type': 'circuit_breaker',
+            'reason': reason
+        })
+
+        # Notify coordinator if available
+        if self.coordinator:
+            try:
+                # Simplified synchronous notification
+                # In real implementation, this would use async coordinator.event_bus
+                pass
+            except Exception:
+                pass
+
+    def _escalate_to_human(self, swarm_id: str, issue: Dict[str, any]) -> None:
+        """Escalate issue to human for intervention (ESCALATE pattern)
+
+        Args:
+            swarm_id: Swarm identifier
+            issue: Issue details (type, reason, etc.)
+
+        Note:
+            Currently prints notification to stderr. In production, this would
+            send notifications via email, Slack, PagerDuty, etc.
+        """
+        import sys
+
+        notification = f"""
+🚨 S² System Escalation Required
+
+Swarm: {swarm_id}
+Issue Type: {issue.get('type', 'unknown')}
+Reason: {issue.get('reason', 'N/A')}
+
+Action Required: Manual review and intervention
+
+To reset circuit breaker:
+  if governor reset-circuit-breaker {swarm_id} --budget=<amount>
+
+Or via Python:
+  governor.reset_circuit_breaker("{swarm_id}", new_budget=10.0)
+"""
+
+        print(notification, file=sys.stderr)
+
+        # Log escalation
+        self._log_operation(
+            operation='human_escalation',
+            params={
+                'swarm_id': swarm_id,
+                'issue': issue
+            },
+            severity='HIGH'
+        )
+
+    def reset_circuit_breaker(
+        self,
+        swarm_id: str,
+        new_budget: float
+    ) -> None:
+        """Manually reset circuit breaker (requires human approval)
+
+        Args:
+            swarm_id: Swarm identifier
+            new_budget: New budget to allocate (in USD)
+
+        Raises:
+            ValueError: If swarm not registered or circuit breaker not tripped
+
+        Example:
+            >>> governor = IFGovernor()
+            >>> governor.register_swarm(SwarmProfile(
+            ...     "test-swarm", [Capability.INTEGRATION_SIP],
+            ...     2.0, 0.95, 5.0, "sonnet"
+            ... ))
+            >>> governor._trip_circuit_breaker("test-swarm", "budget_exhausted")
+            >>> governor.reset_circuit_breaker("test-swarm", new_budget=10.0)
+            >>> assert "test-swarm" not in governor.circuit_breaker_tripped
+        """
+        if swarm_id not in self.swarm_registry:
+            raise ValueError(f"Unknown swarm: {swarm_id}")
+
+        if swarm_id not in self.circuit_breaker_tripped:
+            raise ValueError(f"Circuit breaker not tripped for swarm: {swarm_id}")
+
+        # Remove circuit breaker status
+        trip_info = self.circuit_breaker_tripped[swarm_id]
+        del self.circuit_breaker_tripped[swarm_id]
+
+        # Restore budget
+        profile = self.swarm_registry[swarm_id]
+        profile.current_budget_remaining = new_budget
+
+        # Log reset
+        self._log_operation(
+            operation='circuit_breaker_reset',
+            params={
+                'swarm_id': swarm_id,
+                'new_budget': new_budget,
+                'previous_trip_reason': trip_info['reason']
+            },
+            severity='INFO'
+        )
+
+        # Notify coordinator if available
+        if self.coordinator:
+            try:
+                # In real implementation, would use coordinator.event_bus
+                pass
+            except Exception:
+                pass
+
+    def get_circuit_breaker_status(self) -> Dict[str, Dict[str, any]]:
+        """Get circuit breaker status for all swarms
+
+        Returns:
+            Dictionary mapping swarm_id to trip information
+
+        Example:
+            >>> governor = IFGovernor()
+            >>> status = governor.get_circuit_breaker_status()
+            >>> assert isinstance(status, dict)
+        """
+        return dict(self.circuit_breaker_tripped)
 
     def _log_operation(
         self,
