@@ -1,8 +1,8 @@
 # H.323 Guardian Council - Production Runbook
 
 **Component**: IF.guard Real-Time Conferencing
-**Version**: 1.0
-**Last Updated**: 2025-11-11
+**Version**: 1.1 (Phase 0 Integration Update)
+**Last Updated**: 2025-11-12
 **Audience**: Operations, SRE, DevOps
 
 ---
@@ -11,12 +11,16 @@
 
 1. [Overview](#overview)
 2. [Architecture Summary](#architecture-summary)
-3. [Deployment Procedures](#deployment-procedures)
-4. [Monitoring & Observability](#monitoring--observability)
-5. [Incident Response](#incident-response)
-6. [Troubleshooting Guide](#troubleshooting-guide)
-7. [Rollback Procedures](#rollback-procedures)
-8. [Maintenance Windows](#maintenance-windows)
+3. [Phase 0 Integration (IF.coordinator, IF.governor, IF.chassis)](#phase-0-integration-ifcoordinator-ifgovernor-ifchassis)
+4. [Deployment Procedures](#deployment-procedures)
+5. [Monitoring & Observability](#monitoring--observability)
+6. [Incident Response](#incident-response)
+7. [Troubleshooting Guide](#troubleshooting-guide)
+   - [Common Issues](#common-issues)
+   - [Codec Troubleshooting](#codec-troubleshooting)
+   - [Phase 0 Component Troubleshooting](#phase-0-component-troubleshooting)
+8. [Rollback Procedures](#rollback-procedures)
+9. [Maintenance Windows](#maintenance-windows)
 
 ---
 
@@ -88,6 +92,219 @@ This runbook provides operational procedures for the H.323 Guardian Council conf
 │  └──────────────┘  └──────────────┘  └──────────────┘      │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Phase 0 Integration (IF.coordinator, IF.governor, IF.chassis)
+
+**Status**: Phase 0 in progress (components under development)
+**Integration Target**: H.323 Guardian Council will integrate with S² coordination infrastructure
+
+### IF.coordinator Integration
+
+The H.323 Guardian Council will integrate with IF.coordinator for real-time task distribution and coordination.
+
+**Current State** (git polling - 30,000ms latency):
+- Guardians poll git every 30 seconds for new tasks
+- High latency prevents real-time consensus
+- No atomic task claiming (race conditions possible)
+
+**Future State** (IF.coordinator - <10ms latency):
+- Event-driven task distribution via etcd/NATS
+- Atomic Compare-And-Swap (CAS) for task claiming
+- Real-time blocker detection and help coordination
+
+**Integration Points**:
+
+1. **Guardian Registration**:
+   ```python
+   # Register guardian as swarm with capabilities
+   from infrafabric.coordinator import IFCoordinator
+
+   coordinator = IFCoordinator(event_bus)
+   await coordinator.register_swarm(
+       swarm_id='guardian-council',
+       capabilities=[
+           'governance:voting',
+           'governance:quality-assessment',
+           'integration:h323',
+           'docs:technical-writing'
+       ]
+   )
+   ```
+
+2. **Real-Time Task Distribution**:
+   ```python
+   # Coordinator pushes tasks to guardians (<10ms)
+   await coordinator.push_task_to_swarm('guardian-council', {
+       'id': 'task-123',
+       'type': 'quality_assessment',
+       'target': 'session-2-webrtc',
+       'priority': 'high'
+   })
+   ```
+
+3. **Blocker Detection**:
+   ```python
+   # Guardian detects blocker, escalates immediately
+   if blocker_detected:
+       await coordinator.detect_blocker('guardian-council', {
+           'type': 'consensus_needed',
+           'issue': 'quality_threshold_violation',
+           'target': 'session-4-sip',
+           'votes_needed': 8
+       })
+   ```
+
+**H.323 Specific Coordination**:
+- Guardian votes coordinated via IF.coordinator
+- MCU capacity managed via real-time events
+- Failover coordination between primary/secondary gatekeeper
+
+**Migration Notes**:
+- See `docs/MIGRATION-GIT-TO-ETCD.md` (when available)
+- Gradual rollout: Run git polling + IF.coordinator in parallel initially
+- Cutover when <10ms latency verified in production
+
+---
+
+### IF.governor Integration
+
+Resource allocation and capability matching for Guardian Council operations.
+
+**Capability Profile** (Guardian Council):
+```yaml
+swarm_id: guardian-council
+capabilities:
+  - governance:voting
+  - governance:quality-assessment
+  - governance:tie-breaking
+  - integration:h323
+  - integration:mcu
+  - docs:technical-writing
+cost_per_hour: 15.0  # Sonnet model
+reputation_score: 0.98  # High reputation (production-proven)
+current_budget_remaining: 100.0
+model: sonnet
+```
+
+**Resource Management**:
+
+1. **Budget Tracking**:
+   ```python
+   # Track H.323 operation costs
+   from infrafabric.governor import IFGovernor
+
+   governor.track_cost(
+       swarm_id='guardian-council',
+       operation='guardian_vote',
+       cost=0.05  # ~$0.05 per vote
+   )
+
+   governor.track_cost(
+       swarm_id='guardian-council',
+       operation='quality_assessment',
+       cost=0.15  # ~$0.15 per assessment
+   )
+   ```
+
+2. **Capability Matching for Help Requests**:
+   ```python
+   # When H.323 guardian needs help
+   qualified_swarms = governor.find_qualified_swarm(
+       required_capabilities=['integration:h323', 'docs:technical-writing'],
+       max_cost=5.0
+   )
+   # Returns: session-3-h323 (70%+ match)
+   ```
+
+3. **Circuit Breaker Protection**:
+   ```python
+   # Prevent cost spirals from runaway operations
+   if guardian_council_budget_exhausted:
+       governor._trip_circuit_breaker(
+           swarm_id='guardian-council',
+           reason='budget_exhausted'
+       )
+       # → Escalate to human for approval
+   ```
+
+**Policy Enforcement**:
+- Max 3 swarms per blocked guardian (GANG_UP_ON_BLOCKER)
+- Max $10 per help request
+- 70% capability match required
+- Circuit breaker trips at budget exhaustion
+
+**H.323 Specific Policies**:
+- Guardian votes: max 8 guardians per vote (quorum requirement)
+- MCU capacity: 25 guardians max (hard limit)
+- Quality assessments: require 70%+ h323 capability match
+
+---
+
+### IF.chassis Integration
+
+**Security Note**: H.323 Guardian Council currently runs in trusted environment.
+Phase 0 will introduce WASM sandboxing for untrusted swarm modules.
+
+**Current Deployment** (trusted execution):
+- Guardian terminals run as Python processes
+- Direct system access (network sockets, filesystem)
+- Credentials stored in environment variables
+- No resource isolation
+
+**Future Deployment** (IF.chassis WASM sandbox):
+- Guardian modules compiled to WASM
+- Resource limits enforced (CPU, memory, network)
+- Scoped credentials (no access to other swarm secrets)
+- SLO tracking and reputation scoring
+
+**WASM Compilation** (future):
+```bash
+# Compile guardian module to WASM
+rustc --target wasm32-wasi \
+    src/communication/h323_guardian_module.rs \
+    -o guardian_module.wasm
+
+# Load into IF.chassis
+from infrafabric.chassis import IFChassis
+
+chassis = IFChassis()
+chassis.load_swarm('guardian-council', 'guardian_module.wasm', {
+    'max_cpu_percent': 50,
+    'max_memory_mb': 512,
+    'max_network_bandwidth_mbps': 10
+})
+```
+
+**Resource Limits** (future SLO targets):
+```yaml
+guardian_council:
+  max_cpu_percent: 50  # 50% of 1 core
+  max_memory_mb: 512  # 512 MB RAM
+  max_network_bandwidth_mbps: 10  # 10 Mbps (sufficient for H.323)
+  max_concurrent_sessions: 25  # MCU capacity
+  slo_response_time_ms: 150  # p95 latency target
+```
+
+**Security Boundaries**:
+- Guardian modules cannot access other swarm credentials
+- Guardian modules cannot modify IF.coordinator state directly
+- Guardian modules cannot bypass IF.governor budget limits
+- Credential scoping: guardians receive only H.323 gatekeeper API keys
+
+**H.323 Specific Security**:
+- Ed25519 private keys scoped to guardian identity
+- MCU credentials scoped to guardian-council swarm
+- SIP gateway credentials scoped (if external experts joining)
+- IF.witness audit logs immutable (append-only)
+
+**Migration Strategy**:
+1. Phase 0: Document security boundaries (this section)
+2. Phase 1: Refactor guardian code for WASM compatibility
+3. Phase 2: Test guardian-module.wasm in IF.chassis sandbox
+4. Phase 3: Gradual rollout (trusted → sandboxed execution)
+5. Phase 4: All swarms running in IF.chassis WASM isolation
 
 ---
 
@@ -272,6 +489,134 @@ grep '"msg_type": "ARQ"' logs/h323_witness/h323_ras_$(date +%Y%m%d).jsonl | wc -
 
 # Find admission rejections
 grep '"msg_type": "ARJ"' logs/h323_witness/h323_ras_$(date +%Y%m%d).jsonl | jq .
+```
+
+### Phase 0 Metrics (IF.coordinator, IF.governor, IF.chassis)
+
+**Note**: These metrics available once Phase 0 components deployed.
+
+#### IF.coordinator Metrics
+
+**Key Metrics**:
+- `if_coordinator_up{instance}` - Coordinator health (1=healthy, 0=down)
+- `if_coordinator_push_latency_ms_p95{swarm}` - Task push latency (target: <10ms)
+- `if_coordinator_claim_latency_ms_p95{swarm}` - Task claim latency (target: <10ms)
+- `if_coordinator_tasks_pushed_total{swarm}` - Total tasks pushed counter
+- `if_coordinator_tasks_claimed_total{swarm}` - Total tasks claimed counter
+- `if_coordinator_blocker_detected_total{swarm}` - Blocker detection counter
+- `if_coordinator_event_bus_connected{instance}` - Event bus connection status
+
+**Alert Rules** (add to `/etc/prometheus/rules/phase0_alerts.yml`):
+```yaml
+groups:
+  - name: if_coordinator
+    rules:
+      - alert: CoordinatorDown
+        expr: if_coordinator_up == 0
+        for: 1m
+        annotations:
+          summary: "IF.coordinator down - task distribution halted"
+
+      - alert: CoordinatorLatencyHigh
+        expr: if_coordinator_push_latency_ms_p95 > 10
+        for: 5m
+        annotations:
+          summary: "IF.coordinator latency {{ $value }}ms exceeds 10ms target"
+
+      - alert: EventBusDisconnected
+        expr: if_coordinator_event_bus_connected == 0
+        for: 30s
+        annotations:
+          summary: "IF.coordinator lost connection to event bus (etcd/NATS)"
+```
+
+#### IF.governor Metrics
+
+**Key Metrics**:
+- `if_governor_swarm_budget_remaining{swarm}` - Remaining budget per swarm
+- `if_governor_swarm_reputation{swarm}` - Reputation score (0.0-1.0)
+- `if_governor_circuit_breaker_state{swarm}` - Circuit breaker state (0=open, 1=closed)
+- `if_governor_capability_match_score{swarm, task}` - Last capability match score
+- `if_governor_cost_tracked_total{swarm}` - Total cost tracked per swarm
+- `if_governor_help_requests_total{swarm}` - Gang-up-on-blocker requests
+- `if_governor_policy_violations_total{swarm, policy}` - Policy violation counter
+
+**Alert Rules**:
+```yaml
+groups:
+  - name: if_governor
+    rules:
+      - alert: SwarmBudgetLow
+        expr: if_governor_swarm_budget_remaining{swarm="guardian-council"} < 10
+        annotations:
+          summary: "Guardian council budget low: ${{ $value }} remaining"
+
+      - alert: CircuitBreakerTripped
+        expr: if_governor_circuit_breaker_state == 0
+        for: 1m
+        annotations:
+          summary: "Circuit breaker tripped for {{ $labels.swarm }}"
+
+      - alert: ReputationScoreLow
+        expr: if_governor_swarm_reputation{swarm="guardian-council"} < 0.8
+        for: 1h
+        annotations:
+          summary: "Guardian council reputation dropped to {{ $value }}"
+```
+
+#### IF.chassis Metrics
+
+**Key Metrics**:
+- `if_chassis_swarm_cpu_percent{swarm}` - CPU usage per swarm
+- `if_chassis_swarm_memory_mb{swarm}` - Memory usage per swarm
+- `if_chassis_swarm_network_mbps{swarm}` - Network bandwidth per swarm
+- `if_chassis_slo_violations_total{swarm, metric}` - SLO violation counter
+- `if_chassis_wasm_load_errors_total{swarm}` - WASM module load failures
+- `if_chassis_credential_access_denied_total{swarm}` - Credential scoping violations
+- `if_chassis_swarm_response_time_ms_p95{swarm}` - Swarm response latency
+
+**Alert Rules**:
+```yaml
+groups:
+  - name: if_chassis
+    rules:
+      - alert: SwarmResourceLimitExceeded
+        expr: if_chassis_swarm_cpu_percent{swarm="guardian-council"} > 50
+        for: 5m
+        annotations:
+          summary: "Guardian council CPU at {{ $value }}% (limit: 50%)"
+
+      - alert: WasmLoadFailure
+        expr: increase(if_chassis_wasm_load_errors_total[5m]) > 0
+        annotations:
+          summary: "WASM module failed to load for {{ $labels.swarm }}"
+
+      - alert: SLOViolation
+        expr: increase(if_chassis_slo_violations_total{swarm="guardian-council"}[1h]) > 5
+        annotations:
+          summary: "Guardian council SLO violated {{ $value }} times in last hour"
+```
+
+#### Updated Grafana Dashboard
+
+**New Panels for Phase 0**:
+1. **Coordinator Latency** - Real-time push/claim latency (target: <10ms line)
+2. **Swarm Budgets** - Budget remaining for all swarms (guardian-council highlighted)
+3. **Circuit Breaker Status** - Visual indicator (green=closed, red=tripped)
+4. **Resource Usage** - CPU/memory per swarm (IF.chassis)
+5. **SLO Compliance** - Percentage of operations meeting SLO targets
+6. **Event Bus Health** - etcd/NATS connection status
+
+**Query Examples**:
+```bash
+# Check IF.coordinator latency
+curl -s "http://localhost:9090/api/v1/query?query=if_coordinator_push_latency_ms_p95" | jq .
+
+# Check guardian council budget
+curl -s "http://localhost:9090/api/v1/query?query=if_governor_swarm_budget_remaining{swarm='guardian-council'}" | jq .
+
+# Check IF.chassis resource usage
+curl -s "http://localhost:9090/api/v1/query?query=if_chassis_swarm_cpu_percent{swarm='guardian-council'}" | jq .
 ```
 
 ---
@@ -690,6 +1035,249 @@ SIP Codec → H.323 Codec:
 ```
 
 **Recommendation**: Minimize transcoding by standardizing on G.711 + VP8 for all participants.
+
+---
+
+## Phase 0 Component Troubleshooting
+
+**Note**: These sections apply once Phase 0 components (IF.coordinator, IF.governor, IF.chassis) are deployed.
+
+### IF.coordinator Issues
+
+#### Issue: "Task push latency >10ms"
+
+**Diagnosis**:
+```bash
+# Check IF.coordinator latency metrics
+curl http://localhost:9090/api/v1/query?query=if_coordinator_push_latency_ms_p95
+
+# Check etcd/NATS connection status
+etcdctl endpoint health
+# OR
+nats-server --healthz
+```
+
+**Solution**:
+- Check network latency between coordinator and event bus
+- Verify etcd/NATS not overloaded
+- Check for resource contention (CPU, disk I/O)
+- Review coordinator logs for errors:
+  ```bash
+  grep ERROR logs/coordinator/*.jsonl | tail -n 20
+  ```
+
+#### Issue: "Task claim race condition detected"
+
+**Diagnosis**:
+```bash
+# Check IF.witness logs for duplicate claims
+grep "task_claimed" logs/coordinator/*.jsonl | jq '.task_id' | sort | uniq -d
+```
+
+**Solution**:
+- Verify CAS (Compare-And-Swap) operations working correctly
+- Check etcd transaction isolation
+- Review coordinator CAS implementation in `infrafabric/coordinator.py:claim_task()`
+
+#### Issue: "Blocker notification not received"
+
+**Diagnosis**:
+```bash
+# Check pub/sub subscription status
+etcdctl watch /tasks/broadcast/guardian-council --prefix
+
+# Check coordinator event logs
+grep "detect_blocker" logs/coordinator/*.jsonl | tail -n 10
+```
+
+**Solution**:
+- Verify guardian council subscribed to correct channel
+- Check event bus connectivity
+- Review coordinator push implementation
+
+---
+
+### IF.governor Issues
+
+#### Issue: "Budget tracking incorrect"
+
+**Diagnosis**:
+```bash
+# Check budget status
+if governor budget-report
+
+# Check cost tracking in IF.witness
+grep "cost_tracked" logs/governor/*.jsonl | jq '{swarm: .swarm_id, cost: .cost, remaining: .remaining_budget}'
+```
+
+**Solution**:
+- Verify cost tracking calls in guardian code
+- Check for missing `track_cost()` calls
+- Review IF.optimise integration for cost calculation accuracy
+
+#### Issue: "Circuit breaker tripped unexpectedly"
+
+**Diagnosis**:
+```bash
+# Check circuit breaker events
+grep "circuit_breaker_tripped" logs/governor/*.jsonl | jq '{swarm: .swarm_id, reason: .reason}'
+
+# Check budget history
+if governor budget-history guardian-council --last 24h
+```
+
+**Solution**:
+- Review budget exhaustion or failure threshold
+- Check for cost spiral (runaway operations)
+- Manually reset circuit breaker if appropriate:
+  ```bash
+  if governor reset-circuit-breaker guardian-council --new-budget 100.0
+  ```
+- Investigate root cause of budget exhaustion/failures
+
+#### Issue: "Capability matching returning wrong swarm"
+
+**Diagnosis**:
+```bash
+# Check swarm capability profiles
+if governor list-swarms --capabilities
+
+# Test capability matching manually
+python3 -c "
+from infrafabric.governor import IFGovernor
+from infrafabric.schemas.capability import Capability
+
+gov = IFGovernor(...)
+result = gov.find_qualified_swarm(
+    required_capabilities=[Capability.INTEGRATION_H323],
+    max_cost=5.0
+)
+print(f'Matched swarm: {result}')
+"
+```
+
+**Solution**:
+- Verify swarm profiles registered correctly
+- Check capability overlap scoring (Jaccard similarity)
+- Review 70% match threshold (adjust if needed)
+- Verify cost and reputation factors in scoring
+
+---
+
+### IF.chassis Issues
+
+#### Issue: "WASM module failed to load"
+
+**Diagnosis**:
+```bash
+# Check WASM runtime logs
+grep "WASM" logs/chassis/*.jsonl | tail -n 20
+
+# Validate WASM module
+wasmtime validate guardian_module.wasm
+```
+
+**Solution**:
+- Ensure WASM compiled for wasm32-wasi target
+- Check service contract matches module exports
+- Verify wasmtime runtime version compatibility
+- Review compilation errors:
+  ```bash
+  rustc --target wasm32-wasi src/communication/h323_guardian_module.rs 2>&1 | grep error
+  ```
+
+#### Issue: "Resource limit exceeded (CPU/memory)"
+
+**Diagnosis**:
+```bash
+# Check resource usage
+if chassis resource-usage guardian-council
+
+# Check SLO violations
+grep "resource_limit_exceeded" logs/chassis/*.jsonl | jq '{swarm: .swarm_id, resource: .resource_type, limit: .limit, actual: .actual}'
+```
+
+**Solution**:
+- Review resource limits for guardian-council
+- Adjust limits if legitimate usage increase:
+  ```yaml
+  # config/chassis/guardian-council.yaml
+  max_cpu_percent: 70  # Increase from 50%
+  max_memory_mb: 1024  # Increase from 512MB
+  ```
+- Investigate resource leak if usage unexpected
+- Check for infinite loops or memory leaks in guardian module
+
+#### Issue: "Scoped credentials not working"
+
+**Diagnosis**:
+```bash
+# Check credential scoping configuration
+if chassis list-credentials guardian-council
+
+# Check IF.witness logs for credential access attempts
+grep "credential_access" logs/chassis/*.jsonl | jq '{swarm: .swarm_id, credential: .credential_key, allowed: .allowed}'
+```
+
+**Solution**:
+- Verify credential scoping rules in IF.chassis config
+- Check guardian module requesting correct credential scope
+- Review security boundary violations:
+  ```bash
+  grep "security_violation" logs/chassis/*.jsonl
+  ```
+
+#### Issue: "SLO reputation score dropping"
+
+**Diagnosis**:
+```bash
+# Check reputation history
+if chassis reputation-history guardian-council --last 7d
+
+# Check SLO violations
+grep "slo_violation" logs/chassis/*.jsonl | jq '{swarm: .swarm_id, metric: .metric, target: .target, actual: .actual}'
+```
+
+**Solution**:
+- Identify which SLO metric violated (response time, availability, error rate)
+- Review guardian performance bottlenecks
+- Check for external dependencies causing slowdowns
+- Investigate H.323 network latency issues
+
+---
+
+### H.323 + Phase 0 Integration Issues
+
+#### Issue: "Guardian vote coordination slow (>10ms)"
+
+**Diagnosis**:
+```bash
+# Check end-to-end latency from vote request to vote recorded
+grep "guardian_vote" logs/coordinator/*.jsonl logs/h323_witness/*.jsonl | \
+  jq -s 'group_by(.vote_id) | map({vote_id: .[0].vote_id, latency_ms: (.[1].timestamp - .[0].timestamp) * 1000})'
+```
+
+**Solution**:
+- Verify IF.coordinator running and healthy
+- Check event bus latency (should be <5ms)
+- Review guardian H.323 network performance
+- Check if git polling still enabled (should be disabled after migration)
+
+#### Issue: "MCU capacity not updating in IF.governor"
+
+**Diagnosis**:
+```bash
+# Check MCU metrics in Prometheus
+curl http://localhost:9090/api/v1/query?query=h323_mcu_active_participants
+
+# Check IF.governor receiving capacity updates
+grep "mcu_capacity" logs/governor/*.jsonl | tail -n 10
+```
+
+**Solution**:
+- Verify MCU sending metrics to IF.governor
+- Check metric collection interval (should be <1 minute)
+- Review IF.governor policy enforcement for MCU capacity
 
 ---
 
