@@ -1,0 +1,52 @@
+# STATUS File Schema
+# Location: status/SESSION-{N}.yaml
+# Purpose: Track real-time progress on claimed tasks
+# Update frequency: After significant progress or state changes (minimum hourly if in_progress)
+# Owner responsibility: Keep updated; close completed items within 2 hours of done state
+
+session: 0                             # Session number (integer, e.g., 11)
+owner: '@example-user'                 # Human GitHub handle (e.g., @alice-turner) or AI agent ID
+task_id: 'P0.0.0'                      # Task priority and reference (P[priority].[stream].[number])
+state: pending                         # Enum: pending | in_progress | blocked | done
+progress_percent: 0                    # Integer 0–100; omit field if state is 'done'
+updated_at: '2025-11-12T10:30:00Z'     # ISO 8601 UTC timestamp of last status update
+blockers: []                           # Optional; omit if array is empty
+  # - id: B-123                        # Blocker ID (auto-generated for tracking)
+  #   summary: Waiting for registry credentials  # Brief, actionable description
+  #   since: 2025-11-12T09:55:00Z      # ISO 8601 UTC timestamp when blocker was identified
+next_actions: []                       # List of immediate next steps (1–3 items)
+  # - Run e2e test suite for IF.coordinator module
+  # - Draft threat model notes for security review
+  # - Submit PR for code review
+logs_ref: ''                           # S3 path to session logs (optional): s3://if-witness/logs/<session>/<task_id>/
+
+# Valid state values:
+# - pending: Task claimed but not yet started
+# - in_progress: Actively working on task
+# - blocked: Work stopped due to external dependency
+# - done: Task completed and verified
+
+# Example (In Progress):
+# session: 11
+# owner: '@alice-turner'
+# task_id: 'P0.3.2'
+# state: in_progress
+# progress_percent: 65
+# updated_at: '2025-11-12T14:22:00Z'
+# blockers:
+#   - id: B-445
+#     summary: Registry credentials not yet granted by @ops-team
+#     since: '2025-11-12T09:55:00Z'
+# next_actions:
+#   - Follow up with @ops-team on credential request
+#   - Complete integration tests for IF.coordinator event loop
+#   - Prepare PR summary with threat analysis
+# logs_ref: 's3://if-witness/logs/11/P0.3.2/'
+
+# Example (Completed):
+# session: 10
+# owner: '@bot-worker-7'
+# task_id: 'P0.1.4'
+# state: done
+# updated_at: '2025-11-11T18:45:00Z'
+# logs_ref: 's3://if-witness/logs/10/P0.1.4/'
