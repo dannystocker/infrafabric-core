@@ -24,11 +24,13 @@ _Environment: Non-production sandbox (no production credentials or customer data
 
 ## What You Need to Know First
 
-**InfraFabric** is infrastructure orchestration for everything—cloud providers, payment systems, AI services, communication platforms. Think Kubernetes, but instead of just containers, it coordinates AWS, Stripe, OpenAI, Twilio, and 190+ other services through a unified API. *(Providers listed are representative examples during development, not endorsements.)*
+**InfraFabric** is a philosophy-based architecture designed to scale from a small script all the way up to quantum computing. It's not "yet another orchestration layer"—it's a unified approach to infrastructure that works whether you're automating a single API call or coordinating planetary-scale systems across 190+ providers (cloud, payments, AI, communication). *(Providers listed are representative examples during development, not endorsements.)*
 
-**The problem:** Managing infrastructure at scale requires juggling dozens of provider APIs, each with different authentication, rate limits, and failure modes. Humans become the bottleneck.
+**The philosophy:** Infrastructure coordination should follow the same principles whether you're writing a 10-line bash script or orchestrating a million-dollar cloud deployment. Start simple, scale progressively, maintain the same mental model throughout.
 
-**The solution:** AI agents that can autonomously provision, monitor, and coordinate infrastructure across all these services. But coordinating the agents themselves becomes the new bottleneck.
+**The problem:** Traditional infrastructure tools force you to choose: simple scripts that don't scale, or complex orchestration that requires a PhD to configure. You can't start with `curl` and end up at Kubernetes without rewriting everything.
+
+**InfraFabric's answer:** One architecture, infinite scale. Write a simple script today. Scale to quantum tomorrow. Same patterns, same philosophy, same tooling—just more of it.
 
 **S² (Swarm of Swarms):** Our experiment in having multiple AI sessions work in parallel, building the coordination infrastructure they themselves will use. It's recursive, it's meta, and it's working.
 
