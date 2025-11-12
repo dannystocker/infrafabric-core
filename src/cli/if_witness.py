@@ -4,6 +4,7 @@ IF.witness CLI - Provenance, Tracing, and Audit Tool
 
 Commands:
   log     - Create new witness entry
+  query   - Search witness log with filters
   verify  - Verify hash chain integrity
   trace   - Follow full trace chain
   cost    - Show token/$ costs
@@ -116,6 +117,89 @@ def verify(ctx):
 
     except Exception as e:
         click.echo(f"❌ Error during verification: {e}", err=True)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+@cli.command()
+@click.option('--component', help='Filter by component name')
+@click.option('--event', help='Filter by event type')
+@click.option('--trace-id', help='Filter by trace ID')
+@click.option('--start-date', help='Start date (YYYY-MM-DD)')
+@click.option('--end-date', help='End date (YYYY-MM-DD)')
+@click.option('--limit', type=int, default=50, help='Maximum number of results (default: 50)')
+@click.option('--format', type=click.Choice(['text', 'json']), default='text')
+@click.pass_context
+def query(ctx, component, event, trace_id, start_date, end_date, limit, format):
+    """Search witness log entries with filters"""
+    db: WitnessDatabase = ctx.obj['db']
+
+    try:
+        # Parse dates if provided
+        start_dt = datetime.fromisoformat(start_date) if start_date else None
+        end_dt = datetime.fromisoformat(end_date) if end_date else None
+
+        # Get entries by date range (or all if no date filter)
+        if start_dt or end_dt:
+            entries = db.get_entries_by_date_range(start_dt, end_dt)
+        else:
+            entries = db.get_all_entries()
+
+        # Apply additional filters
+        filtered_entries = []
+        for entry in entries:
+            if component and entry.component != component:
+                continue
+            if event and entry.event != event:
+                continue
+            if trace_id and entry.trace_id != trace_id:
+                continue
+
+            filtered_entries.append(entry)
+
+            # Apply limit
+            if len(filtered_entries) >= limit:
+                break
+
+        if not filtered_entries:
+            click.echo(f"❌ No entries found matching filters", err=True)
+            sys.exit(1)
+
+        if format == 'json':
+            click.echo(json.dumps([e.to_dict() for e in filtered_entries], indent=2))
+        else:
+            # Text format
+            click.echo(f"\nFound {len(filtered_entries)} entries")
+            if len(filtered_entries) >= limit:
+                click.echo(f"(limited to first {limit} results)\n")
+            else:
+                click.echo("")
+
+            for i, entry in enumerate(filtered_entries, 1):
+                timestamp = entry.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+                click.echo(f"{i}. [{timestamp}] {entry.component}: {entry.event}")
+                click.echo(f"   Trace ID: {entry.trace_id}")
+                click.echo(f"   Entry ID: {entry.id}")
+
+                # Show payload summary
+                payload_str = json.dumps(entry.payload, indent=2)
+                if len(payload_str) > 100:
+                    payload_str = payload_str[:97] + "..."
+                click.echo(f"   Payload: {payload_str}")
+
+                # Show cost if available
+                if entry.cost:
+                    tokens = entry.cost.tokens_in + entry.cost.tokens_out
+                    click.echo(f"   Cost: ${entry.cost.cost_usd:.6f} ({tokens} tokens, {entry.cost.model})")
+
+                click.echo("")  # Blank line between entries
+
+    except ValueError as e:
+        click.echo(f"❌ Invalid date format: {e}", err=True)
+        sys.exit(1)
+    except Exception as e:
+        click.echo(f"❌ Error querying entries: {e}", err=True)
         sys.exit(1)
     finally:
         db.close()

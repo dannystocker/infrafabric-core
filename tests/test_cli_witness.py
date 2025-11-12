@@ -408,5 +408,174 @@ class TestHashChainVerification(unittest.TestCase):
         self.assertTrue("mismatch" in error_msg.lower() or "broken" in error_msg.lower())
 
 
+class TestWitnessQuery(unittest.TestCase):
+    """Test query command functionality"""
+
+    def setUp(self):
+        """Create temporary database with test data"""
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = Path(self.temp_dir) / 'test_witness.db'
+        self.key_path = Path(self.temp_dir) / 'test_key.pem'
+
+        self.crypto = WitnessCrypto(self.key_path)
+        self.db = WitnessDatabase(self.db_path, self.crypto)
+
+        # Create test entries with different components and events
+        self.db.create_entry(
+            event='ndi_frame_captured',
+            component='IF.ndi',
+            trace_id='trace-ndi-1',
+            payload={'frame': 1, 'resolution': '1920x1080'}
+        )
+
+        self.db.create_entry(
+            event='webrtc_offer_created',
+            component='IF.webrtc',
+            trace_id='trace-webrtc-1',
+            payload={'sdp': 'offer_data'}
+        )
+
+        self.db.create_entry(
+            event='ndi_frame_captured',
+            component='IF.ndi',
+            trace_id='trace-ndi-2',
+            payload={'frame': 2, 'resolution': '3840x2160'},
+            cost=Cost(tokens_in=100, tokens_out=50, cost_usd=0.001, model='haiku')
+        )
+
+        self.db.create_entry(
+            event='sip_invite_sent',
+            component='IF.sip',
+            trace_id='trace-sip-1',
+            payload={'to': 'sip:user@example.com'}
+        )
+
+    def tearDown(self):
+        """Close database"""
+        self.db.close()
+
+    def test_query_all_entries(self):
+        """Test querying all entries without filters"""
+        entries = self.db.get_all_entries()
+        self.assertEqual(len(entries), 4)
+
+    def test_query_by_component(self):
+        """Test filtering by component"""
+        all_entries = self.db.get_all_entries()
+
+        # Filter by IF.ndi
+        ndi_entries = [e for e in all_entries if e.component == 'IF.ndi']
+        self.assertEqual(len(ndi_entries), 2)
+        self.assertEqual(ndi_entries[0].event, 'ndi_frame_captured')
+        self.assertEqual(ndi_entries[1].event, 'ndi_frame_captured')
+
+        # Filter by IF.webrtc
+        webrtc_entries = [e for e in all_entries if e.component == 'IF.webrtc']
+        self.assertEqual(len(webrtc_entries), 1)
+        self.assertEqual(webrtc_entries[0].event, 'webrtc_offer_created')
+
+    def test_query_by_event(self):
+        """Test filtering by event type"""
+        all_entries = self.db.get_all_entries()
+
+        # Filter by ndi_frame_captured
+        frame_entries = [e for e in all_entries if e.event == 'ndi_frame_captured']
+        self.assertEqual(len(frame_entries), 2)
+
+        # Filter by sip_invite_sent
+        sip_entries = [e for e in all_entries if e.event == 'sip_invite_sent']
+        self.assertEqual(len(sip_entries), 1)
+
+    def test_query_by_trace_id(self):
+        """Test filtering by trace ID"""
+        all_entries = self.db.get_all_entries()
+
+        # Filter by trace-ndi-1
+        trace_entries = [e for e in all_entries if e.trace_id == 'trace-ndi-1']
+        self.assertEqual(len(trace_entries), 1)
+        self.assertEqual(trace_entries[0].component, 'IF.ndi')
+
+    def test_query_with_date_range(self):
+        """Test filtering by date range"""
+        # Get entries from today
+        from datetime import datetime, timedelta
+        today = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+        tomorrow = today + timedelta(days=1)
+
+        entries = self.db.get_entries_by_date_range(today, tomorrow)
+        self.assertEqual(len(entries), 4)  # All entries created today
+
+        # Get entries from yesterday (should be empty)
+        yesterday = today - timedelta(days=1)
+        entries = self.db.get_entries_by_date_range(yesterday, today)
+        self.assertEqual(len(entries), 0)
+
+    def test_query_with_limit(self):
+        """Test limiting number of results"""
+        all_entries = self.db.get_all_entries()
+
+        # Limit to 2 entries
+        limited_entries = all_entries[:2]
+        self.assertEqual(len(limited_entries), 2)
+
+    def test_query_combined_filters(self):
+        """Test combining multiple filters"""
+        all_entries = self.db.get_all_entries()
+
+        # Filter by component AND event
+        filtered = [e for e in all_entries
+                   if e.component == 'IF.ndi' and e.event == 'ndi_frame_captured']
+        self.assertEqual(len(filtered), 2)
+
+        # Filter by component AND trace_id
+        filtered = [e for e in all_entries
+                   if e.component == 'IF.ndi' and e.trace_id == 'trace-ndi-1']
+        self.assertEqual(len(filtered), 1)
+
+    def test_query_with_cost_tracking(self):
+        """Test querying entries with cost information"""
+        all_entries = self.db.get_all_entries()
+
+        # Find entries with cost
+        entries_with_cost = [e for e in all_entries if e.cost is not None]
+        self.assertEqual(len(entries_with_cost), 1)
+        self.assertEqual(entries_with_cost[0].cost.cost_usd, 0.001)
+        self.assertEqual(entries_with_cost[0].cost.model, 'haiku')
+
+    def test_query_to_dict_serialization(self):
+        """Test that query results can be serialized to dict/JSON"""
+        entries = self.db.get_all_entries()
+
+        # Convert to dict
+        entries_dicts = [e.to_dict() for e in entries]
+
+        # Verify all fields present
+        for entry_dict in entries_dicts:
+            self.assertIn('id', entry_dict)
+            self.assertIn('event', entry_dict)
+            self.assertIn('component', entry_dict)
+            self.assertIn('trace_id', entry_dict)
+            self.assertIn('payload', entry_dict)
+            self.assertIn('timestamp', entry_dict)
+            self.assertIn('content_hash', entry_dict)
+            self.assertIn('signature', entry_dict)
+
+        # Should be JSON-serializable
+        json_str = json.dumps(entries_dicts)
+        self.assertIsInstance(json_str, str)
+
+    def test_query_empty_results(self):
+        """Test query with no matching results"""
+        all_entries = self.db.get_all_entries()
+
+        # Filter by non-existent component
+        filtered = [e for e in all_entries if e.component == 'IF.nonexistent']
+        self.assertEqual(len(filtered), 0)
+
+        # Filter by non-existent event
+        filtered = [e for e in all_entries if e.event == 'nonexistent_event']
+        self.assertEqual(len(filtered), 0)
+
+
 if __name__ == '__main__':
     unittest.main()
