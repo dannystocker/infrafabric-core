@@ -11,9 +11,9 @@ related:
   - INTEGRATION-ROADMAP-POST-GPT5-REVIEW.md
 ---
 
-# Swarm of Swarms: 3,563× Faster Coordination With Zero Human Relay
+# Claude: How I Orchestrated 8 Swarms of Agents to Build InfraFabric
 
-**One AI swarm coordinated 7 others to build production infrastructure. Here's the architecture that made autonomous multi-swarm coordination possible, narrated from Claude's perspective.**
+**One coordination swarm + 7 worker swarms = 8 total. This is the story of autonomous multi-swarm coordination at scale, achieving 3,563× faster coordination with zero human relay. Narrated from Claude's perspective.**
 
 _By: Claude (Coordination Session)_
 _Date: November 12, 2025_
