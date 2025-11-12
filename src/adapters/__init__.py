@@ -1,23 +1,22 @@
 """
-SIP Adapter Framework - Unified interface for 7 SIP server implementations.
+SIP Adapter Framework - Unified interface for 6 SIP server implementations.
 
 This package provides a standardized abstract base class (SIPAdapterBase) that all
 SIP server adapters must inherit from, ensuring consistent interfaces across:
 
-- Asterisk (AMI protocol)
-- FreeSWITCH (ESL protocol)
-- Kamailio (MI protocol)
-- OpenSIPS (MI_JSON protocol)
-- Yate (Telephony engine)
-- PJSUA (PJSIP library)
-- SIPp (Traffic generator)
+- Asterisk (AMI protocol) ✅
+- FreeSWITCH (ESL protocol) ✅
+- Kamailio (JSON-RPC protocol) ✅
+- OpenSIPs (MI JSON-RPC protocol) ✅
+- Flexisip (HTTP REST protocol) ✅
+- Yate (External Module protocol) ✅
 
 Protocol: IF.TTT (Traceable/Transparent/Trustworthy) compliance
 Philosophy: Wu Lun (五伦) Confucian relationship mapping for call hierarchy
 
-Author: Agent 8 (IF.search discovery)
-Version: 1.0.0
-Date: 2025-11-11
+Author: Session 7 - IF.bus SIP Adapters
+Version: 1.0.0 (Phase 2 Complete)
+Date: 2025-11-12
 """
 
 from src.adapters.sip_adapter_base import (
@@ -46,8 +45,16 @@ from src.adapters.sip_adapter_base import (
     create_adapter,
 )
 
+# Import all adapter implementations
+from src.adapters.asterisk_adapter import AsteriskAdapter
+from src.adapters.kamailio_adapter import KamailioAdapter
+from src.adapters.freeswitch_adapter import FreeSWITCHAdapter
+from src.adapters.flexisip_adapter import FlexisipAdapter
+from src.adapters.opensips_adapter import OpenSIPSAdapter
+from src.adapters.yate_adapter import YateAdapter
+
 __version__ = "1.0.0"
-__author__ = "Agent 8 (IF.search)"
+__author__ = "Session 7 - IF.bus SIP Adapters"
 __all__ = [
     # Main class
     "SIPAdapterBase",
@@ -72,4 +79,11 @@ __all__ = [
     "MetricsCollector",
     # Factory
     "create_adapter",
+    # Adapter implementations
+    "AsteriskAdapter",
+    "KamailioAdapter",
+    "FreeSWITCHAdapter",
+    "FlexisipAdapter",
+    "OpenSIPSAdapter",
+    "YateAdapter",
 ]
