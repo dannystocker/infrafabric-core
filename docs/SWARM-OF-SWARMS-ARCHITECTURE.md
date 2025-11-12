@@ -1,10 +1,11 @@
 # Swarm of Swarms (S²) Architecture: Multi-Session Autonomous Coordination
 
-**Status:** Proof of Concept - ACTIVE
-**Date:** 2025-11-11
-**Velocity Achieved:** 150-2000x baseline (measured)
+**Status:** Proof of Concept - ⚠️ **NOT PRODUCTION READY** (3 critical bugs identified - see below)
+**Date:** 2025-11-11 (Updated: 2025-11-12 with bug analysis)
+**Velocity Achieved:** 150-2000x baseline (measured in PoC)
 **Sessions:** 7 coordinators × 7 sub-agents = 49 concurrent agents
 **Work Streams:** 70 phases (7 sessions × 10 phases each)
+**Production Readiness:** Requires Phase 0 (IF.coordinator + IF.governor + IF.chassis) - see S2-CRITICAL-BUGS-AND-FIXES.md
 
 ---
 
@@ -20,6 +21,30 @@ This document describes the first large-scale **Swarm of Swarms (S²)** architec
 3. Philosophy-grounded emergent behavior (Wu Lun relationships prevent chaos)
 4. Heterogeneous agent allocation (Haiku for speed, Sonnet for complexity)
 5. Autonomous 24/7 operation (works while humans sleep)
+
+---
+
+## ⚠️ CRITICAL: Production Blockers Identified
+
+**Status:** This architecture has **3 production-critical bugs** that must be fixed before scaling beyond proof-of-concept.
+
+**Severity:** CRITICAL/HIGH - System failure, cost overruns, security vulnerabilities
+
+**Bugs Identified:**
+1. **Bug #1 (CRITICAL):** Race conditions & extreme latency (30s git polling)
+2. **Bug #2 (HIGH):** Uncontrolled escalation & cost spirals ("Gang Up on Blocker" lacks capability awareness)
+3. **Bug #3 (MEDIUM):** Missing security & performance boundaries (no sandboxing)
+
+**Fixes Required:**
+- ✅ **IF.coordinator:** Real-time coordination (fixes Bug #1: <10ms latency, atomic task claiming, scales to 10,000+ swarms)
+- ✅ **IF.governor:** Capability-aware resource allocation (fixes Bug #2: budget enforcement, circuit breakers, 70%+ capability match)
+- ✅ **IF.chassis:** WASM sandbox runtime (fixes Bug #3: resource isolation, scoped credentials, SLO tracking)
+
+**📄 Full Analysis:** See [S2-CRITICAL-BUGS-AND-FIXES.md](../S2-CRITICAL-BUGS-AND-FIXES.md) for detailed bug reports, iterations, and implementation roadmap.
+
+**⚠️ DO NOT DEPLOY TO PRODUCTION** without implementing these 3 fixes (Phase 0: 24-30h effort, $360-450).
+
+**This document describes the PROOF-OF-CONCEPT architecture.** Production deployment requires the enhanced architecture documented in S2-CRITICAL-BUGS-AND-FIXES.md.
 
 ---
 

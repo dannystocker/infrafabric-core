@@ -28,7 +28,223 @@
 
 ---
 
-## Phase 1: Current Sprint (In Progress)
+## ⚠️ CRITICAL UPDATE (2025-11-12): Phase 0 Required First
+
+**Production Blocker:** S² architecture has **3 critical bugs** that must be fixed before scaling to 116+ integrations.
+
+**See:** [S2-CRITICAL-BUGS-AND-FIXES.md](S2-CRITICAL-BUGS-AND-FIXES.md) for complete bug analysis.
+
+**Required: Phase 0 (CLI Foundation + S² Core Components)**
+
+Must be completed **BEFORE** vMix/OBS/HA integrations and **BEFORE** all subsequent phases.
+
+---
+
+## Phase 0: CLI Foundation + S² Core Components (BLOCKING ALL OTHER WORK)
+
+### ⚠️ Critical Priority - Fixes 3 Production Bugs
+
+**Status:** NOT STARTED (newly identified as blocker)
+**Blocking:** ALL provider integrations (vMix, OBS, HA, cloud, SIP, payment, chat, AI)
+**Rationale:** Current S² architecture has race conditions, cost spirals, and security vulnerabilities
+
+### Components to Build (3 Critical Fixes)
+
+#### 1. IF.coordinator - Real-Time Coordination Service
+
+**Fixes:** Bug #1 (CRITICAL) - Race conditions & 30-second latency
+
+**What:**
+- Replace git polling (30s latency) with real-time coordinator (< 10ms)
+- Atomic task claiming via etcd or NATS
+- Push model (not poll)
+- Scales to 10,000+ swarms
+
+**Technical:**
+```python
+# src/infrafabric/coordinator.py
+class IFCoordinator:
+    """Real-time task coordination using etcd/NATS"""
+    - async def claim_task() -> bool  # Atomic CAS
+    - async def push_task_to_swarm()  # <10ms latency
+    - async def detect_blocker()      # Real-time escalation
+```
+
+**Deliverables:**
+- `src/infrafabric/coordinator.py` (200-300 lines)
+- `docs/IF-COORDINATOR-ARCHITECTURE.md`
+- Unit tests (`tests/test_coordinator.py`)
+- Docker Compose for etcd cluster
+- CLI commands: `if coordinator start|status|health`
+
+**Timeline:** 6-8 hours sequential → 2-3h wall-clock (S² parallelization)
+**Cost:** $90-120
+
+---
+
+#### 2. IF.governor - Capability-Aware Resource Manager
+
+**Fixes:** Bug #2 (HIGH) - Uncontrolled escalation & cost spirals
+
+**What:**
+- Capability registry (match expertise to tasks)
+- Policy engine (max swarms, max cost, min capability match)
+- Budget enforcement & circuit breakers
+- Smart allocation (reputation × capability / cost)
+- Automatic ESCALATE → INVITE pattern
+
+**Technical:**
+```python
+# src/infrafabric/governor.py
+class IFGovernor:
+    """Policy-driven resource allocation"""
+    - def register_swarm(profile: SwarmProfile)
+    - def find_qualified_swarm() -> Optional[str]  # 70%+ capability match
+    - async def request_help_for_blocker()         # Smart "Gang Up"
+    - def track_cost()                            # Circuit breaker
+    - async def _escalate_to_human()               # When stuck
+```
+
+**Configuration:**
+```yaml
+# ~/.if/governor/policy.yaml
+resource_policy:
+  max_swarms_per_task: 3
+  max_cost_per_task: 10.0
+  min_capability_match: 0.7
+  circuit_breaker_failure_threshold: 3
+```
+
+**Deliverables:**
+- `src/infrafabric/governor.py` (300-400 lines)
+- `docs/IF-GOVERNOR-POLICY-ENGINE.md`
+- Capability registry YAML schema
+- Unit tests (`tests/test_governor.py`)
+- CLI commands: `if governor register|find-help|budgets|circuit-breakers`
+
+**Timeline:** 8-10 hours sequential → 2-3h wall-clock (S² parallelization)
+**Cost:** $120-150
+
+---
+
+#### 3. IF.chassis - WASM Sandbox Runtime
+
+**Fixes:** Bug #3 (MEDIUM) - Missing security & performance boundaries
+
+**What:**
+- WASM sandbox for swarm execution (resource isolation)
+- Per-swarm resource limits (memory, CPU, API rate)
+- Scoped, temporary credentials (not long-lived API keys)
+- SLO tracking and reputation scoring
+- Prevents "noisy neighbor" and security breaches
+
+**Technical:**
+```python
+# src/infrafabric/chassis.py
+class IFChassis:
+    """WASM sandbox runtime"""
+    - def load_swarm(wasm_module, contract: ServiceContract)
+    - async def execute_task(credentials: ScopedCredentials)
+    - def _set_resource_limits()      # OS-level limits
+    - async def _apply_rate_limit()   # Prevents noisy neighbor
+    - def _calculate_reputation()     # SLO compliance → score
+```
+
+**Service Contract:**
+```yaml
+# swarms/session-4-sip/contract.yaml
+swarm_id: session-4-sip
+capabilities: [integration:sip, telephony:protocols]
+resource_requirements:
+  max_memory_mb: 256
+  max_cpu_percent: 25
+  max_api_calls_per_second: 10
+slos:
+  p99_latency_ms: 500
+  success_rate: 0.95
+```
+
+**Deliverables:**
+- `src/infrafabric/chassis.py` (400-500 lines)
+- `docs/IF-CHASSIS-SANDBOX-RUNTIME.md`
+- Service Contract YAML schema
+- WASM compilation tooling (Python → WASM)
+- Unit tests (`tests/test_chassis.py`)
+- CLI commands: `if chassis load|performance|reputation|resources`
+
+**Timeline:** 10-12 hours sequential → 3-4h wall-clock (S² parallelization)
+**Cost:** $150-180
+
+---
+
+### Phase 0 Sprint Execution (All 3 Components)
+
+**Parallel S² Approach:**
+
+**Session 5 (CLI):** IF.coordinator + unified CLI entry point
+- Build IF.coordinator service (etcd/NATS integration)
+- Create `if` command entry point
+- CLI command routing to coordinator/governor/chassis
+
+**Session 6 (Talent/Architecture):** IF.governor + policy engine
+- Build IF.governor service
+- Design capability registry
+- Implement policy engine and circuit breakers
+
+**Session 7 (IF.bus):** IF.chassis + IF.swarm module
+- Build WASM sandbox runtime
+- Create IF.swarm orchestration module
+- Service contract system
+
+**Sessions 1-4:** Support workstreams
+- Session 1: Documentation and examples
+- Session 2: Integration tests
+- Session 3: Security review
+- Session 4: Performance benchmarking
+
+### Phase 0 Deliverables Summary
+
+| Component | Files | Tests | Docs | CLI Commands |
+|-----------|-------|-------|------|--------------|
+| IF.coordinator | coordinator.py | ✅ | Architecture doc | start, status, health |
+| IF.governor | governor.py | ✅ | Policy engine doc | register, find-help, budgets |
+| IF.chassis | chassis.py | ✅ | Sandbox runtime doc | load, performance, reputation |
+| Unified CLI | cli/main.py | ✅ | CLI reference | All provider commands |
+| **Total** | **~1,000 lines** | **~500 lines** | **3 arch docs** | **15+ commands** |
+
+### Phase 0 Timeline & Cost
+
+**Sequential execution:** 24-30 hours
+**Parallel execution (S² with 3-4 sessions):** **6-8 hours wall-clock**
+**Total cost:** $360-450
+
+**Risk avoided:** $2,000-5,000 (race conditions, cost spirals, security breaches)
+**ROI:** 4x-14x return
+
+### Phase 0 Success Criteria
+
+- [ ] IF.coordinator deployed and tested (latency <10ms)
+- [ ] IF.governor enforces budgets (circuit breakers functional)
+- [ ] IF.chassis sandboxes swarms (resource limits work)
+- [ ] All unit tests passing (coordinator, governor, chassis)
+- [ ] Integration test: Full S² workflow with all 3 components
+- [ ] Security review: No injection risks, scoped credentials only
+- [ ] Performance test: 100+ concurrent swarms without noisy neighbor issues
+- [ ] Documentation complete: 3 architecture docs + CLI reference
+
+### Critical: Phase 0 Blocks Everything
+
+**The following CANNOT proceed until Phase 0 is complete:**
+- ❌ vMix integration (needs IF.coordinator for real-time control)
+- ❌ OBS integration (needs IF.governor for budget limits)
+- ❌ Home Assistant integration (needs IF.chassis for security)
+- ❌ All Phase 2-6 integrations (cloud, SIP, payment, chat, AI)
+
+**Exception:** Documentation-only work can continue in parallel.
+
+---
+
+## Phase 1: Production Infrastructure Integration (BLOCKED until Phase 0 complete)
 
 ### Production Infrastructure Integration
 - **vMix:** Professional video production
