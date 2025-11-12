@@ -710,6 +710,419 @@ if bus orchestrate --profile "asia-production"
 
 ---
 
+## Phase 6: AI/LLM Providers + IF.swarm Integration (POST GPT-5 Pro Review)
+
+### Overview
+**Make S² (Swarm of Swarms) a first-class feature of InfraFabric.**
+
+Integrate major AI/LLM providers and deploy IF.swarm as a production module for orchestrating AI agent swarms alongside infrastructure.
+
+**Revolutionary concept:** IF.bus orchestrates BOTH infrastructure (vMix, cloud, payments) AND AI agents (GPT-4, Claude, Gemini).
+
+### AI/LLM Provider List (20+ Providers)
+
+#### Tier 1: Foundation Model Providers (Official APIs)
+
+| Provider | API Documentation | CLI Tool | Priority | Notes |
+|----------|------------------|----------|----------|-------|
+| **OpenAI** | https://platform.openai.com/docs/api-reference | [openai-python](https://github.com/openai/openai-python) | Critical | GPT-4, GPT-4 Turbo, O1, embeddings |
+| **Anthropic** | https://docs.anthropic.com/claude/reference | [anthropic-python](https://pypi.org/project/anthropic/) | Critical | Claude 3.5 Sonnet, Opus, Haiku |
+| **Google Gemini** | https://developers.generativeai.google/api | [Google AI CLI](https://cloud.google.com/sdk/docs/install) | High | Gemini Pro, Ultra, Flash |
+| **Google Vertex AI** | https://cloud.google.com/vertex-ai/docs | [gcloud CLI](https://cloud.google.com/sdk/docs/install) | High | Enterprise Gemini, managed models |
+| **AWS Bedrock** | https://docs.aws.amazon.com/bedrock/latest/userguide/api-reference.html | [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) | High | Multi-model (Claude, Llama, etc.) |
+| **Azure OpenAI** | https://learn.microsoft.com/en-us/azure/ai-services/openai/ | [Azure AI CLI](https://github.com/Azure/azure-ai-cli) | High | Enterprise OpenAI deployment |
+| **Cohere** | https://docs.cohere.com/docs/models-overview | - | High | Command, Embed, Rerank |
+| **IBM watsonx.ai** | https://cloud.ibm.com/apidocs/watsonx-ai | [IBM Watson CLI](https://cloud.ibm.com/docs/cli) | Medium | Enterprise AI platform |
+
+#### Tier 2: AI Gateways (Multi-Provider Orchestration)
+
+| Provider | API Documentation | CLI Tool | Priority | Notes |
+|----------|------------------|----------|----------|-------|
+| **Kong AI Gateway** | https://docs.konghq.com/gateway/latest/ai/ | [deck CLI](https://docs.konghq.com/deck/) | High | Multi-provider routing, observability |
+| **Litellm Gateway** | https://docs.litellm.ai/docs/gateway_intro | [Litellm CLI](https://docs.litellm.ai/docs/cli) | High | Unified LLM gateway, 100+ models |
+| **Helicone** | https://docs.helicone.ai/ | Dashboard + API | Medium | OpenAI-compatible, logging/observability |
+| **BricksLLM** | https://docs.bricks.llm/ | - | Medium | LLM gateway |
+| **LangChain** | https://docs.langchain.com/docs/ | [LangChain CLI](https://docs.langchain.com/docs/tools/langchain_cli) | High | AI workflow orchestration |
+
+#### Tier 3: Specialized AI Services
+
+| Provider | API Documentation | CLI Tool | Priority | Notes |
+|----------|------------------|----------|----------|-------|
+| **Hugging Face** | https://huggingface.co/docs/api-inference/index | [Transformers CLI](https://huggingface.co/docs/transformers/main/en/commands) | Medium | Inference API, 100k+ models |
+| **Replicate** | https://replicate.com/docs/reference/http | - | Medium | Run open-source models via API |
+| **Together AI** | https://docs.together.ai/reference/inference | - | Medium | Fast inference, open models |
+| **Mistral AI** | https://docs.mistral.ai/api/ | - | Medium | Mistral Large, Small, embeddings |
+
+#### Tier 4: Embeddings & Vector Search
+
+| Provider | API Documentation | CLI Tool | Priority | Notes |
+|----------|------------------|----------|----------|-------|
+| **Pinecone** | https://docs.pinecone.io/reference/api | - | High | Vector database |
+| **Weaviate** | https://weaviate.io/developers/weaviate/api/rest | - | Medium | Vector search engine |
+| **Qdrant** | https://qdrant.tech/documentation/api-reference/ | - | Medium | Vector similarity search |
+
+### IF.swarm Module Architecture
+
+**Make S² production-ready:**
+
+```python
+# src/swarm/swarm_orchestrator.py
+
+from abc import ABC, abstractmethod
+from typing import List, Dict, Any
+import asyncio
+
+class SwarmOrchestrator:
+    """IF.swarm - Production-ready multi-agent coordination"""
+
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.sessions = []
+        self.agents = []
+        self.status = {}
+
+    async def spawn_session(self, session_config):
+        """Spawn a new session (e.g., Session 1 NDI)"""
+        session = Session(
+            name=session_config['name'],
+            expertise=session_config['expertise'],
+            branch=session_config['branch']
+        )
+        self.sessions.append(session)
+        return session
+
+    async def spawn_agent(self, session, agent_config):
+        """Spawn an agent within a session"""
+        agent = Agent(
+            model=agent_config['model'],  # haiku, sonnet, gpt-4, etc.
+            task=agent_config['task'],
+            cost_limit=agent_config.get('cost_limit'),
+            timeout=agent_config.get('timeout', 3600)
+        )
+        session.agents.append(agent)
+        self.agents.append(agent)
+        return agent
+
+    async def detect_blocker(self):
+        """Automatically detect blocked sessions"""
+        for session in self.sessions:
+            if session.is_blocked() and session.waiting_time > 1800:  # 30 min
+                # Gang up on blocker pattern
+                await self.coordinate_help(session)
+
+    async def coordinate_help(self, blocked_session):
+        """Implement 'Gang Up on Blocker' pattern"""
+        # Find sessions with matching expertise
+        helpers = [s for s in self.sessions
+                   if s.can_help(blocked_session) and not s.is_blocked()]
+
+        for helper in helpers:
+            # Spawn helping agents in helper session
+            help_task = blocked_session.get_help_needed()
+            await self.spawn_agent(helper, {
+                'model': 'haiku',  # cheap for helping
+                'task': f"Help {blocked_session.name}: {help_task}",
+                'cost_limit': 10
+            })
+
+    async def validate_phase(self, session, phase_num):
+        """Validate phase completion before moving to next"""
+        # Check deliverables
+        deliverables = session.get_phase_deliverables(phase_num)
+        if not all(d.exists() for d in deliverables):
+            return False
+
+        # Run integration tests
+        tests_pass = await session.run_integration_tests(phase_num)
+        if not tests_pass:
+            return False
+
+        # Sign off with IF.witness
+        await self.witness.log_phase_complete(session, phase_num)
+
+        return True
+
+    async def orchestrate_swarm(self, profile: str):
+        """Orchestrate entire swarm based on profile"""
+        if profile == "production-sprint":
+            # Spawn 7 sessions (NDI, WebRTC, H.323, SIP, CLI, Talent, Bus)
+            for i in range(1, 8):
+                session_config = self.load_session_config(i)
+                session = await self.spawn_session(session_config)
+
+                # Spawn agents for Phase 1
+                phase_1_tasks = session.get_phase_tasks(1)
+                for task in phase_1_tasks:
+                    model = 'haiku' if task.complexity < 5 else 'sonnet'
+                    await self.spawn_agent(session, {
+                        'model': model,
+                        'task': task.description,
+                        'cost_limit': task.budget
+                    })
+
+        # Monitor and coordinate
+        while not self.all_complete():
+            await self.detect_blocker()
+            await asyncio.sleep(30)  # Poll every 30s
+
+    def get_metrics(self):
+        """Get swarm performance metrics"""
+        return {
+            'total_sessions': len(self.sessions),
+            'total_agents': len(self.agents),
+            'total_cost': sum(a.cost for a in self.agents),
+            'velocity_multiplier': self.calculate_velocity(),
+            'blocked_sessions': [s for s in self.sessions if s.is_blocked()]
+        }
+
+    def calculate_velocity(self):
+        """Calculate velocity gain vs sequential"""
+        parallel_time = max(s.elapsed_time for s in self.sessions)
+        sequential_time = sum(s.elapsed_time for s in self.sessions)
+        return sequential_time / parallel_time if parallel_time > 0 else 1.0
+```
+
+### AI Provider Adapters
+
+**Unified interface to all AI providers:**
+
+```python
+# src/integrations/ai_adapter_base.py
+
+from abc import ABC, abstractmethod
+
+class AIProviderAdapter(ABC):
+    """Unified interface to AI/LLM providers"""
+
+    def __init__(self, api_key: str, config: Dict[str, Any]):
+        self.api_key = api_key
+        self.config = config
+
+    @abstractmethod
+    async def complete(self, prompt: str, model: str, **kwargs):
+        """Text completion"""
+        pass
+
+    @abstractmethod
+    async def stream_complete(self, prompt: str, model: str, **kwargs):
+        """Streaming completion"""
+        pass
+
+    @abstractmethod
+    async def embed(self, text: str, model: str = None):
+        """Generate embeddings"""
+        pass
+
+    @abstractmethod
+    async def get_cost(self, input_tokens: int, output_tokens: int, model: str):
+        """Calculate cost for tokens"""
+        pass
+
+    @abstractmethod
+    async def get_available_models(self):
+        """List available models"""
+        pass
+
+    # IF.witness integration
+    def log_completion(self, prompt, response, cost):
+        """Log all AI completions with IF.witness"""
+        pass
+
+    # IF.optimise integration
+    def track_usage(self, model, tokens, cost):
+        """Track AI usage costs"""
+        pass
+```
+
+### Sprint Plan: AI Providers + IF.swarm Integration
+
+**Prerequisites:**
+- ✅ GPT-5 Pro review complete
+- ✅ Chat platforms integration complete
+- ✅ All sessions understand S² coordination
+
+**Execution:**
+
+**Phase 6A: Core AI Providers (Critical)**
+- OpenAI, Anthropic, Google Gemini, Google Vertex AI, AWS Bedrock, Azure OpenAI, Cohere, IBM watsonx
+- **Timeline:** 12-15 hours
+- **Cost:** $180-270
+- **Deliverables:** 8 foundation model adapters
+
+**Phase 6B: AI Gateways (High Priority)**
+- Kong AI Gateway, Litellm Gateway, Helicone, BricksLLM, LangChain
+- **Timeline:** 10-12 hours
+- **Cost:** $150-220
+- **Deliverables:** 5 AI gateway adapters
+
+**Phase 6C: IF.swarm Module (Revolutionary)**
+- SwarmOrchestrator implementation
+- Session management
+- Agent spawning/monitoring
+- "Gang Up on Blocker" automation
+- Phase validation
+- Budget enforcement
+- **Timeline:** 16-20 hours
+- **Cost:** $250-350
+- **Deliverables:** Production-ready IF.swarm module
+
+**Phase 6D: Specialized AI Services**
+- Hugging Face, Replicate, Together AI, Mistral AI
+- **Timeline:** 8-10 hours
+- **Cost:** $120-180
+- **Deliverables:** 4 specialized service adapters
+
+**Phase 6E: Vector Databases**
+- Pinecone, Weaviate, Qdrant
+- **Timeline:** 6-8 hours
+- **Cost:** $90-140
+- **Deliverables:** 3 vector DB adapters
+
+**Session Distribution:**
+
+**Session 1 (NDI):** AI for Video Processing
+- AI-powered video analysis
+- Content moderation via AI
+- Automated video tagging
+
+**Session 2 (WebRTC):** AI for Real-Time Communication
+- Real-time transcription (Whisper API)
+- AI meeting summaries
+- Voice cloning for avatars
+
+**Session 3 (H.323):** AI for Legacy System Integration
+- Legacy protocol understanding
+- Automated migration planning
+- AI-powered testing
+
+**Session 4 (SIP):** AI for Voice/Call Intelligence
+- Call transcription
+- Sentiment analysis
+- Automated routing decisions
+
+**Session 5 (CLI):** Unified AI CLI
+```bash
+# AI provider management
+if ai add openai --key sk-...
+if ai add anthropic --key sk-ant-...
+if ai list
+
+# Run completions
+if ai complete openai gpt-4 --prompt "Explain InfraFabric"
+if ai complete anthropic claude-3-5-sonnet --prompt "Debug this code"
+
+# Embeddings
+if ai embed openai --text "Search query" --model text-embedding-3-small
+
+# Swarm orchestration
+if swarm spawn --profile production-sprint --sessions 7
+if swarm status
+if swarm metrics
+
+# Spawn individual agents
+if swarm agent spawn --session 1 --model haiku --task "Research NDI APIs"
+if swarm agent list
+if swarm agent kill [agent-id]
+
+# Blocker detection
+if swarm detect-blockers
+if swarm help-session [session-id]
+```
+
+**Session 6 (Talent):** AI Adapter Pattern + Swarm Intelligence
+- Unified AI adapter architecture
+- Model selection strategies (Haiku vs Sonnet vs GPT-4)
+- Cost optimization (IF.optimise integration)
+- Bloom patterns for AI models
+- SwarmOrchestrator design patterns
+
+**Session 7 (IF.bus):** AI Orchestration via IF.bus
+```python
+class AIBusAdapter(InfrastructureAdapter):
+    """IF.bus adapter for AI provider orchestration"""
+
+    def add_provider(self, name, provider_type, api_key):
+        """Add AI provider to IF.bus"""
+        # OpenAI, Anthropic, Google, etc.
+
+    def route_completion(self, prompt, requirements):
+        """Route completion to optimal provider"""
+        # Least cost, lowest latency, or best quality
+
+    def multi_provider_completion(self, prompt, providers):
+        """Run completion on multiple providers, pick best"""
+        # Consensus across models
+
+    def swarm_orchestrate(self, profile):
+        """Orchestrate AI swarm for complex tasks"""
+        # Multi-agent coordination
+```
+
+### Production Use Cases
+
+**Use Case 1: Self-Improving Documentation**
+```bash
+# AI swarm writes documentation for new features
+if swarm spawn --profile "documentation-sprint"
+  ├─> Agent 1 (GPT-4): Analyze code changes
+  ├─> Agent 2 (Claude): Write user guide
+  ├─> Agent 3 (Gemini): Write API reference
+  ├─> Agent 4 (GPT-4): Review and consolidate
+  └─> IF.witness: Log all AI-generated content
+```
+
+**Use Case 2: Automated Testing Swarm**
+```bash
+# AI agents write and run tests
+if swarm spawn --profile "testing-sprint"
+  ├─> 5 Haiku agents: Write unit tests
+  ├─> 2 Sonnet agents: Write integration tests
+  ├─> 1 GPT-4 agent: Review test coverage
+  └─> Run tests, report results
+```
+
+**Use Case 3: Production Incident Response**
+```bash
+# AI swarm analyzes production issue
+if bus orchestrate --profile "incident-response"
+  ├─> Chat: Get incident report (Slack)
+  ├─> AI (GPT-4): Analyze logs
+  ├─> AI (Claude): Suggest fixes
+  ├─> vMix: Show incident on production screen
+  ├─> HA: Flash emergency lights
+  ├─> Chat: Broadcast fix to team
+  └─> IF.witness: Log entire incident timeline
+```
+
+**Use Case 4: Multi-Provider Consensus**
+```bash
+# Get consensus from multiple AI providers
+if ai consensus --prompt "Is this code secure?" --providers openai,anthropic,google
+  ├─> GPT-4: "7/10 security"
+  ├─> Claude: "8/10 security, but check input validation"
+  ├─> Gemini: "6/10 security, SQL injection risk"
+  └─> Consensus: "7/10, fix SQL injection"
+```
+
+**Use Case 5: Meta - AI Building InfraFabric**
+```bash
+# Use IF.swarm to build more IF features
+if swarm spawn --profile "self-improvement"
+  ├─> Session 1-7: Each spawns AI agents
+  ├─> AI agents read codebase via IF.bus
+  ├─> AI agents propose improvements
+  ├─> AI agents write code
+  ├─> AI agents test code
+  ├─> Human approves + merges
+  └─> InfraFabric improved by itself
+```
+
+**Total Timeline:** 52-65 hours wall-clock (phased)
+**Total Cost:** $790-1,160
+**Total Deliverables:** 20 AI/gateway/vector adapters + IF.swarm production module
+
+---
+
 ## Master Roadmap Summary
 
 ### Completed/In Progress
@@ -725,11 +1138,12 @@ if bus orchestrate --profile "asia-production"
 - ⏸️ **Phase 3:** SIP Providers (30+ providers, 24-30 hours phased, $370-530)
 - ⏸️ **Phase 4:** Payment Providers (40+ providers, 32-40 hours phased, $490-710)
 - ⏸️ **Phase 5:** Chat/Messaging Platforms (16+ providers, 30-38 hours phased, $450-680)
+- ⏸️ **Phase 6:** AI/LLM Providers + IF.swarm Module (20+ providers, 52-65 hours phased, $790-1,160)
 
 ### Total Post-Review Work
-- **Timeline:** 94-118 hours wall-clock (phased over 3-4 weeks)
-- **Cost:** $1,510-2,220
-- **Deliverables:** 106+ integration modules
+- **Timeline:** 146-183 hours wall-clock (phased over 4-6 weeks)
+- **Cost:** $2,300-3,380
+- **Deliverables:** 126+ integration modules + IF.swarm production module
 
 ---
 
@@ -742,7 +1156,9 @@ if bus orchestrate --profile "asia-production"
 | **SIP Providers** | 30+ | ⏸️ Post-review |
 | **Payment Providers** | 40+ | ⏸️ Post-review |
 | **Chat/Messaging Platforms** | 16+ | ⏸️ Post-review |
-| **TOTAL INTEGRATIONS** | **96+** | - |
+| **AI/LLM Providers & Gateways** | 20+ | ⏸️ Post-review |
+| **IF.swarm Module** | 1 (production-ready) | ⏸️ Post-review |
+| **TOTAL INTEGRATIONS** | **116+** | - |
 
 ---
 
@@ -755,19 +1171,22 @@ InfraFabric becomes the **unified orchestration layer** for:
 - ⏸️ Communication services (Twilio, Telnyx, etc.)
 - ⏸️ Payment processing (Stripe, PayPal, etc.)
 - ⏸️ Messaging platforms (WhatsApp, Telegram, Slack, WeChat, LINE, etc.)
+- ⏸️ **AI agent swarms** (GPT-4, Claude, Gemini via IF.swarm)
 
 **Result:**
 ```bash
-# One CLI to rule them all
+# One CLI to rule them all - Infrastructure + AI Swarms
 if bus orchestrate --profile "complete-production-stack"
   ├─> Cloud: Provision video encoding VMs (AWS GPU)
   ├─> SIP: Start conference bridge (Twilio)
+  ├─> AI Swarm: Spawn 7 sessions with 49 agents (GPT-4, Claude, Gemini)
   ├─> vMix: Load production scene
   ├─> OBS: Start streaming
   ├─> HA: Turn on studio lights
   ├─> Chat: Notify team "Production started" (Slack, Telegram, WhatsApp)
+  ├─> AI (GPT-4): Analyze stream quality, suggest optimizations
   ├─> Payment: Charge subscribers (Stripe)
-  └─> IF.witness: Log all operations
+  └─> IF.witness: Log all operations (infrastructure + AI decisions)
 ```
 
 **Wu Lun (五倫) - All as Friends:**
@@ -777,6 +1196,7 @@ Every platform, provider, and service joins InfraFabric as a "friend":
 - SIP providers: **Friends in voice communication** (語音之友)
 - Chat platforms: **Friends in messaging** (訊息之友)
 - Payment providers: **Friends in commerce** (商業之友)
+- **AI agents: Friends in intelligence** (智能之友)
 
 **IF.TTT Across All:**
 - **Traceable:** All operations logged via IF.witness (production, cloud, SIP, chat, payments)
