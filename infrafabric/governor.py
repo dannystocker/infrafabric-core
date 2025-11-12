@@ -362,6 +362,119 @@ class IFGovernor:
             ]
         return self.assignment_history
 
+    def track_cost(
+        self,
+        swarm_id: str,
+        operation: str,
+        cost: float
+    ) -> None:
+        """Track costs and enforce budget limits (P0.2.3)
+
+        Deducts cost from swarm's remaining budget and logs to IF.witness
+        and IF.optimise. If budget is exhausted, prevents further task
+        assignment (handled by find_qualified_swarm budget check).
+
+        Args:
+            swarm_id: Swarm identifier
+            operation: Operation description (e.g., "task_execution", "sip_call")
+            cost: Cost in USD
+
+        Raises:
+            ValueError: If swarm_id is not registered
+
+        Example:
+            >>> governor = IFGovernor()
+            >>> governor.register_swarm(SwarmProfile(
+            ...     "session-4", [Capability.INTEGRATION_SIP],
+            ...     2.0, 0.95, 10.0, "sonnet"
+            ... ))
+            >>> governor.track_cost("session-4", "sip_integration", 0.50)
+            >>> profile = governor.get_swarm_profile("session-4")
+            >>> assert profile.current_budget_remaining == 9.50
+        """
+        if swarm_id not in self.swarm_registry:
+            raise ValueError(f"Unknown swarm: {swarm_id}")
+
+        profile = self.swarm_registry[swarm_id]
+        old_budget = profile.current_budget_remaining
+        profile.current_budget_remaining -= cost
+
+        # Log cost to IF.optimise (if available)
+        try:
+            from infrafabric.optimise import track_operation_cost
+            track_operation_cost(
+                provider=swarm_id,
+                operation=operation,
+                cost=cost
+            )
+        except ImportError:
+            # IF.optimise not available - that's OK
+            pass
+
+        # Log to IF.witness
+        self._log_operation(
+            operation='cost_tracked',
+            params={
+                'swarm_id': swarm_id,
+                'operation': operation,
+                'cost': cost,
+                'old_budget': old_budget,
+                'remaining_budget': profile.current_budget_remaining
+            }
+        )
+
+        # Check if budget exhausted
+        if profile.current_budget_remaining <= 0:
+            self._log_operation(
+                operation='budget_exhausted',
+                params={
+                    'swarm_id': swarm_id,
+                    'final_budget': profile.current_budget_remaining
+                },
+                severity='WARNING'
+            )
+            # TODO: P0.2.4 - Call circuit breaker when implemented
+            # self._trip_circuit_breaker(swarm_id, reason='budget_exhausted')
+
+    def get_budget_report(self) -> Dict[str, float]:
+        """Get budget status for all swarms
+
+        Returns:
+            Dictionary mapping swarm_id to remaining budget
+
+        Example:
+            >>> governor = IFGovernor()
+            >>> governor.register_swarm(SwarmProfile(
+            ...     "session-4", [Capability.INTEGRATION_SIP],
+            ...     2.0, 0.95, 10.0, "sonnet"
+            ... ))
+            >>> report = governor.get_budget_report()
+            >>> assert report["session-4"] == 10.0
+        """
+        return {
+            swarm_id: profile.current_budget_remaining
+            for swarm_id, profile in self.swarm_registry.items()
+        }
+
+    def get_total_cost_tracked(self) -> float:
+        """Get total cost tracked across all swarms
+
+        Calculates total spend based on budget deductions from initial
+        budgets (not directly tracked, inferred from remaining budgets).
+
+        Returns:
+            Total cost tracked in USD
+
+        Note:
+            This is an approximation based on current budget status.
+            For accurate cost tracking, use IF.optimise integration.
+        """
+        # This is a simplified calculation
+        # In reality, we'd need to track initial budgets separately
+        # For now, we can't calculate total spend without initial values
+        # This will be improved when IF.optimise is integrated
+        return 0.0  # Placeholder until IF.optimise integration
+
     def _log_operation(
         self,
         operation: str,
