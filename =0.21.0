@@ -1,0 +1,112 @@
+WARNING: The directory '/root/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+  error: subprocess-exited-with-error
+  
+  × python setup.py bdist_wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [101 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build/lib
+      creating build/lib/etcd3
+      copying etcd3/watch.py -> build/lib/etcd3
+      copying etcd3/exceptions.py -> build/lib/etcd3
+      copying etcd3/transactions.py -> build/lib/etcd3
+      copying etcd3/locks.py -> build/lib/etcd3
+      copying etcd3/members.py -> build/lib/etcd3
+      copying etcd3/leases.py -> build/lib/etcd3
+      copying etcd3/client.py -> build/lib/etcd3
+      copying etcd3/__init__.py -> build/lib/etcd3
+      copying etcd3/utils.py -> build/lib/etcd3
+      copying etcd3/events.py -> build/lib/etcd3
+      creating build/lib/etcd3/etcdrpc
+      copying etcd3/etcdrpc/rpc_pb2_grpc.py -> build/lib/etcd3/etcdrpc
+      copying etcd3/etcdrpc/auth_pb2.py -> build/lib/etcd3/etcdrpc
+      copying etcd3/etcdrpc/rpc_pb2.py -> build/lib/etcd3/etcdrpc
+      copying etcd3/etcdrpc/kv_pb2.py -> build/lib/etcd3/etcdrpc
+      copying etcd3/etcdrpc/__init__.py -> build/lib/etcd3/etcdrpc
+      running egg_info
+      writing etcd3.egg-info/PKG-INFO
+      writing dependency_links to etcd3.egg-info/dependency_links.txt
+      writing requirements to etcd3.egg-info/requires.txt
+      writing top-level names to etcd3.egg-info/top_level.txt
+      reading manifest file 'etcd3.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      warning: no previously-included files matching '__pycache__' found under directory '*'
+      warning: no previously-included files matching '*.py[co]' found under directory '*'
+      warning: no files found matching '*.jpg' under directory 'docs'
+      warning: no files found matching '*.png' under directory 'docs'
+      warning: no files found matching '*.gif' under directory 'docs'
+      adding license file 'LICENSE'
+      adding license file 'AUTHORS.rst'
+      writing manifest file 'etcd3.egg-info/SOURCES.txt'
+      /usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+      !!
+      
+              ********************************************************************************
+              Please avoid running ``setup.py`` directly.
+              Instead, use pypa/build, pypa/installer or other
+              standards-based tools.
+      
+              See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+              ********************************************************************************
+      
+      !!
+        self.initialize_options()
+      installing to build/bdist.linux-x86_64/wheel
+      running install
+      running install_lib
+      Traceback (most recent call last):
+        File "<string>", line 2, in <module>
+        File "<pip-setuptools-caller>", line 34, in <module>
+        File "/tmp/pip-install-wm3tlk03/etcd3_d98b7f5161764c59b95d4355320c8816/setup.py", line 26, in <module>
+          setup(
+        File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 107, in setup
+          return distutils.core.setup(**attrs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 185, in setup
+          return run_commands(dist)
+                 ^^^^^^^^^^^^^^^^^^
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 201, in run_commands
+          dist.run_commands()
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 969, in run_commands
+          self.run_command(cmd)
+        File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1233, in run_command
+          super().run_command(command)
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "/usr/lib/python3/dist-packages/wheel/bdist_wheel.py", line 403, in run
+          self.run_command("install")
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+          self.distribution.run_command(command)
+        File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1233, in run_command
+          super().run_command(command)
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 78, in run
+          return orig.install.run(self)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install.py", line 708, in run
+          self.run_command(cmd_name)
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+          self.distribution.run_command(command)
+        File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1233, in run_command
+          super().run_command(command)
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 987, in run_command
+          cmd_obj.ensure_finalized()
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 111, in ensure_finalized
+          self.finalize_options()
+        File "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py", line 17, in finalize_options
+          self.set_undefined_options('install',('install_layout','install_layout'))
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 296, in set_undefined_options
+          setattr(self, dst_option, getattr(src_cmd_obj, src_option))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 107, in __getattr__
+          raise AttributeError(attr)
+      AttributeError: install_layout. Did you mean: 'install_platlib'?
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for etcd3
+ERROR: Could not build wheels for etcd3, which is required to install pyproject.toml-based projects

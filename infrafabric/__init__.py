@@ -44,6 +44,7 @@ __shorthand__ = "IF"
 from .guardians import GuardianPanel, Guardian, debate_proposal
 from .coordination import WeightedCoordinator, Agent, AgentProfile
 from .manifests import ManifestGenerator, create_manifest
+from .event_bus import EventBus
 
 __all__ = [
     'GuardianPanel',
@@ -54,4 +55,5 @@ __all__ = [
     'AgentProfile',
     'ManifestGenerator',
     'create_manifest',
+    'EventBus',
 ]
