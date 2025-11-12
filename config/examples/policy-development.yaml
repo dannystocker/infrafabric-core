@@ -1,0 +1,13 @@
+# InfraFabric S² Policy Configuration (Development)
+# ==================================================
+#
+# Development configuration with permissive limits
+# to enable experimentation and testing.
+
+resource_policy:
+  max_swarms_per_task: 5
+  max_cost_per_task: 25.0
+  min_capability_match: 0.5
+  circuit_breaker_failure_threshold: 5
+  enable_budget_enforcement: false
+  enable_reputation_scoring: true

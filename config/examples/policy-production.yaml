@@ -1,0 +1,13 @@
+# InfraFabric S² Policy Configuration (Production)
+# =================================================
+#
+# Production configuration with strict resource limits
+# to ensure cost control and high quality task assignments.
+
+resource_policy:
+  max_swarms_per_task: 2
+  max_cost_per_task: 5.0
+  min_capability_match: 0.8
+  circuit_breaker_failure_threshold: 2
+  enable_budget_enforcement: true
+  enable_reputation_scoring: true

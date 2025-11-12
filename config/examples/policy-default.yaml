@@ -1,0 +1,60 @@
+# InfraFabric S² Policy Configuration (Default)
+# ==============================================
+#
+# This configuration defines resource allocation policies for the
+# IF.governor component.
+#
+# Philosophy:
+# - Wu Lun (朋友): Fair resource allocation among peer swarms
+# - IF.TTT Trustworthy: Deterministic, auditable policy enforcement
+
+resource_policy:
+  # Maximum number of swarms that can collaborate on a single task
+  # Higher values enable more "gang up on blocker" scenarios
+  # Lower values reduce coordination overhead
+  max_swarms_per_task: 3
+
+  # Maximum cost per task in USD
+  # Prevents runaway cost spirals and budget exhaustion
+  max_cost_per_task: 10.0
+
+  # Minimum capability match score (0.0-1.0)
+  # 0.7 = 70% of required capabilities must be present
+  # Higher values ensure better qualified swarms
+  min_capability_match: 0.7
+
+  # Number of failures before circuit breaker trips
+  # Circuit breaker halts swarm to prevent repeated failures
+  circuit_breaker_failure_threshold: 3
+
+  # Enable hard budget enforcement
+  # When true, swarms with exhausted budgets cannot receive tasks
+  enable_budget_enforcement: true
+
+  # Enable reputation-based swarm scoring
+  # When true, higher reputation swarms are preferred
+  enable_reputation_scoring: true
+
+# Example: Development/Testing Configuration
+# -------------------------------------------
+# Use more permissive limits for development:
+#
+# resource_policy:
+#   max_swarms_per_task: 5
+#   max_cost_per_task: 25.0
+#   min_capability_match: 0.5
+#   circuit_breaker_failure_threshold: 5
+#   enable_budget_enforcement: false
+#   enable_reputation_scoring: true
+
+# Example: Production Configuration
+# ----------------------------------
+# Use stricter limits for production:
+#
+# resource_policy:
+#   max_swarms_per_task: 2
+#   max_cost_per_task: 5.0
+#   min_capability_match: 0.8
+#   circuit_breaker_failure_threshold: 2
+#   enable_budget_enforcement: true
+#   enable_reputation_scoring: true
