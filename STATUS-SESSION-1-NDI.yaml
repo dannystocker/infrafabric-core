@@ -1,14 +1,16 @@
 session: session-1-ndi
 status: active
-claiming: F1.1
-milestone: "75% - Phase 0 integration section complete (303 lines), review in progress"
-timestamp: 2025-11-12T15:45:00Z
+completed: F1.2
+milestone: "100% - IF.witness hash chain example complete, tested, documented"
+timestamp: 2025-11-12T16:05:00Z
 branch: claude/ndi-witness-streaming-011CV2niqJBK5CYADJMRLNGs
 blocked_on: P0.1.5
-next_action: "Review and finalize F1.1, commit changes"
+next_action: "Primary tasks (P0.5.1, P0.5.4) still blocked on P0.1.5 - polling for updates"
 completed_tasks:
   - IF.bus NDI-SIP integration research
   - Onboarding documentation v1.3
+  - "F1.1: Improved S² Architecture Docs (+303 lines Phase 0 integration)"
+  - "F1.2: IF.witness Hash Chain Example (Python demo + docs, tamper detection verified)"
 current_budget_remaining: 33.50
 model: sonnet
 capabilities:
