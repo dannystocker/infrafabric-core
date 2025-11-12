@@ -1,13 +1,13 @@
 ---
 # Session 6 (Talent) - Phase 0 Status File
 session: session-6-talent
-status: standby
+status: active
 phase: phase-0
-assigned_tasks: none
+assigned_tasks: IF.talent-pipeline
 monitoring: true
-timestamp: 2025-11-12T19:15:00Z
+timestamp: 2025-11-12T21:30:00Z
 branch: claude/realtime-parallel-sessions-011CV2o8kLhZZEHUtjFZPazM
-last_update: 2025-11-12T19:15:00Z
+last_update: 2025-11-12T21:30:00Z
 
 # Work Completed (Pre-Phase 0 + Filler Task)
 completed_work:
@@ -70,6 +70,30 @@ phase_1_preparation:
     * Success criteria (cost: 57% → <10% waste, latency: <10ms)
     * Preparation checklist and activation triggers
     * Deliverable: /home/user/infrafabric/docs/PHASE-1-PREPARATION-GUIDE.md
+
+phase_0_implementation:
+  - IF.talent Pipeline (4-6 hours, Complete)
+    * Scout→Sandbox→Certify→Deploy pipeline for AI capability onboarding
+    * Phase 1: Scout with 10 Haiku agents (parallel research & voting, 70% threshold)
+    * Phase 2: Sandbox testing with IF.chassis WASM isolation (resource limits, security)
+    * Phase 3: Certify against F6.12 schema + F6.11 reputation (Gold/Silver/Bronze levels)
+    * Phase 4: Deploy to IF.governor registry with IF.witness audit logging
+    * Integration: IF.governor, IF.chassis, IF.coordinator, IF.witness
+    * Features: Multi-agent voting, isolated testing, rigorous certification, automated deployment
+    * Testing: Comprehensive test suite with integration tests
+    * Documentation: Full pipeline architecture and API reference
+    * Deliverables:
+      - src/infrafabric/talent/__init__.py
+      - src/infrafabric/talent/pipeline.py (~300 LOC)
+      - src/infrafabric/talent/scout.py (~250 LOC, 10 Haiku agents)
+      - src/infrafabric/talent/sandbox.py (~350 LOC, IF.chassis integration)
+      - src/infrafabric/talent/certify.py (~300 LOC, F6.12/F6.11 validation)
+      - src/infrafabric/talent/deploy.py (~200 LOC, IF.governor registration)
+      - tests/test_talent_pipeline.py (~400 LOC, comprehensive tests)
+      - docs/IF-TALENT-PIPELINE.md (~500 LOC, full documentation)
+    * Total: ~2,300 lines of implementation + tests + docs
+    * Cost estimate: $30-40 (within budget)
+    * Phase 0 contribution: Production-ready capability onboarding system
 
 cross_session_support:
   - Coordination Branch Setup Helpers (15 min, Complete)
