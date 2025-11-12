@@ -16,8 +16,12 @@ Part of Phase 0: Bug #3 (Security/Isolation) fix
 """
 
 from .runtime import IFChassis, ServiceContract
+from .limits import ResourceLimits, ResourceEnforcer, TokenBucket
 
 __all__ = [
     'IFChassis',
     'ServiceContract',
+    'ResourceLimits',
+    'ResourceEnforcer',
+    'TokenBucket',
 ]

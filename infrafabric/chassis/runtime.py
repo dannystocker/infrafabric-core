@@ -24,6 +24,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from infrafabric.witness import log_operation
+from infrafabric.chassis.limits import ResourceLimits, ResourceEnforcer
 
 
 @dataclass
@@ -37,29 +38,48 @@ class ServiceContract:
         max_memory_mb: Maximum memory allocation in MB
         max_cpu_percent: Maximum CPU percentage (0-100)
         max_execution_time_seconds: Maximum execution time
+        max_api_calls_per_second: Maximum API calls per second
         allowed_operations: List of allowed operation types
         slo_latency_ms: SLO for latency in milliseconds
         slo_success_rate: SLO for success rate (0.0-1.0)
+        resource_limits: Optional ResourceLimits override
     """
     swarm_id: str
     max_memory_mb: int = 512
     max_cpu_percent: int = 50
     max_execution_time_seconds: float = 300.0
+    max_api_calls_per_second: float = 10.0
     allowed_operations: List[str] = field(default_factory=lambda: ['*'])
     slo_latency_ms: float = 1000.0
     slo_success_rate: float = 0.95
+    resource_limits: Optional[ResourceLimits] = None
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary"""
-        return {
+        result = {
             'swarm_id': self.swarm_id,
             'max_memory_mb': self.max_memory_mb,
             'max_cpu_percent': self.max_cpu_percent,
             'max_execution_time_seconds': self.max_execution_time_seconds,
+            'max_api_calls_per_second': self.max_api_calls_per_second,
             'allowed_operations': self.allowed_operations,
             'slo_latency_ms': self.slo_latency_ms,
             'slo_success_rate': self.slo_success_rate,
         }
+        if self.resource_limits:
+            result['resource_limits'] = self.resource_limits.to_dict()
+        return result
+
+    def get_resource_limits(self) -> ResourceLimits:
+        """Get resource limits (from override or contract values)"""
+        if self.resource_limits:
+            return self.resource_limits
+        return ResourceLimits(
+            max_memory_mb=self.max_memory_mb,
+            max_cpu_percent=self.max_cpu_percent,
+            max_api_calls_per_second=self.max_api_calls_per_second,
+            max_execution_time_seconds=self.max_execution_time_seconds,
+        )
 
 
 class IFChassis:
@@ -165,6 +185,13 @@ class IFChassis:
             # Instantiate module
             instance = linker.instantiate(store, module)
 
+            # Create resource enforcer
+            resource_limits = contract.get_resource_limits()
+            enforcer = ResourceEnforcer(swarm_id, resource_limits)
+
+            # Apply OS-level resource limits
+            enforcer.apply_os_limits()
+
             # Store swarm info
             self.loaded_swarms[swarm_id] = {
                 'module': module,
@@ -172,6 +199,7 @@ class IFChassis:
                 'instance': instance,
                 'linker': linker,
                 'contract': contract,
+                'enforcer': enforcer,
                 'loaded_at': time.time(),
                 'execution_count': 0,
             }
@@ -248,10 +276,22 @@ class IFChassis:
 
         swarm_info = self.loaded_swarms[swarm_id]
         contract = swarm_info['contract']
+        enforcer = swarm_info['enforcer']
 
         # Check if operation is allowed
         if '*' not in contract.allowed_operations and task_name not in contract.allowed_operations:
             raise ValueError(f"Operation not allowed: {task_name}")
+
+        # Check API rate limit
+        if not enforcer.check_api_rate_limit(1):
+            return {
+                'success': False,
+                'result': None,
+                'execution_time_ms': 0.0,
+                'memory_used_mb': 0.0,
+                'error': 'API rate limit exceeded',
+                'timestamp': time.time(),
+            }
 
         start_time = time.time()
         task_params = task_params or {}
@@ -454,9 +494,13 @@ class IFChassis:
 
         swarm_info = self.loaded_swarms[swarm_id]
         contract = swarm_info['contract']
+        enforcer = swarm_info['enforcer']
 
         # Get execution history for this swarm
         executions = [r for r in self.execution_history if r['swarm_id'] == swarm_id]
+
+        # Get enforcer stats
+        enforcer_stats = enforcer.get_stats()
 
         if not executions:
             return {
@@ -465,6 +509,7 @@ class IFChassis:
                 'success_rate': 0.0,
                 'avg_execution_time_ms': 0.0,
                 'slo_compliance_rate': 0.0,
+                **enforcer_stats,
             }
 
         success_count = sum(1 for e in executions if e['success'])
@@ -483,6 +528,7 @@ class IFChassis:
             'avg_execution_time_ms': total_time / len(executions),
             'slo_compliance_rate': slo_compliant / len(executions),
             'slo_latency_ms': contract.slo_latency_ms,
+            **enforcer_stats,
         }
 
     def health_check(self) -> Dict[str, Any]:
