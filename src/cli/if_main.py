@@ -518,35 +518,167 @@ def optimise():
 
 @optimise.command('report')
 @click.option('--today', is_flag=True, help='Show today\'s costs only')
-@click.option('--swarm', help='Filter by swarm ID')
-@click.option('--start-date', help='Start date (ISO format)')
-@click.option('--end-date', help='End date (ISO format)')
+@click.option('--component', help='Filter by component')
+@click.option('--start-date', help='Start date (YYYY-MM-DD)')
+@click.option('--end-date', help='End date (YYYY-MM-DD)')
 @click.option('--format', type=click.Choice(['text', 'csv', 'json']), default='text')
 @pass_context
-def cost_report(ctx, today, swarm, start_date, end_date, format):
+def cost_report(ctx, today, component, start_date, end_date, format):
     """Generate cost report"""
-    if today:
-        click.echo("Cost Report - Today")
-    else:
-        click.echo("Cost Report")
+    try:
+        from src.cli.if_optimise import format_cost_data_as_csv
+        from src.witness.database import WitnessDatabase
+        from datetime import datetime
 
-    # TODO: Query actual costs
-    click.echo("\nTotal: $45.23")
-    click.echo("  session-2-webrtc: $18.50 (Sonnet, 1.2M tokens)")
-    click.echo("  session-7-if-bus: $15.00 (Sonnet, 1.0M tokens)")
-    click.echo("  session-4-sip: $8.50 (Sonnet, 567K tokens)")
-    click.echo("  session-1-ndi: $3.23 (Haiku, 215K tokens)")
+        # Handle --today flag
+        if today:
+            now = datetime.utcnow()
+            start_date = now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
+            end_date = now.isoformat()
+
+        # Query database
+        db = WitnessDatabase()
+        try:
+            start_dt = datetime.fromisoformat(start_date) if start_date else None
+            end_dt = datetime.fromisoformat(end_date) if end_date else None
+
+            cost_data = db.get_cost_by_component(component, start_dt, end_dt)
+
+            if format == 'json':
+                import json
+                click.echo(json.dumps(cost_data, indent=2))
+            elif format == 'csv':
+                csv_output = format_cost_data_as_csv(cost_data)
+                click.echo(csv_output)
+            else:
+                if not cost_data:
+                    click.echo("No cost data found")
+                    return
+
+                period_str = ""
+                if today:
+                    period_str = " (Today)"
+                elif start_date and end_date:
+                    period_str = f" ({start_date} to {end_date})"
+
+                click.echo(f"\nIF.optimise Cost Report{period_str}\n")
+                click.echo(f"{'Component':<30} {'Operations':<12} {'Tokens':<12} {'Cost':<12}")
+                click.echo("-" * 66)
+
+                total_ops = 0
+                total_tokens = 0
+                total_cost = 0.0
+
+                for row in cost_data:
+                    click.echo(f"{row['component']:<30} {row['operations']:<12} "
+                             f"{row['total_tokens'] or 0:<12,} "
+                             f"${row['total_cost'] or 0.0:<11.6f}")
+
+                    total_ops += row['operations']
+                    total_tokens += row['total_tokens'] or 0
+                    total_cost += row['total_cost'] or 0.0
+
+                click.echo("-" * 66)
+                click.echo(f"{'Total':<30} {total_ops:<12} {total_tokens:<12,} ${total_cost:<11.6f}")
+
+        finally:
+            db.close()
+
+    except ImportError:
+        click.echo("❌ IF.optimise module not available", err=True)
+        sys.exit(1)
+    except Exception as e:
+        click.echo(f"❌ Error generating report: {e}", err=True)
+        sys.exit(1)
 
 
-@optimise.command('cache-stats')
+@optimise.command('budget')
+@click.option('--set', 'budget_amount', type=float, help='Set budget limit in USD')
+@click.option('--period', type=click.Choice(['day', 'week', 'month']), default='month')
+@click.option('--component', help='Component filter (optional)')
 @pass_context
-def cache_stats(ctx):
-    """Show cache hit statistics"""
-    click.echo("Cache Statistics:")
-    click.echo("  Total requests: 1,234")
-    click.echo("  Cache hits: 456 (37%)")
-    click.echo("  Cache misses: 778 (63%)")
-    click.echo("  Savings: $12.34 (from cache hits)")
+def budget(ctx, budget_amount, period, component):
+    """Set and monitor budget limits"""
+    try:
+        from src.witness.database import WitnessDatabase
+        from datetime import datetime, timedelta
+        import json
+
+        db = WitnessDatabase()
+        try:
+            # Calculate period start
+            now = datetime.utcnow()
+            if period == 'day':
+                start_date = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            elif period == 'week':
+                start_date = now - timedelta(days=now.weekday())
+                start_date = start_date.replace(hour=0, minute=0, second=0, microsecond=0)
+            else:
+                start_date = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+            cost_data = db.get_cost_by_component(component, start_date, None)
+            total_spent = sum(row['total_cost'] or 0.0 for row in cost_data)
+
+            if budget_amount:
+                # Set budget
+                budget_file = Path.home() / '.if-witness' / 'budget.json'
+                budget_file.parent.mkdir(parents=True, exist_ok=True)
+                budget_config = {
+                    'amount': budget_amount,
+                    'period': period,
+                    'component': component,
+                    'set_at': now.isoformat(),
+                }
+                budget_file.write_text(json.dumps(budget_config, indent=2))
+                click.echo(f"✓ Budget set: ${budget_amount:.2f} per {period}")
+            else:
+                # Check budget
+                budget_file = Path.home() / '.if-witness' / 'budget.json'
+                if budget_file.exists():
+                    budget_config = json.loads(budget_file.read_text())
+                    budget_amount = budget_config['amount']
+                else:
+                    budget_amount = 100.0
+
+            remaining = budget_amount - total_spent
+            usage_pct = (total_spent / budget_amount * 100) if budget_amount > 0 else 0
+
+            click.echo(f"\nBudget Status ({period})")
+            click.echo("-" * 40)
+            click.echo(f"Budget:       ${budget_amount:.2f}")
+            click.echo(f"Spent:        ${total_spent:.6f}")
+            click.echo(f"Remaining:    ${remaining:.6f}")
+            click.echo(f"Usage:        {usage_pct:.2f}%")
+
+            if usage_pct >= 100:
+                click.echo("\n⚠️  ALERT: Budget exceeded!", err=True)
+            elif usage_pct >= 80:
+                click.echo(f"\n⚠️  WARNING: {usage_pct:.0f}% of budget used")
+
+        finally:
+            db.close()
+
+    except Exception as e:
+        click.echo(f"❌ Error: {e}", err=True)
+        sys.exit(1)
+
+
+@optimise.command('rates')
+@click.option('--format', type=click.Choice(['text', 'json']), default='text')
+def rates(format):
+    """Show current model rates"""
+    from src.cli.if_optimise import MODEL_RATES
+    import json
+
+    if format == 'json':
+        click.echo(json.dumps(MODEL_RATES, indent=2))
+    else:
+        click.echo("\nCurrent Model Rates (per token)\n")
+        click.echo(f"{'Model':<25} {'Input':<15} {'Output':<15}")
+        click.echo("-" * 55)
+
+        for model, rate in MODEL_RATES.items():
+            click.echo(f"{model:<25} ${rate['input']:<14.8f} ${rate['output']:<14.8f}")
 
 
 # ====================

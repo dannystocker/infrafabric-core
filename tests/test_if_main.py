@@ -370,13 +370,20 @@ class TestOptimiseCommands:
         """Test optimise report --today"""
         result = self.runner.invoke(cli, ['optimise', 'report', '--today'])
         assert result.exit_code == 0
-        assert 'Today' in result.output or 'Cost' in result.output
+        # Should show either cost data or "No cost data found"
+        assert 'Today' in result.output or 'Cost' in result.output or 'No cost data' in result.output
 
-    def test_optimise_cache_stats(self):
-        """Test optimise cache-stats"""
-        result = self.runner.invoke(cli, ['optimise', 'cache-stats'])
+    def test_optimise_budget(self):
+        """Test optimise budget"""
+        result = self.runner.invoke(cli, ['optimise', 'budget'])
         assert result.exit_code == 0
-        assert 'Cache' in result.output
+        assert 'Budget' in result.output
+
+    def test_optimise_rates(self):
+        """Test optimise rates"""
+        result = self.runner.invoke(cli, ['optimise', 'rates'])
+        assert result.exit_code == 0
+        assert 'Model' in result.output or 'Rate' in result.output
 
 
 class TestUtilityCommands:

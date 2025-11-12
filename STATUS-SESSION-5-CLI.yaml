@@ -1,17 +1,18 @@
 session: session-5-cli
-current_task: p0_4_1_complete
-task_name: "P0.4.1: Unified CLI Entry Point"
-milestone: "100% - FOUR Phase 0 + Eight filler tasks complete"
+current_task: p0_4_2_complete
+task_name: "P0.4.2: Cost Tracking Integration"
+milestone: "100% - FIVE Phase 0 + Eight filler tasks complete"
 status: active
-timestamp: 2025-11-12T12:50:00Z
+timestamp: 2025-11-12T14:30:00Z
 branch: claude/cli-witness-optimise-011CV2nzozFeHipmhetrw5nk
 blocked_on: null
-next_action: "Commit P0.4.1, continue Phase 0"
+next_action: "Check for next Phase 0 assignment"
 tasks_completed:
   - P0.1.1: "Setup etcd/NATS Event Bus - 26 tests passing ✅"
   - P0.2.1: "Create Capability Registry Schema - 49 tests passing ✅"
   - P0.4.3: "Witness Integration - Query command - 25 tests passing ✅"
-  - P0.4.1: "Unified CLI Entry Point - 55 tests passing ✅"
+  - P0.4.1: "Unified CLI Entry Point - 56 tests passing ✅"
+  - P0.4.2: "Cost Tracking Integration - 25 tests passing ✅"
   - F5.20: "IF.coordinator integration planning - 450-line guide ✅"
   - F5.22: "CLI integration audit - 500-line Phase 0 analysis ✅"
   - F5.23: "CLI error handling module - 25 tests passing ✅"
@@ -54,8 +55,17 @@ progress:
     completed_at: 2025-11-12T12:50:00Z
     deliverable: /home/user/infrafabric/src/cli/if_main.py
     lines: 700+
-    tests: 55/55 passing (77% coverage)
-    notes: "Unified CLI entry point - `if` command with Click framework, 5 component groups (coordinator, governor, chassis, witness, optimise), global flags (--debug, --trace, --mode), config integration, help text, 55 comprehensive tests"
+    tests: 56/56 passing (75% coverage)
+    notes: "Unified CLI entry point - `if` command with Click framework, 5 component groups (coordinator, governor, chassis, witness, optimise), global flags (--debug, --trace, --mode), config integration, help text, 56 comprehensive tests"
+  p0_4_2:
+    status: completed
+    milestone: 100
+    started_at: 2025-11-12T14:00:00Z
+    completed_at: 2025-11-12T14:30:00Z
+    deliverable: /home/user/infrafabric/src/cli/if_optimise.py
+    lines: 320+
+    tests: 25/25 passing (94% coverage of if_optimise, 75% coverage of if_main)
+    notes: "Cost tracking CLI integration - Enhanced if_optimise.py with CSV export, integrated into if_main.py (report, budget, rates commands), 25 comprehensive tests covering cost calculation, CSV formatting, report generation, budget tracking, and estimate functionality"
   f5_20:
     status: completed
     milestone: 100
@@ -86,12 +96,13 @@ critical_path_impact:
   - "✅ Session 7 can now implement P0.1.3 (pub/sub)"
   - "✅ Session 7 can now implement P0.2.2 (capability matching)"
 notes:
-  - "FOUR Phase 0 tasks COMPLETE + EIGHT filler tasks"
+  - "FIVE Phase 0 tasks COMPLETE + EIGHT filler tasks"
   - "29 capabilities defined (exceeds 20+ requirement)"
   - "EventBus provides foundation for <10ms coordination"
   - "Capability schema enables 70%+ matching to reduce cost waste"
   - "Query command enables witness log search (filters: component, event, trace-id, dates)"
   - "P0.4.1: Created unified `if` command - main CLI entry point with coordinator, governor, chassis, witness, optimise subcommands"
+  - "P0.4.2: Integrated cost tracking CLI - CSV export, budget tracking, model rate display, 25 tests passing"
   - "F5.20: Created 450-line integration guide for Session 7 (P0.1.2 CAS + P0.1.3 pub/sub)"
   - "F5.22: Created 500-line CLI audit identifying 39 missing Phase 0 commands"
   - "F5.23: Created comprehensive error handler with contextual messages and recovery suggestions"

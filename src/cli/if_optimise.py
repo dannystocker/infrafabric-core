@@ -14,9 +14,11 @@ Track tokens per operation, $ cost per model, budget alerts
 
 import sys
 import json
+import csv
+import io
 from pathlib import Path
 from datetime import datetime, timedelta
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 import click
 
@@ -52,6 +54,28 @@ def calculate_cost(tokens_in: int, tokens_out: int, model: str) -> float:
     """Calculate cost for given token usage and model"""
     rates = MODEL_RATES.get(model, {'input': 0, 'output': 0})
     return (tokens_in * rates['input']) + (tokens_out * rates['output'])
+
+
+def format_cost_data_as_csv(cost_data: List[Dict[str, Any]]) -> str:
+    """Format cost data as CSV string"""
+    if not cost_data:
+        return ""
+
+    output = io.StringIO()
+    fieldnames = ['component', 'operations', 'total_tokens', 'total_cost', 'model']
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+
+    writer.writeheader()
+    for row in cost_data:
+        writer.writerow({
+            'component': row['component'],
+            'operations': row['operations'],
+            'total_tokens': row['total_tokens'] or 0,
+            'total_cost': row['total_cost'] or 0.0,
+            'model': row['model'] or 'unknown'
+        })
+
+    return output.getvalue()
 
 
 @click.group()
@@ -189,7 +213,7 @@ def budget(ctx, budget_amount, period, component):
 @click.option('--start-date', help='Start date (YYYY-MM-DD)')
 @click.option('--end-date', help='End date (YYYY-MM-DD)')
 @click.option('--group-by', type=click.Choice(['component', 'model', 'day']), default='component')
-@click.option('--format', type=click.Choice(['text', 'json']), default='text')
+@click.option('--format', type=click.Choice(['text', 'json', 'csv']), default='text')
 @click.pass_context
 def report(ctx, component, start_date, end_date, group_by, format):
     """Generate cost reports"""
@@ -203,6 +227,9 @@ def report(ctx, component, start_date, end_date, group_by, format):
 
         if format == 'json':
             click.echo(json.dumps(cost_data, indent=2))
+        elif format == 'csv':
+            csv_output = format_cost_data_as_csv(cost_data)
+            click.echo(csv_output)
         else:
             if not cost_data:
                 click.echo("No cost data found")
