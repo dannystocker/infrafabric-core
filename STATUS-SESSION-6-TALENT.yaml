@@ -3,11 +3,11 @@
 session: session-6-talent
 status: active
 phase: phase-0
-assigned_tasks: IF.talent-pipeline
+assigned_tasks: P0.2.1-capability-schema
 monitoring: true
-timestamp: 2025-11-12T21:30:00Z
+timestamp: 2025-11-12T22:00:00Z
 branch: claude/realtime-parallel-sessions-011CV2o8kLhZZEHUtjFZPazM
-last_update: 2025-11-12T21:30:00Z
+last_update: 2025-11-12T22:00:00Z
 
 # Work Completed (Pre-Phase 0 + Filler Task)
 completed_work:
@@ -94,6 +94,26 @@ phase_0_implementation:
     * Total: ~2,300 lines of implementation + tests + docs
     * Cost estimate: $30-40 (within budget)
     * Phase 0 contribution: Production-ready capability onboarding system
+
+  - P0.2.1: IF.governor Capability Registry Schema (1 hour, Complete)
+    * Python implementation of F6.12 design (builds on filler task work)
+    * 59+ capability types across 14 domains (video, telephony, crypto, infra, cloud, smart_home, programming, docs, architecture, talent, payment, chat, ai_ml, cli)
+    * SwarmProfile dataclass with capabilities, cost tracking, reputation (F6.11)
+    * ResourcePolicy dataclass for governance constraints
+    * CapabilityProfile, TaskRequirements, SkillLevel, BloomPattern enums
+    * JSON manifest validation (validate_capability_manifest)
+    * Profile validation (validate_swarm_profile)
+    * Helper functions: capability_from_string, get_capabilities_by_domain, get_all_domains
+    * Comprehensive test suite (40+ tests)
+    * Unblocks: P0.2.2 (capability matching), P0.2.5 (policy engine)
+    * Addresses IF Bug #2: Enables 57% → <10% cost waste reduction
+    * Deliverables:
+      - src/infrafabric/schemas/__init__.py
+      - src/infrafabric/schemas/capability.py (~600 LOC)
+      - tests/test_capability_schema.py (~700 LOC, 40+ tests)
+      - docs/CAPABILITY-SCHEMA-REFERENCE.md (~550 LOC)
+    * Total: ~1,850 lines of implementation + tests + docs
+    * Phase 0 contribution: Production-ready capability matching foundation
 
 cross_session_support:
   - Coordination Branch Setup Helpers (15 min, Complete)
