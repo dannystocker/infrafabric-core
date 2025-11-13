@@ -4,7 +4,59 @@
 
 **Audience:** All Claude instances working on InfraFabric, NaviDocs, ICW (icantwait.ca), Digital-Lab, and StackCP deployments.
 
-**Last Updated:** 2025-11-13
+**Last Updated:** 2025-11-13 09:00 UTC
+
+---
+
+## 🚨 CRITICAL: agents.md UPDATE PROTOCOL (MANDATORY)
+
+**EVERY agent MUST follow this protocol WITHOUT EXCEPTION:**
+
+### Update Frequency Requirements
+
+**You MUST update agents.md:**
+1. ✅ **Before starting** - Read entire agents.md first
+2. ✅ **After completing ANY task** - Update relevant section immediately
+3. ✅ **Every 30 minutes** - Status checkpoint even if no tasks complete
+4. ✅ **Before ending session** - Final comprehensive update
+5. ✅ **When blocked** - Document blocker and attempted solutions
+6. ✅ **When discovering new information** - Add to relevant section immediately
+
+### Update Clarity Requirements
+
+**Your updates MUST include:**
+- ✅ **Timestamp** - ISO 8601 format (YYYY-MM-DD HH:MM UTC)
+- ✅ **Status** - Clear emoji indicators (✅ 🟡 🔴 ⏳)
+- ✅ **What changed** - Specific, actionable description
+- ✅ **File paths** - Absolute paths to all modified files
+- ✅ **Next steps** - What the next agent should do
+- ✅ **Blockers** - Any obstacles encountered
+- ✅ **IF.TTT citation** - Source of information (file:line, user directive, external doc)
+
+### Enforcement Mechanism
+
+**After EVERY task completion:**
+```bash
+1. Update agents.md section
+2. Commit with descriptive message
+3. Verify update succeeded (git diff)
+4. Continue to next task
+```
+
+**If you skip updating agents.md:**
+- ❌ Next agent will lack critical context
+- ❌ Work may be duplicated or contradicted
+- ❌ Deployment patterns may be misunderstood
+- ❌ User will have to manually update (you become the bottleneck)
+
+**From S² narration:**
+> "agents.md tells me: What this project is, What we're building right now, What the philosophy is, Who the other sessions are and what they're working on, How to coordinate. I don't have to guess. I don't have to interrupt Danny with 'what are we building?' I can start working immediately."
+
+**User directive (2025-11-13 09:00 UTC):**
+> "please update the agents.md every step of the way with extreme clarity; then debug it to be certain"
+> "enforce that for future agents too pls"
+
+**This means:** agents.md is your lifeline. Treat it like production database. Update obsessively. Verify updates. Debug for clarity.
 
 ---
 
@@ -930,4 +982,348 @@ S5: Guardian Validation (60-90min) → intelligence/session-5/
 - `intelligence/session-{1,2,3,4,5}/` directories ready
 
 **Next:** Launch Session 1 via Claude Code Cloud web interface (copy-paste full file content)
+
+---
+
+## NaviDocs StackCP S2 Swarm Deployment (2025-11-13)
+
+**Last Updated:** 2025-11-13 09:00 UTC
+**Status:** 🟡 Preparation phase IN PROGRESS
+**Timeline:** ~5 hours to working demo (presentation deadline when user wakes)
+**Strategy:** 5 parallel Haiku agents (prep) → 5 parallel Claude Code CLI agents (development)
+
+**Current Progress:**
+- ✅ **Intelligence Complete** - All 5 cloud sessions merged (94 files, 1.5MB, €14.6B market analysis)
+- ✅ **Deployment Plan** - STACKCP_S2_SWARM_DEPLOYMENT.md created (5-agent strategy)
+- ✅ **Feature Selector** - Deployed to https://digital-lab.ca/navidocs/builder/
+- ✅ **Session Handover** - SESSION_HANDOVER_2025-11-13.md created (15KB, comprehensive)
+- ✅ **agents.md Update Protocol** - Mandatory update requirements added (this section)
+- ✅ **/tmp Persistence Verified** - ext4 filesystem, survives reboots (df -h confirmed)
+- 🟡 **Feature Selector Enhancement** - exportAgentTasks() function IN PROGRESS
+- ⏳ **Haiku Swarm Deployment** - 5 agents ready to launch in parallel
+- ⏳ **StackCP Environment Setup** - npm/npx wrappers, directory structure pending
+- ⏳ **NaviDocs Deployment** - Static site deployment to ~/public_html pending
+
+**IF.TTT Citation:**
+- Source: User directive 2025-11-13 09:00 UTC + /home/setup/navidocs/SESSION_HANDOVER_2025-11-13.md:1-600
+- Verification: `ssh stackcp "df -h /tmp && mount | grep /tmp"` (ext4, rw,relatime)
+- Status: verified
+
+### Deployment Architecture (CORRECTED 2025-11-13 09:00 UTC)
+
+**StackCP Environment:**
+- **Host:** ssh.gb.stackcp.com (digital-lab.ca account)
+- **SSH:** `ssh stackcp` (alias configured in ~/.ssh/config)
+- **Home:** /home/sites/7a/c/cb8112d0d1 (user: digital-lab.ca)
+
+**CRITICAL CONSTRAINT (User Correction Applied):**
+- ✅ **`/tmp/` IS executable** - For binaries ONLY (node, claude, meilisearch, etc.)
+- ✅ **`/tmp/` IS PERSISTENT** - ext4 filesystem, survives reboots, 10-day cleanup for general files
+- ✅ **Binaries in /tmp NOT auto-deleted** - Tools persist across reboots
+- ❌ **`~/` is noexec** - Code can live here but won't execute
+- ✅ **`~/` is persistent** - Standard home directory
+
+**CORRECTED Deployment Pattern:**
+- **Executables:** `/tmp/node`, `/tmp/npm`, `/tmp/npx`, `/tmp/claude`, `/tmp/meilisearch`, `/tmp/python*`
+- **Application code:** `~/navidocs-app/` (NOT /tmp/navidocs/) - Node.js app lives here
+- **Website static files:** `~/public_html/digital-lab.ca/navidocs/` - Apache serves from here
+- **Persistent data:** `~/navidocs-data/{db,uploads,logs}` - SQLite, uploads, logs
+- **Configuration:** `~/navidocs-app/.env` - Environment variables
+
+**Previous Plan (WRONG):**
+- ❌ Code in `/tmp/navidocs/` ← This was incorrect
+- ❌ Static site also in `/tmp/` ← This was incorrect
+
+**Corrected Plan (VERIFIED):**
+- ✅ Executables: `/tmp/` (node, npm, npx, claude, etc.)
+- ✅ Application: `~/navidocs-app/` (cloned repo, npm install here)
+- ✅ Website: `~/public_html/digital-lab.ca/navidocs/` (Apache document root)
+- ✅ Data: `~/navidocs-data/` (SQLite DB, uploads, logs)
+
+**Verification Commands:**
+```bash
+# Confirm /tmp persistence
+ssh stackcp "df -h /tmp && mount | grep /tmp"
+# Output: ext4 filesystem, rw,relatime (NOT tmpfs)
+
+# Check existing binaries
+ssh stackcp "ls -lh /tmp/{claude,node,npm,meilisearch}"
+# All present and executable
+
+# Check web directory
+ssh stackcp "ls -la ~/public_html/digital-lab.ca/navidocs/"
+# builder/ directory exists, index.html present
+```
+
+**Directory Structure (CORRECTED 2025-11-13 09:00 UTC):**
+```
+/tmp/                                  # Executables ONLY (persistent ext4)
+├── claude                             # Claude Code CLI (v2.0.28)
+├── node                               # Node.js symlink (v20.18.0)
+├── npm                                # npm wrapper script
+├── npx                                # npx wrapper script
+├── meilisearch                        # Meilisearch binary (v1.6.2)
+├── python-headless-3.12.6-linux-x86_64/  # Python installation
+└── node-v20.18.0-linux-x64/           # Node.js installation directory
+
+~/navidocs-app/                        # Application code (noexec OK)
+├── server/                            # Backend (Express.js + SQLite)
+├── client/                            # Frontend (Vue 3)
+├── package.json                       # Dependencies
+├── node_modules/                      # Installed packages
+└── .env                               # Configuration
+
+~/navidocs-data/                       # Persistent data (noexec OK)
+├── db/navidocs.db                     # SQLite database
+├── uploads/                           # Permanent uploads
+└── logs/                              # Application logs
+
+~/public_html/digital-lab.ca/navidocs/  # Static website (Apache serves)
+├── builder/                           # Feature selector tool ✅ DEPLOYED
+│   └── index.html                     # Interactive feature selection
+├── dist/                              # Production build (when deployed)
+│   ├── assets/                        # CSS, JS, images
+│   └── index.html                     # Main entry point
+├── index.html                         # ✅ Current placeholder
+├── styles.css                         # ✅ Current styles
+└── script.js                          # ✅ Current script
+```
+
+**Backup/Restore Strategy (User Request 2025-11-13 09:00 UTC):**
+
+Since /tmp is persistent but has 10-day cleanup policy for general files:
+
+**Backup Executables (Preventive):**
+```bash
+# Backup /tmp binaries to home directory
+ssh stackcp "mkdir -p ~/backups/tmp-binaries"
+ssh stackcp "cp /tmp/{claude,node,npm,npx,meilisearch} ~/backups/tmp-binaries/"
+ssh stackcp "cp -r /tmp/node-v20.18.0-linux-x64 ~/backups/tmp-binaries/"
+ssh stackcp "cp -r /tmp/python-headless-3.12.6-linux-x86_64 ~/backups/tmp-binaries/"
+```
+
+**Restore Executables (If Needed):**
+```bash
+# Restore from backup
+ssh stackcp "cp ~/backups/tmp-binaries/* /tmp/"
+ssh stackcp "chmod +x /tmp/{claude,node,npm,npx,meilisearch}"
+ssh stackcp "cp -r ~/backups/tmp-binaries/node-v20.18.0-linux-x64 /tmp/"
+ssh stackcp "cp -r ~/backups/tmp-binaries/python-headless-3.12.6-linux-x86_64 /tmp/"
+```
+
+**Automated Backup Script (Recommended):**
+```bash
+# Create on StackCP: ~/bin/backup-tmp-binaries.sh
+ssh stackcp "mkdir -p ~/bin"
+ssh stackcp "cat > ~/bin/backup-tmp-binaries.sh << 'EOF'
+#!/bin/bash
+BACKUP_DIR=~/backups/tmp-binaries-\$(date +%Y%m%d)
+mkdir -p \$BACKUP_DIR
+cp /tmp/{claude,node,npm,npx,meilisearch} \$BACKUP_DIR/ 2>/dev/null
+cp -r /tmp/node-v20.18.0-linux-x64 \$BACKUP_DIR/ 2>/dev/null
+cp -r /tmp/python-headless-3.12.6-linux-x86_64 \$BACKUP_DIR/ 2>/dev/null
+echo \"\$(date): Backup complete to \$BACKUP_DIR\" >> ~/backup.log
+EOF"
+ssh stackcp "chmod +x ~/bin/backup-tmp-binaries.sh"
+
+# Run weekly (manual until StackCP cron configured)
+ssh stackcp "~/bin/backup-tmp-binaries.sh"
+```
+
+### 5-Agent Strategy (S2 Swarm Pattern)
+
+**Agent 1: Backend Developer (S2-BACKEND)**
+- **tmux session:** `backend-dev`
+- **Tasks:** Database setup, Core API endpoints, Background worker, Testing
+- **Duration:** 2 hours
+- **Priority:** P0 - All other agents depend on API availability
+
+**Agent 2: Frontend Developer (S2-FRONTEND)**
+- **tmux session:** `frontend-dev`
+- **Tasks:** Core UI components, Navigation & Layout, Build & Deploy, Testing
+- **Duration:** 2 hours
+- **Dependencies:** Agent 1 API endpoints
+
+**Agent 3: OCR Integration Specialist (S2-OCR)**
+- **tmux session:** `ocr-dev`
+- **Tasks:** Claude Code CLI OCR, Google Vision fallback, Hybrid strategy, Testing
+- **Duration:** 1.5 hours
+- **Innovation:** Use `/tmp/claude` for intelligent document analysis (context understanding)
+
+**Agent 4: Infrastructure & DevOps (S2-INFRA)**
+- **tmux session:** `infra`
+- **Tasks:** Environment config, Process management, Apache reverse proxy, Monitoring
+- **Duration:** 1 hour
+- **Critical:** Sets up Redis Cloud, Meilisearch, Node.js environment
+
+**Agent 5: QA & Integration Testing (S2-QA)**
+- **tmux session:** `qa`
+- **Tasks:** E2E test suite, Demo data preparation, Performance testing, Bug fixing
+- **Duration:** 1 hour
+- **Final Responsibility:** Sign off on presentation-ready demo
+
+### Coordination Protocol
+
+**Task Assignment via Feature Selector:**
+- **Tool:** `~/public_html/digital-lab.ca/navidocs/builder/index.html`
+- **Polling:** Agents read `/tmp/navidocs/agent-tasks.json` every 5 minutes
+- **Format:**
+```json
+{
+  "session_id": "s2-swarm-2025-11-13",
+  "updated_at": "2025-11-13T10:00:00Z",
+  "features_selected": [
+    {
+      "id": "inventory-tracking",
+      "title": "Photo-Based Inventory Tracking",
+      "priority": "CRITICAL",
+      "assigned_to": ["S2-BACKEND", "S2-FRONTEND", "S2-OCR"],
+      "notes": "Must support bulk photo upload",
+      "must_have": 10
+    }
+  ],
+  "agent_tasks": {
+    "S2-BACKEND": [
+      "Create DB tables: inventory_items, equipment_photos",
+      "POST /api/inventory/upload (multi-part)",
+      "GET /api/inventory/:boat_id"
+    ],
+    "S2-FRONTEND": [
+      "Photo grid component with drag-drop",
+      "Inventory list view with filters"
+    ],
+    "S2-OCR": [
+      "Extract equipment names from photos",
+      "Link OCR results to inventory items"
+    ]
+  }
+}
+```
+
+### Agent Coordination Rules
+
+**Communication Pattern:**
+- **Coordination file:** `/tmp/navidocs/coordination.json`
+- **Update frequency:** Every 15 minutes
+- **Format:**
+```json
+{
+  "S2-BACKEND": {
+    "status": "in_progress",
+    "progress": "3/5 tasks complete",
+    "blocked_on": null,
+    "api_endpoints_ready": ["/api/auth/login", "/api/boats"]
+  },
+  "S2-FRONTEND": {
+    "status": "blocked",
+    "progress": "0/4 tasks complete",
+    "blocked_on": "Waiting for Agent 1 API endpoints",
+    "eta_unblock": "10 minutes"
+  }
+}
+```
+
+**Anti-Pattern Detection:**
+- Workers don't coordinate directly (violates Wu Lun hierarchy)
+- All coordination via shared coordination.json (pub/sub pattern)
+- Human checks coordination.json every 30 minutes
+
+### Tech Stack (StackCP Deployment)
+
+**Backend:**
+- Node.js 20.18.0 (`/tmp/node`)
+- Express.js
+- SQLite (better-sqlite3) at `~/navidocs-data/db/navidocs.db`
+- BullMQ + Redis Cloud (free 30MB tier)
+
+**Frontend:**
+- Vue 3 + Vite
+- Design System: Ocean Deep #003D5C, Wave Blue #0066CC, Sand Beige #F5F1E8
+- Inter font family
+
+**Search:**
+- Meilisearch (`/tmp/meilisearch` already running on localhost:7700)
+
+**OCR:**
+- Primary: Claude Code CLI (`/tmp/claude`) for intelligent analysis
+- Fallback: Google Vision API (@google-cloud/vision) for handwriting
+
+**Process Management:**
+- tmux sessions (persistent across SSH disconnects)
+- Apache reverse proxy (StackCP managed)
+
+### Deployment Sequence
+
+**Phase 1: Setup (30 minutes)**
+```bash
+ssh stackcp
+cd /tmp && git clone https://github.com/dannystocker/navidocs.git
+cd navidocs && npm install
+mkdir -p ~/navidocs-data/{db,uploads,logs}
+```
+
+**Phase 2: Launch Agents (5 parallel tmux sessions)**
+```bash
+tmux new -s backend-dev -d "/tmp/claude --prompt 'Agent 1 (S2-BACKEND) prompt...'"
+tmux new -s frontend-dev -d "/tmp/claude --prompt 'Agent 2 (S2-FRONTEND) prompt...'"
+tmux new -s ocr-dev -d "/tmp/claude --prompt 'Agent 3 (S2-OCR) prompt...'"
+tmux new -s infra -d "/tmp/claude --prompt 'Agent 4 (S2-INFRA) prompt...'"
+tmux new -s qa -d "/tmp/claude --prompt 'Agent 5 (S2-QA) prompt...'"
+```
+
+**Phase 3: Development (3 hours)**
+- Agents work in parallel, update coordination.json
+- Human monitors progress every 30 minutes
+- Download binaries to `/tmp/` if dependencies missing
+
+**Phase 4: Testing (1 hour)**
+- Agent 5 (QA) runs E2E tests
+- Demo data preparation (sample boat with documents)
+- Bug fixes as needed
+
+**Phase 5: Presentation Prep (1 hour)**
+- Final polish
+- Rehearsal with demo data
+- Backup plan if features incomplete
+
+### Critical Files
+
+**Deployment Plan:**
+- `~/NAVIDOCS_DEPLOYMENT_PLAN.md` (full 5-agent strategy on StackCP)
+- `/home/setup/navidocs/STACKCP_S2_SWARM_DEPLOYMENT.md` (local copy)
+
+**Feature Selector:**
+- `~/public_html/digital-lab.ca/navidocs/builder/index.html`
+- Accessible: https://digital-lab.ca/navidocs/builder/
+- **Enhancement:** Auto-generates `/tmp/navidocs/agent-tasks.json` for agent polling
+
+**Intelligence Outputs:**
+- `/home/setup/navidocs/NAVIDOCS_COMPLETE_INTELLIGENCE_DOSSIER.md` (all 5 sessions merged)
+- `/home/setup/navidocs/intelligence/session-{1,2,3,4,5}/` (94 files, ~1.5MB)
+
+### IF.TTT Traceability
+
+**Decision Citation:**
+```json
+{
+  "citation_id": "if://decision/navidocs-stackcp-s2-deployment",
+  "claim": "5 parallel Claude Code CLI agents can deliver working demo in 5 hours",
+  "sources": [
+    {"type": "file", "path": "intelligence/session-2/session-2-architecture.md"},
+    {"type": "file", "path": "STACKCP_README.md"},
+    {"type": "doc", "url": "docs/HAIKU-SWARM-TEST-FRAMEWORK.md"}
+  ],
+  "rationale": "S2 swarm pattern validated in InfraFabric; StackCP constraints require /tmp strategy",
+  "status": "verified",
+  "created_by": "if://agent/claude-sonnet-4.5",
+  "created_at": "2025-11-13T08:00:00Z"
+}
+```
+
+**Next Steps:**
+1. ✅ Deployment plan complete
+2. 🟡 Update agents.md (this section)
+3. ⏳ Deploy codebase to `/tmp/navidocs/` on StackCP
+4. ⏳ Launch 5 parallel Claude Code CLI agents
+5. ⏳ Execute 3-hour development phase
 
