@@ -1130,6 +1130,93 @@ ssh stackcp "chmod +x ~/bin/backup-tmp-binaries.sh"
 ssh stackcp "~/bin/backup-tmp-binaries.sh"
 ```
 
+### NaviDocs Features from Intelligence Briefs (Session 2)
+
+**Source:** intelligence/session-2/ (47 files, technical architecture complete)
+**Feature Selector:** https://digital-lab.ca/navidocs/builder/
+**Status:** ✅ 11 features identified, prioritized, and ready for selection
+
+**Tier 1 Features (CRITICAL - Must Have 8-10):**
+
+1. **Photo-Based Inventory Tracking** (Must-Have: 10/10)
+   - Saves: €15K-€50K per boat at resale
+   - Why: Brokers lose €15K-€50K due to incomplete inventory documentation
+   - Features: Photo catalog, depreciation calculator, receipt/warranty linking
+   - Source: intelligence/session-2/agent-2-inventory-tracking.md
+
+2. **Smart Maintenance Tracking & Reminders** (Must-Have: 9/10)
+   - Saves: €5K-€100K in warranty penalties
+   - Why: 100% of boats experience maintenance chaos, missed deadlines void warranties
+   - Features: Service history, automated reminders (<2/week), provider suggestions
+   - Source: intelligence/session-2/agent-3-maintenance-log.md
+
+3. **Document Versioning & Audit Trail** (Must-Have: 10/10)
+   - Saves: €1K-€10K in delayed claims
+   - Why: IF.TTT compliance required for warranty/insurance claims
+   - Features: Version history, conflict resolution, ed25519 signatures
+   - Source: intelligence/session-2/agent-9-document-versioning.md
+
+4. **Multi-User Expense Tracking** (Must-Have: 8/10)
+   - Uncovers: €60K-€100K per year in hidden costs
+   - Why: 100% of owners struggle with expense tracking
+   - Features: OCR receipt processing, approval workflow, VAT visibility
+   - Source: intelligence/session-2/agent-6-expense-tracking.md
+
+**Tier 2 Features (HIGH - Must Have 6-8):**
+
+5. **Home Assistant Camera Integration** (Must-Have: 7/10)
+   - Value: Psychological (remote monitoring anxiety)
+   - Why: 80% of high-net-worth owners want remote monitoring, creates sticky engagement
+   - Features: RTSP/ONVIF integration, motion detection, daily health digest
+   - Source: intelligence/session-2/agent-4-camera-integration.md
+
+6. **Impeccable Search (Meilisearch)** (Must-Have: 8/10)
+   - Saves: Time (19-25 hours per transaction)
+   - Why: User requirement "No long lists - structured, impeccable search results"
+   - Features: Faceting, typo tolerance, instant search (<200ms)
+   - Source: intelligence/session-2/agent-7-search-ux.md
+
+7. **Multi-Calendar System (4 Types)** (Must-Have: 6/10)
+   - Value: Organizational
+   - Why: Service deadlines, warranty expirations, owner onboard periods, work roadmap
+   - Features: 4 calendars, color-coded, unified view, iCal export
+   - Source: intelligence/session-2/agent-3a-multi-calendar.md
+
+8. **Contact Management & Provider Directory** (Must-Have: 6/10)
+   - Saves: €500-€5K per repair in delays
+   - Why: Finding qualified service providers costs time and money
+   - Features: Marina/mechanic directory, search/filter, service history linking
+   - Source: intelligence/session-2/agent-5-contact-management.md
+
+**Tier 3 Features (MEDIUM - Must Have 4-6):**
+
+9. **VAT/Tax Compliance Tracking** (Must-Have: 7/10)
+   - Saves: €20K-€100K in VAT penalties
+   - Why: 30% of non-VAT yachts in EU face penalties, 6-month EU stay limit
+   - Features: EU entry/exit tracking, 6-month reminders, customs stamp requirements
+   - Source: intelligence/session-2/agent-3a-vat-tax-tracking.md
+
+10. **WhatsApp Notification Delivery** (Must-Have: 5/10)
+    - Value: Engagement (98% open rate vs 20% email)
+    - Why: Multi-channel notifications ensure owners never miss critical alerts
+    - Features: WhatsApp Business API, preferred channel delivery, read receipts
+    - Source: intelligence/session-2/agent-8-whatsapp-integration.md
+
+11. **Multi-User Accounting Module (Spliit Fork)** (Must-Have: 4/10)
+    - Value: Shared ownership support
+    - Why: Co-owners, charter guests need expense splitting
+    - Features: Multi-user approval workflow, budget alerts, bank integration API
+    - Source: intelligence/session-2/agent-6a-accounting-integration.md
+
+**Feature Selection Process:**
+1. User visits https://digital-lab.ca/navidocs/builder/
+2. Select features with checkboxes
+3. Adjust "must-have" ratings (1-10 sliders)
+4. Add notes for customization
+5. Export JSON → generates agent-tasks.json for 5-agent development swarm
+
+---
+
 ### 5-Agent Strategy (S2 Swarm Pattern)
 
 **Agent 1: Backend Developer (S2-BACKEND)**
