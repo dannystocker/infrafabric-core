@@ -169,50 +169,54 @@ All agent outputs must meet these three criteria:
 **Local Gitea:** `http://localhost:4000/ggq-admin/navidocs`
 
 **Purpose:** Professional boat manual management with OCR and intelligent search
-**Status:** 🚀 **v0.5→v1.0 Cloud Sessions Active** (5 parallel sessions)
+**Status:** 🚀 **v0.5→v1.0 Cloud Sessions Active** (5 parallel sessions, self-coordinating)
 **Tech Stack:** Vue 3 + Express + SQLite + Meilisearch + Tesseract OCR
-**Last Updated:** 2025-11-13 14:30 UTC
+**Last Updated:** 2025-11-13 15:45 UTC
 
-**Current Phase: Cloud Session Deployment**
+**Current Phase: Cloud Session Deployment with Self-Coordination**
+
+**🎯 Master Coordination Doc:** https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/CLOUD_SESSION_COORDINATION.md
+
+**🚨 Critical Protocol - "Keep the Orchestra Playing":**
+- Sessions self-coordinate via master coordination document
+- New Claude instances read coordination doc immediately
+- No user intervention required for handovers
+- Sessions continue working through context switches
+- User directive: "minimize my involvement pls" - sessions eliminate bottleneck
 
 **Builder Prompts:** https://github.com/dannystocker/navidocs/tree/navidocs-cloud-coordination/builder/prompts
 
 **5 Cloud Sessions Status:**
 
-1. **Session 1: Smart OCR** 🟡 IN PROGRESS
-   - Prompt: builder/prompts/current/session-1-smart-ocr.md
-   - Branch: feature/smart-ocr
-   - Goal: 36x OCR speedup (180s → 5s for text PDFs)
-   - Duration: 60 minutes
-   - Status: Started (user confirmed)
-
-2. **Session 2: Multi-Format Upload** 🟡 IN PROGRESS
-   - Prompt: builder/prompts/current/session-2-multiformat.md
-   - Branch: feature/multiformat
-   - Goal: Enable JPG, PNG, DOCX, XLSX, TXT, MD uploads
-   - Duration: 90 minutes
-   - Status: Started (user confirmed)
-
-3. **Session 3: Timeline Feature** ⏳ READY TO LAUNCH
-   - Prompt: builder/prompts/current/session-3-timeline.md
-   - Branch: feature/timeline
-   - Goal: Organization activity timeline (reverse chronological)
-   - Duration: 2 hours
-   - Status: Prompt ready, waiting for user to launch
-   - Independent: No dependency on Sessions 1-2
-
-4. **Session 4: UI Polish & Testing** ⏳ WAITING
+1. **Session 1 (011CV539gRUg4XMV3C1j56yr): Smart OCR** ✅ COMPLETE → 🟡 Session 4 Work
+   - Original task: Smart OCR (33x speedup) - COMPLETE
+   - Current task: Integration & UI Polish (Session 4 work)
+   - Branch: feature-smart-ocr (merged), feature/polish-testing (creating)
    - Prompt: builder/prompts/current/session-4-polish-testing.md
-   - Branch: feature/polish-testing
-   - Goal: Merge all features, polish UI, test integration
-   - Duration: 90 minutes
-   - Status: Waiting for Sessions 1-3 to push feature branches
+   - Status: Merging features, polishing UI, integration testing
 
-5. **Session 5: Deployment & Documentation** ⏳ WAITING
+2. **Session 2 (011CV53B2oMH6VqjaePrFZgb): Multi-Format Upload** 🔄 RESTARTING
+   - Original task: Wrong prompt (did research instead of implementation)
+   - Correct task: Multi-format upload (JPG, PNG, DOCX, XLSX, TXT, MD)
+   - Branch: feature/multiformat (restarting clean)
+   - Prompt: builder/prompts/current/session-2-multiformat.md
+   - Status: Restarting with correct implementation task
+
+3. **Session 3 (011CV53By5dfJaBfbPXZu9XY): Timeline Feature** ✅ COMPLETE → 🟡 Session 5 Work
+   - Original task: Timeline feature - COMPLETE
+   - Current task: Deployment & Documentation (Session 5 work)
+   - Branch: feature-timeline (complete), preparing production deployment
    - Prompt: builder/prompts/current/session-5-deployment.md
-   - Goal: Deploy to StackCP, create docs, tag v1.0-production
-   - Duration: 90 minutes
-   - Status: Waiting for Session 4 completion
+   - Status: Creating deployment scripts, documentation, preparing StackCP deployment
+
+4. **Session 4 (011CV53P3kj5j42DM7JTHJGf): QA/Testing Support** 🟡 SUPPORT ROLE
+   - Status: Session 1 is doing Session 4 work, this session provides QA/Testing
+   - Task: Test Smart OCR, Timeline, Multi-format features as they complete
+   - Can close or continue as testing support
+
+5. **Session 5: Deployment** 🟡 SESSION 3 HANDLING
+   - Status: Session 3 is doing Session 5 work (deployment & docs)
+   - Can close or continue as support
 
 **Completed Baseline (v0.5-demo-ready):**
 - ✅ Database schema (multi-tenant, activity_log table)
@@ -225,18 +229,33 @@ All agent outputs must meet these three criteria:
 
 **Git Status:**
 - Branch: navidocs-cloud-coordination
-- Latest Commit: a352e44 "[CLOUD SESSIONS] Complete all 5 session prompts"
+- Latest Commit: 2fb772d "[HANDOVER] Self-coordinating sessions - keep orchestra playing"
 - Tag: v0.5-demo-ready (stable baseline)
-- Feature branches expected: feature/smart-ocr, feature/multiformat, feature/timeline
+- Feature branches active:
+  - feature-smart-ocr (Session 1, complete)
+  - feature-timeline (Session 3, complete)
+  - feature/multiformat (Session 2, restarting)
+  - feature/polish-testing (Session 1 creating)
 
 **Deployment Target:**
 - StackCP shared hosting (evaluated, ready)
 - Session 5 will create deployment scripts and docs
 - Target: v1.0-production tag after all sessions complete
 
-**Critical Blockers:** ✅ None (all sessions can proceed)
+**Critical Blockers:** ✅ None (all sessions self-coordinating)
 
-**Handover Doc:** SESSION_HANDOVER_2025-11-13_1430.md (latest)
+**Handover Doc:** SESSION_HANDOVER_2025-11-13_1530.md (LATEST - Self-Coordination Protocol)
+- GitHub: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/SESSION_HANDOVER_2025-11-13_1530.md
+- Philosophy: "The orchestra keeps playing. You're just a new musician joining mid-performance. Follow the sheet music (coordination doc)."
+- New Claude instances read coordination doc immediately and continue work
+- Zero user intervention required during handovers
+
+**Session Coordination Mechanism:**
+1. Master coordination doc tracks all session status
+2. GitHub branches show who completed what
+3. Git commit messages communicate progress
+4. SESSION-N-COMPLETE.md reports document completion
+5. Sessions read coordination doc to self-assign next tasks
 
 ---
 
