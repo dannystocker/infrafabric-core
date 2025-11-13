@@ -169,93 +169,81 @@ All agent outputs must meet these three criteria:
 **Local Gitea:** `http://localhost:4000/ggq-admin/navidocs`
 
 **Purpose:** Professional boat manual management with OCR and intelligent search
-**Status:** 🚀 **v0.5→v1.0 Cloud Sessions Active** (5 parallel sessions, self-coordinating)
+**Status:** 🚀 **PRESENTATION READY** (Riviera Plaisance - 1 hour)
 **Tech Stack:** Vue 3 + Express + SQLite + Meilisearch + Tesseract OCR
-**Last Updated:** 2025-11-13 15:45 UTC
+**Last Updated:** 2025-11-13 16:00 UTC (Session handover - 2% context recovery)
 
-**Current Phase: Cloud Session Deployment with Self-Coordination**
+**🎯 CRITICAL: PRESENTATION IN 1 HOUR (Riviera Plaisance)**
 
-**🎯 Master Coordination Doc:** https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/CLOUD_SESSION_COORDINATION.md
+**Deployed & Ready:**
+- ✅ **Feature Selector:** https://digital-lab.ca/navidocs/builder/riviera-meeting.html
+- ✅ **Intelligence Brief:** https://digital-lab.ca/navidocs/brief/
+- ✅ **Demo Site:** https://digital-lab.ca/navidocs/demo/
+- ✅ **3 Features Live:** Smart OCR (36x speedup), Multi-format uploads, Timeline
 
-**🚨 Critical Protocol - "Keep the Orchestra Playing":**
-- Sessions self-coordinate via master coordination document
-- New Claude instances read coordination doc immediately
-- No user intervention required for handovers
-- Sessions continue working through context switches
-- User directive: "minimize my involvement pls" - sessions eliminate bottleneck
+**Meeting Prep Files:**
+- feature-selector-riviera-meeting.html (31KB) - Interactive feature voting with notes
+- LOCAL_DEVELOPMENT_SETUP.md - Run NaviDocs locally with same config as production
+- INSTRUCTIONS_FOR_ALL_SESSIONS.md - Master instructions for 5+ cloud sessions
 
-**Builder Prompts:** https://github.com/dannystocker/navidocs/tree/navidocs-cloud-coordination/builder/prompts
+**Total Features: 8 (3 Deployed + 5 Specs Ready)**
 
-**5 Cloud Sessions Status:**
+**Phase 1: DEPLOYED ✅**
+1. Smart OCR (36x speedup) - pdfjs-dist for text extraction, Tesseract fallback
+2. Multi-format uploads - JPG, PNG, DOCX, XLSX, TXT, MD
+3. Timeline - Activity feed with date grouping
 
-1. **Session 1 (011CV539gRUg4XMV3C1j56yr): Smart OCR** ✅ COMPLETE → 🟡 Session 4 Work
-   - Original task: Smart OCR (33x speedup) - COMPLETE
-   - Current task: Integration & UI Polish (Session 4 work)
-   - Branch: feature-smart-ocr (merged), feature/polish-testing (creating)
-   - Prompt: builder/prompts/current/session-4-polish-testing.md
-   - Status: Merging features, polishing UI, integration testing
+**Phase 2: SPECS READY (Sessions 6-10) 🔄**
+4. Inventory & Warranty Tracking (90-120 min) - Equipment with warranty alerts
+5. Maintenance Scheduler (90-120 min) - Recurring tasks with auto-calculated due dates
+6. Crew & Contact Management (60-90 min) - Marine operations directory
+7. Compliance & Certification (75-90 min) - Regulatory compliance automation
+8. Fuel Log & Expense Tracker (90-120 min) - Financial management with charts
 
-2. **Session 2 (011CV53B2oMH6VqjaePrFZgb): Multi-Format Upload** 🔄 RESTARTING
-   - Original task: Wrong prompt (did research instead of implementation)
-   - Correct task: Multi-format upload (JPG, PNG, DOCX, XLSX, TXT, MD)
-   - Branch: feature/multiformat (restarting clean)
-   - Prompt: builder/prompts/current/session-2-multiformat.md
-   - Status: Restarting with correct implementation task
-
-3. **Session 3 (011CV53By5dfJaBfbPXZu9XY): Timeline Feature** ✅ COMPLETE → 🟡 Session 5 Work
-   - Original task: Timeline feature - COMPLETE
-   - Current task: Deployment & Documentation (Session 5 work)
-   - Branch: feature-timeline (complete), preparing production deployment
-   - Prompt: builder/prompts/current/session-5-deployment.md
-   - Status: Creating deployment scripts, documentation, preparing StackCP deployment
-
-4. **Session 4 (011CV53P3kj5j42DM7JTHJGf): QA/Testing Support** 🟡 SUPPORT ROLE
-   - Status: Session 1 is doing Session 4 work, this session provides QA/Testing
-   - Task: Test Smart OCR, Timeline, Multi-format features as they complete
-   - Can close or continue as testing support
-
-5. **Session 5: Deployment** 🟡 SESSION 3 HANDLING
-   - Status: Session 3 is doing Session 5 work (deployment & docs)
-   - Can close or continue as support
-
-**Completed Baseline (v0.5-demo-ready):**
-- ✅ Database schema (multi-tenant, activity_log table)
-- ✅ OCR pipeline (Tesseract working)
-- ✅ Background worker (BullMQ + Redis)
-- ✅ Frontend UI (Vue 3 + Vite)
-- ✅ Authentication (JWT, multi-user)
-- ✅ Search (Meilisearch integrated, <10ms queries)
-- ✅ Upload flow (PDF working, needs multi-format)
+**Session Coordination:**
+- **Master Doc:** https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/INSTRUCTIONS_FOR_ALL_SESSIONS.md
+- **Protocol:** Branch-based identification (not session numbers) - eliminated confusion
+- **Self-coordination:** Sessions read GitHub master doc, check branches, self-assign work
+- **Zero bottleneck:** User intervention minimized - "minimize my involvement pls"
 
 **Git Status:**
 - Branch: navidocs-cloud-coordination
-- Latest Commit: 2fb772d "[HANDOVER] Self-coordinating sessions - keep orchestra playing"
-- Tag: v0.5-demo-ready (stable baseline)
-- Feature branches active:
-  - feature-smart-ocr (Session 1, complete)
-  - feature-timeline (Session 3, complete)
-  - feature/multiformat (Session 2, restarting)
-  - feature/polish-testing (Session 1 creating)
+- Latest Commit: 60c73bb "[MEETING PREP] Feature selector + testing + integrations"
+- Previous: 95805f1 "[FEATURES] Add 5 new feature specs (Sessions 6-10)"
+- Previous: 98d1ea8 "[INSTRUCTIONS] Single source of truth for all cloud sessions"
+- Tag: v0.5-demo-ready (baseline)
 
-**Deployment Target:**
-- StackCP shared hosting (evaluated, ready)
-- Session 5 will create deployment scripts and docs
-- Target: v1.0-production tag after all sessions complete
+**Integration Plans (Complete Specs):**
+- WhatsApp Business API (34KB, 1,178 lines) - Document upload via WhatsApp, warranty alerts, search
+- Claude CLI Chatbox (39KB, 1,469 lines) - AI assistant with document context, streaming responses
 
-**Critical Blockers:** ✅ None (all sessions self-coordinating)
+**Testing & QC:**
+- USER_TESTING_INSTRUCTIONS_CLOUD.md (565 lines) - Real-world boat owner scenarios
+- LIVE_TESTING_GUIDE.md (872 lines) - Comprehensive testing checklist
+- FEATURE_SUMMARY_ALL.md (889 lines) - Complete feature catalog
 
-**Handover Doc:** SESSION_HANDOVER_2025-11-13_1530.md (LATEST - Self-Coordination Protocol)
-- GitHub: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/SESSION_HANDOVER_2025-11-13_1530.md
-- Philosophy: "The orchestra keeps playing. You're just a new musician joining mid-performance. Follow the sheet music (coordination doc)."
-- New Claude instances read coordination doc immediately and continue work
-- Zero user intervention required during handovers
+**Deployment Architecture:**
+- **StackCP Live:** https://digital-lab.ca/navidocs/
+- **Constraint:** NO Node.js runtime on StackCP (PHP/Python only)
+- **Frontend:** Static build deployed to ~/public_html/digital-lab.ca/navidocs/
+- **Backend:** Requires external VPS (not StackCP) OR serverless functions
+- **Meilisearch:** Running on StackCP (port 7700, PID 1760163)
 
-**Session Coordination Mechanism:**
-1. Master coordination doc tracks all session status
-2. GitHub branches show who completed what
-3. Git commit messages communicate progress
-4. SESSION-N-COMPLETE.md reports document completion
-5. Sessions read coordination doc to self-assign next tasks
+**Critical Files for Presentation:**
+- `/home/setup/navidocs/feature-selector-riviera-meeting.html` (local copy)
+- `/home/setup/navidocs/FEATURE_SPEC_*.md` (8 complete specs)
+- `/home/setup/navidocs/LOCAL_DEVELOPMENT_SETUP.md` (run locally with production config)
+
+**Handover Protocol:**
+- Latest: SESSION_HANDOVER_2025-11-13_1530.md
+- Philosophy: "Orchestra keeps playing" - new Claude reads coordination doc, continues work
+- Previous session hit 2% context, requested "aggressive update" to agents.md ✅ DONE
+
+**Next Steps After Presentation:**
+1. Get client feature selection from meeting (use feature selector)
+2. Launch cloud sessions for selected features (Sessions 6-10)
+3. Deploy backend to external VPS (StackCP has no Node.js)
+4. Integrate WhatsApp + Claude chatbox if selected
 
 ---
 
