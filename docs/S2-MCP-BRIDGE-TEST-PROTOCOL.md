@@ -3,7 +3,7 @@
 **Protocol ID:** `if://test-protocol/s2-mcp-bridge/v1.0`
 **Created:** 2025-11-13
 **Purpose:** Validate MCP bridge for 9-agent S² coordination with full TTT compliance
-**Architecture:** 1 Orchestrator + 6 Cloud Sessions + 1 WSL CLI + 1 Codex
+**Architecture:** 1 Orchestrator + 7 Cloud Sessions + 1 WSL CLI
 
 ---
 
@@ -51,16 +51,16 @@ This protocol tests the `mcp-multiagent-bridge` for coordinating 9 concurrent ag
    └──────────┘             └─────────────┘         └─────────────┘
         │                          │
    ┌────▼─────┐             ┌──────▼──────┐
-   │ WSL CLI  │             │ WSL Codex   │
+   │ WSL CLI  │             │Cloud Codex  │
    │(Local Dev)│            │(Code Gen)   │
    └──────────┘             └─────────────┘
 ```
 
 **Agent Roles:**
 1. **Orchestrator** - Task assignment, coordination, monitoring (this session)
-2. **Cloud 1-6** - Worker agents on separate cloud machines
+2. **Cloud 1-7** - Worker agents on separate cloud machines
 3. **WSL CLI** - Local Claude Code CLI on Windows Subsystem for Linux
-4. **WSL Codex** - Local OpenAI Codex on WSL
+4. **Cloud Codex** - OpenAI Codex on Cloud Machine 8
 
 ---
 

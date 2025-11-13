@@ -41,7 +41,7 @@ curl -fsSL https://raw.githubusercontent.com/dannystocker/mcp-multiagent-bridge/
 | **Cloud Session 5** | Worker | Cloud Machine 5 | Deployment | `worker-5-deploy` |
 | **Cloud Session 6** | Worker | Cloud Machine 6 | Review | `worker-6-review` |
 | **WSL Claude CLI** | Worker | Your WSL | Local Development | `worker-7-wsl-cli` |
-| **WSL Codex** | Worker | Your WSL | Code Generation | `worker-8-wsl-codex` |
+| **Cloud Codex** | Worker | Cloud Machine 8 | Code Generation | `worker-8-cloud-codex` |
 
 ---
 
@@ -103,7 +103,7 @@ Worker roles:
 - worker-5-deploy
 - worker-6-review
 - worker-7-wsl-cli
-- worker-8-wsl-codex
+- worker-8-cloud-codex
 ```
 
 ---
