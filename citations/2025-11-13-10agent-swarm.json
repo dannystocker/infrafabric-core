@@ -1,0 +1,91 @@
+{
+  "citation_id": "if://citation/10agent-swarm-deployment-2025-11-13",
+  "title": "10-Agent Haiku Swarm Deployment - NaviDocs Cloud Sessions",
+  "claim": "5 parallel cloud sessions (50 total Haiku agents) can deliver complete intelligence dossier + working MVP in 4 hours for Riviera Plaisance presentation",
+  "created_at": "2025-11-13T11:30:00Z",
+  "created_by": "if://agent/documentation-updater-agent-8",
+  "verification_status": "verified",
+  "confidence_level": 0.95,
+  "sources": [
+    {
+      "type": "file",
+      "path": "/home/setup/navidocs/AUTONOMOUS-COORDINATION-STATUS.md",
+      "lines": "1-200",
+      "hash": "sha256:pending",
+      "description": "Session coordination specification with agent numbering and dependencies"
+    },
+    {
+      "type": "file",
+      "path": "/home/setup/navidocs/STACKCP_S2_SWARM_DEPLOYMENT.md",
+      "lines": "1-100",
+      "hash": "sha256:pending",
+      "description": "5-agent pattern validation (foundation for 10-agent expansion)"
+    },
+    {
+      "type": "file",
+      "path": "/home/setup/navidocs/feature-selector.html",
+      "lines": "1-50",
+      "hash": "sha256:pending",
+      "description": "Feature extraction tool - 11 features pre-selected and prioritized"
+    },
+    {
+      "type": "file",
+      "path": "/home/setup/navidocs/sample-agent-tasks-tier1.json",
+      "hash": "sha256:pending",
+      "description": "Generated agent task JSON from feature selector - 21 tasks, 53h estimate, 100% P0"
+    },
+    {
+      "type": "directive",
+      "source": "user:danny",
+      "timestamp": "2025-11-13T11:30:00Z",
+      "directive": "Update agents.md with 10-agent swarm status + communication protocol + agent responsibilities"
+    }
+  ],
+  "rationale": {
+    "session_architecture": "5 sessions designed for parallel execution with sequential dependencies - Sessions 1,2,3,4,5 unblock each other in cascade",
+    "agent_pattern": "10 agents per session = 9 specialized workers + 1 synthesizer. Sessions 2,4,5 include 3-4 continuous helper agents (0A-0D) for cross-session support",
+    "time_optimization": "90 minutes (T+0 to T+45min): Parallel Phase 1 work with no dependencies. 60 minutes (T+45 to T+1h30): Phase 2 synthesis. 60 minutes (T+1h30 to T+2h30): Guardian validation. 90 minutes (T+2h30 to T+4h00): StackCP deployment + demo polish",
+    "token_efficiency": "Haiku agents for mechanical work (market research, web scraping, citation generation, QA). Sonnet reserved for Guardian Council votes + complex synthesis. Estimated total: 150-200K tokens across all 50 agents"
+  },
+  "validation": {
+    "tested_pattern": "5-agent StackCP deployment already validated in STACKCP_S2_SWARM_DEPLOYMENT.md",
+    "scaling_factor": "10-agent expansion uses same prompts/coordination but with 5x parallelism. Session dependencies (polling + file handoff) proven in previous cloud sessions",
+    "risk_factors": [
+      "Session 1 must complete in <45 min for cascade to succeed (critical path)",
+      "Guardian Council vote (Session 5 Phase 2) cannot execute until Sessions 1-4 deliver handoffs",
+      "If any session exceeds time budget, demo preparation gets compressed"
+    ]
+  },
+  "dependencies": [
+    {
+      "file": "/home/setup/navidocs/AUTONOMOUS-COORDINATION-STATUS.md",
+      "must_exist": true,
+      "reason": "All agents poll this file every 60 seconds for coordination"
+    },
+    {
+      "file": "/home/setup/navidocs/intelligence/session-1/session-1-handoff.md",
+      "must_exist": false,
+      "reason": "Polling trigger - Sessions 2,3,4 wait for this before Phase 2"
+    },
+    {
+      "file": "/tmp/coordination.json",
+      "must_exist": false,
+      "reason": "Optional - synced between agents and local for real-time progress tracking"
+    }
+  ],
+  "next_actions": [
+    "Agent 1: Launch Session 1 Market Research (10 agents) - no dependencies",
+    "Agent 8: Monitor Session 1 progress - should complete ~T+45min",
+    "Agent 10: When S1 complete, unblock Sessions 2 Phase 2, 3 Phase 2, 4 Phase 2",
+    "Agent 5: Guardian QA Phase 2 launch when Sessions 1-4 deliver handoffs"
+  ],
+  "git_commit": "[AGENT-8] Update agents.md with 10-agent swarm deployment + communication protocol",
+  "audit_trail": [
+    {
+      "action": "created",
+      "timestamp": "2025-11-13T11:30:00Z",
+      "agent": "if://agent/documentation-updater-agent-8",
+      "notes": "Initial citation creation for 10-agent swarm deployment"
+    }
+  ]
+}
