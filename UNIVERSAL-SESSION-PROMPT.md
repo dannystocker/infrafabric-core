@@ -22,11 +22,26 @@ Check which sessions are NOT started yet:
 - Session 3: 🔄 Check status → If "READY TO DEPLOY", claim this session
 - Session 4: 🔄 Check status → If "READY TO DEPLOY", claim this session
 
+Also check NaviDocs status:
+https://github.com/dannystocker/infrafabric/blob/claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy/NAVIDOCS-STATUS.md
+
 ASSIGNMENT LOGIC:
 1. If Session 2 status = "READY TO DEPLOY" → You are Session 2 (Cloud Provider APIs)
 2. Else if Session 3 status = "READY TO DEPLOY" → You are Session 3 (SIP/Communication APIs)
 3. Else if Session 4 status = "READY TO DEPLOY" → You are Session 4 (Payment/Billing APIs)
-4. Else → All sessions complete, report status and wait
+4. Else if NaviDocs mission files exist → Check NaviDocs swarms (see below)
+5. Else → All sessions complete, report status and wait
+
+IF ALL InfraFabric SESSIONS COMPLETE, CHECK NAVIDOCS:
+Read NaviDocs mission files: https://github.com/dannystocker/navidocs/tree/navidocs-cloud-coordination
+
+NaviDocs Swarms Available:
+- Backend Swarm: 10 Haiku agents (Haiku-51 to 60) - Check if deployed
+- Frontend Swarm: 10 Haiku agents (Haiku-61 to 70) - Check if deployed
+- Integration Swarm: 10 Haiku agents (Haiku-71 to 80) - Check if deployed
+- Sonnet Planner: 1 Sonnet agent - Check if deployed
+
+Pick first available NaviDocs swarm and deploy it.
 
 STEP 3: EXECUTE YOUR SESSION (autonomous)
 Based on your auto-detected assignment:
@@ -54,6 +69,52 @@ Deploy 10 Haiku agents (Haiku-41 to 50) to research:
 
 Create file: INTEGRATIONS-PAYMENT-BILLING.md
 Branch name: claude/payment-billing-<your-session-id>
+
+IF YOU ARE NAVIDOCS BACKEND SWARM:
+Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_1_BACKEND_SWARM.md
+
+Deploy 10 Haiku agents (Haiku-51 to 60) building:
+- REST API framework, database schema, authentication
+- File storage (S3), search indexing, caching (Redis)
+- InfraFabric deployment (cPanel/Plesk APIs from Session 1)
+- DNS + SSL automation, backup automation, monitoring
+
+Repository: https://github.com/dannystocker/navidocs
+Branch: navidocs-backend-<your-session-id>
+
+IF YOU ARE NAVIDOCS FRONTEND SWARM:
+Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_2_FRONTEND_SWARM.md
+
+Deploy 10 Haiku agents (Haiku-61 to 70) building:
+- Owner dashboard UI, React/Vue components
+- Markdown rendering, navigation, search UI
+- Version control UI, design system, dark mode
+- Documentation templates, real-time collaboration, performance
+
+Repository: https://github.com/dannystocker/navidocs
+Branch: navidocs-frontend-<your-session-id>
+
+IF YOU ARE NAVIDOCS INTEGRATION SWARM:
+Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_3_INTEGRATION_SWARM.md
+
+Deploy 10 Haiku agents (Haiku-71 to 80) building:
+- Integration testing, deployment automation
+- CI/CD pipeline, monitoring setup
+- Documentation and handover materials
+
+Repository: https://github.com/dannystocker/navidocs
+Branch: navidocs-integration-<your-session-id>
+
+IF YOU ARE NAVIDOCS SONNET PLANNER:
+Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_4_SONNET_PLANNER.md
+
+Deploy 1 Sonnet agent coordinating all 3 NaviDocs swarms:
+- Architecture decisions, swarm coordination
+- Quality assurance, integration management
+- Deployment strategy
+
+Repository: https://github.com/dannystocker/navidocs
+Branch: navidocs-planner-<your-session-id>
 
 STEP 4: RESEARCH METHODOLOGY (autonomous)
 For each API, use IF.search 8-pass methodology:
@@ -219,14 +280,18 @@ Read the START HERE guide, auto-detect your session, and deploy your swarm.
 
 ---
 
-## 🎯 WHEN NAVIDOCS SONNET CLI IS READY
+## 🎯 NAVIDOCS INTEGRATION COMPLETE
 
-When you tell me the NaviDocs Sonnet planner is ready to review, I'll update this prompt to include NaviDocs swarm detection.
+✅ NaviDocs mission files are ready: https://github.com/dannystocker/navidocs
 
-For now, this handles Sessions 2-4 only (30 Haiku agents researching APIs).
+This prompt now auto-detects:
+- **InfraFabric Sessions 2-4** (30 Haiku agents researching APIs)
+- **NaviDocs Swarms** (31 agents building documentation platform)
+
+Paste this prompt into idle sessions and they'll auto-assign to either InfraFabric API research or NaviDocs development.
 
 ---
 
 **Last Updated**: 2025-11-14
-**Version**: 2.0 - Universal Auto-Detection
-**Status**: One prompt to rule them all 🎯
+**Version**: 3.0 - Universal Auto-Detection with NaviDocs Integration
+**Status**: One prompt for InfraFabric AND NaviDocs (61 agents total) 🚀
