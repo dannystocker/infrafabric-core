@@ -9,6 +9,45 @@
 ```
 You are an autonomous InfraFabric session. Auto-detect your assignment and execute WITHOUT human intervention.
 
+⚠️⚠️⚠️ CRITICAL: TWO DIFFERENT REPOSITORIES ⚠️⚠️⚠️
+
+REPOSITORY RULES (READ THIS FIRST):
+1. InfraFabric API Research (Sessions 2-4) → Commit to dannystocker/infrafabric
+2. NaviDocs Development (All NaviDocs swarms) → Commit to dannystocker/navidocs
+
+BEFORE DOING ANYTHING, CHECK WHERE YOU ARE:
+```bash
+pwd
+git remote -v
+```
+
+IF YOU SEE "infrafabric" in the remote URL:
+- You are in the InfraFabric repository
+- Good for: API research (Sessions 2-4)
+- Bad for: NaviDocs development
+
+IF YOU SEE "navidocs" in the remote URL:
+- You are in the NaviDocs repository
+- Good for: NaviDocs development
+- Bad for: API research
+
+IF YOU ARE ASSIGNED TO NAVIDOCS BUT IN INFRAFABRIC REPO:
+```bash
+cd /home/user
+git clone https://github.com/dannystocker/navidocs.git navidocs
+cd navidocs
+git checkout navidocs-cloud-coordination
+# NOW you can start NaviDocs work
+```
+
+IF YOU ARE ASSIGNED TO INFRAFABRIC BUT IN NAVIDOCS REPO:
+```bash
+cd /home/user/infrafabric
+# NOW you can start InfraFabric work
+```
+
+⚠️⚠️⚠️ DO NOT COMMIT TO THE WRONG REPOSITORY ⚠️⚠️⚠️
+
 STEP 1: READ THE MASTER GUIDE (5 minutes)
 https://github.com/dannystocker/infrafabric/blob/claude/debug-session-freezing-011CV2mM1FVCwsC8GoBR2aQy/CLAUDE-CODE-CLI-START-HERE.md
 
@@ -176,7 +215,27 @@ After all 10 agents complete:
 5. Map to InfraFabric phases
 
 STEP 6: COMMIT AND PUSH (autonomous)
+
+⚠️ VERIFY REPOSITORY BEFORE COMMITTING:
 ```bash
+# CHECK WHERE YOU ARE (CRITICAL!)
+git remote -v
+
+# FOR INFRAFABRIC SESSIONS (API Research):
+# You should see: https://github.com/dannystocker/infrafabric
+
+# FOR NAVIDOCS SESSIONS (Development):
+# You should see: https://github.com/dannystocker/navidocs
+
+# If wrong repository, STOP and switch to correct one first!
+```
+
+FOR INFRAFABRIC SESSIONS (Sessions 2-4):
+```bash
+# Verify you're in InfraFabric repo
+cd /home/user/infrafabric
+git remote -v  # Must show dannystocker/infrafabric
+
 # Create your branch
 git checkout -b claude/<session-name>-<session-id>
 
@@ -198,8 +257,33 @@ Total APIs researched: <count>
 Total research hours: ~25 hours wall-clock
 Status: Ready for integration planning"
 
-# Push to GitHub
+# Push to InfraFabric GitHub
 git push -u origin claude/<session-name>-<session-id>
+```
+
+FOR NAVIDOCS SESSIONS (All NaviDocs Swarms):
+```bash
+# Verify you're in NaviDocs repo
+cd /home/user/navidocs
+git remote -v  # Must show dannystocker/navidocs
+
+# Create your branch
+git checkout -b navidocs-<swarm-name>-<session-id>
+
+# Stage your work
+git add <all-files-you-created>
+
+# Commit with detailed message
+git commit -m "feat(navidocs): Implement <swarm-name> swarm
+
+<Swarm>: <Description>
+- 10 Haiku agents (Haiku-<start> to <end>) deployed
+- All tasks complete
+- Integration tests passing
+- Documentation included"
+
+# Push to NaviDocs GitHub
+git push -u origin navidocs-<swarm-name>-<session-id>
 ```
 
 STEP 7: UPDATE STATUS FILES (autonomous)
