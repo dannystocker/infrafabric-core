@@ -71,6 +71,21 @@ Create file: INTEGRATIONS-PAYMENT-BILLING.md
 Branch name: claude/payment-billing-<your-session-id>
 
 IF YOU ARE NAVIDOCS BACKEND SWARM:
+⚠️ CRITICAL: You must work in the NaviDocs repository, NOT InfraFabric!
+
+First, check if you're in the NaviDocs repo:
+```bash
+git remote -v
+```
+
+If you see infrafabric, you need to switch to NaviDocs:
+```bash
+cd /home/user
+git clone https://github.com/dannystocker/navidocs.git navidocs
+cd navidocs
+git checkout navidocs-cloud-coordination
+```
+
 Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_1_BACKEND_SWARM.md
 
 Deploy 10 Haiku agents (Haiku-51 to 60) building:
@@ -79,10 +94,15 @@ Deploy 10 Haiku agents (Haiku-51 to 60) building:
 - InfraFabric deployment (cPanel/Plesk APIs from Session 1)
 - DNS + SSL automation, backup automation, monitoring
 
+Working Directory: /home/user/navidocs
 Repository: https://github.com/dannystocker/navidocs
 Branch: navidocs-backend-<your-session-id>
 
 IF YOU ARE NAVIDOCS FRONTEND SWARM:
+⚠️ CRITICAL: You must work in the NaviDocs repository, NOT InfraFabric!
+
+Ensure you're in NaviDocs repo (same as Backend Swarm above).
+
 Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_2_FRONTEND_SWARM.md
 
 Deploy 10 Haiku agents (Haiku-61 to 70) building:
@@ -91,10 +111,15 @@ Deploy 10 Haiku agents (Haiku-61 to 70) building:
 - Version control UI, design system, dark mode
 - Documentation templates, real-time collaboration, performance
 
+Working Directory: /home/user/navidocs
 Repository: https://github.com/dannystocker/navidocs
 Branch: navidocs-frontend-<your-session-id>
 
 IF YOU ARE NAVIDOCS INTEGRATION SWARM:
+⚠️ CRITICAL: You must work in the NaviDocs repository, NOT InfraFabric!
+
+Ensure you're in NaviDocs repo (same as Backend Swarm above).
+
 Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_3_INTEGRATION_SWARM.md
 
 Deploy 10 Haiku agents (Haiku-71 to 80) building:
@@ -102,10 +127,15 @@ Deploy 10 Haiku agents (Haiku-71 to 80) building:
 - CI/CD pipeline, monitoring setup
 - Documentation and handover materials
 
+Working Directory: /home/user/navidocs
 Repository: https://github.com/dannystocker/navidocs
 Branch: navidocs-integration-<your-session-id>
 
 IF YOU ARE NAVIDOCS SONNET PLANNER:
+⚠️ CRITICAL: You must work in the NaviDocs repository, NOT InfraFabric!
+
+Ensure you're in NaviDocs repo (same as Backend Swarm above).
+
 Read mission file: https://github.com/dannystocker/navidocs/blob/navidocs-cloud-coordination/S2_MISSION_4_SONNET_PLANNER.md
 
 Deploy 1 Sonnet agent coordinating all 3 NaviDocs swarms:
@@ -113,6 +143,7 @@ Deploy 1 Sonnet agent coordinating all 3 NaviDocs swarms:
 - Quality assurance, integration management
 - Deployment strategy
 
+Working Directory: /home/user/navidocs
 Repository: https://github.com/dannystocker/navidocs
 Branch: navidocs-planner-<your-session-id>
 
