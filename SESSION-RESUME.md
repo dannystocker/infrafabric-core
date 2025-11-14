@@ -1,30 +1,35 @@
-# Session Resume - 2025-11-10
+# Session Resume - 2025-11-14
 
 **Purpose:** Minimal context handoff for new Claude sessions (<2,000 tokens target)
 
-**Last Updated:** 2025-11-10T01:30:00Z
+**Last Updated:** 2025-11-14T16:30:00Z
 **Updated By:** if://agent/claude-sonnet-4.5
-**Session ID:** session-2025-11-10-handover-system-deployment
+**Session ID:** session-2025-11-14-post-mortem-navidocs-shift
 
 ---
 
 ## Current Mission
 
-**Primary Task:** Fix critical documentation gaps identified by Gemini 2.5 Pro evaluation (2025-11-10).
+**Primary Task:** NaviDocs production build using simplified single-session approach (15 Haiku agents).
 
-**Context:** Gemini evaluation revealed false claims in yologuard benchmarks, empty component index, and missing documentation. Previous session propagated unverified claims. Now fixing with empirical validation.
+**Context:** Completed 8-session post-mortem analysis revealing $400 token spend (90% from single session). User shifted from complex S² 4-mission plan (31 agents, $12-18) to simplified single-session build (15 Haiku agents, $8-12). All NaviDocs research complete - just need to BUILD.
 
-**⚠️ CRITICAL BLOCKERS BEFORE EXTERNAL PUBLICATION:**
-1. IF.yologuard benchmark UNVERIFIED (55.4% actual vs 98.96% claimed)
-2. Component index was prose, not functional catalog (now fixed)
-3. Citation numbering error in InfraFabric.md ([45] and [46] missing)
-4. IF-momentum.md (one of 6 core papers) missing
+**⚠️ RECENT POST-MORTEM (2025-11-14):**
+1. **$400 spent across 8 sessions** (should have been $60-100)
+2. **213 tool invocations** with massive context reloading (15K-30K tokens each)
+3. **73% output was reformatted API docs** (only 3-5% production code)
+4. **navidocs4-console:** 8 commits unpushed (4,238 lines at risk) - push FAILED
 
-**Expected Outcome:**
-1. ⚠️ UNVERIFIED yologuard claims corrected across all documents
-2. ✅ Working message validator (tools/ifctl.py) - VERIFIED by Gemini
-3. ✅ Component index rebuilt as functional catalog (87 components)
-4. Corrected documentation reflecting actual validation status
+**Key Lesson:**
+- ✅ USE HAIKU FOR LABOR (file operations, research, data work)
+- ✅ USE SONNET FOR REASONING (architecture, council debates)
+- ✅ AVOID CONTEXT RELOADING (batch operations, use Edit not Read+Write loops)
+
+**NaviDocs Status:**
+- All research COMPLETE (intelligence dossier: 94 files, ~1.5MB)
+- New approach: Single session, 15 Haiku agents, $8-12 budget
+- Build prompt ready: `/home/setup/navidocs/NAVIDOCS_SINGLE_SESSION_BUILD.md`
+- User can copy-paste into Claude Code Cloud to launch
 
 ---
 
@@ -32,22 +37,18 @@
 
 **Overall Progress:** In Progress
 
-**Progress Indicators:**
-- [x] Session handover system deployed (SESSION-ONBOARDING.md, COMPONENT-INDEX.md, agents.md)
-- [x] IF.TTT traceability framework documented
-- [x] IF.citation and IF.connect added to component index
-- [x] Philosophy → Technology mapping completed (PHILOSOPHY-TO-TECH-MAPPING.md)
-- [x] Haiku swarm test framework designed (HAIKU-SWARM-TEST-FRAMEWORK.md)
-- [x] IFMessage validator implemented (tools/ifctl.py) - ✅ VERIFIED by Gemini
-- [x] Gemini 2.5 Pro evaluation completed (2025-11-10)
-- [x] COMPONENT-INDEX.md rebuilt as functional catalog (v2.0, 87 components)
-- [🔄] Guarded claims validation (GUARDED-CLAIMS.md) - ⚠️ Contains FALSE CLAIMS, needs correction
-- [🔄] SESSION-RESUME.md correction (this file) - IN PROGRESS
-- [ ] GUARDED-CLAIMS.md yologuard status corrected to UNVERIFIED
-- [ ] InfraFabric.md citation numbering fixed ([45] and [46] researched)
-- [ ] IF.yologuard benchmark made reproducible (CRITICAL BLOCKER)
+**Progress Indicators (2025-11-14):**
+- [x] 8-session post-mortem analysis complete
+- [x] $400 spending breakdown identified (if0-console = 90%)
+- [x] Critical blocker found: navidocs4 unpushed work (4,238 lines)
+- [x] agents.md updated with post-mortem findings
+- [x] NaviDocs single-session build prompt created (15 Haiku agents)
+- [x] Build prompt pushed to GitHub (navidocs-cloud-coordination branch)
+- [x] SESSION-RESUME.md updated with current mission
+- [ ] User launches NaviDocs build in Claude Code Cloud
+- [ ] User recovers navidocs4 unpushed commits
 
-**Current Step:** Correct false claims propagated in previous session based on Gemini evaluation findings
+**Current Step:** Handoff complete, awaiting user to launch NaviDocs build session
 
 ---
 

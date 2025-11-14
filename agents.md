@@ -4,7 +4,51 @@
 
 **Audience:** All Claude instances working on InfraFabric (Sonnet, Haiku, specialized agents).
 
-**Last Updated:** 2025-11-10
+**Last Updated:** 2025-11-14 (Post-mortem: 8-session $400 analysis)
+
+---
+
+## 🚨 CRITICAL LESSON: $400 Session Post-Mortem (2025-11-14)
+
+**What Happened:**
+- 8 concurrent console sessions across 4 hours
+- ~$400 Claude tokens spent (90% from single session: if0-console)
+- 213 tool invocations with massive context reloading (15K-30K tokens each)
+- 30 Haiku agents deployed for API research
+- Sonnet used for mechanical file operations (should have been Haiku)
+
+**Work Output:**
+- 150,000+ lines total (73% AI-reformatted API docs, only 3-5% actual production code)
+- Should have cost $60-100, not $400 (4-6× premium paid)
+
+**Root Cause:**
+1. **Wrong model for wrong task** - Sonnet doing file operations instead of Haiku
+2. **Massive context reloading** - 213 tool calls × 20K context = wasted tokens
+3. **API documentation generation** - Not production code, low value per dollar
+
+**Critical Blocker Found:**
+- **navidocs4-console:** 8 commits unpushed (4,238 lines at risk)
+- **Error:** `Failed to connect to 127.0.0.1 port 59238` (push failed)
+- **Recovery:** User must push from that session immediately
+
+**Lesson Learned:**
+✅ **USE HAIKU FOR LABOR** - File updates, data transformations, API research (10× cheaper)
+✅ **USE SONNET FOR REASONING** - Architecture decisions, council debates, complex planning
+✅ **AVOID CONTEXT RELOADING** - Batch operations, use Edit tool instead of Read+Write loops
+✅ **VALIDATE OUTPUT VALUE** - Reformatted docs ≠ production code
+
+**New Strategy (Validated by Post-Mortem):**
+- NaviDocs S² plan: 30 Haiku + 1 Sonnet coordinator = $12-18 budget ✅ CORRECT APPROACH
+- Single-session build: 15 Haiku agents only = $8-12 budget ✅ EVEN BETTER (simpler)
+
+**Files:**
+- Post-mortem analysis: `/mnt/c/Users/Setup/Downloads/post-mortum/*.txt` (8 console logs)
+- Recovery prompts: Generated per-session instructions (not committed)
+- New build prompt: `/home/setup/navidocs/NAVIDOCS_SINGLE_SESSION_BUILD.md` ✅
+
+**Status:** User shifted strategy from complex S² (4 missions, 31 agents) to simplified single-session (15 Haiku agents). All NaviDocs research complete, just need to BUILD.
+
+**Citation:** if://decision/navidocs-single-session-2025-11-14
 
 ---
 
