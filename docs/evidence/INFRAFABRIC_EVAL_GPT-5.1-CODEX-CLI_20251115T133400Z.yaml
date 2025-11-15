@@ -1,0 +1,259 @@
+evaluator: "GPT-5.1 (Codex CLI)"
+evaluation_date: "2025-11-15"
+repository: "https://github.com/dannystocker/infrafabric"
+commit_hash: "4f812e69ee7397381d0702481b9073a772b87630"
+
+executive_summary:
+  overall_score: 6.5  # 0-10 scale
+  one_liner: "Ambitious AI governance research bundle with strong philosophical depth but minimal in-repo implementation."
+  key_strength: "Deep integration of philosophical foundations (IF.philosophy) with a coherent IF.* component vocabulary and rich narrative evidence."
+  key_weakness: "Almost no executable code in this repository; core IF.* components are specified in prose only, and key performance claims depend on external repos and synthetic benchmarks."
+  buyer_fit: "AI safety/governance research labs (8/10), enterprise AI platform teams (4/10), advanced open-source experimenters (5/10)."
+  recommended_action: "Focus on 1–2 flagship components (IF.yologuard + IF.citate), ship a minimal open-source implementation with a reproducible benchmark harness, and condense the dossier into a concise technical spec."
+
+conceptual_quality:
+  substance_score: 8  # 0-10
+  novelty_score: 8
+  rigor_score: 6
+  coherence_score: 7
+  findings:
+    - text: "The IF.philosophy database provides a concrete, queryable mapping from 12 philosophers and multiple traditions to IF.* components and principles."
+      file: "philosophy/IF.philosophy-database.yaml"
+      evidence: "Structured 'philosophers' and 'if_components' sections with explicit file:line references back into IF-vision.md, IF-foundations.md, IF-armour.md, and IF-witness.md."
+      severity: "info"
+    - text: "The Guardian Council and emotional-phase coordination model are conceptually original and consistently threaded through the four main papers and annexes."
+      file: "IF-vision.md"
+      evidence: "Sections on manic/depressive/dream/reward phases and guardian weighting, plus mapped components like IF.chase, IF.reflect, IF.garp, IF.quiet."
+      severity: "info"
+    - text: "Claims of 100× false-positive reduction and 98.96% recall for IF.yologuard are supported by narrative dossiers and benchmark artifacts, but lack a fully specified, independent experimental protocol in this repo."
+      file: "IF-armour.md"
+      evidence: "Production validation and metrics described in prose; only evaluation outputs (JSON/Markdown) are present under code/yologuard/, with no open-source detector implementation here."
+      severity: "high"
+    - text: "Dossier 11 adopts a '100% truth standard' with dense internal citations, yet many external references (Nature Electronics, PsyPost, Singapore Police reports) are named without precise DOIs/URLs or methodology details."
+      file: "INFRAFABRIC-COMPLETE-DOSSIER-v11.md"
+      evidence: "Sections describing RRAM speedups, neurogenesis vesicle research, and Singapore Traffic Police validation reference sources textually but without bibliographic metadata or reproducible data extraction steps."
+      severity: "medium"
+
+technical_implementation:
+  code_quality_score: 3  # 0-10 (repository-level, not per-line)
+  test_coverage: 0  # percentage
+  documentation_ratio: 0.99  # docs / (docs + code) ≈ 25,105 / 25,438
+
+  if_components:
+    implemented:
+      - name: "IF.philosophy"
+        files: ["philosophy/IF.philosophy-database.yaml", "philosophy/IF.philosophy-database.md"]
+        completeness: 80  # percentage – rich mapping, but no runtime query tooling
+        test_coverage: 0
+        issues:
+          - "No automated schema validation or CI around the philosophy database; drift between file:line references and the underlying papers is likely over time."
+          - "Query examples in README are illustrative only; there is no packaged library or CLI for practical use."
+
+    partial:
+      - name: "IF.yologuard"
+        design_file: "IF-armour.md"
+        implementation_file: null
+        blockers:
+          - "Detector implementation lives in external repos (e.g., infrafabric-core / leaky-repo-test); this repo only contains benchmark outputs under code/yologuard/."
+          - "No open-source, runnable pipeline here that takes a leaky repo and reproduces the 96.43% / 98.96% metrics end-to-end."
+          - "No tests validating behavior across diverse real-world repositories beyond the curated benchmark set."
+        priority: "P0"
+      - name: "IF.guard"
+        design_file: "annexes/infrafabric-IF-annexes.md"
+        implementation_file: null
+        blockers:
+          - "Guardian council weighting, voting, and veto logic are fully described in narrative but not implemented as code, schemas, or APIs."
+          - "No persistence model for decisions, no serialization of council state, and no integration with an identity/auth system."
+        priority: "P1"
+      - name: "IF.citate"
+        design_file: "agents.md"
+        implementation_file: null
+        blockers:
+          - "Citation schema and lifecycle (verify/revoke) are sketched in agents.md, but there is no tools/citation_validate.py or citations/ directory in this repo."
+          - "No storage layer or service implementation to back the proposed REST API for citations."
+        priority: "P1"
+      - name: "IF.optimise"
+        design_file: "agents.md"
+        implementation_file: null
+        blockers:
+          - "Optimization strategy (Haiku vs Sonnet delegation, token accounting) is described, but there is no instrumentation or telemetry code in this repo."
+          - "No shared library that agents can import to report token use, mode switches, or optimization decisions."
+        priority: "P2"
+
+    vaporware:
+      - name: "IF.amplify"
+        mentions: ["README.md: Architectural/Future components section"]
+        spec_exists: false
+        priority: "P3"
+      - name: "IF.mcp"
+        mentions: ["README.md: Future/Conceptual components list", "INFRAFABRIC-COMPLETE-DOSSIER-v11.md: references to MCP bridges"]
+        spec_exists: false
+        priority: "P3"
+
+  dependencies:
+    - name: "PyYAML"
+      used_by: ["docs/evidence/merge_evaluations.py"]
+      status: "external"
+      risk: "low – standard YAML library; only used in offline evaluation tooling."
+
+  security_issues:
+    - severity: "medium"
+      issue: "No authentication or authorization model is defined for future IF.guard/IF.citate/IF.trace services; all guardians and citations assume a trusted, single-tenant environment."
+      file: "IF-vision.md"
+      fix: "Before exposing any APIs, design and implement a concrete auth model (users, roles, scopes, keys) and thread it through all governance and citation endpoints."
+    - severity: "low"
+      issue: "Evidence and benchmark artifacts under code/yologuard/ and docs/evidence/ could contain sensitive patterns or pseudo-secrets without clear guidance on redaction."
+      file: "code/yologuard/benchmarks/results.json"
+      fix: "Document sanitization requirements for benchmark corpora, add automated checks to prevent committing real secrets or PII, and segregate synthetic from real data."
+
+  citation_verification:
+    papers_reviewed: 4  # IF-vision, IF-foundations, IF-armour, IF-witness (abstract/structure-level)
+    total_citations: 169  # count of lines containing URLs across .md/.tex
+    citations_verified: 7  # URLs manually checked for non-404 responses
+    issues:
+      - severity: "high"
+        issue: "Links to IF.yologuard v1/v3 source code under the main infrafabric repo return 404; the implementation has moved, breaking reproducibility of key metrics."
+        file: "INFRAFABRIC-COMPLETE-DOSSIER-v11.md:1465-1467"
+        fix: "Update citations to point at the current infrafabric-core/ projects/yologuard paths (or another public repo), and provide a stable tag/commit hash for the evaluated versions."
+      - severity: "medium"
+        issue: "Several citations reference localhost or internal endpoints (e.g., private Gitea at http://localhost:4000/ggq-admin/icw-nextspread) that are not accessible to external readers."
+        file: "IF-armour.md"
+        fix: "Clearly label internal-only URLs as non-reproducible, and, where possible, replace them with anonymized diagrams or public mirrors."
+      - severity: "medium"
+        issue: "The icantwait.ca API endpoint shown in IF.armour (https://icantwait.ca/api/properties/) currently returns 404, so the code snippet is no longer an accurate living example."
+        file: "IF-armour.md"
+        fix: "Either update the snippet to match the current production API or mark it explicitly as historical and provide a mock or archived interface."
+      - severity: "medium"
+        issue: "Most external scientific references (Nature Electronics RRAM paper, PsyPost 2025 neurogenesis article, Singapore Police Force reports) are named but lack DOIs or precise bibliographic metadata."
+        file: "IF-vision.tex"
+        fix: "Add a formal references section with DOIs/URLs and publication details for all non-fiction sources, and link claims to those entries via consistent citation keys."
+      - severity: "low"
+        issue: "Age of some foundational citations (e.g., Wexler 2015 warrant canaries) is acceptable but would benefit from being complemented by more recent work."
+        file: "IF-witness.md:590-604"
+        fix: "Review the warrant-canary literature for post-2015 follow-ups and either add them as complementary citations or explicitly label Wexler as 'foundational but older.'"
+
+    readme_audit:
+      accuracy_score: 7  # 0-10, does README match reality?
+      links_checked: 3
+      broken_links: 0
+      install_instructions_current: false
+      examples_current: true
+      issues:
+        - severity: "medium"
+          issue: "README repeatedly emphasizes production metrics and IF.yologuard deployment, but this repo does not include the corresponding detector implementation or a runnable deployment pipeline."
+          fix: "Clarify that this repository is the research/papers bundle, link prominently to the implementation repo (infrafabric-core), and add a short 'how to reproduce IF.yologuard benchmarks' section."
+        - severity: "low"
+          issue: "Repository structure section labels the root directory as 'infrafabric-core/' while this GitHub repo is named 'infrafabric', which may confuse new readers."
+          fix: "Align naming between README and GitHub (or add a note that the same structure is reused across infrafabric-core and this documentation repo)."
+
+market_analysis:
+  tam_estimate: "$50M–$150M (AI governance, observability, and multi-agent coordination tooling)."
+  buyer_personas:
+    - rank: 1
+      name: "AI Safety / Governance Research Labs"
+      fit_score: 8  # 0-10
+      willingness_to_pay: 3  # 0-10
+      rationale: "The conceptual depth, philosophy mapping, and governance frameworks are directly relevant to research agendas, but labs typically prefer open-source rather than commercial licensing."
+    - rank: 2
+      name: "Enterprise AI Platform & Risk Teams"
+      fit_score: 6
+      willingness_to_pay: 6
+      rationale: "InfraFabric speaks to real gaps in AI oversight and traceability, but until there is a hardened implementation with clear SLAs, enterprises will treat it as exploratory rather than production-ready."
+    - rank: 3
+      name: "Advanced Open-Source / Indie Builders"
+      fit_score: 7
+      willingness_to_pay: 2
+      rationale: "The ideas are attractive and differentiating, but current artifacts are research-heavy; indie developers are more likely to adopt patterns than to pay for them."
+
+  competitors:
+    - name: "LangSmith (LangChain)"
+      overlap: "Tracing, observability, and evaluation of LLM applications."
+      differentiation: "InfraFabric adds a normative epistemic governance layer (IF.ground, IF.guard) and multi-model council concepts that go beyond per-request tracing."
+    - name: "Weights & Biases"
+      overlap: "Experiment tracking and metrics for ML systems."
+      differentiation: "InfraFabric focuses on governance of heterogeneous agents and philosophical grounding, with much less emphasis on traditional ML training pipelines."
+    - name: "Internal bespoke governance stacks"
+      overlap: "Large enterprises often build ad-hoc logging, review workflows, and red-team processes."
+      differentiation: "InfraFabric proposes a reusable conceptual framework and component vocabulary, but currently lacks the polished productization of those internal stacks."
+
+  monetization_paths:
+    - strategy: "Open-core SaaS for multi-agent governance and citation tracking."
+      viability: 6  # 0-10
+      timeline: "18-24 months (given current docs-first, code-light state)."
+    - strategy: "Consulting and bespoke implementations for high-stakes clients."
+      viability: 8
+      timeline: "Immediate – the author can already use the frameworks to guide deployments."
+
+gaps_and_issues:
+  p0_blockers:
+    - issue: "No end-to-end implementation of core IF.* frameworks in this repo (docs-only)."
+      impact: "As it stands, this repository cannot be used to deploy or even locally simulate the described governance system; it functions as a research dossier rather than a product."
+      effort: "4-8 weeks to build and publish an MVP implementation for at least IF.citate + a minimal IF.guard council API."
+      files: ["IF-vision.md", "IF-foundations.md", "IF-armour.md", "IF-witness.md", "agents.md"]
+    - issue: "Key performance claims for IF.yologuard are not reproducible from this repository alone."
+      impact: "External evaluators cannot independently verify the 96.43% / 98.96% metrics or 100× false-positive reduction using only this repo; this weakens the credibility of the headline results."
+      effort: "3-5 days to bundle a public benchmark harness, synthetic test corpus pointer, and a step-by-step reproduction guide."
+      files: ["IF-armour.md", "INFRAFABRIC-COMPLETE-DOSSIER-v11.md", "code/yologuard/"]
+
+  p1_high_priority:
+    - issue: "IF.citate (citation infrastructure) is designed but not implemented."
+      impact: "The project’s core promise—traceable, transparent, trustworthy claims—is not enforced by tooling; citations exist as prose rather than validated, queryable records."
+      effort: "1-2 weeks to implement a minimal file-backed citation service with validation and a CLI."
+      files: ["agents.md", "philosophy/IF.philosophy-database.yaml"]
+    - issue: "Guardian Council logic (IF.guard/IF.guardian) has no code or schema representation."
+      impact: "Council deliberations, weights, and votes cannot be executed or audited by software; everything depends on manual interpretation of the annexes."
+      effort: "1 week to define schemas and a simple engine for recording votes, weights, and outcomes, plus a small API or CLI."
+      files: ["IF-vision.md", "annexes/infrafabric-IF-annexes.md"]
+
+  p2_medium_priority:
+    - issue: "Documentation is scattered across long Markdown and Dossier files with no concise entrypoint for engineers."
+      impact: "New contributors face a steep onboarding curve and may miss key constraints or assumptions, reducing the chances of high-quality external contributions."
+      effort: "2-3 days to create a single 'What is InfraFabric?' technical overview and a short 'Getting Started for Engineers' guide."
+      files: ["README.md", "INFRAFABRIC-COMPLETE-DOSSIER-v11.md", "IF-foundations.md", "IF-vision.md"]
+
+style_assessment:
+  documentation_quality: 7  # 0-10
+  narrative_coherence: 7
+  jargon_density: 8  # higher = more jargon
+  accessibility: 5
+  recommendations:
+    - "Create a 3-5 page technical overview that summarizes the IF.* components, data flows, and dependencies without narrative layers or lemming metaphors."
+    - "Split the complete dossier into a user-facing executive summary and a separate evidence appendix to reduce cognitive load for new readers."
+    - "Add a minimal 'hello world' example that shows how a developer would actually use IF.philosophy and IF.citate together in code."
+    - "Introduce a glossary table mapping IF.* names to one-sentence definitions and current implementation status (spec-only vs implemented)."
+
+metrics:
+  total_files: 63  # excluding .git and .venv_tools
+  total_lines_code: 333
+  total_lines_docs: 25105  # Markdown + TeX + YAML
+  code_to_docs_ratio: 0.013
+  languages:
+    Python: 333
+    Markdown: 17570
+    TeX: 6569
+    YAML: 966
+  test_files: 0
+  test_lines: 0
+
+next_steps:
+  immediate:
+    - action: "Publish a minimal, reproducible IF.yologuard benchmark harness (script + instructions) in this or a clearly linked companion repo."
+      effort: "3-5 days"
+    - action: "Clarify in README that this repo is primarily research/papers and point prominently to the implementation repo(s)."
+      effort: "1 day"
+  short_term:
+    - action: "Implement a v0 of IF.citate (file-backed citation store + validator) and wire it into the existing YAML/Markdown assets."
+      effort: "1-2 weeks"
+    - action: "Define schemas and a simple execution model for IF.guard decisions, including vote recording and contrarian veto logic."
+      effort: "1 week"
+  long_term:
+    - action: "Consolidate the narrative dossier into a maintainable technical design document, cross-linked to the philosophy database and code."
+      effort: "1-2 weeks"
+    - action: "Plan and build a secure, multi-tenant governance service that operationalizes IF.guard, IF.citate, and IF.trace for real deployments."
+      effort: "2-3 months"
+
+attachments:
+  - name: "IF_COMPONENT_INVENTORY.yaml"
+    description: "Recommended artifact: machine-readable inventory of all IF.* components with status (implemented/partial/vaporware), linked files, and owners."
+  - name: "DEBUG_SESSION_PROMPT.md"
+    description: "Recommended artifact: focused debug/work-session prompt capturing the P0/P1 issues above, with a concrete, step-by-step remediation plan for implementers."
