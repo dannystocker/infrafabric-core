@@ -1462,9 +1462,9 @@ Analysis of Claude's "fuck" moment (unusual profanity during philosophical conve
 
 <a name="cite-11"></a>**[11]** IF_TIMELINE_PHILOSOPHY_MAPPINGS.json:325-350 (summary_statistics) - "total_philosophers": 12, "eastern_philosophers": 3, "western_philosophers": 9
 
-<a name="cite-12"></a>**[12]** claude-code-bridge.zip :: yolo_guard.py (14,437 bytes)
+<a name="cite-12"></a>**[12]** [IF.yologuard v1](https://github.com/dannystocker/infrafabric/blob/master/projects/yologuard/versions/IF.yologuard_v1.py) - 31.2% recall baseline (Oct 26, 2025)
 
-<a name="cite-13"></a>**[13]** claude-code-bridge.zip :: bridge_cli.py (3,847 bytes)
+<a name="cite-13"></a>**[13]** [IF.yologuard v3](https://github.com/dannystocker/infrafabric/blob/master/projects/yologuard/versions/IF.yologuard_v3.py) - 98.96% recall with Wu Lun framework (Nov 6, 2025)
 
 <a name="cite-14"></a>**[14]** Google Drive "AI Agents Collaborate Safely" - Visual design spec: "CLAUDE CODE BRIDGE — Now With 4-Stage YOLO Guard™"
 
