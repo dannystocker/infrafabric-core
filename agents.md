@@ -1,10 +1,10 @@
 # InfraFabric Agent Architecture
 
-**Purpose:** Define agent behavior patterns, traceability requirements, and coordination protocols for InfraFabric work.
+**Purpose:** Define agent behavior patterns, traceability requirements, and coordination protocols for InfraFabric work AND all other projects.
 
-**Audience:** All Claude instances working on InfraFabric (Sonnet, Haiku, specialized agents).
+**Audience:** All Claude instances working on InfraFabric, NaviDocs, GGQ-CRM, ICW, Digital-Lab, Job-Hunt, and StackCP projects.
 
-**Last Updated:** 2025-11-14 (Post-mortem: 8-session $400 analysis)
+**Last Updated:** 2025-11-14 (Post-mortem: 8-session $400 analysis + GGQ Calendar CRM migration)
 
 ---
 
@@ -909,12 +909,203 @@ grep -A3 "tensions_with" docs/evidence/gemini-logs/core/PATCH-IF.philosophy-data
 - Update must include citation to evidence for change
 
 **Update History:**
+- **2025-11-14:** Added GGQ-CRM project context and calendar migration strategy
 - **2025-11-11:** Philosophy Database r4 upgrade (26 philosophers, tensions, lineage, code examples) - Commit 73e52a4
 - **2025-11-10:** Initial creation for IF.TTT integration - Commit 44a365b
 
-**Last Updated:** 2025-11-11
+**Last Updated:** 2025-11-14
 **Updated By:** if://agent/claude-sonnet-4.5
-**Citation:** if://decision/agents-md-update-r4-2025-11-11
+**Citation:** if://decision/agents-md-update-ggq-2025-11-14
+
+---
+
+## 🆕 GGQ-CRM Project (Added 2025-11-14)
+
+### Project Overview
+**Location:** `/home/setup/ggq-crm`
+**GitHub:** https://github.com/dannystocker/ggq-crm
+**Purpose:** CRM data enrichment and Google Calendar → SuiteCRM migration for Les Guides GQ (Quebec LGBT tourism guide)
+
+### Current Status (Updated 2025-11-15)
+- ✅ **Rivière-du-Loup enrichment:** 730 businesses enriched (94.9% email capture, ~$1 cost) via Claude Cloud
+- ✅ **Calendar parsing:** ALL 9,094 entries parsed by GPT-5 Pro (100% success, 22 seconds, 70.8% phone capture)
+- ✅ **Data merge & cleaning:** GPT-5 Pro merged both datasets intelligently
+  - 6,561 unique businesses (deduplicated from 9,824 input records)
+  - 326 Rivière-du-Loup matched to existing calendar clients (44.7%)
+  - 404 NEW prospects from Rivière-du-Loup (55.3%)
+  - 70 existing clients enriched with Rivière-du-Loup data
+  - 2,737 calendar duplicates merged (30% of calendar entries!)
+- ✅ **SuiteCRM installation:** Docker deployment complete (localhost:8082)
+- ✅ **CSV import files:** 5 files generated (23,581 total records across Accounts/Contacts/Calls/Notes/Tasks)
+- ✅ **Bi-directional sync:** Complete architecture designed (see BIDIRECTIONAL-SYNC-ARCHITECTURE.md)
+- ✅ **Offline work guide:** Created for train travel setup (OFFLINE-WORK-GUIDE.md)
+- ⏭️ **User actions pending:**
+  - Complete SuiteCRM web installer
+  - Create Marc & André users, note UUIDs
+  - Create 7 custom fields via Studio
+  - Replace user_id placeholders in CSV files
+  - Import all data via SuiteCRM web interface
+  - Verify 6,561 businesses imported correctly
+- ⏭️ **Build sync engine:** Implement bi-directional sync (Google Calendar ↔ SuiteCRM)
+
+### Calendar Migration Strategy (CONFIRMED 2025-11-14)
+
+**Problem:** 9,094 completely unstructured calendar entries need extraction to SuiteCRM
+
+**Solution:** Split by date, use local Haiku agents for recent + Cloud for historical
+
+#### Date Split Strategy
+1. **Recent (2024-2025):** ~1,000-1,500 entries
+   - **Process locally:** Spawn Haiku agents here via Task tool
+   - **Cost:** ~$0.15 USD (1,500 × $0.0001)
+   - **Time:** ~1 hour (parallel agents)
+
+2. **Historical (pre-2024):** ~7,500-8,000 entries
+   - **Process in Cloud:** Claude Code Cloud instance
+   - **Cost:** ~$0.75 USD (7,500 × $0.0001)
+   - **Time:** ~5-8 hours (parallel agents)
+
+#### Color Mappings (CONFIRMED)
+
+**Marc's Calendar:**
+- 🟠 Orange → New prospect
+- 🟡 Yellow → Prospect has been called
+- 🟢 Green → Call back for some reason
+- 🩷 Pink → Send promo/media kit
+- 🟣 Purple → Appointment booked
+- ⬛ Black → Chase for payment
+- ⬜ Dark Grey → Chase for payment
+
+**André's Calendar:**
+- 🔵 Dark Blue → Call prospect
+- 🔴 Red → Do not call / not interested
+- ⬛ Black → Chase for payment
+- ⬜ Dark Grey → Chase for payment
+
+#### Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                LOCAL (This Claude Session)              │
+│                                                         │
+│  ┌────────────────────────────────────────────────┐   │
+│  │  Parse 2024-2025 Entries (~1,500)             │   │
+│  │  - Spawn 10-15 Haiku agents (Task tool)        │   │
+│  │  - Each processes ~100-150 entries             │   │
+│  │  - Extract structured JSON                     │   │
+│  │  - Cost: ~$0.15 USD                            │   │
+│  └────────────────────────────────────────────────┘   │
+│                        │                                │
+│                        ▼                                │
+│  ┌────────────────────────────────────────────────┐   │
+│  │  Merge Results → JSON                          │   │
+│  │  Save: data/parsed_calendars/recent.json       │   │
+│  └────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────┐
+│             CLOUD (Claude Code Cloud)                   │
+│                                                         │
+│  ┌────────────────────────────────────────────────┐   │
+│  │  Parse Pre-2024 Entries (~7,500)               │   │
+│  │  - Spawn 40-50 Haiku agents                    │   │
+│  │  - Each processes ~150-200 entries             │   │
+│  │  - Extract structured JSON                     │   │
+│  │  - Cost: ~$0.75 USD                            │   │
+│  └────────────────────────────────────────────────┘   │
+│                        │                                │
+│                        ▼                                │
+│  ┌────────────────────────────────────────────────┐   │
+│  │  Commit to GitHub                              │   │
+│  │  File: data/parsed_calendars/historical.json   │   │
+│  └────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+
+                        ▼
+            ┌───────────────────────┐
+            │  Merge Both Files     │
+            │  Build SuiteCRM CSV   │
+            │  Import to CRM        │
+            └───────────────────────┘
+```
+
+#### Key Files
+- **Calendar ICS files:** `/mnt/c/Users/Setup/Downloads/marc@etre.ics` (6.3MB), `André @etre.ics` (4.3MB)
+- **Color mappings:** `docs/CALENDAR-COLOR-MAPPINGS.md`
+- **Migration plan:** `docs/CALENDAR-TO-SUITECRM-MIGRATION-PLAN.md`
+- **Sync architecture:** `docs/CALENDAR-SUITECRM-SYNC-ARCHITECTURE.md`
+- **Parser script:** `scripts/parse_calendar_with_ai.py` (template, needs adaptation for Task tool)
+- **Import builder:** `scripts/build_suitecrm_import.py`
+
+#### API Usage Tracking
+- **Google Custom Search API:** 125/1,000 queries used (tracked in `data/query_tracker.json`)
+- **Remaining budget:** 875 queries for future regions
+
+### Workflow Integration
+
+**Local Agent Pattern:**
+```python
+# Spawn Haiku agent for calendar parsing batch
+Task(
+  subagent_type="general-purpose",
+  description="Parse calendar entries 1-100",
+  model="haiku",
+  prompt="""
+Parse these 100 calendar entries and extract structured data.
+For each entry, extract: contact info, contact persons, activity timeline, next actions.
+French patterns: "Je dois rappeler" = call back, "Répondeur" = voicemail.
+Return JSON array with all extracted data.
+"""
+)
+```
+
+**Cloud Agent Pattern:**
+- Use `ORCHESTRATOR-PROMPT-RIVIERE-DU-LOUP.md` as template
+- Adapt for calendar parsing instead of web scraping
+- Spawn 40-50 agents for historical entries
+- Commit results to GitHub for retrieval
+
+### Cost Summary (GGQ-CRM)
+- **Prospect enrichment (821):** ~$2.40 USD (40 agents × ~20 businesses)
+- **Calendar parsing recent (1,500):** ~$0.15 USD (local Haiku agents)
+- **Calendar parsing historical (7,500):** ~$0.75 USD (Cloud Haiku agents)
+- **Google API usage:** Free tier (1,000 queries/day)
+- **Total estimated:** ~$3.30 USD
+
+### Key Files Created
+- `/home/setup/ggq-crm/data/parsed_calendars/ggq_crm_master_database.json` (6.9 MB, 6,561 businesses)
+- `/home/setup/ggq-crm/data/parsed_calendars/ggq_crm_merge_stats.json` (merge statistics)
+- `/home/setup/ggq-crm/data/suitecrm_import/*.csv` (5 import files: Accounts, Contacts, Calls, Notes, Tasks)
+- `/home/setup/ggq-crm/docs/BIDIRECTIONAL-SYNC-ARCHITECTURE.md` (complete 2-way sync design)
+- `/home/setup/ggq-crm/OFFLINE-WORK-GUIDE.md` (step-by-step setup guide for train travel)
+- `/home/setup/ggq-crm/docker-compose.yml` (SuiteCRM + MariaDB containers)
+- `/home/setup/ggq-crm/scripts/match_prospects_to_clients.py` (client matching script)
+
+### Data Quality Metrics
+**Contact Coverage:**
+- 57.2% have phone (3,752 / 6,561)
+- 38.3% have email (2,510 / 6,561)
+- 40.0% have website (2,628 / 6,561)
+
+**Quality Distribution:**
+- MINIMAL: 2,283 (34.8%)
+- PARTIAL: 2,172 (33.1%)
+- VERIFIED: 1,992 (30.4%)
+- HIGH: 114 (1.7%)
+
+**Region Distribution:**
+- Other: 4,897 (74.6%)
+- Montréal: 673 (10.3%)
+- Québec: 555 (8.5%)
+- Rivière-du-Loup: 436 (6.6%)
+
+### Next Actions (GGQ-CRM)
+1. ✅ Color mappings confirmed
+2. ✅ Split ICS files by date (Jan 1 2024 cutoff)
+3. ✅ Calendar parsing via GPT-5 Pro (100% success)
+4. ✅ Merge results + build SuiteCRM import
+5. ⏭️ User completes offline setup during train travel (OFFLINE-WORK-GUIDE.md)
+6. ⏭️ Build sync engine implementation (after user verifies import)
 
 ---
 
